@@ -1,0 +1,13 @@
+
+# 忽略根目录下所有文件（不含目录）
+/*
+# 忽略根目录下所有子目录（排除.openclaw）
+/*/
+!/.openclaw/
+
+# 保留根目录的.gitignore
+!/.gitignore
+
+# 排除.openclaw下的extensions目录及所有内容
+/.openclaw/extensions/
+/.openclaw/extensions/*

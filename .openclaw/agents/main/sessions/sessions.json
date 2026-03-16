@@ -1,7 +1,7 @@
 {
   "agent:main:main": {
     "sessionId": "8a3d6dbf-4897-4801-b169-5eeb421ed139",
-    "updatedAt": 1773666634827,
+    "updatedAt": 1773670234677,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -77,7 +77,7 @@
     "contextTokens": 200000,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1773666619668,
+      "generatedAt": 1773670234111,
       "sessionId": "8a3d6dbf-4897-4801-b169-5eeb421ed139",
       "sessionKey": "agent:main:main",
       "provider": "openrouter",
@@ -97,9 +97,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 26292,
+        "chars": 26272,
         "projectContextChars": 13601,
-        "nonProjectContextChars": 12691
+        "nonProjectContextChars": 12671
       },
       "injectedWorkspaceFiles": [
         {
@@ -293,7 +293,6 @@
     "outputTokens": 541,
     "cacheRead": 11916,
     "cacheWrite": 0,
-    "totalTokens": 13397,
-    "totalTokensFresh": true
+    "totalTokensFresh": false
   }
 }
