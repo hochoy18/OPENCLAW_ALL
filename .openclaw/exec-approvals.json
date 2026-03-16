@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "socket": {
+    "path": "/home/hochoy/.openclaw/exec-approvals.sock",
+    "token": "91clwk_rUWre-Aa69D387R0RffCEVsKJ"
+  },
+  "defaults": {},
+  "agents": {}
+}
