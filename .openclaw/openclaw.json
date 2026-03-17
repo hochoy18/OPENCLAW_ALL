@@ -56,7 +56,7 @@
       "agentId": "demo",
       "match": {
         "channel": "feishu",
-        "accountId": "default"
+        "accountId": "demo"
       }
     }
   ],
@@ -71,12 +71,16 @@
   },
   "channels": {
     "feishu": {
-      "enabled": true,
-      "appId": "cli_a93d7b008ff6dcca",
-      "appSecret": "XmzBxn0Snncsz8YK33aSNbqwhLrBeeEP",
-      "connectionMode": "websocket",
-      "domain": "feishu",
-      "groupPolicy": "open"
+      "accounts": {
+        "demo": {
+          "enabled": true,
+          "appId": "cli_a93d7b008ff6dcca",
+          "appSecret": "XmzBxn0Snncsz8YK33aSNbqwhLrBeeEP",
+          "connectionMode": "websocket",
+          "domain": "feishu",
+          "groupPolicy": "open"
+        }
+      }
     }
   },
   "gateway": {
