@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-16T14:28:26.270Z"
+    "lastTouchedAt": "2026-03-17T14:45:54.585Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-16T12:37:06.681Z",
@@ -40,6 +40,12 @@
         "name": "demo",
         "workspace": "/home/hochoy/.openclaw/workspace-demo",
         "agentDir": "/home/hochoy/.openclaw/agents/demo/agent"
+      },
+      {
+        "id": "wechat-assistant",
+        "name": "wechat-assistant",
+        "workspace": "/home/hochoy/.openclaw/workspace-wechat-assistant",
+        "agentDir": "/home/hochoy/.openclaw/agents/wechat-assistant/agent"
       }
     ]
   },
@@ -52,6 +58,17 @@
     }
   },
   "bindings": [
+    {
+      "agentId": "wechat-assistant",
+      "match": {
+        "channel": "feishu",
+        "accountId": "demo",
+        "peer": {
+          "kind": "group",
+          "id": "oc_821e5a6fcd4a0b4656605b6e324bb721"
+        }
+      }
+    },
     {
       "agentId": "demo",
       "match": {
@@ -78,7 +95,13 @@
           "appSecret": "XmzBxn0Snncsz8YK33aSNbqwhLrBeeEP",
           "connectionMode": "websocket",
           "domain": "feishu",
-          "groupPolicy": "open"
+          "groupPolicy": "open",
+          "requireMention": false,
+          "groups": {
+            "oc_821e5a6fcd4a0b4656605b6e324bb721": {
+              "requireMention": false
+            }
+          }
         }
       }
     }

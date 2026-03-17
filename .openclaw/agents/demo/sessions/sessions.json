@@ -642,7 +642,7 @@
   },
   "agent:demo:feishu:group:oc_821e5a6fcd4a0b4656605b6e324bb721": {
     "sessionId": "52d27d25-730f-4cda-8754-9928aa2da724",
-    "updatedAt": 1773735724174,
+    "updatedAt": 1773761591381,
     "systemSent": true,
     "abortedLastRun": false,
     "displayName": "feishu:g-oc_821e5a6fcd4a0b4656605b6e324bb721",
@@ -774,7 +774,7 @@
     "contextTokens": 200000,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1773735715722,
+      "generatedAt": 1773761531898,
       "sessionId": "52d27d25-730f-4cda-8754-9928aa2da724",
       "sessionKey": "agent:demo:feishu:group:oc_821e5a6fcd4a0b4656605b6e324bb721",
       "provider": "openrouter",
@@ -794,9 +794,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 27750,
+        "chars": 27299,
         "projectContextChars": 13636,
-        "nonProjectContextChars": 14114
+        "nonProjectContextChars": 13663
       },
       "injectedWorkspaceFiles": [
         {
@@ -996,12 +996,12 @@
         ]
       }
     },
-    "inputTokens": 11597,
-    "outputTokens": 460,
-    "cacheRead": 0,
+    "inputTokens": 127898,
+    "outputTokens": 2104,
+    "cacheRead": 68098,
     "cacheWrite": 0,
-    "totalTokens": 11597,
-    "totalTokensFresh": true
+    "totalTokensFresh": true,
+    "totalTokens": 69943
   },
   "agent:demo:cron:26e0b6a6-61e8-46a4-a7e8-4e07d977b8ba": {
     "sessionId": "d23d1f3a-57d2-482a-b582-ff2074a1729f",
