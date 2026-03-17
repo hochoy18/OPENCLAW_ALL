@@ -1,0 +1,146 @@
+# OpenClaw 概述知识库
+
+## 什么是 OpenClaw？
+
+OpenClaw 是一个个人 AI 助手，运行在用户自己的设备上。其设计理念是提供本地、快速、始终在线的个人助手体验。
+
+## 核心特性
+
+1. **多渠道支持**：
+   - WhatsApp、Telegram、Slack、Discord、Google Chat、Signal、iMessage、BlueBubbles
+   - IRC、Microsoft Teams、Matrix、飞书(Feishu)、LINE、Mattermost
+   - Nextcloud Talk、Nostr、Synology Chat、Tlon、Twitch、Zalo等
+
+2. **语音交互**：
+   - macOS/iOS上支持语音唤醒(Voice Wake)
+   - 连续语音模式(Talk Mode)
+   - Android支持语音交互
+
+3. **实时画布(Canvas)**：
+   - 支持代理驱动的视觉工作区
+   - A2UI (Agent-to-UI) 能力
+
+4. **Gateway架构**：
+   - 单一控制层面用于会话、渠道、工具和事件
+   - 本地优先的设计
+
+5. **多智能体路由**：
+   - 路由入站渠道/账户/对等体到隔离的代理
+   - 每个代理有自己的工作区和会话
+
+6. **一流工具支持**：
+   - 浏览器控制
+   - 画布交互
+   - 节点功能
+   - 定时任务(cron)
+   - 会话管理
+   - Discord/Slack操作
+
+7. **配套应用**：
+   - macOS菜单栏应用
+   - iOS/Android节点应用
+
+8. **技能系统**：
+   - 内置技能
+   - 可管理的技能
+   - 工作区技能
+
+## 技术架构
+
+### Gateway控制平面
+
+- WebSocket控制平面，提供会话、状态、配置、cron、webhook、控制UI和Canvas主机
+- CLI界面：gateway、agent、send、onboarding和doctor命令
+- Pi代理运行时，支持RPC模式，工具流和块流
+
+### 会话模型
+
+- 主会话用于直接聊天
+- 群组隔离
+- 激活模式、队列模式、回复功能
+
+### 媒体管道
+
+- 图像/音频/视频处理
+- 转录钩子
+- 大小限制
+- 临时文件生命周期
+
+### 安全性
+
+- DM配对（默认行为）：未知发送者收到短配对码，机器人不处理他们的消息
+- 使用`openclaw pairing approve`批准，然后发送者被添加到本地允许列表
+- 公共入站DM需要显式选择加入：设置dmPolicy="open"并在渠道允许列表中包含"*"
+
+## 配置系统
+
+OpenClaw的配置文件位于`~/.openclaw/openclaw.json`，支持以下关键配置：
+
+- **模型配置**：支持多种提供商和模型
+- **认证配置**：OAuth与API密钥，包括故障转移
+- **渠道配置**：为每个支持的消息平台提供特定配置
+- **沙盒配置**：安全隔离和资源控制
+- **工具策略**：可以限制或允许特定工具
+
+## 与其他系统的集成
+
+1. **Tailscale集成**：
+   - Serve模式：仅限tailnet的HTTPS
+   - Funnel模式：公共HTTPS访问（需要共享密码认证）
+
+2. **远程访问选项**：
+   - SSH隧道
+   - 远程网关控制
+
+3. **系统命令执行**：
+   - 本地命令执行
+   - 设备特定操作（通过节点）
+
+4. **自动化集成**：
+   - Cron和唤醒功能
+   - Webhook支持
+   - Gmail Pub/Sub集成
+
+## 当前实例详情
+
+- **工作区**：`/home/hochoy/.openclaw/workspace-demo`
+- **代理ID**：demo
+- **模型**：openrouter/anthropic/claude-3.7-sonnet
+- **主机**：VM-0-5-opencloudos
+- **IP**：10.3.0.5
+- **部署目录**：/home/hochoy
+
+## 渠道配置：飞书(Feishu)
+
+我们的实例已配置了飞书渠道，通过以下设置：
+
+```json
+"channels": {
+  "feishu": {
+    "accounts": {
+      "demo": {
+        "enabled": true,
+        "appId": "cli_a93d7b008ff6dcca",
+        "appSecret": "XmzBxn0Snncsz8YK33aSNbqwhLrBeeEP",
+        "connectionMode": "websocket",
+        "domain": "feishu",
+        "groupPolicy": "open"
+      }
+    }
+  }
+}
+```
+
+此配置将飞书消息路由到demo智能体，使用如下绑定规则：
+
+```json
+"bindings": [
+  {
+    "agentId": "demo",
+    "match": {
+      "channel": "feishu",
+      "accountId": "demo"
+    }
+  }
+]
+```

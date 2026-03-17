@@ -1,0 +1,23 @@
+==== OpenClaw文档更新检查 - Tue Mar 17 10:12:21 PM CST 2026 ====
+正在检查 https://docs.OpenClaw.ai/zh-CN/concepts/multi-agent 的更新...
+检测到HTML内容，尝试提取有用的Markdown部分...
+未找到特定Markdown部分，提取可读文本...
+✓ openclaw-multi-agent 没有变化
+正在检查 https://github.com/OpenClaw/OpenClaw 的更新...
+检测到HTML内容，尝试提取有用的Markdown部分...
+未找到特定Markdown部分，提取可读文本...
+! 发现 openclaw-overview 有更新
+发现文档更新，生成的摘要在 /home/hochoy/.openclaw/workspace-demo/temp/update_summary.txt
+==== OpenClaw文档更新摘要 (2026-03-17_22-12-21) ====
+
+## OpenClaw概述更新
+==== openclaw-overview 更新摘要 ====
+-  <meta name="request-id" content="D9A0:37C89F:8C67D2:9B59CF:69B9613E" data-pjax-transient="true"/><meta name="html-safe-nonce" content="ce619f0a005e550d8e31b19c8859865fb1e63330d4f887bbe59a61e323dcd244" data-pjax-transient="true"/><meta name="visitor-payload" content="eyJyZWZlcnJlciI6IiIsInJlcXVlc3RfaWQiOiJEOUEwOjM3Qzg5Rjo4QzY3RDI6OUI1OUNGOjY5Qjk2MTNFIiwidmlzaXRvcl9pZCI6IjM5NjU1MjAzNTgxNjAyOTQyMDYiLCJyZWdpb25fZWRnZSI6InNvdXRoZWFzdGFzaWEiLCJyZWdpb25fcmVuZGVyIjoic291dGhlYXN0YXNpYSJ9" data-pjax-transient="true"/><meta name="visitor-hmac" content="3aab2a023a97fc54b85b467edd4d856e25eff6c4a24b5303860f4aabff60728e" data-pjax-transient="true"/>
++  <meta name="request-id" content="CB28:2D773B:8B8C2E:9A87E2:69B96145" data-pjax-transient="true"/><meta name="html-safe-nonce" content="152a6ceec7d1e000054839eb6edb2896f73cf7f95dd4d435c533d36a8b0a465a" data-pjax-transient="true"/><meta name="visitor-payload" content="eyJyZWZlcnJlciI6IiIsInJlcXVlc3RfaWQiOiJDQjI4OjJENzczQjo4QjhDMkU6OUE4N0UyOjY5Qjk2MTQ1IiwidmlzaXRvcl9pZCI6IjcwNzkxNzE5MjMxOTEwOTU2MjEiLCJyZWdpb25fZWRnZSI6InNvdXRoZWFzdGFzaWEiLCJyZWdpb25fcmVuZGVyIjoic291dGhlYXN0YXNpYSJ9" data-pjax-transient="true"/><meta name="visitor-hmac" content="dffc8e2e9604972eb625aa02efaf25c95fe85f792d97b67c066621b457311deb" data-pjax-transient="true"/>
+-        <div data-view-component="true" class="Overlay-body">        <!-- '"` --><!-- </textarea></xmp> --></option></form><form id="code-search-feedback-form" data-turbo="false" action="/search/feedback" accept-charset="UTF-8" method="post"><input type="hidden" data-csrf="true" name="authenticity_token" value="pWCkbuU+UlufjV/qEXRbQ1LnyCWs/pnbL45BUj0zYbMPCOHFa6dx6ym0i2cAV4a2aG/p502Ve4tpU3wbXjwWFQ==" />
++        <div data-view-component="true" class="Overlay-body">        <!-- '"` --><!-- </textarea></xmp> --></option></form><form id="code-search-feedback-form" data-turbo="false" action="/search/feedback" accept-charset="UTF-8" method="post"><input type="hidden" data-csrf="true" name="authenticity_token" value="vtmG6qfv4UR4UXBgeT9JLJgFSLpAy+vMTp/DWVejnV2F6RUI1s6ZsTSN8omi1o+NS6Gpbc0gLzrJu6h1RfmQSA==" />
+-        <!-- '"` --><!-- </textarea></xmp> --></option></form><form id="custom-scopes-dialog-form" data-turbo="false" action="/search/custom_scopes" accept-charset="UTF-8" method="post"><input type="hidden" data-csrf="true" name="authenticity_token" value="hhtM31awkP5gNltedr1o2d4MlHL2SEZfjFCy1SeL1sdL4hi62AXTtZ3S8HWhPHGUq7kJOhTIzCOx0DFmgkNXQA==" />
++        <!-- '"` --><!-- </textarea></xmp> --></option></form><form id="custom-scopes-dialog-form" data-turbo="false" action="/search/custom_scopes" accept-charset="UTF-8" method="post"><input type="hidden" data-csrf="true" name="authenticity_token" value="q76qQxjUD33wPxtUTzIeWcP8YH7/p+yZe8LK+s1M39C3huF2ucZerRPWTznIw5WAl2/1ZupndjSS5Q3kgdrxdg==" />
+-              <input type="hidden" data-csrf="true" value="boNYKwkho5hcOvnGs9x0xhMsu4szXYhJYccKlr7xenKcXu6ndnSHrwNHgS6oVknwPy6Gtqxiux0AgiZf5vEwNQ==" />
++              <input type="hidden" data-csrf="true" value="7GKXPee/JjU3m2/OaRP9iZoeFeskxPw3FZ/bIHq1U7EmsjswD9dk7SlToj2s/RZ8x/3QGHIOoLCInr522gXiVw==" />
+
