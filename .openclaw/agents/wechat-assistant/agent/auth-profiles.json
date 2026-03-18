@@ -1,16 +1,16 @@
 {
   "version": 1,
   "profiles": {
-    "openrouter:default": {
+    "kimi:default": {
       "type": "api_key",
-      "provider": "openrouter",
-      "key": "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"
+      "provider": "kimi",
+      "key": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe"
     }
   },
   "usageStats": {
-    "openrouter:default": {
+    "kimi:default": {
       "errorCount": 0,
-      "lastUsed": 1773761732766
+      "lastUsed": 1773814875700
     }
   }
 }

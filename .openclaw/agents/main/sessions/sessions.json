@@ -296,8 +296,8 @@
     "totalTokensFresh": false
   },
   "agent:main:feishu:group:oc_821e5a6fcd4a0b4656605b6e324bb721": {
-    "sessionId": "43f142f3-9835-458c-a7b4-c402e9e1eb3a",
-    "updatedAt": 1773761936033,
+    "sessionId": "71c363f0-722f-456a-8caf-fb83d996388a",
+    "updatedAt": 1773815519902,
     "systemSent": true,
     "abortedLastRun": false,
     "displayName": "feishu:g-oc_821e5a6fcd4a0b4656605b6e324bb721",
@@ -322,7 +322,7 @@
       "to": "chat:oc_821e5a6fcd4a0b4656605b6e324bb721",
       "accountId": "wechat-assistant"
     },
-    "sessionFile": "/home/hochoy/.openclaw/agents/main/sessions/43f142f3-9835-458c-a7b4-c402e9e1eb3a.jsonl",
+    "sessionFile": "/home/hochoy/.openclaw/agents/main/sessions/71c363f0-722f-456a-8caf-fb83d996388a.jsonl",
     "compactionCount": 0,
     "skillsSnapshot": {
       "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>feishu-doc</name>\n    <description>Feishu document read/write operations. Activate when user mentions Feishu docs, cloud docs, or docx links.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-doc/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-drive</name>\n    <description>Feishu cloud storage file management. Activate when user mentions cloud space, folders, drive.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-drive/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-perm</name>\n    <description>Feishu permission management for documents and files. Activate when user mentions sharing, permissions, collaborators.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-perm/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-wiki</name>\n    <description>Feishu knowledge base navigation. Activate when user mentions knowledge base, wiki, or wiki links.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-wiki/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>node-connect</name>\n    <description>Diagnose OpenClaw node connection and pairing failures for Android, iOS, and macOS companion apps. Use when QR/setup code/manual connect fails, local Wi-Fi works but VPS/tailnet does not, or errors mention pairing required, unauthorized, bootstrap token invalid or expired, gateway.bind, gateway.remote.url, Tailscale, or plugins.entries.device-pair.config.publicUrl.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/node-connect/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create, edit, improve, or audit AgentSkills. Use when creating a new skill from scratch or when asked to improve, review, audit, tidy up, or clean up an existing skill or SKILL.md file. Also use when editing or restructuring a skill directory (moving files to references/ or scripts/, removing stale content, validating against the AgentSkills spec). Triggers on phrases like &quot;create a skill&quot;, &quot;author a skill&quot;, &quot;tidy up a skill&quot;, &quot;improve this skill&quot;, &quot;review the skill&quot;, &quot;clean up the skill&quot;, &quot;audit the skill&quot;.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n</available_skills>",
@@ -429,8 +429,8 @@
     "contextTokens": 200000,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1773761927400,
-      "sessionId": "43f142f3-9835-458c-a7b4-c402e9e1eb3a",
+      "generatedAt": 1773815512253,
+      "sessionId": "71c363f0-722f-456a-8caf-fb83d996388a",
       "sessionKey": "agent:main:feishu:group:oc_821e5a6fcd4a0b4656605b6e324bb721",
       "provider": "openrouter",
       "model": "anthropic/claude-3.7-sonnet",
@@ -651,11 +651,335 @@
         ]
       }
     },
-    "inputTokens": 852,
-    "outputTokens": 541,
-    "cacheRead": 11924,
-    "cacheWrite": 0,
     "totalTokensFresh": true,
-    "totalTokens": 12776
+    "inputTokens": 21570,
+    "outputTokens": 247,
+    "cacheRead": 10890,
+    "cacheWrite": 0,
+    "totalTokens": 32460
+  },
+  "agent:main:feishu:direct:ou_7f442bef1a102e6c203ad4e2d1a86e69": {
+    "sessionId": "b775f9a2-96e8-4461-acd1-0e76b2b97c85",
+    "updatedAt": 1773837679266,
+    "systemSent": true,
+    "abortedLastRun": false,
+    "chatType": "direct",
+    "deliveryContext": {
+      "channel": "feishu",
+      "to": "user:ou_7f442bef1a102e6c203ad4e2d1a86e69",
+      "accountId": "wechat-assistant"
+    },
+    "lastChannel": "feishu",
+    "lastTo": "user:ou_7f442bef1a102e6c203ad4e2d1a86e69",
+    "lastAccountId": "wechat-assistant",
+    "origin": {
+      "label": "ou_7f442bef1a102e6c203ad4e2d1a86e69",
+      "provider": "feishu",
+      "surface": "feishu",
+      "chatType": "direct",
+      "from": "feishu:ou_7f442bef1a102e6c203ad4e2d1a86e69",
+      "to": "user:ou_7f442bef1a102e6c203ad4e2d1a86e69",
+      "accountId": "wechat-assistant"
+    },
+    "sessionFile": "/home/hochoy/.openclaw/agents/main/sessions/b775f9a2-96e8-4461-acd1-0e76b2b97c85.jsonl",
+    "compactionCount": 0,
+    "skillsSnapshot": {
+      "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>feishu-doc</name>\n    <description>Feishu document read/write operations. Activate when user mentions Feishu docs, cloud docs, or docx links.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-doc/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-drive</name>\n    <description>Feishu cloud storage file management. Activate when user mentions cloud space, folders, drive.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-drive/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-perm</name>\n    <description>Feishu permission management for documents and files. Activate when user mentions sharing, permissions, collaborators.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-perm/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-wiki</name>\n    <description>Feishu knowledge base navigation. Activate when user mentions knowledge base, wiki, or wiki links.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-wiki/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>coding-agent</name>\n    <description>Delegate coding tasks to Codex, Claude Code, or Pi agents via background process. Use when: (1) building/creating new features or apps, (2) reviewing PRs (spawn in temp dir), (3) refactoring large codebases, (4) iterative coding that needs file exploration. NOT for: simple one-liner fixes (just edit), reading code (use read tool), thread-bound ACP harness requests in chat (for example spawn/run Codex or Claude Code in a Discord thread; use sessions_spawn with runtime:&quot;acp&quot;), or any work in ~/clawd workspace (never spawn agents here). Claude Code: use --print --permission-mode bypassPermissions (no PTY). Codex/Pi/OpenCode: pty:true required.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/coding-agent/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>node-connect</name>\n    <description>Diagnose OpenClaw node connection and pairing failures for Android, iOS, and macOS companion apps. Use when QR/setup code/manual connect fails, local Wi-Fi works but VPS/tailnet does not, or errors mention pairing required, unauthorized, bootstrap token invalid or expired, gateway.bind, gateway.remote.url, Tailscale, or plugins.entries.device-pair.config.publicUrl.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/node-connect/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create, edit, improve, or audit AgentSkills. Use when creating a new skill from scratch or when asked to improve, review, audit, tidy up, or clean up an existing skill or SKILL.md file. Also use when editing or restructuring a skill directory (moving files to references/ or scripts/, removing stale content, validating against the AgentSkills spec). Triggers on phrases like &quot;create a skill&quot;, &quot;author a skill&quot;, &quot;tidy up a skill&quot;, &quot;improve this skill&quot;, &quot;review the skill&quot;, &quot;clean up the skill&quot;, &quot;audit the skill&quot;.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n</available_skills>",
+      "skills": [
+        {
+          "name": "feishu-doc"
+        },
+        {
+          "name": "feishu-drive"
+        },
+        {
+          "name": "feishu-perm"
+        },
+        {
+          "name": "feishu-wiki"
+        },
+        {
+          "name": "coding-agent",
+          "requiredEnv": []
+        },
+        {
+          "name": "healthcheck"
+        },
+        {
+          "name": "node-connect"
+        },
+        {
+          "name": "skill-creator"
+        },
+        {
+          "name": "weather",
+          "requiredEnv": []
+        }
+      ],
+      "resolvedSkills": [
+        {
+          "name": "feishu-doc",
+          "description": "Feishu document read/write operations. Activate when user mentions Feishu docs, cloud docs, or docx links.\n",
+          "filePath": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-doc/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-doc",
+          "source": "openclaw-extra",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "feishu-drive",
+          "description": "Feishu cloud storage file management. Activate when user mentions cloud space, folders, drive.\n",
+          "filePath": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-drive/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-drive",
+          "source": "openclaw-extra",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "feishu-perm",
+          "description": "Feishu permission management for documents and files. Activate when user mentions sharing, permissions, collaborators.\n",
+          "filePath": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-perm/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-perm",
+          "source": "openclaw-extra",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "feishu-wiki",
+          "description": "Feishu knowledge base navigation. Activate when user mentions knowledge base, wiki, or wiki links.\n",
+          "filePath": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-wiki/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-wiki",
+          "source": "openclaw-extra",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "coding-agent",
+          "description": "Delegate coding tasks to Codex, Claude Code, or Pi agents via background process. Use when: (1) building/creating new features or apps, (2) reviewing PRs (spawn in temp dir), (3) refactoring large codebases, (4) iterative coding that needs file exploration. NOT for: simple one-liner fixes (just edit), reading code (use read tool), thread-bound ACP harness requests in chat (for example spawn/run Codex or Claude Code in a Discord thread; use sessions_spawn with runtime:\"acp\"), or any work in ~/clawd workspace (never spawn agents here). Claude Code: use --print --permission-mode bypassPermissions (no PTY). Codex/Pi/OpenCode: pty:true required.",
+          "filePath": "/usr/local/lib/node_modules/openclaw/skills/coding-agent/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/coding-agent",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "healthcheck",
+          "description": "Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).",
+          "filePath": "/usr/local/lib/node_modules/openclaw/skills/healthcheck/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/healthcheck",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "node-connect",
+          "description": "Diagnose OpenClaw node connection and pairing failures for Android, iOS, and macOS companion apps. Use when QR/setup code/manual connect fails, local Wi-Fi works but VPS/tailnet does not, or errors mention pairing required, unauthorized, bootstrap token invalid or expired, gateway.bind, gateway.remote.url, Tailscale, or plugins.entries.device-pair.config.publicUrl.",
+          "filePath": "/usr/local/lib/node_modules/openclaw/skills/node-connect/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/node-connect",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "skill-creator",
+          "description": "Create, edit, improve, or audit AgentSkills. Use when creating a new skill from scratch or when asked to improve, review, audit, tidy up, or clean up an existing skill or SKILL.md file. Also use when editing or restructuring a skill directory (moving files to references/ or scripts/, removing stale content, validating against the AgentSkills spec). Triggers on phrases like \"create a skill\", \"author a skill\", \"tidy up a skill\", \"improve this skill\", \"review the skill\", \"clean up the skill\", \"audit the skill\".",
+          "filePath": "/usr/local/lib/node_modules/openclaw/skills/skill-creator/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/skill-creator",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "weather",
+          "description": "Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.",
+          "filePath": "/usr/local/lib/node_modules/openclaw/skills/weather/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/weather",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        }
+      ],
+      "version": 0
+    },
+    "modelProvider": "kimi-coding",
+    "model": "k2p5",
+    "contextTokens": 262144,
+    "systemPromptReport": {
+      "source": "run",
+      "generatedAt": 1773828568344,
+      "sessionId": "b775f9a2-96e8-4461-acd1-0e76b2b97c85",
+      "sessionKey": "agent:main:feishu:direct:ou_7f442bef1a102e6c203ad4e2d1a86e69",
+      "provider": "kimi-coding",
+      "model": "k2p5",
+      "workspaceDir": "/home/hochoy/.openclaw/workspace",
+      "bootstrapMaxChars": 20000,
+      "bootstrapTotalMaxChars": 150000,
+      "bootstrapTruncation": {
+        "warningMode": "once",
+        "warningShown": false,
+        "truncatedFiles": 0,
+        "nearLimitFiles": 0,
+        "totalNearLimit": false
+      },
+      "sandbox": {
+        "mode": "off",
+        "sandboxed": false
+      },
+      "systemPrompt": {
+        "chars": 26715,
+        "projectContextChars": 13601,
+        "nonProjectContextChars": 13114
+      },
+      "injectedWorkspaceFiles": [
+        {
+          "name": "AGENTS.md",
+          "path": "/home/hochoy/.openclaw/workspace/AGENTS.md",
+          "missing": false,
+          "rawChars": 7809,
+          "injectedChars": 7809,
+          "truncated": false
+        },
+        {
+          "name": "SOUL.md",
+          "path": "/home/hochoy/.openclaw/workspace/SOUL.md",
+          "missing": false,
+          "rawChars": 1664,
+          "injectedChars": 1664,
+          "truncated": false
+        },
+        {
+          "name": "TOOLS.md",
+          "path": "/home/hochoy/.openclaw/workspace/TOOLS.md",
+          "missing": false,
+          "rawChars": 850,
+          "injectedChars": 850,
+          "truncated": false
+        },
+        {
+          "name": "IDENTITY.md",
+          "path": "/home/hochoy/.openclaw/workspace/IDENTITY.md",
+          "missing": false,
+          "rawChars": 633,
+          "injectedChars": 633,
+          "truncated": false
+        },
+        {
+          "name": "USER.md",
+          "path": "/home/hochoy/.openclaw/workspace/USER.md",
+          "missing": false,
+          "rawChars": 474,
+          "injectedChars": 474,
+          "truncated": false
+        },
+        {
+          "name": "HEARTBEAT.md",
+          "path": "/home/hochoy/.openclaw/workspace/HEARTBEAT.md",
+          "missing": false,
+          "rawChars": 167,
+          "injectedChars": 167,
+          "truncated": false
+        },
+        {
+          "name": "BOOTSTRAP.md",
+          "path": "/home/hochoy/.openclaw/workspace/BOOTSTRAP.md",
+          "missing": false,
+          "rawChars": 1449,
+          "injectedChars": 1449,
+          "truncated": false
+        }
+      ],
+      "skills": {
+        "promptChars": 4585,
+        "entries": [
+          {
+            "name": "feishu-doc",
+            "blockChars": 292
+          },
+          {
+            "name": "feishu-drive",
+            "blockChars": 284
+          },
+          {
+            "name": "feishu-perm",
+            "blockChars": 306
+          },
+          {
+            "name": "feishu-wiki",
+            "blockChars": 286
+          },
+          {
+            "name": "coding-agent",
+            "blockChars": 829
+          },
+          {
+            "name": "healthcheck",
+            "blockChars": 488
+          },
+          {
+            "name": "node-connect",
+            "blockChars": 538
+          },
+          {
+            "name": "skill-creator",
+            "blockChars": 756
+          },
+          {
+            "name": "weather",
+            "blockChars": 413
+          }
+        ]
+      },
+      "tools": {
+        "listChars": 527,
+        "schemaChars": 6891,
+        "entries": [
+          {
+            "name": "read",
+            "summaryChars": 298,
+            "schemaChars": 392,
+            "propertiesCount": 4
+          },
+          {
+            "name": "edit",
+            "summaryChars": 129,
+            "schemaChars": 591,
+            "propertiesCount": 6
+          },
+          {
+            "name": "write",
+            "summaryChars": 127,
+            "schemaChars": 313,
+            "propertiesCount": 3
+          },
+          {
+            "name": "message",
+            "summaryChars": 89,
+            "schemaChars": 4860,
+            "propertiesCount": 91
+          },
+          {
+            "name": "sessions_list",
+            "summaryChars": 54,
+            "schemaChars": 212,
+            "propertiesCount": 4
+          },
+          {
+            "name": "sessions_history",
+            "summaryChars": 36,
+            "schemaChars": 161,
+            "propertiesCount": 3
+          },
+          {
+            "name": "sessions_send",
+            "summaryChars": 84,
+            "schemaChars": 273,
+            "propertiesCount": 5
+          },
+          {
+            "name": "session_status",
+            "summaryChars": 207,
+            "schemaChars": 89,
+            "propertiesCount": 2
+          }
+        ]
+      }
+    },
+    "inputTokens": 8020,
+    "outputTokens": 101,
+    "cacheRead": 256,
+    "cacheWrite": 0,
+    "totalTokens": 8276,
+    "totalTokensFresh": true
   }
 }

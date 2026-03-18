@@ -1,16 +1,15 @@
 {
   "providers": {
-    "openrouter": {
-      "baseUrl": "https://openrouter.ai/api/v1",
+    "kimi": {
+      "baseUrl": "https://api.kimi.com/coding/v1",
       "api": "openai-completions",
       "models": [
         {
-          "id": "auto",
-          "name": "OpenRouter Auto",
-          "reasoning": false,
+          "id": "K2.5",
+          "name": "Kimi K2.5",
+          "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ],
           "cost": {
             "input": 0,
@@ -22,8 +21,8 @@
           "maxTokens": 8192
         },
         {
-          "id": "openrouter/hunter-alpha",
-          "name": "Hunter Alpha",
+          "id": "K2-Thinking",
+          "name": "Kimi K2-Thinking",
           "reasoning": true,
           "input": [
             "text"
@@ -34,16 +33,15 @@
             "cacheRead": 0,
             "cacheWrite": 0
           },
-          "contextWindow": 1048576,
-          "maxTokens": 65536
+          "contextWindow": 200000,
+          "maxTokens": 8192
         },
         {
-          "id": "openrouter/healer-alpha",
-          "name": "Healer Alpha",
-          "reasoning": true,
+          "id": "K2",
+          "name": "Kimi K2",
+          "reasoning": false,
           "input": [
-            "text",
-            "image"
+            "text"
           ],
           "cost": {
             "input": 0,
@@ -51,11 +49,27 @@
             "cacheRead": 0,
             "cacheWrite": 0
           },
-          "contextWindow": 262144,
-          "maxTokens": 65536
+          "contextWindow": 200000,
+          "maxTokens": 8192
+        },
+        {
+          "id": "K2-Turbo",
+          "name": "Kimi K2-Turbo",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192
         }
       ],
-      "apiKey": "OPENROUTER_API_KEY"
+      "apiKey": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe"
     }
   }
 }

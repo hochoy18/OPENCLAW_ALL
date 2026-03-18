@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-16T13:56:04.895Z"
+    "lastTouchedAt": "2026-03-17T14:40:09.390Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-16T12:37:06.681Z",
@@ -40,6 +40,12 @@
         "name": "demo",
         "workspace": "/home/hochoy/.openclaw/workspace-demo",
         "agentDir": "/home/hochoy/.openclaw/agents/demo/agent"
+      },
+      {
+        "id": "wechat-assistant",
+        "name": "wechat-assistant",
+        "workspace": "/home/hochoy/.openclaw/workspace-wechat-assistant",
+        "agentDir": "/home/hochoy/.openclaw/agents/wechat-assistant/agent"
       }
     ]
   },
@@ -51,6 +57,15 @@
       }
     }
   },
+  "bindings": [
+    {
+      "agentId": "demo",
+      "match": {
+        "channel": "feishu",
+        "accountId": "demo"
+      }
+    }
+  ],
   "commands": {
     "native": "auto",
     "nativeSkills": "auto",
@@ -59,6 +74,20 @@
   },
   "session": {
     "dmScope": "per-channel-peer"
+  },
+  "channels": {
+    "feishu": {
+      "accounts": {
+        "demo": {
+          "enabled": true,
+          "appId": "cli_a93d7b008ff6dcca",
+          "appSecret": "XmzBxn0Snncsz8YK33aSNbqwhLrBeeEP",
+          "connectionMode": "websocket",
+          "domain": "feishu",
+          "groupPolicy": "open"
+        }
+      }
+    }
   },
   "gateway": {
     "port": 18789,
@@ -82,6 +111,28 @@
         "reminders.add",
         "sms.send"
       ]
+    }
+  },
+  "plugins": {
+    "entries": {
+      "feishu": {
+        "enabled": true
+      }
+    },
+    "installs": {
+      "feishu": {
+        "source": "npm",
+        "spec": "@openclaw/feishu",
+        "installPath": "/home/hochoy/.openclaw/extensions/feishu",
+        "version": "2026.3.13",
+        "resolvedName": "@openclaw/feishu",
+        "resolvedVersion": "2026.3.13",
+        "resolvedSpec": "@openclaw/feishu@2026.3.13",
+        "integrity": "sha512-D5vPkgGZ9lfCQnDFlGrQN6NCSUYRgYW9k7amW3qlm9zBI4Sp+alRZVqLZ4yZ2eCXHjw9RVp/L75wjJ7NBQyfEw==",
+        "shasum": "39128ff918f8d3387331818cbe3f8b24a82e4c0d",
+        "resolvedAt": "2026-03-16T14:24:27.894Z",
+        "installedAt": "2026-03-16T14:24:35.998Z"
+      }
     }
   }
 }
