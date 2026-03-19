@@ -72,11 +72,7 @@
       "agentId": "wechat-assistant",
       "match": {
         "channel": "feishu",
-        "accountId": "wechat-assistant",
-        "peer": {
-          "kind": "group",
-          "id": "oc_821e5a6fcd4a0b4656605b6e324bb721"
-        }
+        "accountId": "wechat-assistant"
       }
     },
     {

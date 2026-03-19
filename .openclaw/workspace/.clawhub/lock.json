@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "skills": {
+    "http": {
+      "version": "1.0.0",
+      "installedAt": 1773889166758
+    },
+    "liang-tavily-search": {
+      "version": "1.0.1",
+      "installedAt": 1773889198158
+    }
+  }
+}
