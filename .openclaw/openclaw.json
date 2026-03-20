@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-20T03:10:26.470Z"
+    "lastTouchedAt": "2026-03-20T13:50:50.760Z"
   },
   "env": {
     "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe"
@@ -40,7 +40,9 @@
         "id": "main",
         "model": "kimi-coding/k2p5",
         "tools": {
-          "allow": ["*"],
+          "allow": [
+            "*"
+          ],
           "exec": {
             "host": "gateway",
             "security": "full",
@@ -55,7 +57,9 @@
         "agentDir": "/home/hochoy/.openclaw/agents/demo/agent",
         "model": "kimi-coding/k2p5",
         "tools": {
-          "allow": ["*"],
+          "allow": [
+            "*"
+          ],
           "exec": {
             "host": "gateway",
             "security": "full",
@@ -70,13 +74,21 @@
         "agentDir": "/home/hochoy/.openclaw/agents/wechat-assistant/agent",
         "model": "kimi-coding/k2p5",
         "tools": {
-          "allow": ["*"],
+          "allow": [
+            "*"
+          ],
           "exec": {
             "host": "gateway",
             "security": "full",
             "ask": "off"
           }
         }
+      },
+      {
+        "id": "coder",
+        "name": "coder",
+        "workspace": "/home/hochoy/.openclaw/workspace-coder",
+        "agentDir": "/home/hochoy/.openclaw/agents/coder/agent"
       }
     ]
   },

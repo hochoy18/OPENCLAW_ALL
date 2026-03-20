@@ -1,7 +1,10 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-18T06:33:42.088Z"
+    "lastTouchedAt": "2026-03-20T03:10:06.684Z"
+  },
+  "env": {
+    "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe"
   },
   "wizard": {
     "lastRunAt": "2026-03-18T06:33:25.317Z",
@@ -17,17 +20,14 @@
       }
     }
   },
-  "env": { 
-    "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe" 
-  },
   "agents": {
     "defaults": {
       "model": {
         "primary": "kimi-coding/k2p5"
       },
       "models": {
-        "kimi-coding/k2p5": { 
-          "alias": "Kimi K2.5" 
+        "kimi-coding/k2p5": {
+          "alias": "Kimi K2.5"
         }
       },
       "workspace": "/home/hochoy/.openclaw/workspace",
@@ -58,12 +58,14 @@
   },
   "tools": {
     "profile": "full",
+    "allow": [
+      "*"
+    ],
     "web": {
       "search": {
         "provider": "brave"
       }
     },
-    "allow": ["*"],
     "exec": {
       "host": "gateway",
       "security": "full",
@@ -159,18 +161,6 @@
       }
     }
   },
-  "skills": {
-    "load": {
-      "extraDirs": [   
-        "~/.openclaw/skills",
-        "~/.openclaw/workspace-demo/skills",
-        "~/.openclaw/workspace-wechat-assistant/skills",
-        "~/.openclaw/workspace"
-      ],
-      "watch": true,
-      "watchDebounceMs": 250
-    }
-  },
   "gateway": {
     "port": 18789,
     "mode": "local",
@@ -193,6 +183,18 @@
         "reminders.add",
         "sms.send"
       ]
+    }
+  },
+  "skills": {
+    "load": {
+      "extraDirs": [
+        "~/.openclaw/skills",
+        "~/.openclaw/workspace-demo/skills",
+        "~/.openclaw/workspace-wechat-assistant/skills",
+        "~/.openclaw/workspace"
+      ],
+      "watch": true,
+      "watchDebounceMs": 250
     }
   },
   "plugins": {
