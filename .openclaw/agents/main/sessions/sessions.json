@@ -1,9 +1,9 @@
 {
   "agent:main:feishu:direct:ou_a40d252df8eedac11a6ca82ca1b65352": {
     "sessionId": "012327a6-0ebd-4c8e-8600-09436ad9862a",
-    "updatedAt": 1774003070289,
+    "updatedAt": 1774011568420,
     "systemSent": true,
-    "abortedLastRun": true,
+    "abortedLastRun": false,
     "chatType": "direct",
     "deliveryContext": {
       "channel": "feishu",
@@ -183,7 +183,7 @@
     "contextTokens": 262144,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774003062795,
+      "generatedAt": 1774011469284,
       "sessionId": "012327a6-0ebd-4c8e-8600-09436ad9862a",
       "sessionKey": "agent:main:feishu:direct:ou_a40d252df8eedac11a6ca82ca1b65352",
       "provider": "kimi-coding",
@@ -533,14 +533,12 @@
         ]
       }
     },
-    "inputTokens": 554,
-    "outputTokens": 171,
-    "cacheRead": 26880,
+    "inputTokens": 25730,
+    "outputTokens": 2640,
+    "cacheRead": 51968,
     "cacheWrite": 0,
-    "totalTokens": 27434,
-    "totalTokensFresh": true,
-    "abortCutoffMessageSid": "om_x100b54e679180ca4c2bc5675052f690",
-    "abortCutoffTimestamp": 1774003070245
+    "totalTokens": 54437,
+    "totalTokensFresh": true
   },
   "agent:main:feishu:direct:oc_ad827e966bdde4ad7e375f74c2ba237e": {
     "origin": {
@@ -558,7 +556,7 @@
   },
   "agent:main:feishu:group:oc_ad827e966bdde4ad7e375f74c2ba237e": {
     "sessionId": "2fd7a547-a073-435c-9864-b6318a3ffc95",
-    "updatedAt": 1773995774670,
+    "updatedAt": 1774014385161,
     "systemSent": true,
     "abortedLastRun": false,
     "displayName": "feishu:g-oc_ad827e966bdde4ad7e375f74c2ba237e",
@@ -744,7 +742,7 @@
     "contextTokens": 262144,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1773995754615,
+      "generatedAt": 1774014364021,
       "sessionId": "2fd7a547-a073-435c-9864-b6318a3ffc95",
       "sessionKey": "agent:main:feishu:group:oc_ad827e966bdde4ad7e375f74c2ba237e",
       "provider": "kimi-coding",
@@ -1094,11 +1092,11 @@
         ]
       }
     },
-    "inputTokens": 42676,
-    "outputTokens": 310,
-    "cacheRead": 10496,
+    "inputTokens": 45542,
+    "outputTokens": 453,
+    "cacheRead": 8448,
     "cacheWrite": 0,
-    "totalTokens": 53172,
+    "totalTokens": 53990,
     "totalTokensFresh": true
   },
   "agent:main:feishu:group:oc_5dd67222565942c48d4f34d444056609": {
