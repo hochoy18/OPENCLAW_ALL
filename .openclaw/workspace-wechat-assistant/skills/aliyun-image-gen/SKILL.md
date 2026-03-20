@@ -1,3 +1,8 @@
+---
+name: aliyun-image-gen
+description: 使用阿里云 DashScope 通义万相模型生成图片。支持文生图和垫图（参考图生成）。Use when user wants to generate images using Alibaba Cloud DashScope qwen-image model, including text-to-image and image-to-image generation with reference images.
+---
+
 # 阿里云图片生成
 
 使用阿里云 DashScope 的通义万相模型生成图片。
