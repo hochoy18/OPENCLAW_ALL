@@ -1,7 +1,10 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-18T06:33:42.088Z"
+    "lastTouchedAt": "2026-03-20T03:10:26.470Z"
+  },
+  "env": {
+    "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe"
   },
   "wizard": {
     "lastRunAt": "2026-03-18T06:33:25.317Z",
@@ -17,17 +20,14 @@
       }
     }
   },
-  "env": { 
-    "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe" 
-  },
   "agents": {
     "defaults": {
       "model": {
         "primary": "kimi-coding/k2p5"
       },
       "models": {
-        "kimi-coding/k2p5": { 
-          "alias": "Kimi K2.5" 
+        "kimi-coding/k2p5": {
+          "alias": "Kimi K2.5"
         }
       },
       "workspace": "/home/hochoy/.openclaw/workspace",
@@ -38,32 +38,58 @@
     "list": [
       {
         "id": "main",
-        "model": "kimi-coding/k2p5"
+        "model": "kimi-coding/k2p5",
+        "tools": {
+          "allow": ["*"],
+          "exec": {
+            "host": "gateway",
+            "security": "full",
+            "ask": "off"
+          }
+        }
       },
       {
         "id": "demo",
         "name": "demo",
         "workspace": "/home/hochoy/.openclaw/workspace-demo",
         "agentDir": "/home/hochoy/.openclaw/agents/demo/agent",
-        "model": "kimi-coding/k2p5"
+        "model": "kimi-coding/k2p5",
+        "tools": {
+          "allow": ["*"],
+          "exec": {
+            "host": "gateway",
+            "security": "full",
+            "ask": "off"
+          }
+        }
       },
       {
         "id": "wechat-assistant",
         "name": "wechat-assistant",
         "workspace": "/home/hochoy/.openclaw/workspace-wechat-assistant",
         "agentDir": "/home/hochoy/.openclaw/agents/wechat-assistant/agent",
-        "model": "kimi-coding/k2p5"
+        "model": "kimi-coding/k2p5",
+        "tools": {
+          "allow": ["*"],
+          "exec": {
+            "host": "gateway",
+            "security": "full",
+            "ask": "off"
+          }
+        }
       }
     ]
   },
   "tools": {
     "profile": "full",
+    "allow": [
+      "*"
+    ],
     "web": {
       "search": {
         "provider": "brave"
       }
     },
-    "allow": ["*"],
     "exec": {
       "host": "gateway",
       "security": "full",
@@ -105,15 +131,15 @@
   },
   "channels": {
     "feishu": {
-      "defaultAccount": "wechat-assistant",
+      "defaultAccount": "main",
       "accounts": {
         "main": {
           "enabled": true,
           "appId": "cli_a936a495b6b89cc1",
           "appSecret": "YH46IAJel8eRc8NAWYEQ930HXrHWqbRf",
           "connectionMode": "websocket",
+          "groupPolicy": "open",
           "domain": "feishu",
-          "groupPolicy": "allowlist",
           "requireMention": true
         },
         "demo": {
@@ -121,54 +147,20 @@
           "appId": "cli_a93d7b008ff6dcca",
           "appSecret": "XmzBxn0Snncsz8YK33aSNbqwhLrBeeEP",
           "connectionMode": "websocket",
+          "groupPolicy": "open",
           "domain": "feishu",
-          "groupPolicy": "allowlist",
-          "requireMention": true,
-          "groupAllowFrom": [
-            "ou_0bc2f0bdf4be8039599fe8c4967425a8"
-          ],
-          "groups": {
-            "oc_821e5a6fcd4a0b4656605b6e324bb721": {
-              "requireMention": true
-            }
-          }
+          "requireMention": true
         },
         "wechat-assistant": {
           "enabled": true,
           "appId": "cli_a933cef770f85cd6",
           "appSecret": "sJXVulDZSdf8jF9tF4VkZafE8bVsmEWU",
           "connectionMode": "websocket",
+          "groupPolicy": "open",
           "domain": "feishu",
-          "groupPolicy": "allowlist",
-          "requireMention": true,
-          "groupAllowFrom": [
-            "ou_0bc2f0bdf4be8039599fe8c4967425a8"
-          ],
-          "groups": {
-            "oc_821e5a6fcd4a0b4656605b6e324bb721": {
-              "requireMention": true
-            }
-          }
-        },
-        "default": {
-          "groupPolicy": "allowlist",
-          "groupAllowFrom": [
-            "ou_0bc2f0bdf4be8039599fe8c4967425a8"
-          ]
+          "requireMention": true
         }
       }
-    }
-  },
-  "skills": {
-    "load": {
-      "extraDirs": [   
-        "~/.openclaw/skills",
-        "~/.openclaw/workspace-demo/skills",
-        "~/.openclaw/workspace-wechat-assistant/skills",
-        "~/.openclaw/workspace"
-      ],
-      "watch": true,
-      "watchDebounceMs": 250
     }
   },
   "gateway": {
@@ -193,6 +185,18 @@
         "reminders.add",
         "sms.send"
       ]
+    }
+  },
+  "skills": {
+    "load": {
+      "extraDirs": [
+        "~/.openclaw/skills",
+        "~/.openclaw/workspace-demo/skills",
+        "~/.openclaw/workspace-wechat-assistant/skills",
+        "~/.openclaw/workspace"
+      ],
+      "watch": true,
+      "watchDebounceMs": 250
     }
   },
   "plugins": {
