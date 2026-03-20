@@ -1,7 +1,7 @@
 {
   "agent:wechat-assistant:feishu:direct:ou_7f442bef1a102e6c203ad4e2d1a86e69": {
     "sessionId": "4d7e36df-3d57-4082-a9a5-bc4bf46a4739",
-    "updatedAt": 1773997392809,
+    "updatedAt": 1774003762453,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -14,12 +14,12 @@
     "lastTo": "user:ou_7f442bef1a102e6c203ad4e2d1a86e69",
     "lastAccountId": "wechat-assistant",
     "origin": {
-      "label": "feishu:ou_7f442bef1a102e6c203ad4e2d1a86e69",
+      "label": "ou_7f442bef1a102e6c203ad4e2d1a86e69",
       "provider": "feishu",
       "surface": "feishu",
       "chatType": "direct",
       "from": "feishu:ou_7f442bef1a102e6c203ad4e2d1a86e69",
-      "to": "ou_7f442bef1a102e6c203ad4e2d1a86e69",
+      "to": "user:ou_7f442bef1a102e6c203ad4e2d1a86e69",
       "accountId": "wechat-assistant"
     },
     "sessionFile": "/home/hochoy/.openclaw/agents/wechat-assistant/sessions/4d7e36df-3d57-4082-a9a5-bc4bf46a4739.jsonl",
@@ -172,7 +172,7 @@
     "contextTokens": 262144,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1773997288256,
+      "generatedAt": 1774003709243,
       "sessionId": "4d7e36df-3d57-4082-a9a5-bc4bf46a4739",
       "sessionKey": "agent:wechat-assistant:feishu:direct:ou_7f442bef1a102e6c203ad4e2d1a86e69",
       "provider": "kimi-coding",
@@ -526,11 +526,11 @@
         ]
       }
     },
-    "inputTokens": 6341,
-    "outputTokens": 2199,
-    "cacheRead": 44032,
+    "inputTokens": 1921,
+    "outputTokens": 1766,
+    "cacheRead": 80896,
     "cacheWrite": 0,
-    "totalTokens": 45385,
+    "totalTokens": 81643,
     "totalTokensFresh": true
   }
 }
