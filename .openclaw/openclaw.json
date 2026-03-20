@@ -130,6 +130,13 @@
         "channel": "feishu",
         "accountId": "main"
       }
+    },
+    {
+      "agentId": "coder",
+      "match": {
+        "channel": "feishu",
+        "accountId": "coder"
+      }
     }
   ],
   "commands": {
@@ -167,6 +174,15 @@
           "enabled": true,
           "appId": "cli_a933cef770f85cd6",
           "appSecret": "sJXVulDZSdf8jF9tF4VkZafE8bVsmEWU",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
+        "coder": {
+          "enabled": true,
+          "appId": "cli_a937ed2886b85cb6",
+          "appSecret": "cM0ZeqX2k75krVXS8M6tDcrxm4DivtZD",
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",
