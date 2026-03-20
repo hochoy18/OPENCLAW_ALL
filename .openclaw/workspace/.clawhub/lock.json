@@ -8,6 +8,18 @@
     "liang-tavily-search": {
       "version": "1.0.1",
       "installedAt": 1773889198158
+    },
+    "agent-reach": {
+      "version": "1.1.0",
+      "installedAt": 1773912054452
+    },
+    "search-web": {
+      "version": "1.0.0",
+      "installedAt": 1773912287227
+    },
+    "desearch-web-search": {
+      "version": "1.0.1",
+      "installedAt": 1773927036999
     }
   }
 }

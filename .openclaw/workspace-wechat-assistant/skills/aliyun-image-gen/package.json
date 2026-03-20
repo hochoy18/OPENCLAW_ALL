@@ -1,0 +1,9 @@
+{
+  "name": "aliyun-image-gen",
+  "version": "1.0.0",
+  "description": "阿里云通义万相图片生成",
+  "main": "aliyun-image-gen.js",
+  "keywords": ["aliyun", "dashscope", "qwen", "image", "generation", "ai"],
+  "author": "",
+  "license": "MIT"
+}

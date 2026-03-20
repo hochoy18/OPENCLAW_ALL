@@ -57,14 +57,18 @@
     ]
   },
   "tools": {
-    "profile": "messaging",
+    "profile": "full",
     "web": {
       "search": {
         "provider": "brave"
       }
     },
-    "fs": {
-      "workspaceOnly": true
+    "allow": ["*"],
+    "exec": {
+      "host": "gateway",
+      "security": "full",
+      "ask": "off",
+      "notifyOnExit": true
     }
   },
   "bindings": [
@@ -81,6 +85,13 @@
         "channel": "feishu",
         "accountId": "demo"
       }
+    },
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "feishu",
+        "accountId": "main"
+      }
     }
   ],
   "commands": {
@@ -96,6 +107,15 @@
     "feishu": {
       "defaultAccount": "wechat-assistant",
       "accounts": {
+        "main": {
+          "enabled": true,
+          "appId": "cli_a936a495b6b89cc1",
+          "appSecret": "YH46IAJel8eRc8NAWYEQ930HXrHWqbRf",
+          "connectionMode": "websocket",
+          "domain": "feishu",
+          "groupPolicy": "allowlist",
+          "requireMention": true
+        },
         "demo": {
           "enabled": true,
           "appId": "cli_a93d7b008ff6dcca",
@@ -137,6 +157,18 @@
           ]
         }
       }
+    }
+  },
+  "skills": {
+    "load": {
+      "extraDirs": [   
+        "~/.openclaw/skills",
+        "~/.openclaw/workspace-demo/skills",
+        "~/.openclaw/workspace-wechat-assistant/skills",
+        "~/.openclaw/workspace"
+      ],
+      "watch": true,
+      "watchDebounceMs": 250
     }
   },
   "gateway": {

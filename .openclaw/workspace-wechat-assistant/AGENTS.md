@@ -207,6 +207,12 @@ Think of it like a human reviewing their journal and updating their mental model
 
 The goal: Be helpful without being annoying. Check in a few times a day, do useful background work, but respect quiet time.
 
+## Lessons Learned
+
+### OpenClaw Configuration
+- **Config file:** `~/.openclaw/openclaw.json` (NOT `config.yaml`)
+- **Never assume** — always verify paths before giving advice
+
 ## Make It Yours
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works.

@@ -1,0 +1,43 @@
+{
+  "name": "aliyun-image",
+  "description": "Generate images using Alibaba Cloud DashScope Qwen Image 2.0 API",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "generate_image",
+      "description": "Generate an image using Qwen Image 2.0",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "prompt": {
+            "type": "string",
+            "description": "Text description of the image to generate"
+          },
+          "n": {
+            "type": "integer",
+            "description": "Number of images to generate",
+            "default": 1
+          },
+          "negative_prompt": {
+            "type": "string",
+            "description": "Things to avoid in the generated image",
+            "default": ""
+          },
+          "watermark": {
+            "type": "boolean",
+            "description": "Whether to add watermark to the image",
+            "default": false
+          },
+          "reference_images": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "URLs of reference images to guide generation"
+          }
+        },
+        "required": ["prompt"]
+      }
+    }
+  ]
+}
