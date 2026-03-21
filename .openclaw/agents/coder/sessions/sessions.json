@@ -585,7 +585,7 @@
   },
   "agent:coder:feishu:direct:ou_930ed7a70e55cdc26722683f4d7d00bd": {
     "sessionId": "28548425-62f2-41b4-ab17-51317d066e39",
-    "updatedAt": 1774015389311,
+    "updatedAt": 1774016951839,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -800,7 +800,7 @@
     "contextTokens": 262144,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774015373407,
+      "generatedAt": 1774016941665,
       "sessionId": "28548425-62f2-41b4-ab17-51317d066e39",
       "sessionKey": "agent:coder:feishu:direct:ou_930ed7a70e55cdc26722683f4d7d00bd",
       "provider": "kimi-coding",
@@ -1162,11 +1162,11 @@
         ]
       }
     },
-    "inputTokens": 398,
-    "outputTokens": 713,
-    "cacheRead": 14848,
+    "inputTokens": 593,
+    "outputTokens": 242,
+    "cacheRead": 23552,
     "cacheWrite": 0,
-    "totalTokens": 15246,
+    "totalTokens": 24145,
     "totalTokensFresh": true
   }
 }

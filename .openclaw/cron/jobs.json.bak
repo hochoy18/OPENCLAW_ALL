@@ -8,7 +8,7 @@
       "description": "每天早上8点检查OpenClaw文档更新并通知",
       "enabled": true,
       "createdAtMs": 1773735673322,
-      "updatedAtMs": 1773878623467,
+      "updatedAtMs": 1773965007511,
       "schedule": {
         "kind": "cron",
         "expr": "0 8 * * *"
@@ -24,14 +24,14 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773964800000,
-        "lastRunAtMs": 1773878400013,
+        "nextRunAtMs": 1774051200000,
+        "lastRunAtMs": 1773964800006,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 223454,
+        "lastDurationMs": 207505,
         "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 3,
-        "runningAtMs": 1773964800001
+        "consecutiveErrors": 4,
+        "runningAtMs": 1774051200001
       }
     }
   ]
