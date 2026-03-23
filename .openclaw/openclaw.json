@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-20T13:50:50.760Z"
+    "lastTouchedAt": "2026-03-23T08:42:36.704Z"
   },
   "env": {
     "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe"
@@ -89,17 +89,16 @@
         "name": "coder",
         "workspace": "/home/hochoy/.openclaw/workspace-coder",
         "agentDir": "/home/hochoy/.openclaw/agents/coder/agent"
+      },
+      {
+        "id": "task-manager",
+        "name": "task-manager",
+        "workspace": "/home/hochoy/.openclaw/workspace-task-manager",
+        "agentDir": "/home/hochoy/.openclaw/agents/task-manager/agent"
       }
     ]
   },
   "tools": {
-    "sessions": {
-      "visibility": "all"
-    },
-    "agentToAgent":{
-      "enabled": true,
-      "allow":["demo", "main", "wechat-assistant", "coder"]
-    },
     "profile": "full",
     "allow": [
       "*"
@@ -108,6 +107,19 @@
       "search": {
         "provider": "brave"
       }
+    },
+    "sessions": {
+      "visibility": "all"
+    },
+    "agentToAgent": {
+      "enabled": true,
+      "allow": [
+        "demo",
+        "main",
+        "wechat-assistant",
+        "coder",
+        "task-manager"
+      ]
     },
     "exec": {
       "host": "gateway",
@@ -143,6 +155,13 @@
       "match": {
         "channel": "feishu",
         "accountId": "coder"
+      }
+    },
+    {
+      "agentId": "task-manager",
+      "match": {
+        "channel": "feishu",
+        "accountId": "task-manager"
       }
     }
   ],
@@ -190,6 +209,15 @@
           "enabled": true,
           "appId": "cli_a937ed2886b85cb6",
           "appSecret": "cM0ZeqX2k75krVXS8M6tDcrxm4DivtZD",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
+        "task-manager": {
+          "enabled": true,
+          "appId": "cli_a94a44dbf67a5cc8",
+          "appSecret": "vxKNCuKor7FJT43nRGsJEfiFX3QkSyDO",
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",

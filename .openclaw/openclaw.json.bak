@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-20T03:10:26.470Z"
+    "lastTouchedAt": "2026-03-20T13:50:50.760Z"
   },
   "env": {
     "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe"
@@ -40,7 +40,9 @@
         "id": "main",
         "model": "kimi-coding/k2p5",
         "tools": {
-          "allow": ["*"],
+          "allow": [
+            "*"
+          ],
           "exec": {
             "host": "gateway",
             "security": "full",
@@ -55,7 +57,9 @@
         "agentDir": "/home/hochoy/.openclaw/agents/demo/agent",
         "model": "kimi-coding/k2p5",
         "tools": {
-          "allow": ["*"],
+          "allow": [
+            "*"
+          ],
           "exec": {
             "host": "gateway",
             "security": "full",
@@ -70,17 +74,32 @@
         "agentDir": "/home/hochoy/.openclaw/agents/wechat-assistant/agent",
         "model": "kimi-coding/k2p5",
         "tools": {
-          "allow": ["*"],
+          "allow": [
+            "*"
+          ],
           "exec": {
             "host": "gateway",
             "security": "full",
             "ask": "off"
           }
         }
+      },
+      {
+        "id": "coder",
+        "name": "coder",
+        "workspace": "/home/hochoy/.openclaw/workspace-coder",
+        "agentDir": "/home/hochoy/.openclaw/agents/coder/agent"
       }
     ]
   },
   "tools": {
+    "sessions": {
+      "visibility": "all"
+    },
+    "agentToAgent":{
+      "enabled": true,
+      "allow":["demo", "main", "wechat-assistant", "coder"]
+    },
     "profile": "full",
     "allow": [
       "*"
@@ -117,6 +136,13 @@
       "match": {
         "channel": "feishu",
         "accountId": "main"
+      }
+    },
+    {
+      "agentId": "coder",
+      "match": {
+        "channel": "feishu",
+        "accountId": "coder"
       }
     }
   ],
@@ -155,6 +181,15 @@
           "enabled": true,
           "appId": "cli_a933cef770f85cd6",
           "appSecret": "sJXVulDZSdf8jF9tF4VkZafE8bVsmEWU",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
+        "coder": {
+          "enabled": true,
+          "appId": "cli_a937ed2886b85cb6",
+          "appSecret": "cM0ZeqX2k75krVXS8M6tDcrxm4DivtZD",
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",
