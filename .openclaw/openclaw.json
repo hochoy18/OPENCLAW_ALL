@@ -93,6 +93,13 @@
     ]
   },
   "tools": {
+    "sessions": {
+      "visibility": "all"
+    },
+    "agentToAgent":{
+      "enabled": true,
+      "allow":["demo", "main", "wechat-assistant", "coder"]
+    },
     "profile": "full",
     "allow": [
       "*"
