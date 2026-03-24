@@ -21,8 +21,46 @@ def load_config():
     with open(config_path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
+def should_run_today():
+    """检查今天是否应该执行推送"""
+    today = datetime.now().strftime("%Y-%m-%d")
+    last_push_file = SKILL_DIR / "output" / "last_push.txt"
+    
+    if last_push_file.exists():
+        last_push = last_push_file.read_text().strip()
+        if last_push == today:
+            return False  # 今天已经推送过了
+    
+    return True
+
+def record_push():
+    """记录本次推送时间"""
+    today = datetime.now().strftime("%Y-%m-%d")
+    last_push_file = SKILL_DIR / "output" / "last_push.txt"
+    last_push_file.parent.mkdir(parents=True, exist_ok=True)
+    last_push_file.write_text(today)
+
+def is_morning_time():
+    """检查是否为早上7:00-7:30的时间段"""
+    now = datetime.now()
+    hour = now.hour
+    minute = now.minute
+    # 北京时间 7:00 - 7:30
+    return hour == 7 and minute <= 30
+
 def run_daily_flow(force=False):
     """执行每日完整流程"""
+    
+    # 检查是否应该执行（非强制模式）
+    if not force:
+        if not is_morning_time():
+            print("⏰ 不在推送时间段（7:00-7:30），跳过")
+            return None
+        
+        if not should_run_today():
+            print("✅ 今日已推送，跳过")
+            return None
+    
     today = datetime.now()
     yesterday = today - timedelta(days=1)
     date_str = yesterday.strftime("%Y-%m-%d")
@@ -68,6 +106,9 @@ def run_daily_flow(force=False):
         push_to_feishu(brief, chat_id)
     else:
         print("   ⚠️ 未配置 chat_id")
+    
+    # 记录本次推送
+    record_push()
     
     print("\n✅ 日报生成完成!")
     print("\n" + "=" * 50)

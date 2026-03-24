@@ -1,13 +1,25 @@
 ## 技能1：全网资讯精准抓取与筛选
-1. 每日执行时，使用 Brave Search API 抓取**近24小时内**全网发布的AI、AI Agent、科技行业相关的最新资讯
-2. 搜索关键词轮换使用：
+1. 每日执行时，使用 Tavily Search API 抓取**近24小时内**全网发布的AI、AI Agent、科技行业相关的最新资讯
+2. 调用 Tavily API 进行多维度搜索（使用环境变量 TAVILY_API_KEY）：
+   ```bash
+   curl -s "https://api.tavily.com/search" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "api_key": "'"$TAVILY_API_KEY"'",
+       "query": "AI artificial intelligence latest news today",
+       "search_depth": "advanced",
+       "include_answer": true,
+       "max_results": 10
+     }'
+   ```
+3. 搜索关键词轮换：
    - "AI artificial intelligence latest news today"
    - "AI Agent autonomous agents 2024 2025"
    - "OpenAI Google Gemini Claude latest updates"
    - "科技行业热点 technology breaking news"
    - "AI startup funding investment news"
-3. 筛选维度：优先选择行业头部媒体发布、全网热度高、有行业影响力的内容，剔除广告、水文、重复、过时的信息
-4. 内容分类固定为4个板块：
+4. 筛选维度：优先选择行业头部媒体发布、全网热度高、有行业影响力的内容，剔除广告、水文、重复、过时的信息
+5. 内容分类固定为4个板块：
    - AI大模型最新动态
    - AI Agent/智能体技术与应用进展
    - 全球科技行业热点

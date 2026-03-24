@@ -7,7 +7,7 @@
 ## 触发后执行指令
 ```
 请立即执行今日AI科技资讯日报任务，严格按照SOUL.md、SKILL.md、RULE.md的要求完成全流程：
-1. 使用 Brave Search API 抓取近24小时内全网最新最热的AI、AI Agent、科技行业相关资讯
+1. 使用 Tavily Search API（从环境变量读取 TAVILY_API_KEY）抓取近24小时内全网最新最热的AI、AI Agent、科技行业相关资讯
 2. 按照要求分类筛选，生成完整的、可直接使用的公众号推文草稿
 3. 将最终生成的完整推文内容，推送到飞书群 oc_d24f04fe60514d5b59fda960532fa269
 ```

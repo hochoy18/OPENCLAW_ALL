@@ -2,29 +2,34 @@
   "version": 1,
   "jobs": [
     {
-      "id": "7b290595-694f-4d74-93f5-7194976514cc",
-      "name": "ai-tech-daily-test",
-      "enabled": true,
+      "id": "a1c380f1-9d54-46a5-a79e-aafc6e527aec",
+      "name": "ai-tech-daily-test-v3",
+      "enabled": false,
       "deleteAfterRun": true,
-      "createdAtMs": 1774330586299,
-      "updatedAtMs": 1774330586299,
+      "createdAtMs": 1774331594206,
+      "updatedAtMs": 1774332170108,
       "schedule": {
         "kind": "at",
-        "at": "2026-03-24T05:41:00.000Z"
+        "at": "2026-03-24T05:58:00.000Z"
       },
       "sessionTarget": "isolated",
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "请立即执行今日AI科技资讯日报任务，严格按照SOUL.md、SKILL.md、RULE.md的要求完成全流程：1. 使用搜索API抓取近24小时内全网最新最热的AI、AI Agent、科技行业相关资讯 2. 按照要求分类筛选，生成完整的、可直接使用的公众号推文草稿 3. 将最终生成的完整推文内容，推送到飞书群 oc_d24f04fe60514d5b59fda960532fa269"
+        "message": "请立即执行今日AI科技资讯日报任务，严格按照SOUL.md、SKILL.md、RULE.md的要求完成全流程：1. 使用 Tavily Search API（从环境变量 TAVILY_API_KEY）抓取近24小时内全网最新最热的AI、AI Agent、科技行业相关资讯 2. 按照要求分类筛选，生成完整的、可直接使用的公众号推文草稿 3. 将最终生成的完整推文内容，推送到飞书群 oc_d24f04fe60514d5b59fda960532fa269"
       },
       "delivery": {
         "mode": "announce",
         "channel": "feishu"
       },
       "state": {
-        "nextRunAtMs": 1774330860000,
-        "runningAtMs": 1774330860002
+        "lastRunAtMs": 1774331880003,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 290105,
+        "lastError": "Delivering to Feishu requires target <chatId|user:openId|chat:chatId>",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
       }
     }
   ]

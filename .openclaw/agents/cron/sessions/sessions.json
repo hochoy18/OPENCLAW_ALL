@@ -618,7 +618,7 @@
   },
   "agent:cron:feishu:cron:direct:ou_a46824a36fa8086e31b863b652ce8d57": {
     "sessionId": "f8de51de-e7ff-4e1e-bdf0-7aaf4904c48d",
-    "updatedAt": 1774330602422,
+    "updatedAt": 1774332069498,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -848,14 +848,14 @@
           "disableModelInvocation": false
         }
       ],
-      "version": 1774329306280
+      "version": 1774331505208
     },
     "modelProvider": "kimi-coding",
     "model": "k2p5",
     "contextTokens": 262144,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774330515772,
+      "generatedAt": 1774331947288,
       "sessionId": "f8de51de-e7ff-4e1e-bdf0-7aaf4904c48d",
       "sessionKey": "agent:cron:feishu:cron:direct:ou_a46824a36fa8086e31b863b652ce8d57",
       "provider": "kimi-coding",
@@ -1237,16 +1237,16 @@
         ]
       }
     },
-    "inputTokens": 9093,
-    "outputTokens": 1357,
-    "cacheRead": 27392,
+    "inputTokens": 21999,
+    "outputTokens": 2545,
+    "cacheRead": 54016,
     "cacheWrite": 0,
-    "totalTokens": 27946,
+    "totalTokens": 55383,
     "totalTokensFresh": true
   },
   "agent:cron:feishu:direct:ou_a46824a36fa8086e31b863b652ce8d57": {
     "sessionId": "b8e9cf0b-dcfb-4762-88d8-f909f2ea636c",
-    "updatedAt": 1774330398468,
+    "updatedAt": 1774332241990,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -1476,14 +1476,14 @@
           "disableModelInvocation": false
         }
       ],
-      "version": 1774329306280
+      "version": 1774331505208
     },
     "modelProvider": "kimi-coding",
     "model": "k2p5",
     "contextTokens": 262144,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774330259683,
+      "generatedAt": 1774332148781,
       "sessionId": "b8e9cf0b-dcfb-4762-88d8-f909f2ea636c",
       "sessionKey": "agent:cron:feishu:direct:ou_a46824a36fa8086e31b863b652ce8d57",
       "provider": "kimi-coding",
@@ -1865,11 +1865,11 @@
         ]
       }
     },
-    "inputTokens": 10197,
-    "outputTokens": 6443,
-    "cacheRead": 44288,
+    "inputTokens": 5233,
+    "outputTokens": 1874,
+    "cacheRead": 49408,
     "cacheWrite": 0,
-    "totalTokens": 45132,
+    "totalTokens": 49719,
     "totalTokensFresh": true
   },
   "agent:cron:feishu:cron:direct:oc_d24f04fe60514d5b59fda960532fa269": {
