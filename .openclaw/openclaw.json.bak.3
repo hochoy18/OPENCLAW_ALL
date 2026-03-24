@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-20T03:10:20.251Z"
+    "lastTouchedAt": "2026-03-20T13:50:50.760Z"
   },
   "env": {
     "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe"
@@ -38,25 +38,68 @@
     "list": [
       {
         "id": "main",
-        "model": "kimi-coding/k2p5"
+        "model": "kimi-coding/k2p5",
+        "tools": {
+          "allow": [
+            "*"
+          ],
+          "exec": {
+            "host": "gateway",
+            "security": "full",
+            "ask": "off"
+          }
+        }
       },
       {
         "id": "demo",
         "name": "demo",
         "workspace": "/home/hochoy/.openclaw/workspace-demo",
         "agentDir": "/home/hochoy/.openclaw/agents/demo/agent",
-        "model": "kimi-coding/k2p5"
+        "model": "kimi-coding/k2p5",
+        "tools": {
+          "allow": [
+            "*"
+          ],
+          "exec": {
+            "host": "gateway",
+            "security": "full",
+            "ask": "off"
+          }
+        }
       },
       {
         "id": "wechat-assistant",
         "name": "wechat-assistant",
         "workspace": "/home/hochoy/.openclaw/workspace-wechat-assistant",
         "agentDir": "/home/hochoy/.openclaw/agents/wechat-assistant/agent",
-        "model": "kimi-coding/k2p5"
+        "model": "kimi-coding/k2p5",
+        "tools": {
+          "allow": [
+            "*"
+          ],
+          "exec": {
+            "host": "gateway",
+            "security": "full",
+            "ask": "off"
+          }
+        }
+      },
+      {
+        "id": "coder",
+        "name": "coder",
+        "workspace": "/home/hochoy/.openclaw/workspace-coder",
+        "agentDir": "/home/hochoy/.openclaw/agents/coder/agent"
       }
     ]
   },
   "tools": {
+    "sessions": {
+      "visibility": "all"
+    },
+    "agentToAgent":{
+      "enabled": true,
+      "allow":["demo", "main", "wechat-assistant", "coder"]
+    },
     "profile": "full",
     "allow": [
       "*"
@@ -94,6 +137,13 @@
         "channel": "feishu",
         "accountId": "main"
       }
+    },
+    {
+      "agentId": "coder",
+      "match": {
+        "channel": "feishu",
+        "accountId": "coder"
+      }
     }
   ],
   "commands": {
@@ -107,15 +157,15 @@
   },
   "channels": {
     "feishu": {
-      "defaultAccount": "wechat-assistant",
+      "defaultAccount": "main",
       "accounts": {
         "main": {
           "enabled": true,
           "appId": "cli_a936a495b6b89cc1",
           "appSecret": "YH46IAJel8eRc8NAWYEQ930HXrHWqbRf",
           "connectionMode": "websocket",
+          "groupPolicy": "open",
           "domain": "feishu",
-          "groupPolicy": "allowlist",
           "requireMention": true
         },
         "demo": {
@@ -123,40 +173,27 @@
           "appId": "cli_a93d7b008ff6dcca",
           "appSecret": "XmzBxn0Snncsz8YK33aSNbqwhLrBeeEP",
           "connectionMode": "websocket",
+          "groupPolicy": "open",
           "domain": "feishu",
-          "groupPolicy": "allowlist",
-          "requireMention": true,
-          "groupAllowFrom": [
-            "ou_0bc2f0bdf4be8039599fe8c4967425a8"
-          ],
-          "groups": {
-            "oc_821e5a6fcd4a0b4656605b6e324bb721": {
-              "requireMention": true
-            }
-          }
+          "requireMention": true
         },
         "wechat-assistant": {
           "enabled": true,
           "appId": "cli_a933cef770f85cd6",
           "appSecret": "sJXVulDZSdf8jF9tF4VkZafE8bVsmEWU",
           "connectionMode": "websocket",
+          "groupPolicy": "open",
           "domain": "feishu",
-          "groupPolicy": "allowlist",
-          "requireMention": true,
-          "groupAllowFrom": [
-            "ou_0bc2f0bdf4be8039599fe8c4967425a8"
-          ],
-          "groups": {
-            "oc_821e5a6fcd4a0b4656605b6e324bb721": {
-              "requireMention": true
-            }
-          }
+          "requireMention": true
         },
-        "default": {
-          "groupPolicy": "allowlist",
-          "groupAllowFrom": [
-            "ou_0bc2f0bdf4be8039599fe8c4967425a8"
-          ]
+        "coder": {
+          "enabled": true,
+          "appId": "cli_a937ed2886b85cb6",
+          "appSecret": "cM0ZeqX2k75krVXS8M6tDcrxm4DivtZD",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
         }
       }
     }
