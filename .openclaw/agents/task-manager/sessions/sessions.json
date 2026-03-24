@@ -597,7 +597,7 @@
   },
   "agent:task-manager:feishu:direct:ou_b722592031471a9cd2b790269439f2ba": {
     "sessionId": "18f98029-6de3-43be-8887-0500783b0a7b",
-    "updatedAt": 1774255904563,
+    "updatedAt": 1774290461231,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -610,7 +610,7 @@
     "lastTo": "user:ou_b722592031471a9cd2b790269439f2ba",
     "lastAccountId": "task-manager",
     "origin": {
-      "label": "ou_b722592031471a9cd2b790269439f2ba",
+      "label": "何才",
       "provider": "feishu",
       "surface": "feishu",
       "chatType": "direct",
@@ -812,7 +812,7 @@
     "contextTokens": 262144,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774255896712,
+      "generatedAt": 1774290340000,
       "sessionId": "18f98029-6de3-43be-8887-0500783b0a7b",
       "sessionKey": "agent:task-manager:feishu:direct:ou_b722592031471a9cd2b790269439f2ba",
       "provider": "kimi-coding",
@@ -832,9 +832,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 34557,
+        "chars": 34524,
         "projectContextChars": 13692,
-        "nonProjectContextChars": 20865
+        "nonProjectContextChars": 20832
       },
       "injectedWorkspaceFiles": [
         {
@@ -1186,11 +1186,11 @@
         ]
       }
     },
-    "inputTokens": 454,
-    "outputTokens": 80,
-    "cacheRead": 15104,
+    "inputTokens": 22565,
+    "outputTokens": 6072,
+    "cacheRead": 96512,
     "cacheWrite": 0,
-    "totalTokens": 15558,
+    "totalTokens": 102088,
     "totalTokensFresh": true
   }
 }

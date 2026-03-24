@@ -20,6 +20,10 @@
     "desearch-web-search": {
       "version": "1.0.1",
       "installedAt": 1773927036999
+    },
+    "feishu-task-integration-skill": {
+      "version": "1.0.0",
+      "installedAt": 1774286360028
     }
   }
 }
