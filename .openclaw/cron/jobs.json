@@ -23,7 +23,8 @@
         "channel": "feishu"
       },
       "state": {
-        "nextRunAtMs": 1774330860000
+        "nextRunAtMs": 1774330860000,
+        "runningAtMs": 1774330860002
       }
     }
   ]

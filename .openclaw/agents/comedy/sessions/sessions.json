@@ -1,7 +1,7 @@
 {
   "agent:comedy:feishu:comedy:direct:ou_85dd739a4dc546bdd0342b2ddaaa25b1": {
     "sessionId": "a9ae0e96-6b34-46b7-8f89-dd45063465a2",
-    "updatedAt": 1774327957254,
+    "updatedAt": 1774331141332,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -227,7 +227,7 @@
     "contextTokens": 262144,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774327950664,
+      "generatedAt": 1774331129222,
       "sessionId": "a9ae0e96-6b34-46b7-8f89-dd45063465a2",
       "sessionKey": "agent:comedy:feishu:comedy:direct:ou_85dd739a4dc546bdd0342b2ddaaa25b1",
       "provider": "kimi-coding",
@@ -247,9 +247,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 34785,
+        "chars": 34758,
         "projectContextChars": 13650,
-        "nonProjectContextChars": 21135
+        "nonProjectContextChars": 21108
       },
       "injectedWorkspaceFiles": [
         {
@@ -605,11 +605,11 @@
         ]
       }
     },
-    "inputTokens": 4912,
-    "outputTokens": 125,
-    "cacheRead": 10752,
+    "inputTokens": 1558,
+    "outputTokens": 254,
+    "cacheRead": 16640,
     "cacheWrite": 0,
-    "totalTokens": 15664,
+    "totalTokens": 17082,
     "totalTokensFresh": true
   },
   "agent:comedy:feishu:group:oc_ad827e966bdde4ad7e375f74c2ba237e": {

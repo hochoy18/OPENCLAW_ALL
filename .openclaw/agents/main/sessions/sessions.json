@@ -1841,5 +1841,417 @@
     "cacheWrite": 0,
     "totalTokens": 23525,
     "totalTokensFresh": true
+  },
+  "agent:main:cron:7b290595-694f-4d74-93f5-7194976514cc": {
+    "sessionId": "d5ddf971-4612-4ff1-8cd4-0592206bfaf8",
+    "updatedAt": 1774330860090,
+    "systemSent": true,
+    "label": "Cron: ai-tech-daily-test",
+    "skillsSnapshot": {
+      "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>agent-reach</name>\n    <description>Give your AI agent eyes to see the entire internet. 7500+ GitHub stars. Search and read 14 platforms: Twitter/X, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu (小红书), Douyin (抖音), Weibo (微博), WeChat Articles (微信公众号), LinkedIn, Instagram, RSS, Exa web search, and any web page. One command install, zero config for 8 channels, agent-reach doctor for diagnostics. Use when: (1) user asks to search or read any of these platforms, (2) user shares a URL from any supported platform, (3) user asks to search the web, find information online, or research a topic, (4) user asks to post, comment, or interact on supported platforms, (5) user asks to configure or set up a platform channel. Triggers: &quot;搜推特&quot;, &quot;搜小红书&quot;, &quot;看视频&quot;, &quot;搜一下&quot;, &quot;上网搜&quot;, &quot;帮我查&quot;, &quot;全网搜索&quot;, &quot;search twitter&quot;, &quot;read tweet&quot;, &quot;youtube transcript&quot;, &quot;search reddit&quot;, &quot;read this link&quot;, &quot;看这个链接&quot;, &quot;B站&quot;, &quot;bilibili&quot;, &quot;抖音视频&quot;, &quot;微信文章&quot;, &quot;公众号&quot;, &quot;LinkedIn&quot;, &quot;GitHub issue&quot;, &quot;RSS&quot;, &quot;微博&quot;, &quot;search online&quot;, &quot;web search&quot;, &quot;find information&quot;, &quot;research&quot;, &quot;帮我配&quot;, &quot;configure twitter&quot;, &quot;configure proxy&quot;, &quot;帮我安装&quot;.\n</description>\n    <location>~/.openclaw/workspace/skills/agent-reach/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-task-integration</name>\n    <description>飞书任务对接集成技能，实现待办事项与飞书任务的双向同步。自动创建飞书任务、智能解析时间表达式、设置任务负责人，支持任务状态同步和完成管理。使用场景：需要将本地待办事项同步到飞书任务、设置任务截止时间、指派任务负责人、跟踪任务完成状态。</description>\n    <location>~/.openclaw/skills/feishu-task-integration-skill/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-welcome</name>\n    <description>Automatically send welcome messages when new members join Feishu group chats. Use when the user wants to set up automatic welcome messages for group chat members joining events. Triggers on phrases like &quot;set up welcome message&quot;, &quot;group chat welcome&quot;, &quot;welcome new members&quot;, &quot;入群欢迎&quot;, &quot;欢迎语&quot;.</description>\n    <location>~/.openclaw/skills/feishu-welcome/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>HTTP</name>\n    <description>Use HTTP correctly with proper methods, status codes, headers, and caching.</description>\n    <location>~/.openclaw/workspace/skills/http/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>aliyun-image-gen</name>\n    <description>使用阿里云 DashScope 通义万相模型生成图片。支持文生图和垫图（参考图生成）。Use when user wants to generate images using Alibaba Cloud DashScope qwen-image model, including text-to-image and image-to-image generation with reference images.</description>\n    <location>~/.openclaw/workspace-wechat-assistant/skills/aliyun-image-gen/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>wechat-article-publisher</name>\n    <description>微信公众号文章完整管理工具；支持提取文章并转换为 Markdown、创建草稿、发布文章、生成封面图片等全流程功能</description>\n    <location>~/.openclaw/workspace-wechat-assistant/skills/wechat-article-publisher/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>desearch-web-search</name>\n    <description>Search the web and get real-time SERP-style results with titles, URLs, and snippets. Use this for general web queries when you need current links and information from across the internet.</description>\n    <location>~/.openclaw/workspace/skills/desearch-web-search/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-doc</name>\n    <description>Feishu document read/write operations. Activate when user mentions Feishu docs, cloud docs, or docx links.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-doc/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-drive</name>\n    <description>Feishu cloud storage file management. Activate when user mentions cloud space, folders, drive.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-drive/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-perm</name>\n    <description>Feishu permission management for documents and files. Activate when user mentions sharing, permissions, collaborators.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-perm/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-wiki</name>\n    <description>Feishu knowledge base navigation. Activate when user mentions knowledge base, wiki, or wiki links.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-wiki/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>clawhub</name>\n    <description>Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed clawhub CLI.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/clawhub/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>coding-agent</name>\n    <description>Delegate coding tasks to Codex, Claude Code, or Pi agents via background process. Use when: (1) building/creating new features or apps, (2) reviewing PRs (spawn in temp dir), (3) refactoring large codebases, (4) iterative coding that needs file exploration. NOT for: simple one-liner fixes (just edit), reading code (use read tool), thread-bound ACP harness requests in chat (for example spawn/run Codex or Claude Code in a Discord thread; use sessions_spawn with runtime:&quot;acp&quot;), or any work in ~/clawd workspace (never spawn agents here). Claude Code: use --print --permission-mode bypassPermissions (no PTY). Codex/Pi/OpenCode: pty:true required.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/coding-agent/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>node-connect</name>\n    <description>Diagnose OpenClaw node connection and pairing failures for Android, iOS, and macOS companion apps. Use when QR/setup code/manual connect fails, local Wi-Fi works but VPS/tailnet does not, or errors mention pairing required, unauthorized, bootstrap token invalid or expired, gateway.bind, gateway.remote.url, Tailscale, or plugins.entries.device-pair.config.publicUrl.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/node-connect/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create, edit, improve, or audit AgentSkills. Use when creating a new skill from scratch or when asked to improve, review, audit, tidy up, or clean up an existing skill or SKILL.md file. Also use when editing or restructuring a skill directory (moving files to references/ or scripts/, removing stale content, validating against the AgentSkills spec). Triggers on phrases like &quot;create a skill&quot;, &quot;author a skill&quot;, &quot;tidy up a skill&quot;, &quot;improve this skill&quot;, &quot;review the skill&quot;, &quot;clean up the skill&quot;, &quot;audit the skill&quot;.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n</available_skills>",
+      "skills": [
+        {
+          "name": "agent-reach"
+        },
+        {
+          "name": "feishu-task-integration"
+        },
+        {
+          "name": "feishu-welcome"
+        },
+        {
+          "name": "HTTP"
+        },
+        {
+          "name": "aliyun-image-gen"
+        },
+        {
+          "name": "wechat-article-publisher"
+        },
+        {
+          "name": "desearch-web-search"
+        },
+        {
+          "name": "feishu-doc"
+        },
+        {
+          "name": "feishu-drive"
+        },
+        {
+          "name": "feishu-perm"
+        },
+        {
+          "name": "feishu-wiki"
+        },
+        {
+          "name": "clawhub",
+          "requiredEnv": []
+        },
+        {
+          "name": "coding-agent",
+          "requiredEnv": []
+        },
+        {
+          "name": "healthcheck"
+        },
+        {
+          "name": "node-connect"
+        },
+        {
+          "name": "skill-creator"
+        },
+        {
+          "name": "weather",
+          "requiredEnv": []
+        }
+      ],
+      "resolvedSkills": [
+        {
+          "name": "agent-reach",
+          "description": "Give your AI agent eyes to see the entire internet. 7500+ GitHub stars. Search and read 14 platforms: Twitter/X, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu (小红书), Douyin (抖音), Weibo (微博), WeChat Articles (微信公众号), LinkedIn, Instagram, RSS, Exa web search, and any web page. One command install, zero config for 8 channels, agent-reach doctor for diagnostics. Use when: (1) user asks to search or read any of these platforms, (2) user shares a URL from any supported platform, (3) user asks to search the web, find information online, or research a topic, (4) user asks to post, comment, or interact on supported platforms, (5) user asks to configure or set up a platform channel. Triggers: \"搜推特\", \"搜小红书\", \"看视频\", \"搜一下\", \"上网搜\", \"帮我查\", \"全网搜索\", \"search twitter\", \"read tweet\", \"youtube transcript\", \"search reddit\", \"read this link\", \"看这个链接\", \"B站\", \"bilibili\", \"抖音视频\", \"微信文章\", \"公众号\", \"LinkedIn\", \"GitHub issue\", \"RSS\", \"微博\", \"search online\", \"web search\", \"find information\", \"research\", \"帮我配\", \"configure twitter\", \"configure proxy\", \"帮我安装\".\n",
+          "filePath": "/home/hochoy/.openclaw/workspace/skills/agent-reach/SKILL.md",
+          "baseDir": "/home/hochoy/.openclaw/workspace/skills/agent-reach",
+          "source": "openclaw-workspace",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "feishu-task-integration",
+          "description": "飞书任务对接集成技能，实现待办事项与飞书任务的双向同步。自动创建飞书任务、智能解析时间表达式、设置任务负责人，支持任务状态同步和完成管理。使用场景：需要将本地待办事项同步到飞书任务、设置任务截止时间、指派任务负责人、跟踪任务完成状态。",
+          "filePath": "/home/hochoy/.openclaw/skills/feishu-task-integration-skill/SKILL.md",
+          "baseDir": "/home/hochoy/.openclaw/skills/feishu-task-integration-skill",
+          "source": "openclaw-managed",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "feishu-welcome",
+          "description": "Automatically send welcome messages when new members join Feishu group chats. Use when the user wants to set up automatic welcome messages for group chat members joining events. Triggers on phrases like \"set up welcome message\", \"group chat welcome\", \"welcome new members\", \"入群欢迎\", \"欢迎语\".",
+          "filePath": "/home/hochoy/.openclaw/skills/feishu-welcome/SKILL.md",
+          "baseDir": "/home/hochoy/.openclaw/skills/feishu-welcome",
+          "source": "openclaw-managed",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "HTTP",
+          "description": "Use HTTP correctly with proper methods, status codes, headers, and caching.",
+          "filePath": "/home/hochoy/.openclaw/workspace/skills/http/SKILL.md",
+          "baseDir": "/home/hochoy/.openclaw/workspace/skills/http",
+          "source": "openclaw-workspace",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "aliyun-image-gen",
+          "description": "使用阿里云 DashScope 通义万相模型生成图片。支持文生图和垫图（参考图生成）。Use when user wants to generate images using Alibaba Cloud DashScope qwen-image model, including text-to-image and image-to-image generation with reference images.",
+          "filePath": "/home/hochoy/.openclaw/workspace-wechat-assistant/skills/aliyun-image-gen/SKILL.md",
+          "baseDir": "/home/hochoy/.openclaw/workspace-wechat-assistant/skills/aliyun-image-gen",
+          "source": "openclaw-extra",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "wechat-article-publisher",
+          "description": "微信公众号文章完整管理工具；支持提取文章并转换为 Markdown、创建草稿、发布文章、生成封面图片等全流程功能",
+          "filePath": "/home/hochoy/.openclaw/workspace-wechat-assistant/skills/wechat-article-publisher/SKILL.md",
+          "baseDir": "/home/hochoy/.openclaw/workspace-wechat-assistant/skills/wechat-article-publisher",
+          "source": "openclaw-extra",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "desearch-web-search",
+          "description": "Search the web and get real-time SERP-style results with titles, URLs, and snippets. Use this for general web queries when you need current links and information from across the internet.",
+          "filePath": "/home/hochoy/.openclaw/workspace/skills/desearch-web-search/SKILL.md",
+          "baseDir": "/home/hochoy/.openclaw/workspace/skills/desearch-web-search",
+          "source": "openclaw-workspace",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "feishu-doc",
+          "description": "Feishu document read/write operations. Activate when user mentions Feishu docs, cloud docs, or docx links.\n",
+          "filePath": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-doc/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-doc",
+          "source": "openclaw-extra",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "feishu-drive",
+          "description": "Feishu cloud storage file management. Activate when user mentions cloud space, folders, drive.\n",
+          "filePath": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-drive/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-drive",
+          "source": "openclaw-extra",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "feishu-perm",
+          "description": "Feishu permission management for documents and files. Activate when user mentions sharing, permissions, collaborators.\n",
+          "filePath": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-perm/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-perm",
+          "source": "openclaw-extra",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "feishu-wiki",
+          "description": "Feishu knowledge base navigation. Activate when user mentions knowledge base, wiki, or wiki links.\n",
+          "filePath": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-wiki/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-wiki",
+          "source": "openclaw-extra",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "clawhub",
+          "description": "Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed clawhub CLI.",
+          "filePath": "/usr/local/lib/node_modules/openclaw/skills/clawhub/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/clawhub",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "coding-agent",
+          "description": "Delegate coding tasks to Codex, Claude Code, or Pi agents via background process. Use when: (1) building/creating new features or apps, (2) reviewing PRs (spawn in temp dir), (3) refactoring large codebases, (4) iterative coding that needs file exploration. NOT for: simple one-liner fixes (just edit), reading code (use read tool), thread-bound ACP harness requests in chat (for example spawn/run Codex or Claude Code in a Discord thread; use sessions_spawn with runtime:\"acp\"), or any work in ~/clawd workspace (never spawn agents here). Claude Code: use --print --permission-mode bypassPermissions (no PTY). Codex/Pi/OpenCode: pty:true required.",
+          "filePath": "/usr/local/lib/node_modules/openclaw/skills/coding-agent/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/coding-agent",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "healthcheck",
+          "description": "Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).",
+          "filePath": "/usr/local/lib/node_modules/openclaw/skills/healthcheck/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/healthcheck",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "node-connect",
+          "description": "Diagnose OpenClaw node connection and pairing failures for Android, iOS, and macOS companion apps. Use when QR/setup code/manual connect fails, local Wi-Fi works but VPS/tailnet does not, or errors mention pairing required, unauthorized, bootstrap token invalid or expired, gateway.bind, gateway.remote.url, Tailscale, or plugins.entries.device-pair.config.publicUrl.",
+          "filePath": "/usr/local/lib/node_modules/openclaw/skills/node-connect/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/node-connect",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "skill-creator",
+          "description": "Create, edit, improve, or audit AgentSkills. Use when creating a new skill from scratch or when asked to improve, review, audit, tidy up, or clean up an existing skill or SKILL.md file. Also use when editing or restructuring a skill directory (moving files to references/ or scripts/, removing stale content, validating against the AgentSkills spec). Triggers on phrases like \"create a skill\", \"author a skill\", \"tidy up a skill\", \"improve this skill\", \"review the skill\", \"clean up the skill\", \"audit the skill\".",
+          "filePath": "/usr/local/lib/node_modules/openclaw/skills/skill-creator/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/skill-creator",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "weather",
+          "description": "Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.",
+          "filePath": "/usr/local/lib/node_modules/openclaw/skills/weather/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/weather",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        }
+      ],
+      "version": 0
+    },
+    "modelProvider": "kimi-coding",
+    "model": "k2p5"
+  },
+  "agent:main:cron:7b290595-694f-4d74-93f5-7194976514cc:run:d5ddf971-4612-4ff1-8cd4-0592206bfaf8": {
+    "sessionId": "d5ddf971-4612-4ff1-8cd4-0592206bfaf8",
+    "updatedAt": 1774330860090,
+    "systemSent": true,
+    "label": "Cron: ai-tech-daily-test",
+    "skillsSnapshot": {
+      "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>agent-reach</name>\n    <description>Give your AI agent eyes to see the entire internet. 7500+ GitHub stars. Search and read 14 platforms: Twitter/X, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu (小红书), Douyin (抖音), Weibo (微博), WeChat Articles (微信公众号), LinkedIn, Instagram, RSS, Exa web search, and any web page. One command install, zero config for 8 channels, agent-reach doctor for diagnostics. Use when: (1) user asks to search or read any of these platforms, (2) user shares a URL from any supported platform, (3) user asks to search the web, find information online, or research a topic, (4) user asks to post, comment, or interact on supported platforms, (5) user asks to configure or set up a platform channel. Triggers: &quot;搜推特&quot;, &quot;搜小红书&quot;, &quot;看视频&quot;, &quot;搜一下&quot;, &quot;上网搜&quot;, &quot;帮我查&quot;, &quot;全网搜索&quot;, &quot;search twitter&quot;, &quot;read tweet&quot;, &quot;youtube transcript&quot;, &quot;search reddit&quot;, &quot;read this link&quot;, &quot;看这个链接&quot;, &quot;B站&quot;, &quot;bilibili&quot;, &quot;抖音视频&quot;, &quot;微信文章&quot;, &quot;公众号&quot;, &quot;LinkedIn&quot;, &quot;GitHub issue&quot;, &quot;RSS&quot;, &quot;微博&quot;, &quot;search online&quot;, &quot;web search&quot;, &quot;find information&quot;, &quot;research&quot;, &quot;帮我配&quot;, &quot;configure twitter&quot;, &quot;configure proxy&quot;, &quot;帮我安装&quot;.\n</description>\n    <location>~/.openclaw/workspace/skills/agent-reach/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-task-integration</name>\n    <description>飞书任务对接集成技能，实现待办事项与飞书任务的双向同步。自动创建飞书任务、智能解析时间表达式、设置任务负责人，支持任务状态同步和完成管理。使用场景：需要将本地待办事项同步到飞书任务、设置任务截止时间、指派任务负责人、跟踪任务完成状态。</description>\n    <location>~/.openclaw/skills/feishu-task-integration-skill/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-welcome</name>\n    <description>Automatically send welcome messages when new members join Feishu group chats. Use when the user wants to set up automatic welcome messages for group chat members joining events. Triggers on phrases like &quot;set up welcome message&quot;, &quot;group chat welcome&quot;, &quot;welcome new members&quot;, &quot;入群欢迎&quot;, &quot;欢迎语&quot;.</description>\n    <location>~/.openclaw/skills/feishu-welcome/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>HTTP</name>\n    <description>Use HTTP correctly with proper methods, status codes, headers, and caching.</description>\n    <location>~/.openclaw/workspace/skills/http/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>aliyun-image-gen</name>\n    <description>使用阿里云 DashScope 通义万相模型生成图片。支持文生图和垫图（参考图生成）。Use when user wants to generate images using Alibaba Cloud DashScope qwen-image model, including text-to-image and image-to-image generation with reference images.</description>\n    <location>~/.openclaw/workspace-wechat-assistant/skills/aliyun-image-gen/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>wechat-article-publisher</name>\n    <description>微信公众号文章完整管理工具；支持提取文章并转换为 Markdown、创建草稿、发布文章、生成封面图片等全流程功能</description>\n    <location>~/.openclaw/workspace-wechat-assistant/skills/wechat-article-publisher/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>desearch-web-search</name>\n    <description>Search the web and get real-time SERP-style results with titles, URLs, and snippets. Use this for general web queries when you need current links and information from across the internet.</description>\n    <location>~/.openclaw/workspace/skills/desearch-web-search/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-doc</name>\n    <description>Feishu document read/write operations. Activate when user mentions Feishu docs, cloud docs, or docx links.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-doc/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-drive</name>\n    <description>Feishu cloud storage file management. Activate when user mentions cloud space, folders, drive.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-drive/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-perm</name>\n    <description>Feishu permission management for documents and files. Activate when user mentions sharing, permissions, collaborators.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-perm/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-wiki</name>\n    <description>Feishu knowledge base navigation. Activate when user mentions knowledge base, wiki, or wiki links.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-wiki/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>clawhub</name>\n    <description>Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed clawhub CLI.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/clawhub/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>coding-agent</name>\n    <description>Delegate coding tasks to Codex, Claude Code, or Pi agents via background process. Use when: (1) building/creating new features or apps, (2) reviewing PRs (spawn in temp dir), (3) refactoring large codebases, (4) iterative coding that needs file exploration. NOT for: simple one-liner fixes (just edit), reading code (use read tool), thread-bound ACP harness requests in chat (for example spawn/run Codex or Claude Code in a Discord thread; use sessions_spawn with runtime:&quot;acp&quot;), or any work in ~/clawd workspace (never spawn agents here). Claude Code: use --print --permission-mode bypassPermissions (no PTY). Codex/Pi/OpenCode: pty:true required.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/coding-agent/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>node-connect</name>\n    <description>Diagnose OpenClaw node connection and pairing failures for Android, iOS, and macOS companion apps. Use when QR/setup code/manual connect fails, local Wi-Fi works but VPS/tailnet does not, or errors mention pairing required, unauthorized, bootstrap token invalid or expired, gateway.bind, gateway.remote.url, Tailscale, or plugins.entries.device-pair.config.publicUrl.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/node-connect/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create, edit, improve, or audit AgentSkills. Use when creating a new skill from scratch or when asked to improve, review, audit, tidy up, or clean up an existing skill or SKILL.md file. Also use when editing or restructuring a skill directory (moving files to references/ or scripts/, removing stale content, validating against the AgentSkills spec). Triggers on phrases like &quot;create a skill&quot;, &quot;author a skill&quot;, &quot;tidy up a skill&quot;, &quot;improve this skill&quot;, &quot;review the skill&quot;, &quot;clean up the skill&quot;, &quot;audit the skill&quot;.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n</available_skills>",
+      "skills": [
+        {
+          "name": "agent-reach"
+        },
+        {
+          "name": "feishu-task-integration"
+        },
+        {
+          "name": "feishu-welcome"
+        },
+        {
+          "name": "HTTP"
+        },
+        {
+          "name": "aliyun-image-gen"
+        },
+        {
+          "name": "wechat-article-publisher"
+        },
+        {
+          "name": "desearch-web-search"
+        },
+        {
+          "name": "feishu-doc"
+        },
+        {
+          "name": "feishu-drive"
+        },
+        {
+          "name": "feishu-perm"
+        },
+        {
+          "name": "feishu-wiki"
+        },
+        {
+          "name": "clawhub",
+          "requiredEnv": []
+        },
+        {
+          "name": "coding-agent",
+          "requiredEnv": []
+        },
+        {
+          "name": "healthcheck"
+        },
+        {
+          "name": "node-connect"
+        },
+        {
+          "name": "skill-creator"
+        },
+        {
+          "name": "weather",
+          "requiredEnv": []
+        }
+      ],
+      "resolvedSkills": [
+        {
+          "name": "agent-reach",
+          "description": "Give your AI agent eyes to see the entire internet. 7500+ GitHub stars. Search and read 14 platforms: Twitter/X, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu (小红书), Douyin (抖音), Weibo (微博), WeChat Articles (微信公众号), LinkedIn, Instagram, RSS, Exa web search, and any web page. One command install, zero config for 8 channels, agent-reach doctor for diagnostics. Use when: (1) user asks to search or read any of these platforms, (2) user shares a URL from any supported platform, (3) user asks to search the web, find information online, or research a topic, (4) user asks to post, comment, or interact on supported platforms, (5) user asks to configure or set up a platform channel. Triggers: \"搜推特\", \"搜小红书\", \"看视频\", \"搜一下\", \"上网搜\", \"帮我查\", \"全网搜索\", \"search twitter\", \"read tweet\", \"youtube transcript\", \"search reddit\", \"read this link\", \"看这个链接\", \"B站\", \"bilibili\", \"抖音视频\", \"微信文章\", \"公众号\", \"LinkedIn\", \"GitHub issue\", \"RSS\", \"微博\", \"search online\", \"web search\", \"find information\", \"research\", \"帮我配\", \"configure twitter\", \"configure proxy\", \"帮我安装\".\n",
+          "filePath": "/home/hochoy/.openclaw/workspace/skills/agent-reach/SKILL.md",
+          "baseDir": "/home/hochoy/.openclaw/workspace/skills/agent-reach",
+          "source": "openclaw-workspace",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "feishu-task-integration",
+          "description": "飞书任务对接集成技能，实现待办事项与飞书任务的双向同步。自动创建飞书任务、智能解析时间表达式、设置任务负责人，支持任务状态同步和完成管理。使用场景：需要将本地待办事项同步到飞书任务、设置任务截止时间、指派任务负责人、跟踪任务完成状态。",
+          "filePath": "/home/hochoy/.openclaw/skills/feishu-task-integration-skill/SKILL.md",
+          "baseDir": "/home/hochoy/.openclaw/skills/feishu-task-integration-skill",
+          "source": "openclaw-managed",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "feishu-welcome",
+          "description": "Automatically send welcome messages when new members join Feishu group chats. Use when the user wants to set up automatic welcome messages for group chat members joining events. Triggers on phrases like \"set up welcome message\", \"group chat welcome\", \"welcome new members\", \"入群欢迎\", \"欢迎语\".",
+          "filePath": "/home/hochoy/.openclaw/skills/feishu-welcome/SKILL.md",
+          "baseDir": "/home/hochoy/.openclaw/skills/feishu-welcome",
+          "source": "openclaw-managed",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "HTTP",
+          "description": "Use HTTP correctly with proper methods, status codes, headers, and caching.",
+          "filePath": "/home/hochoy/.openclaw/workspace/skills/http/SKILL.md",
+          "baseDir": "/home/hochoy/.openclaw/workspace/skills/http",
+          "source": "openclaw-workspace",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "aliyun-image-gen",
+          "description": "使用阿里云 DashScope 通义万相模型生成图片。支持文生图和垫图（参考图生成）。Use when user wants to generate images using Alibaba Cloud DashScope qwen-image model, including text-to-image and image-to-image generation with reference images.",
+          "filePath": "/home/hochoy/.openclaw/workspace-wechat-assistant/skills/aliyun-image-gen/SKILL.md",
+          "baseDir": "/home/hochoy/.openclaw/workspace-wechat-assistant/skills/aliyun-image-gen",
+          "source": "openclaw-extra",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "wechat-article-publisher",
+          "description": "微信公众号文章完整管理工具；支持提取文章并转换为 Markdown、创建草稿、发布文章、生成封面图片等全流程功能",
+          "filePath": "/home/hochoy/.openclaw/workspace-wechat-assistant/skills/wechat-article-publisher/SKILL.md",
+          "baseDir": "/home/hochoy/.openclaw/workspace-wechat-assistant/skills/wechat-article-publisher",
+          "source": "openclaw-extra",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "desearch-web-search",
+          "description": "Search the web and get real-time SERP-style results with titles, URLs, and snippets. Use this for general web queries when you need current links and information from across the internet.",
+          "filePath": "/home/hochoy/.openclaw/workspace/skills/desearch-web-search/SKILL.md",
+          "baseDir": "/home/hochoy/.openclaw/workspace/skills/desearch-web-search",
+          "source": "openclaw-workspace",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "feishu-doc",
+          "description": "Feishu document read/write operations. Activate when user mentions Feishu docs, cloud docs, or docx links.\n",
+          "filePath": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-doc/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-doc",
+          "source": "openclaw-extra",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "feishu-drive",
+          "description": "Feishu cloud storage file management. Activate when user mentions cloud space, folders, drive.\n",
+          "filePath": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-drive/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-drive",
+          "source": "openclaw-extra",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "feishu-perm",
+          "description": "Feishu permission management for documents and files. Activate when user mentions sharing, permissions, collaborators.\n",
+          "filePath": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-perm/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-perm",
+          "source": "openclaw-extra",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "feishu-wiki",
+          "description": "Feishu knowledge base navigation. Activate when user mentions knowledge base, wiki, or wiki links.\n",
+          "filePath": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-wiki/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-wiki",
+          "source": "openclaw-extra",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "clawhub",
+          "description": "Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed clawhub CLI.",
+          "filePath": "/usr/local/lib/node_modules/openclaw/skills/clawhub/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/clawhub",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "coding-agent",
+          "description": "Delegate coding tasks to Codex, Claude Code, or Pi agents via background process. Use when: (1) building/creating new features or apps, (2) reviewing PRs (spawn in temp dir), (3) refactoring large codebases, (4) iterative coding that needs file exploration. NOT for: simple one-liner fixes (just edit), reading code (use read tool), thread-bound ACP harness requests in chat (for example spawn/run Codex or Claude Code in a Discord thread; use sessions_spawn with runtime:\"acp\"), or any work in ~/clawd workspace (never spawn agents here). Claude Code: use --print --permission-mode bypassPermissions (no PTY). Codex/Pi/OpenCode: pty:true required.",
+          "filePath": "/usr/local/lib/node_modules/openclaw/skills/coding-agent/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/coding-agent",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "healthcheck",
+          "description": "Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).",
+          "filePath": "/usr/local/lib/node_modules/openclaw/skills/healthcheck/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/healthcheck",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "node-connect",
+          "description": "Diagnose OpenClaw node connection and pairing failures for Android, iOS, and macOS companion apps. Use when QR/setup code/manual connect fails, local Wi-Fi works but VPS/tailnet does not, or errors mention pairing required, unauthorized, bootstrap token invalid or expired, gateway.bind, gateway.remote.url, Tailscale, or plugins.entries.device-pair.config.publicUrl.",
+          "filePath": "/usr/local/lib/node_modules/openclaw/skills/node-connect/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/node-connect",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "skill-creator",
+          "description": "Create, edit, improve, or audit AgentSkills. Use when creating a new skill from scratch or when asked to improve, review, audit, tidy up, or clean up an existing skill or SKILL.md file. Also use when editing or restructuring a skill directory (moving files to references/ or scripts/, removing stale content, validating against the AgentSkills spec). Triggers on phrases like \"create a skill\", \"author a skill\", \"tidy up a skill\", \"improve this skill\", \"review the skill\", \"clean up the skill\", \"audit the skill\".",
+          "filePath": "/usr/local/lib/node_modules/openclaw/skills/skill-creator/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/skill-creator",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "weather",
+          "description": "Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.",
+          "filePath": "/usr/local/lib/node_modules/openclaw/skills/weather/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/weather",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        }
+      ],
+      "version": 0
+    },
+    "modelProvider": "kimi-coding",
+    "model": "k2p5"
   }
 }
