@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-23T08:42:36.704Z"
+    "lastTouchedAt": "2026-03-24T02:37:47.471Z"
   },
   "env": {
     "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe"
@@ -95,6 +95,12 @@
         "name": "task-manager",
         "workspace": "/home/hochoy/.openclaw/workspace-task-manager",
         "agentDir": "/home/hochoy/.openclaw/agents/task-manager/agent"
+      },
+      {
+        "id": "cron",
+        "name": "cron",
+        "workspace": "/home/hochoy/.openclaw/workspace-cron",
+        "agentDir": "/home/hochoy/.openclaw/agents/cron/agent"
       }
     ]
   },
