@@ -1,0 +1,37 @@
+{
+  "ai_news": {
+    "domains": [
+      "techcrunch.com",
+      "theverge.com",
+      "venturebeat.com",
+      "arxiv.org",
+      "huggingface.co",
+      "openai.com",
+      "anthropic.com",
+      "googleblog.com",
+      "deepmind.com"
+    ],
+    "keywords": ["AI", "artificial intelligence", "LLM", "machine learning", "GPT", "Claude"]
+  },
+  "ai_agent": {
+    "domains": [
+      "github.com",
+      "langchain.com",
+      "autogen.ai",
+      "crewai.com",
+      "openclaw.ai"
+    ],
+    "keywords": ["AI Agent", "autonomous agent", "multi-agent", "Agentic AI", "OpenClaw"]
+  },
+  "tech": {
+    "domains": [
+      "36kr.com",
+      "pingwest.com",
+      "geekpark.net",
+      "solidot.org",
+      "ifanr.com",
+      "sspai.com"
+    ],
+    "keywords": ["科技", "startup", "融资", "新产品", "发布", "科技新闻"]
+  }
+}

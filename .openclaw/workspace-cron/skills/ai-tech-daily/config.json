@@ -1,0 +1,27 @@
+{
+  "feishu": {
+    "chat_id": "ou_a46824a36fa8086e31b863b652ce8d57"
+  },
+  "schedule": {
+    "time": "07:00",
+    "timezone": "Asia/Shanghai"
+  },
+  "output": {
+    "max_articles": 5,
+    "hot_threshold": 30
+  },
+  "focus_keywords": [
+    "OpenClaw",
+    "Agent",
+    "大模型",
+    "融资",
+    "发布",
+    "GPT",
+    "Claude",
+    "Llama"
+  ],
+  "search": {
+    "provider": "tavily",
+    "api_key_env": "TAVILY_API_KEY"
+  }
+}
