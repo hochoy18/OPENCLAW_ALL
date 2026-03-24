@@ -169,6 +169,13 @@
         "channel": "feishu",
         "accountId": "task-manager"
       }
+    },
+    {
+      "agentId": "cron",
+      "match": {
+        "channel": "feishu",
+        "accountId": "cron"
+      }
     }
   ],
   "commands": {
@@ -182,7 +189,6 @@
   },
   "channels": {
     "feishu": {
-      "defaultAccount": "main",
       "accounts": {
         "main": {
           "enabled": true,
@@ -224,6 +230,15 @@
           "enabled": true,
           "appId": "cli_a94a44dbf67a5cc8",
           "appSecret": "vxKNCuKor7FJT43nRGsJEfiFX3QkSyDO",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
+        "cron": {
+          "enabled": true,
+          "appId": "cli_a94b42ab42f95cd5",
+          "appSecret": "qqDgK86bU52u1NVFWkjuCbxEW4prMY2o",
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",
