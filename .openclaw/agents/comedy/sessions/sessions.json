@@ -1,7 +1,7 @@
 {
   "agent:comedy:feishu:comedy:direct:ou_85dd739a4dc546bdd0342b2ddaaa25b1": {
     "sessionId": "a9ae0e96-6b34-46b7-8f89-dd45063465a2",
-    "updatedAt": 1774331141332,
+    "updatedAt": 1774336552900,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -14,12 +14,12 @@
     "lastTo": "user:ou_85dd739a4dc546bdd0342b2ddaaa25b1",
     "lastAccountId": "comedy",
     "origin": {
-      "label": "ou_85dd739a4dc546bdd0342b2ddaaa25b1",
+      "label": "feishu:ou_85dd739a4dc546bdd0342b2ddaaa25b1",
       "provider": "feishu",
       "surface": "feishu",
       "chatType": "direct",
       "from": "feishu:ou_85dd739a4dc546bdd0342b2ddaaa25b1",
-      "to": "user:ou_85dd739a4dc546bdd0342b2ddaaa25b1",
+      "to": "ou_85dd739a4dc546bdd0342b2ddaaa25b1",
       "accountId": "comedy"
     },
     "sessionFile": "/home/hochoy/.openclaw/agents/comedy/sessions/a9ae0e96-6b34-46b7-8f89-dd45063465a2.jsonl",
@@ -227,7 +227,7 @@
     "contextTokens": 262144,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774331129222,
+      "generatedAt": 1774336528052,
       "sessionId": "a9ae0e96-6b34-46b7-8f89-dd45063465a2",
       "sessionKey": "agent:comedy:feishu:comedy:direct:ou_85dd739a4dc546bdd0342b2ddaaa25b1",
       "provider": "kimi-coding",
@@ -247,8 +247,8 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 34758,
-        "projectContextChars": 13650,
+        "chars": 35038,
+        "projectContextChars": 13930,
         "nonProjectContextChars": 21108
       },
       "injectedWorkspaceFiles": [
@@ -306,6 +306,14 @@
           "missing": false,
           "rawChars": 1449,
           "injectedChars": 1449,
+          "truncated": false
+        },
+        {
+          "name": "MEMORY.md",
+          "path": "/home/hochoy/.openclaw/workspace-comedy/MEMORY.md",
+          "missing": false,
+          "rawChars": 226,
+          "injectedChars": 226,
           "truncated": false
         }
       ],
@@ -605,11 +613,11 @@
         ]
       }
     },
-    "inputTokens": 1558,
-    "outputTokens": 254,
-    "cacheRead": 16640,
+    "inputTokens": 29156,
+    "outputTokens": 172,
+    "cacheRead": 94464,
     "cacheWrite": 0,
-    "totalTokens": 17082,
+    "totalTokens": 94945,
     "totalTokensFresh": true
   },
   "agent:comedy:feishu:group:oc_ad827e966bdde4ad7e375f74c2ba237e": {

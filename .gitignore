@@ -11,3 +11,5 @@
 # 排除.openclaw下的extensions目录及所有内容
 /.openclaw/extensions/
 /.openclaw/extensions/*
+/.openclaw/workspace-comedy/projects/
+/.openclaw/workspace-comedy/projects/*
