@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-25T05:59:46.997Z"
+    "lastTouchedAt": "2026-03-25T08:15:21.718Z"
   },
   "env": {
     "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe",
@@ -182,7 +182,13 @@
         "name": "cron",
         "workspace": "/home/hochoy/.openclaw/workspace-cron",
         "agentDir": "/home/hochoy/.openclaw/agents/cron/agent",
-        "model": "minimax/MiniMax-M2.7"
+        "model": "minimax/MiniMax-M2.7",
+        "heartbeat": {
+          "every": "30m",
+          "target": "feishu",
+          "accountId": "cron",
+          "prompt": "Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK."
+        }
       },
       {
         "id": "comedy",
@@ -190,6 +196,12 @@
         "workspace": "/home/hochoy/.openclaw/workspace-comedy",
         "agentDir": "/home/hochoy/.openclaw/agents/comedy/agent",
         "model": "minimax/MiniMax-M2.7"
+      },
+      {
+        "id": "biology",
+        "name": "biology",
+        "workspace": "/home/hochoy/.openclaw/workspace-biology",
+        "agentDir": "/home/hochoy/.openclaw/agents/biology/agent"
       }
     ]
   },
@@ -272,6 +284,13 @@
         "channel": "feishu",
         "accountId": "comedy"
       }
+    },
+    {
+      "agentId": "biology",
+      "match": {
+        "channel": "feishu",
+        "accountId": "biology"
+      }
     }
   ],
   "commands": {
@@ -293,7 +312,8 @@
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",
-          "requireMention": true
+          "requireMention": true,
+          "agent": "main"
         },
         "demo": {
           "enabled": true,
@@ -302,7 +322,8 @@
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",
-          "requireMention": true
+          "requireMention": true,
+          "agent": "demo"
         },
         "wechat-assistant": {
           "enabled": true,
@@ -311,7 +332,8 @@
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",
-          "requireMention": true
+          "requireMention": true,
+          "agent": "wechat-assistant"
         },
         "coder": {
           "enabled": true,
@@ -320,7 +342,8 @@
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",
-          "requireMention": true
+          "requireMention": true,
+          "agent": "coder"
         },
         "task-manager": {
           "enabled": true,
@@ -329,7 +352,8 @@
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",
-          "requireMention": true
+          "requireMention": true,
+          "agent": "task-manager"
         },
         "cron": {
           "enabled": true,
@@ -338,7 +362,8 @@
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",
-          "requireMention": true
+          "requireMention": true,
+          "agent": "cron"
         },
         "comedy": {
           "enabled": true,
@@ -349,6 +374,16 @@
           "domain": "feishu",
           "requireMention": true,
           "agent": "comedy"
+        },
+        "biology": {
+          "enabled": true,
+          "appId": "cli_a9490de99579dcd5",
+          "appSecret": "yjGM9P3DCTHX4P9Fp0JGCeIljn6dqDHA",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true,
+          "agent": "biology"
         }
       },
       "defaultAccount": "demo"

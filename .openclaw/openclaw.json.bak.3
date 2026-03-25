@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-24T02:37:47.471Z"
+    "lastTouchedAt": "2026-03-24T04:21:08.067Z"
   },
   "env": {
     "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe"
@@ -101,6 +101,12 @@
         "name": "cron",
         "workspace": "/home/hochoy/.openclaw/workspace-cron",
         "agentDir": "/home/hochoy/.openclaw/agents/cron/agent"
+      },
+      {
+        "id": "comedy",
+        "name": "comedy",
+        "workspace": "/home/hochoy/.openclaw/workspace-comedy",
+        "agentDir": "/home/hochoy/.openclaw/agents/comedy/agent"
       }
     ]
   },
@@ -176,6 +182,13 @@
         "channel": "feishu",
         "accountId": "cron"
       }
+    },
+    {
+      "agentId": "comedy",
+      "match": {
+        "channel": "feishu",
+        "accountId": "comedy"
+      }
     }
   ],
   "commands": {
@@ -239,6 +252,15 @@
           "enabled": true,
           "appId": "cli_a94b42ab42f95cd5",
           "appSecret": "qqDgK86bU52u1NVFWkjuCbxEW4prMY2o",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
+        "comedy": {
+          "enabled": true,
+          "appId": "cli_a948ad748379dcc5",
+          "appSecret": "0btmEfUqEotEU9yRyncfGCedX3YgKCqK",
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",

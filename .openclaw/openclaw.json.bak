@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-24T11:42:06.853Z"
+    "lastTouchedAt": "2026-03-25T05:59:46.997Z"
   },
   "env": {
     "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe",
@@ -350,7 +350,8 @@
           "requireMention": true,
           "agent": "comedy"
         }
-      }
+      },
+      "defaultAccount": "demo"
     }
   },
   "gateway": {

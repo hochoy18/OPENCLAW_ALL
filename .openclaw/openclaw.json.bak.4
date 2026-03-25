@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-23T08:42:36.704Z"
+    "lastTouchedAt": "2026-03-24T02:37:47.471Z"
   },
   "env": {
     "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe"
@@ -95,6 +95,12 @@
         "name": "task-manager",
         "workspace": "/home/hochoy/.openclaw/workspace-task-manager",
         "agentDir": "/home/hochoy/.openclaw/agents/task-manager/agent"
+      },
+      {
+        "id": "cron",
+        "name": "cron",
+        "workspace": "/home/hochoy/.openclaw/workspace-cron",
+        "agentDir": "/home/hochoy/.openclaw/agents/cron/agent"
       }
     ]
   },
@@ -163,6 +169,13 @@
         "channel": "feishu",
         "accountId": "task-manager"
       }
+    },
+    {
+      "agentId": "cron",
+      "match": {
+        "channel": "feishu",
+        "accountId": "cron"
+      }
     }
   ],
   "commands": {
@@ -172,11 +185,10 @@
     "ownerDisplay": "raw"
   },
   "session": {
-    "dmScope": "per-channel-peer"
+    "dmScope": "per-account-channel-peer"
   },
   "channels": {
     "feishu": {
-      "defaultAccount": "main",
       "accounts": {
         "main": {
           "enabled": true,
@@ -218,6 +230,15 @@
           "enabled": true,
           "appId": "cli_a94a44dbf67a5cc8",
           "appSecret": "vxKNCuKor7FJT43nRGsJEfiFX3QkSyDO",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
+        "cron": {
+          "enabled": true,
+          "appId": "cli_a94b42ab42f95cd5",
+          "appSecret": "qqDgK86bU52u1NVFWkjuCbxEW4prMY2o",
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",
