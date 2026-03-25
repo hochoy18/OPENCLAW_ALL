@@ -1,10 +1,11 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-24T04:21:08.067Z"
+    "lastTouchedAt": "2026-03-24T11:42:06.853Z"
   },
   "env": {
-    "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe"
+    "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe",
+    "MINIMAX_API_KEY": "sk-cp-dEJDwSZI46V_ys9hSxmyH3MT3kjnYJAkMGQK6fz38Imta8l5FmHU9stkSc8lqrT_xpeglsSQypkntDpu0xuJAYVxmkx_cpo3wEHseh_5pCi_HX_qX9X66-Y"
   },
   "wizard": {
     "lastRunAt": "2026-03-18T06:33:25.317Z",
@@ -20,10 +21,87 @@
       }
     }
   },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "minimax": {
+        "baseUrl": "https://api.minimax.io/anthropic",
+        "apiKey": "${MINIMAX_API_KEY}",
+        "api": "anthropic-messages",
+        "models": [
+          {
+            "id": "MiniMax-M2.7",
+            "name": "MiniMax M2.7",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0.3,
+              "output": 1.2,
+              "cacheRead": 0.03,
+              "cacheWrite": 0.12
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "MiniMax-M2.5",
+            "name": "MiniMax M2.5",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0.3,
+              "output": 1.2,
+              "cacheRead": 0.03,
+              "cacheWrite": 0.12
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "MiniMax-M2.5-highspeed",
+            "name": "MiniMax M2.5 Highspeed",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0.3,
+              "output": 1.2,
+              "cacheRead": 0.03,
+              "cacheWrite": 0.12
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "MiniMax-VL-01",
+            "name": "MiniMax VL-01",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0.3,
+              "output": 1.2,
+              "cacheRead": 0.03,
+              "cacheWrite": 0.12
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
+      }
+    }
+  },
   "agents": {
     "defaults": {
       "model": {
-        "primary": "kimi-coding/k2p5"
+        "primary": "minimax/MiniMax-M2.7"
       },
       "models": {
         "kimi-coding/k2p5": {
@@ -31,6 +109,7 @@
         }
       },
       "workspace": "/home/hochoy/.openclaw/workspace",
+      "timeoutSeconds": 1800,
       "sandbox": {
         "mode": "off"
       }
@@ -38,7 +117,7 @@
     "list": [
       {
         "id": "main",
-        "model": "kimi-coding/k2p5",
+        "model": "minimax/MiniMax-M2.7",
         "tools": {
           "allow": [
             "*"
@@ -55,7 +134,7 @@
         "name": "demo",
         "workspace": "/home/hochoy/.openclaw/workspace-demo",
         "agentDir": "/home/hochoy/.openclaw/agents/demo/agent",
-        "model": "kimi-coding/k2p5",
+        "model": "minimax/MiniMax-M2.7",
         "tools": {
           "allow": [
             "*"
@@ -72,7 +151,7 @@
         "name": "wechat-assistant",
         "workspace": "/home/hochoy/.openclaw/workspace-wechat-assistant",
         "agentDir": "/home/hochoy/.openclaw/agents/wechat-assistant/agent",
-        "model": "kimi-coding/k2p5",
+        "model": "minimax/MiniMax-M2.7",
         "tools": {
           "allow": [
             "*"
@@ -88,25 +167,29 @@
         "id": "coder",
         "name": "coder",
         "workspace": "/home/hochoy/.openclaw/workspace-coder",
-        "agentDir": "/home/hochoy/.openclaw/agents/coder/agent"
+        "agentDir": "/home/hochoy/.openclaw/agents/coder/agent",
+        "model": "minimax/MiniMax-M2.7"
       },
       {
         "id": "task-manager",
         "name": "task-manager",
         "workspace": "/home/hochoy/.openclaw/workspace-task-manager",
-        "agentDir": "/home/hochoy/.openclaw/agents/task-manager/agent"
+        "agentDir": "/home/hochoy/.openclaw/agents/task-manager/agent",
+        "model": "minimax/MiniMax-M2.7"
       },
       {
         "id": "cron",
         "name": "cron",
         "workspace": "/home/hochoy/.openclaw/workspace-cron",
-        "agentDir": "/home/hochoy/.openclaw/agents/cron/agent"
+        "agentDir": "/home/hochoy/.openclaw/agents/cron/agent",
+        "model": "minimax/MiniMax-M2.7"
       },
       {
         "id": "comedy",
         "name": "comedy",
         "workspace": "/home/hochoy/.openclaw/workspace-comedy",
-        "agentDir": "/home/hochoy/.openclaw/agents/comedy/agent"
+        "agentDir": "/home/hochoy/.openclaw/agents/comedy/agent",
+        "model": "minimax/MiniMax-M2.7"
       }
     ]
   },
@@ -264,7 +347,8 @@
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",
-          "requireMention": true
+          "requireMention": true,
+          "agent": "comedy"
         }
       }
     }

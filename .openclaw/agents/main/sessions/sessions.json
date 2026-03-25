@@ -1,30 +1,30 @@
 {
   "agent:main:feishu:group:oc_ad827e966bdde4ad7e375f74c2ba237e": {
     "sessionId": "e4519d43-4e70-43db-bb65-c695250a52bc",
-    "updatedAt": 1774328028455,
+    "updatedAt": 1774348584225,
     "systemSent": true,
     "abortedLastRun": false,
     "displayName": "feishu:g-oc_ad827e966bdde4ad7e375f74c2ba237e",
     "chatType": "group",
     "channel": "feishu",
-    "groupId": "ou_85dd739a4dc546bdd0342b2ddaaa25b1",
+    "groupId": "ou_a40d252df8eedac11a6ca82ca1b65352",
     "subject": "oc_ad827e966bdde4ad7e375f74c2ba237e",
     "deliveryContext": {
       "channel": "feishu",
       "to": "chat:oc_ad827e966bdde4ad7e375f74c2ba237e",
-      "accountId": "comedy"
+      "accountId": "main"
     },
     "lastChannel": "feishu",
     "lastTo": "chat:oc_ad827e966bdde4ad7e375f74c2ba237e",
-    "lastAccountId": "comedy",
+    "lastAccountId": "main",
     "origin": {
       "label": "oc_ad827e966bdde4ad7e375f74c2ba237e",
       "provider": "feishu",
       "surface": "feishu",
       "chatType": "group",
-      "from": "feishu:ou_85dd739a4dc546bdd0342b2ddaaa25b1",
+      "from": "feishu:ou_a40d252df8eedac11a6ca82ca1b65352",
       "to": "chat:oc_ad827e966bdde4ad7e375f74c2ba237e",
-      "accountId": "comedy"
+      "accountId": "main"
     },
     "sessionFile": "/home/hochoy/.openclaw/agents/main/sessions/e4519d43-4e70-43db-bb65-c695250a52bc.jsonl",
     "compactionCount": 0,
@@ -226,16 +226,16 @@
       ],
       "version": 0
     },
-    "modelProvider": "kimi-coding",
-    "model": "k2p5",
-    "contextTokens": 262144,
+    "modelProvider": "minimax",
+    "model": "MiniMax-M2.7",
+    "contextTokens": 200000,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774328014925,
+      "generatedAt": 1774348578636,
       "sessionId": "e4519d43-4e70-43db-bb65-c695250a52bc",
       "sessionKey": "agent:main:feishu:group:oc_ad827e966bdde4ad7e375f74c2ba237e",
-      "provider": "kimi-coding",
-      "model": "k2p5",
+      "provider": "minimax",
+      "model": "MiniMax-M2.7",
       "workspaceDir": "/home/hochoy/.openclaw/workspace",
       "bootstrapMaxChars": 20000,
       "bootstrapTotalMaxChars": 150000,
@@ -251,9 +251,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 35085,
+        "chars": 35572,
         "projectContextChars": 13601,
-        "nonProjectContextChars": 21484
+        "nonProjectContextChars": 21971
       },
       "injectedWorkspaceFiles": [
         {
@@ -506,7 +506,7 @@
           },
           {
             "name": "image",
-            "summaryChars": 260,
+            "summaryChars": 201,
             "schemaChars": 342,
             "propertiesCount": 6
           },
@@ -609,11 +609,11 @@
         ]
       }
     },
-    "inputTokens": 1491,
-    "outputTokens": 328,
-    "cacheRead": 18432,
-    "cacheWrite": 0,
-    "totalTokens": 18954,
+    "inputTokens": 90,
+    "outputTokens": 113,
+    "cacheRead": 9704,
+    "cacheWrite": 13353,
+    "totalTokens": 23147,
     "totalTokensFresh": true
   },
   "agent:main:feishu:comedy:direct:ou_85dd739a4dc546bdd0342b2ddaaa25b1": {
@@ -4223,8 +4223,8 @@
     "cacheWrite": 0
   },
   "agent:main:feishu:main:direct:ou_a40d252df8eedac11a6ca82ca1b65352": {
-    "sessionId": "8a04fc7c-f5cb-4af8-8eb5-c3cfbcb7152b",
-    "updatedAt": 1774344138466,
+    "sessionId": "dfd976ac-d448-468c-b33c-958b4e504c47",
+    "updatedAt": 1774413938113,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -4237,18 +4237,18 @@
     "lastTo": "user:ou_a40d252df8eedac11a6ca82ca1b65352",
     "lastAccountId": "main",
     "origin": {
-      "label": "feishu:ou_a40d252df8eedac11a6ca82ca1b65352",
+      "label": "ou_a40d252df8eedac11a6ca82ca1b65352",
       "provider": "feishu",
       "surface": "feishu",
       "chatType": "direct",
       "from": "feishu:ou_a40d252df8eedac11a6ca82ca1b65352",
-      "to": "ou_a40d252df8eedac11a6ca82ca1b65352",
+      "to": "user:ou_a40d252df8eedac11a6ca82ca1b65352",
       "accountId": "main"
     },
-    "sessionFile": "/home/hochoy/.openclaw/agents/main/sessions/8a04fc7c-f5cb-4af8-8eb5-c3cfbcb7152b.jsonl",
+    "sessionFile": "/home/hochoy/.openclaw/agents/main/sessions/dfd976ac-d448-468c-b33c-958b4e504c47.jsonl",
     "compactionCount": 0,
     "skillsSnapshot": {
-      "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>agent-reach</name>\n    <description>Give your AI agent eyes to see the entire internet. 7500+ GitHub stars. Search and read 14 platforms: Twitter/X, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu (小红书), Douyin (抖音), Weibo (微博), WeChat Articles (微信公众号), LinkedIn, Instagram, RSS, Exa web search, and any web page. One command install, zero config for 8 channels, agent-reach doctor for diagnostics. Use when: (1) user asks to search or read any of these platforms, (2) user shares a URL from any supported platform, (3) user asks to search the web, find information online, or research a topic, (4) user asks to post, comment, or interact on supported platforms, (5) user asks to configure or set up a platform channel. Triggers: &quot;搜推特&quot;, &quot;搜小红书&quot;, &quot;看视频&quot;, &quot;搜一下&quot;, &quot;上网搜&quot;, &quot;帮我查&quot;, &quot;全网搜索&quot;, &quot;search twitter&quot;, &quot;read tweet&quot;, &quot;youtube transcript&quot;, &quot;search reddit&quot;, &quot;read this link&quot;, &quot;看这个链接&quot;, &quot;B站&quot;, &quot;bilibili&quot;, &quot;抖音视频&quot;, &quot;微信文章&quot;, &quot;公众号&quot;, &quot;LinkedIn&quot;, &quot;GitHub issue&quot;, &quot;RSS&quot;, &quot;微博&quot;, &quot;search online&quot;, &quot;web search&quot;, &quot;find information&quot;, &quot;research&quot;, &quot;帮我配&quot;, &quot;configure twitter&quot;, &quot;configure proxy&quot;, &quot;帮我安装&quot;.\n</description>\n    <location>~/.openclaw/workspace/skills/agent-reach/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-task-integration</name>\n    <description>飞书任务对接集成技能，实现待办事项与飞书任务的双向同步。自动创建飞书任务、智能解析时间表达式、设置任务负责人，支持任务状态同步和完成管理。使用场景：需要将本地待办事项同步到飞书任务、设置任务截止时间、指派任务负责人、跟踪任务完成状态。</description>\n    <location>~/.openclaw/skills/feishu-task-integration-skill/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-welcome</name>\n    <description>Automatically send welcome messages when new members join Feishu group chats. Use when the user wants to set up automatic welcome messages for group chat members joining events. Triggers on phrases like &quot;set up welcome message&quot;, &quot;group chat welcome&quot;, &quot;welcome new members&quot;, &quot;入群欢迎&quot;, &quot;欢迎语&quot;.</description>\n    <location>~/.openclaw/skills/feishu-welcome/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>HTTP</name>\n    <description>Use HTTP correctly with proper methods, status codes, headers, and caching.</description>\n    <location>~/.openclaw/workspace/skills/http/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>tavily-search</name>\n    <description>Web search using Tavily&apos;s LLM-optimized API. Returns relevant results with content snippets, scores, and metadata.</description>\n    <location>~/.openclaw/workspace/skills/liang-tavily-search/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>aliyun-image-gen</name>\n    <description>使用阿里云 DashScope 通义万相模型生成图片。支持文生图和垫图（参考图生成）。Use when user wants to generate images using Alibaba Cloud DashScope qwen-image model, including text-to-image and image-to-image generation with reference images.</description>\n    <location>~/.openclaw/workspace-wechat-assistant/skills/aliyun-image-gen/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>wechat-article-publisher</name>\n    <description>微信公众号文章完整管理工具；支持提取文章并转换为 Markdown、创建草稿、发布文章、生成封面图片等全流程功能</description>\n    <location>~/.openclaw/workspace-wechat-assistant/skills/wechat-article-publisher/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>desearch-web-search</name>\n    <description>Search the web and get real-time SERP-style results with titles, URLs, and snippets. Use this for general web queries when you need current links and information from across the internet.</description>\n    <location>~/.openclaw/workspace/skills/desearch-web-search/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-doc</name>\n    <description>Feishu document read/write operations. Activate when user mentions Feishu docs, cloud docs, or docx links.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-doc/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-drive</name>\n    <description>Feishu cloud storage file management. Activate when user mentions cloud space, folders, drive.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-drive/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-perm</name>\n    <description>Feishu permission management for documents and files. Activate when user mentions sharing, permissions, collaborators.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-perm/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-wiki</name>\n    <description>Feishu knowledge base navigation. Activate when user mentions knowledge base, wiki, or wiki links.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-wiki/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>clawhub</name>\n    <description>Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed clawhub CLI.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/clawhub/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>coding-agent</name>\n    <description>Delegate coding tasks to Codex, Claude Code, or Pi agents via background process. Use when: (1) building/creating new features or apps, (2) reviewing PRs (spawn in temp dir), (3) refactoring large codebases, (4) iterative coding that needs file exploration. NOT for: simple one-liner fixes (just edit), reading code (use read tool), thread-bound ACP harness requests in chat (for example spawn/run Codex or Claude Code in a Discord thread; use sessions_spawn with runtime:&quot;acp&quot;), or any work in ~/clawd workspace (never spawn agents here). Claude Code: use --print --permission-mode bypassPermissions (no PTY). Codex/Pi/OpenCode: pty:true required.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/coding-agent/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>node-connect</name>\n    <description>Diagnose OpenClaw node connection and pairing failures for Android, iOS, and macOS companion apps. Use when QR/setup code/manual connect fails, local Wi-Fi works but VPS/tailnet does not, or errors mention pairing required, unauthorized, bootstrap token invalid or expired, gateway.bind, gateway.remote.url, Tailscale, or plugins.entries.device-pair.config.publicUrl.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/node-connect/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create, edit, improve, or audit AgentSkills. Use when creating a new skill from scratch or when asked to improve, review, audit, tidy up, or clean up an existing skill or SKILL.md file. Also use when editing or restructuring a skill directory (moving files to references/ or scripts/, removing stale content, validating against the AgentSkills spec). Triggers on phrases like &quot;create a skill&quot;, &quot;author a skill&quot;, &quot;tidy up a skill&quot;, &quot;improve this skill&quot;, &quot;review the skill&quot;, &quot;clean up the skill&quot;, &quot;audit the skill&quot;.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n</available_skills>",
+      "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>agent-reach</name>\n    <description>Give your AI agent eyes to see the entire internet. 7500+ GitHub stars. Search and read 14 platforms: Twitter/X, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu (小红书), Douyin (抖音), Weibo (微博), WeChat Articles (微信公众号), LinkedIn, Instagram, RSS, Exa web search, and any web page. One command install, zero config for 8 channels, agent-reach doctor for diagnostics. Use when: (1) user asks to search or read any of these platforms, (2) user shares a URL from any supported platform, (3) user asks to search the web, find information online, or research a topic, (4) user asks to post, comment, or interact on supported platforms, (5) user asks to configure or set up a platform channel. Triggers: &quot;搜推特&quot;, &quot;搜小红书&quot;, &quot;看视频&quot;, &quot;搜一下&quot;, &quot;上网搜&quot;, &quot;帮我查&quot;, &quot;全网搜索&quot;, &quot;search twitter&quot;, &quot;read tweet&quot;, &quot;youtube transcript&quot;, &quot;search reddit&quot;, &quot;read this link&quot;, &quot;看这个链接&quot;, &quot;B站&quot;, &quot;bilibili&quot;, &quot;抖音视频&quot;, &quot;微信文章&quot;, &quot;公众号&quot;, &quot;LinkedIn&quot;, &quot;GitHub issue&quot;, &quot;RSS&quot;, &quot;微博&quot;, &quot;search online&quot;, &quot;web search&quot;, &quot;find information&quot;, &quot;research&quot;, &quot;帮我配&quot;, &quot;configure twitter&quot;, &quot;configure proxy&quot;, &quot;帮我安装&quot;.\n</description>\n    <location>~/.openclaw/workspace/skills/agent-reach/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-task-integration</name>\n    <description>飞书任务对接集成技能，实现待办事项与飞书任务的双向同步。自动创建飞书任务、智能解析时间表达式、设置任务负责人，支持任务状态同步和完成管理。使用场景：需要将本地待办事项同步到飞书任务、设置任务截止时间、指派任务负责人、跟踪任务完成状态。</description>\n    <location>~/.openclaw/skills/feishu-task-integration-skill/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-welcome</name>\n    <description>Automatically send welcome messages when new members join Feishu group chats. Use when the user wants to set up automatic welcome messages for group chat members joining events. Triggers on phrases like &quot;set up welcome message&quot;, &quot;group chat welcome&quot;, &quot;welcome new members&quot;, &quot;入群欢迎&quot;, &quot;欢迎语&quot;.</description>\n    <location>~/.openclaw/skills/feishu-welcome/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>HTTP</name>\n    <description>Use HTTP correctly with proper methods, status codes, headers, and caching.</description>\n    <location>~/.openclaw/workspace/skills/http/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>tavily-search</name>\n    <description>Web search using Tavily&apos;s LLM-optimized API. Returns relevant results with content snippets, scores, and metadata.</description>\n    <location>~/.openclaw/workspace/skills/liang-tavily-search/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>aliyun-image-gen</name>\n    <description>使用阿里云 DashScope 通义万相模型生成图片。支持文生图和垫图（参考图生成）。Use when user wants to generate images using Alibaba Cloud DashScope qwen-image model, including text-to-image and image-to-image generation with reference images.</description>\n    <location>~/.openclaw/workspace-wechat-assistant/skills/aliyun-image-gen/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>wechat-article-publisher</name>\n    <description>微信公众号文章完整管理工具；支持提取文章并转换为 Markdown、创建草稿、发布文章、生成封面图片等全流程功能</description>\n    <location>~/.openclaw/workspace-wechat-assistant/skills/wechat-article-publisher/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>desearch-web-search</name>\n    <description>Search the web and get real-time SERP-style results with titles, URLs, and snippets. Use this for general web queries when you need current links and information from across the internet.</description>\n    <location>~/.openclaw/workspace/skills/desearch-web-search/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-doc</name>\n    <description>Feishu document read/write operations. Activate when user mentions Feishu docs, cloud docs, or docx links.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-doc/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-drive</name>\n    <description>Feishu cloud storage file management. Activate when user mentions cloud space, folders, drive.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-drive/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-perm</name>\n    <description>Feishu permission management for documents and files. Activate when user mentions sharing, permissions, collaborators.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-perm/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-wiki</name>\n    <description>Feishu knowledge base navigation. Activate when user mentions knowledge base, wiki, or wiki links.\n</description>\n    <location>/usr/local/lib/node_modules/openclaw/extensions/feishu/skills/feishu-wiki/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>clawhub</name>\n    <description>Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed clawhub CLI.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/clawhub/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>coding-agent</name>\n    <description>Delegate coding tasks to Codex, Claude Code, or Pi agents via background process. Use when: (1) building/creating new features or apps, (2) reviewing PRs (spawn in temp dir), (3) refactoring large codebases, (4) iterative coding that needs file exploration. NOT for: simple one-liner fixes (just edit), reading code (use read tool), thread-bound ACP harness requests in chat (for example spawn/run Codex or Claude Code in a Discord thread; use sessions_spawn with runtime:&quot;acp&quot;), or any work in ~/clawd workspace (never spawn agents here). Claude Code: use --print --permission-mode bypassPermissions (no PTY). Codex/Pi/OpenCode: pty:true required.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/coding-agent/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>node-connect</name>\n    <description>Diagnose OpenClaw node connection and pairing failures for Android, iOS, and macOS companion apps. Use when QR/setup code/manual connect fails, local Wi-Fi works but VPS/tailnet does not, or errors mention pairing required, unauthorized, bootstrap token invalid or expired, gateway.bind, gateway.remote.url, Tailscale, or plugins.entries.device-pair.config.publicUrl.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/node-connect/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create, edit, improve, or audit AgentSkills. Use when creating a new skill from scratch or when asked to improve, review, audit, tidy up, or clean up an existing skill or SKILL.md file. Also use when editing or restructuring a skill directory (moving files to references/ or scripts/, removing stale content, validating against the AgentSkills spec). Triggers on phrases like &quot;create a skill&quot;, &quot;author a skill&quot;, &quot;tidy up a skill&quot;, &quot;improve this skill&quot;, &quot;review the skill&quot;, &quot;clean up the skill&quot;, &quot;audit the skill&quot;.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>video-frames</name>\n    <description>Extract frames or short clips from videos using ffmpeg.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/video-frames/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>/usr/local/lib/node_modules/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n</available_skills>",
       "skills": [
         {
           "name": "agent-reach"
@@ -4306,6 +4306,10 @@
         },
         {
           "name": "skill-creator"
+        },
+        {
+          "name": "video-frames",
+          "requiredEnv": []
         },
         {
           "name": "weather",
@@ -4450,6 +4454,14 @@
           "disableModelInvocation": false
         },
         {
+          "name": "video-frames",
+          "description": "Extract frames or short clips from videos using ffmpeg.",
+          "filePath": "/usr/local/lib/node_modules/openclaw/skills/video-frames/SKILL.md",
+          "baseDir": "/usr/local/lib/node_modules/openclaw/skills/video-frames",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
           "name": "weather",
           "description": "Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.",
           "filePath": "/usr/local/lib/node_modules/openclaw/skills/weather/SKILL.md",
@@ -4462,11 +4474,10 @@
     },
     "modelProvider": "minimax",
     "model": "MiniMax-M2.7",
-    "contextTokens": 200000,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774344102580,
-      "sessionId": "8a04fc7c-f5cb-4af8-8eb5-c3cfbcb7152b",
+      "generatedAt": 1774413931048,
+      "sessionId": "dfd976ac-d448-468c-b33c-958b4e504c47",
       "sessionKey": "agent:main:feishu:main:direct:ou_a40d252df8eedac11a6ca82ca1b65352",
       "provider": "minimax",
       "model": "MiniMax-M2.7",
@@ -4485,9 +4496,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 35651,
+        "chars": 35880,
         "projectContextChars": 13601,
-        "nonProjectContextChars": 22050
+        "nonProjectContextChars": 22279
       },
       "injectedWorkspaceFiles": [
         {
@@ -4548,7 +4559,7 @@
         }
       ],
       "skills": {
-        "promptChars": 8811,
+        "promptChars": 9040,
         "entries": [
           {
             "name": "agent-reach",
@@ -4617,6 +4628,10 @@
           {
             "name": "skill-creator",
             "blockChars": 756
+          },
+          {
+            "name": "video-frames",
+            "blockChars": 226
           },
           {
             "name": "weather",
@@ -4847,12 +4862,13 @@
         ]
       }
     },
-    "inputTokens": 73356,
-    "outputTokens": 1146,
-    "cacheRead": 18359,
-    "cacheWrite": 0,
-    "totalTokens": 55563,
-    "totalTokensFresh": true
+    "cacheRead": 20449,
+    "cacheWrite": 414,
+    "totalTokensFresh": true,
+    "contextTokens": 200000,
+    "inputTokens": 90,
+    "outputTokens": 258,
+    "totalTokens": 20953
   },
   "agent:main:main": {
     "sessionId": "49e73e32-c340-460e-9f2e-6615aefe6d91",

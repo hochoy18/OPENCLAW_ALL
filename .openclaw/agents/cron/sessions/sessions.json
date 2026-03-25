@@ -1,7 +1,7 @@
 {
   "agent:cron:feishu:group:oc_ad827e966bdde4ad7e375f74c2ba237e": {
     "sessionId": "1d266f4b-2aa0-4357-bb26-f07e7736dd8e",
-    "updatedAt": 1774327941295,
+    "updatedAt": 1774348584218,
     "systemSent": true,
     "abortedLastRun": false,
     "displayName": "feishu:g-oc_ad827e966bdde4ad7e375f74c2ba237e",
@@ -226,16 +226,16 @@
       ],
       "version": 0
     },
-    "modelProvider": "kimi-coding",
-    "model": "k2p5",
-    "contextTokens": 262144,
+    "modelProvider": "minimax",
+    "model": "MiniMax-M2.7",
+    "contextTokens": 200000,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774327936091,
+      "generatedAt": 1774348578648,
       "sessionId": "1d266f4b-2aa0-4357-bb26-f07e7736dd8e",
       "sessionKey": "agent:cron:feishu:group:oc_ad827e966bdde4ad7e375f74c2ba237e",
-      "provider": "kimi-coding",
-      "model": "k2p5",
+      "provider": "minimax",
+      "model": "MiniMax-M2.7",
       "workspaceDir": "/home/hochoy/.openclaw/workspace-cron",
       "bootstrapMaxChars": 20000,
       "bootstrapTotalMaxChars": 150000,
@@ -251,9 +251,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 34945,
-        "projectContextChars": 13636,
-        "nonProjectContextChars": 21309
+        "chars": 35521,
+        "projectContextChars": 13723,
+        "nonProjectContextChars": 21798
       },
       "injectedWorkspaceFiles": [
         {
@@ -268,8 +268,8 @@
           "name": "SOUL.md",
           "path": "/home/hochoy/.openclaw/workspace-cron/SOUL.md",
           "missing": false,
-          "rawChars": 1664,
-          "injectedChars": 1664,
+          "rawChars": 301,
+          "injectedChars": 301,
           "truncated": false
         },
         {
@@ -300,8 +300,8 @@
           "name": "HEARTBEAT.md",
           "path": "/home/hochoy/.openclaw/workspace-cron/HEARTBEAT.md",
           "missing": false,
-          "rawChars": 167,
-          "injectedChars": 167,
+          "rawChars": 490,
+          "injectedChars": 490,
           "truncated": false
         },
         {
@@ -310,6 +310,14 @@
           "missing": false,
           "rawChars": 1449,
           "injectedChars": 1449,
+          "truncated": false
+        },
+        {
+          "name": "MEMORY.md",
+          "path": "/home/hochoy/.openclaw/workspace-cron/MEMORY.md",
+          "missing": false,
+          "rawChars": 1075,
+          "injectedChars": 1075,
           "truncated": false
         }
       ],
@@ -506,7 +514,7 @@
           },
           {
             "name": "image",
-            "summaryChars": 260,
+            "summaryChars": 201,
             "schemaChars": 342,
             "propertiesCount": 6
           },
@@ -609,16 +617,16 @@
         ]
       }
     },
-    "inputTokens": 7865,
-    "outputTokens": 89,
-    "cacheRead": 8448,
-    "cacheWrite": 0,
-    "totalTokens": 16313,
+    "inputTokens": 90,
+    "outputTokens": 64,
+    "cacheRead": 9704,
+    "cacheWrite": 10751,
+    "totalTokens": 20545,
     "totalTokensFresh": true
   },
   "agent:cron:feishu:cron:direct:ou_a46824a36fa8086e31b863b652ce8d57": {
     "sessionId": "f8de51de-e7ff-4e1e-bdf0-7aaf4904c48d",
-    "updatedAt": 1774343195859,
+    "updatedAt": 1774348519041,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -851,15 +859,15 @@
       "version": 1774331505208
     },
     "modelProvider": "minimax",
-    "model": "MiniMax-M2.7",
+    "model": "MiniMax-M2.7-highspeed",
     "contextTokens": 200000,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774343181438,
+      "generatedAt": 1774348491610,
       "sessionId": "f8de51de-e7ff-4e1e-bdf0-7aaf4904c48d",
       "sessionKey": "agent:cron:feishu:cron:direct:ou_a46824a36fa8086e31b863b652ce8d57",
       "provider": "minimax",
-      "model": "MiniMax-M2.7",
+      "model": "MiniMax-M2.7-highspeed",
       "workspaceDir": "/home/hochoy/.openclaw/workspace-cron",
       "bootstrapMaxChars": 20000,
       "bootstrapTotalMaxChars": 150000,
@@ -875,9 +883,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 35548,
+        "chars": 35568,
         "projectContextChars": 13723,
-        "nonProjectContextChars": 21825
+        "nonProjectContextChars": 21845
       },
       "injectedWorkspaceFiles": [
         {
@@ -1249,8 +1257,7 @@
     "outputTokens": 332,
     "cacheRead": 9704,
     "cacheWrite": 51286,
-    "totalTokens": 61080,
-    "totalTokensFresh": true
+    "totalTokensFresh": false
   },
   "agent:cron:feishu:direct:ou_a46824a36fa8086e31b863b652ce8d57": {
     "sessionId": "b8e9cf0b-dcfb-4762-88d8-f909f2ea636c",

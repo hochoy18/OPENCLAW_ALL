@@ -19,23 +19,8 @@
             "cacheWrite": 0.12
           },
           "contextWindow": 200000,
-          "maxTokens": 8192
-        },
-        {
-          "id": "MiniMax-M2.7-highspeed",
-          "name": "MiniMax M2.7 Highspeed",
-          "reasoning": true,
-          "input": [
-            "text"
-          ],
-          "cost": {
-            "input": 0.3,
-            "output": 1.2,
-            "cacheRead": 0.03,
-            "cacheWrite": 0.12
-          },
-          "contextWindow": 200000,
-          "maxTokens": 8192
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
         },
         {
           "id": "MiniMax-M2.5",
@@ -51,7 +36,8 @@
             "cacheWrite": 0.12
           },
           "contextWindow": 200000,
-          "maxTokens": 8192
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
         },
         {
           "id": "MiniMax-M2.5-highspeed",
@@ -67,7 +53,8 @@
             "cacheWrite": 0.12
           },
           "contextWindow": 200000,
-          "maxTokens": 8192
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
         },
         {
           "id": "MiniMax-VL-01",
@@ -84,7 +71,8 @@
             "cacheWrite": 0.12
           },
           "contextWindow": 200000,
-          "maxTokens": 8192
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
         }
       ],
       "apiKey": "MINIMAX_API_KEY"

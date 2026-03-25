@@ -1,7 +1,7 @@
 {
   "agent:wechat-assistant:feishu:group:oc_ad827e966bdde4ad7e375f74c2ba237e": {
     "sessionId": "b43dbea5-137e-40fe-8269-6ce89420ed48",
-    "updatedAt": 1774327946689,
+    "updatedAt": 1774348584114,
     "systemSent": true,
     "abortedLastRun": false,
     "displayName": "feishu:g-oc_ad827e966bdde4ad7e375f74c2ba237e",
@@ -237,16 +237,16 @@
       ],
       "version": 0
     },
-    "modelProvider": "kimi-coding",
-    "model": "k2p5",
-    "contextTokens": 262144,
+    "modelProvider": "minimax",
+    "model": "MiniMax-M2.7",
+    "contextTokens": 200000,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774327940326,
+      "generatedAt": 1774348578649,
       "sessionId": "b43dbea5-137e-40fe-8269-6ce89420ed48",
       "sessionKey": "agent:wechat-assistant:feishu:group:oc_ad827e966bdde4ad7e375f74c2ba237e",
-      "provider": "kimi-coding",
-      "model": "k2p5",
+      "provider": "minimax",
+      "model": "MiniMax-M2.7",
       "workspaceDir": "/home/hochoy/.openclaw/workspace-wechat-assistant",
       "bootstrapMaxChars": 20000,
       "bootstrapTotalMaxChars": 150000,
@@ -262,9 +262,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 35873,
-        "projectContextChars": 14191,
-        "nonProjectContextChars": 21682
+        "chars": 36421,
+        "projectContextChars": 14250,
+        "nonProjectContextChars": 22171
       },
       "injectedWorkspaceFiles": [
         {
@@ -303,8 +303,8 @@
           "name": "USER.md",
           "path": "/home/hochoy/.openclaw/workspace-wechat-assistant/USER.md",
           "missing": false,
-          "rawChars": 474,
-          "injectedChars": 474,
+          "rawChars": 318,
+          "injectedChars": 318,
           "truncated": false
         },
         {
@@ -327,8 +327,8 @@
           "name": "MEMORY.md",
           "path": "/home/hochoy/.openclaw/workspace-wechat-assistant/MEMORY.md",
           "missing": false,
-          "rawChars": 230,
-          "injectedChars": 230,
+          "rawChars": 445,
+          "injectedChars": 445,
           "truncated": false
         }
       ],
@@ -529,7 +529,7 @@
           },
           {
             "name": "image",
-            "summaryChars": 260,
+            "summaryChars": 201,
             "schemaChars": 342,
             "propertiesCount": 6
           },
@@ -632,18 +632,18 @@
         ]
       }
     },
-    "inputTokens": 7419,
-    "outputTokens": 108,
-    "cacheRead": 9216,
-    "cacheWrite": 0,
-    "totalTokens": 16635,
+    "inputTokens": 90,
+    "outputTokens": 81,
+    "cacheRead": 9704,
+    "cacheWrite": 10772,
+    "totalTokens": 20566,
     "totalTokensFresh": true
   },
   "agent:wechat-assistant:feishu:wechat-assistant:direct:ou_7f442bef1a102e6c203ad4e2d1a86e69": {
     "sessionId": "7c7d0634-e8e3-48ba-a924-7c6cbc5f3e36",
-    "updatedAt": 1774343856105,
+    "updatedAt": 1774348140673,
     "systemSent": true,
-    "abortedLastRun": true,
+    "abortedLastRun": false,
     "chatType": "direct",
     "deliveryContext": {
       "channel": "feishu",
@@ -886,14 +886,14 @@
       "version": 0
     },
     "modelProvider": "minimax",
-    "model": "MiniMax-M2.7",
+    "model": "MiniMax-M2.7-highspeed",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774343839009,
+      "generatedAt": 1774348112005,
       "sessionId": "7c7d0634-e8e3-48ba-a924-7c6cbc5f3e36",
       "sessionKey": "agent:wechat-assistant:feishu:wechat-assistant:direct:ou_7f442bef1a102e6c203ad4e2d1a86e69",
       "provider": "minimax",
-      "model": "MiniMax-M2.7",
+      "model": "MiniMax-M2.7-highspeed",
       "workspaceDir": "/home/hochoy/.openclaw/workspace-wechat-assistant",
       "bootstrapMaxChars": 20000,
       "bootstrapTotalMaxChars": 150000,
@@ -909,9 +909,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 36599,
-        "projectContextChars": 14406,
-        "nonProjectContextChars": 22193
+        "chars": 36463,
+        "projectContextChars": 14250,
+        "nonProjectContextChars": 22213
       },
       "injectedWorkspaceFiles": [
         {
@@ -950,8 +950,8 @@
           "name": "USER.md",
           "path": "/home/hochoy/.openclaw/workspace-wechat-assistant/USER.md",
           "missing": false,
-          "rawChars": 474,
-          "injectedChars": 474,
+          "rawChars": 318,
+          "injectedChars": 318,
           "truncated": false
         },
         {
@@ -1283,15 +1283,12 @@
         ]
       }
     },
-    "cacheRead": 18678,
-    "cacheWrite": 0,
-    "totalTokensFresh": true,
+    "cacheRead": 0,
+    "cacheWrite": 20994,
+    "totalTokensFresh": false,
     "contextTokens": 200000,
-    "inputTokens": 2227,
-    "outputTokens": 308,
-    "totalTokens": 20815,
-    "abortCutoffMessageSid": "om_x100b5311248a7884c4950157cd3d9a3",
-    "abortCutoffTimestamp": 1774343856098
+    "inputTokens": 90,
+    "outputTokens": 2040
   },
   "agent:wechat-assistant:feishu:direct:ou_7f442bef1a102e6c203ad4e2d1a86e69": {
     "sessionId": "2ed230f8-ca2d-4704-8cca-5d4336d5f3a0",
