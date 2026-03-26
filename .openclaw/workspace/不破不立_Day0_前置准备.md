@@ -40,7 +40,8 @@
 
 ### 事项3：注册穿山甲广告平台【你操作，与事项1同步开始】
 
-- 地址：ad.toutiao.com
+- 地址：www.csjplatform.com（穿山甲全球开发者平台）
+- 广告投放平台：ad.oceanengine.com
 - 类型：小游戏开发者
 - 耗时：1-2天（注册+审核）
 - 产出：Ad Unit ID（广告变现必需）
