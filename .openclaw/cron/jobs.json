@@ -31,6 +31,35 @@
         "lastDeliveryStatus": "unknown",
         "consecutiveErrors": 1
       }
+    },
+    {
+      "id": "d88ee37a-c93a-4104-a2d3-af155e77eb28",
+      "agentId": "demo",
+      "name": "每日23点记忆总结",
+      "description": "每天23:00读取当日session，总结工作内容，写入memory并发送给你",
+      "enabled": true,
+      "createdAtMs": 1774500778710,
+      "updatedAtMs": 1774500853742,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 23 * * *",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "请执行每日记忆任务：1. 首先确定今日日期（YYYY-MM-DD格式）；2. 读取今日00:00-23:00的session历史（sessionKey: agent:demo:feishu:demo:direct:ou_0bc2f0bdf4be8039599fe8c4967425a8）；3. 提取关键内容（做了什么、产出、决策）；4. 写入 [workspace]/memory/<今日日期>.md；5. 用飞书消息发送一份总结给用户",
+        "timeoutSeconds": 300
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "user:ou_0bc2f0bdf4be8039599fe8c4967425a8"
+      },
+      "state": {
+        "nextRunAtMs": 1774537200000
+      }
     }
   ]
 }
