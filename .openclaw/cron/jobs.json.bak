@@ -39,7 +39,7 @@
       "description": "每天23:00读取当日session，总结工作内容，写入memory并发送给你",
       "enabled": true,
       "createdAtMs": 1774500778710,
-      "updatedAtMs": 1774500778710,
+      "updatedAtMs": 1774500853742,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -49,13 +49,125 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "请执行每日记忆任务：1. 读取今日session历史（sessionKey: agent:demo:feishu:demo:direct:ou_0bc2f0bdf4be8039599fe8c4967425a8）；2. 提取关键内容（做了什么、产出、决策）；3. 写入 [workspace]/memory/YYYY-MM-DD.md；4. 用飞书消息发送一份总结给用户",
+        "message": "请执行每日记忆任务：1. 首先确定今日日期（YYYY-MM-DD格式）；2. 读取今日00:00-23:00的session历史（sessionKey: agent:demo:feishu:demo:direct:ou_0bc2f0bdf4be8039599fe8c4967425a8）；3. 提取关键内容（做了什么、产出、决策）；4. 写入 [workspace]/memory/<今日日期>.md；5. 用飞书消息发送一份总结给用户",
         "timeoutSeconds": 300
       },
       "delivery": {
         "mode": "announce",
         "channel": "feishu",
         "to": "user:ou_0bc2f0bdf4be8039599fe8c4967425a8"
+      },
+      "state": {
+        "nextRunAtMs": 1774537200000
+      }
+    },
+    {
+      "id": "4b57dcb5-4270-4dd7-8608-e62e97d4f3dc",
+      "agentId": "coder",
+      "name": "每日23点记忆总结",
+      "description": "每天23:00读取当日session，总结工作内容，写入memory并发送给你",
+      "enabled": true,
+      "createdAtMs": 1774502249561,
+      "updatedAtMs": 1774502249561,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 23 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "请执行每日记忆任务：1. 首先确定今日日期（YYYY-MM-DD格式）；2. 读取今日00:00-23:00的session历史（sessionKey: agent:coder:feishu:coder:direct:ou_a40d252df8eedac11a6ca82ca1b65352）；3. 提取关键内容（做了什么、产出、决策）；4. 写入 [workspace]/memory/<今日日期>.md；5. 用飞书消息发送一份总结给用户",
+        "timeoutSeconds": 300
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "user:ou_a40d252df8eedac11a6ca82ca1b65352"
+      },
+      "state": {
+        "nextRunAtMs": 1774537200000
+      }
+    },
+    {
+      "id": "ebc50502-97d6-4023-bcc1-2636133ae5b0",
+      "agentId": "comedy",
+      "name": "每日23点记忆总结",
+      "description": "每天23:00读取当日session，总结工作内容，写入memory并发送给你",
+      "enabled": true,
+      "createdAtMs": 1774502264502,
+      "updatedAtMs": 1774502264502,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 23 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "请执行每日记忆任务：1. 首先确定今日日期（YYYY-MM-DD格式）；2. 读取今日00:00-23:00的session历史（sessionKey: agent:comedy:feishu:comedy:direct:ou_a40d252df8eedac11a6ca82ca1b65352）；3. 提取关键内容（做了什么、产出、决策）；4. 写入 [workspace]/memory/<今日日期>.md；5. 用飞书消息发送一份总结给用户",
+        "timeoutSeconds": 300
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "user:ou_a40d252df8eedac11a6ca82ca1b65352"
+      },
+      "state": {
+        "nextRunAtMs": 1774537200000
+      }
+    },
+    {
+      "id": "ae73d08d-daec-4f76-b627-19c5e13045bb",
+      "agentId": "cron",
+      "name": "每日23点记忆总结",
+      "description": "每天23:00读取当日session，总结工作内容，写入memory并发送给你",
+      "enabled": true,
+      "createdAtMs": 1774502279800,
+      "updatedAtMs": 1774502279800,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 23 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "请执行每日记忆任务：1. 首先确定今日日期（YYYY-MM-DD格式）；2. 读取今日00:00-23:00的session历史（sessionKey: agent:cron:feishu:cron:direct:ou_a40d252df8eedac11a6ca82ca1b65352）；3. 提取关键内容（做了什么、产出、决策）；4. 写入 [workspace]/memory/<今日日期>.md；5. 用飞书消息发送一份总结给用户",
+        "timeoutSeconds": 300
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "user:ou_a40d252df8eedac11a6ca82ca1b65352"
+      },
+      "state": {
+        "nextRunAtMs": 1774537200000
+      }
+    },
+    {
+      "id": "91c3c8a9-e52e-4fce-a8cf-80c1b0680563",
+      "agentId": "task-manager",
+      "name": "每日23点记忆总结",
+      "description": "每天23:00读取当日session，总结工作内容，写入memory并发送给你",
+      "enabled": true,
+      "createdAtMs": 1774502296730,
+      "updatedAtMs": 1774502296730,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 23 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "请执行每日记忆任务：1. 首先确定今日日期（YYYY-MM-DD格式）；2. 读取今日00:00-23:00的session历史（sessionKey: agent:task-manager:feishu:task-manager:direct:ou_a40d252df8eedac11a6ca82ca1b65352）；3. 提取关键内容（做了什么、产出、决策）；4. 写入 [workspace]/memory/<今日日期>.md；5. 用飞书消息发送一份总结给用户",
+        "timeoutSeconds": 300
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "user:ou_a40d252df8eedac11a6ca82ca1b65352"
       },
       "state": {
         "nextRunAtMs": 1774537200000
