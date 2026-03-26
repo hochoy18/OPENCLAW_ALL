@@ -187,7 +187,7 @@
 
 3. GameManager.ts 中实现关卡切换：
    - onLevelComplete() → 显示结算界面 → 存储进度 → 返回 LevelSelect
-   - onLevelFailed() → 显示失败界面 → 提供重新开始/看广告复活
+   - onLevelFailed() → 显示失败界面 → 提供重新开始
 
 完成后报告关卡加载流程。
 ```
