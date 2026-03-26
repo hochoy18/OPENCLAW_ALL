@@ -2,6 +2,11 @@
 
 Skills define _how_ tools work. This file is for _your_ specifics — the stuff that's unique to your setup.
 
+## MiniMax API
+
+- **MINIMAX_API_KEY:** `sk-cp-dEJDwSZI46V_ys9hSxmyH3MT3kjnYJAkMGQK6fz38Imta8l5FmHU9stkSc8lqrT_xpeglsSQypkntDpu0xuJAYVxmkx_cpo3wEHseh_5pCi_HX_qX9X66-Y`
+- **MINIMAX_MUSIC_API_KEY:** _(待设置)_
+
 ## What Goes Here
 
 Things like:

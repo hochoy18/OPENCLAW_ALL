@@ -13,3 +13,5 @@
 /.openclaw/extensions/*
 /.openclaw/workspace-comedy/projects/
 /.openclaw/workspace-comedy/projects/*
+.openclaw/agents/**/sessions/
+

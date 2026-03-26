@@ -37,4 +37,12 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 
 ---
 
-Add whatever helps you do your job. This is your cheat sheet.
+## Skills 安装目录
+
+**重要规则：** 所有通过 Clawhub 安装的 skill，必须安装到：
+
+```
+/home/hochoy/.openclaw/skills/
+```
+
+这是全局共享的 skills 目录，所有 agent 都能访问。

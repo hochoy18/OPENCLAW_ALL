@@ -24,6 +24,66 @@
     "feishu-task-integration-skill": {
       "version": "1.0.0",
       "installedAt": 1774286360028
+    },
+    "minimax-speech": {
+      "version": "1.0.0",
+      "installedAt": 1774440340114
+    },
+    "mm-music-maker": {
+      "version": "1.0.0",
+      "installedAt": 1774440830517
+    },
+    "hailuo-video-generator": {
+      "version": "1.0.0",
+      "installedAt": 1774441544721
+    },
+    "minimax-docx": {
+      "version": "1.0.0",
+      "installedAt": 1774441695908
+    },
+    "safe-config-momo": {
+      "version": "1.0.0",
+      "installedAt": 1774441877907
+    },
+    "claude-code-minimax": {
+      "version": "1.0.0",
+      "installedAt": 1774442295786
+    },
+    "minimax-coding-plan": {
+      "version": "0.1.1",
+      "installedAt": 1774442461243
+    },
+    "mini-agent": {
+      "version": "1.0.0",
+      "installedAt": 1774442585082
+    },
+    "wavespeed-minimax-speech-26": {
+      "version": "1.0.0",
+      "installedAt": 1774443007717
+    },
+    "echo-seed": {
+      "version": "1.0.1",
+      "installedAt": 1774443144381
+    },
+    "ai-dev-tools": {
+      "version": "1.0.3",
+      "installedAt": 1774443401402
+    },
+    "minimax-coding-plan-tool": {
+      "version": "1.0.3",
+      "installedAt": 1774443456952
+    },
+    "togetherai-tts": {
+      "version": "1.0.1",
+      "installedAt": 1774443603874
+    },
+    "mm-easy-voice": {
+      "version": "1.0.2",
+      "installedAt": 1774443641695
+    },
+    "opusflame-deep-research": {
+      "version": "2.0.0",
+      "installedAt": 1774443766156
     }
   }
 }

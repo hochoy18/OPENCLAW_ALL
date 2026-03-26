@@ -112,7 +112,8 @@
       "timeoutSeconds": 1800,
       "sandbox": {
         "mode": "off"
-      }
+      },
+      "pdfMaxBytesMb": 50
     },
     "list": [
       {
