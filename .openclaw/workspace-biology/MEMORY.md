@@ -33,9 +33,9 @@
 
 ## 已加载资源
 - **高中生物必修1《分子与细胞》电子课本**（人教版，146页，30MB PDF）
-  - 存放路径：`/home/hochoy/.openclaw/workspace-biology/biology-textbook.pdf`
-  - 知识库摘要：`/home/hochoy/.openclaw/workspace-biology/knowledge-base.md`
-  - 包含：全书章节结构、核心知识点、术语表
+  - 存放路径：`/home/hochoy/.openclaw/workspace-biology/knowledge/biology-textbook.pdf`
+  - 知识库摘要：`/home/hochoy/.openclaw/workspace-biology/knowledge/knowledge-base.md`
+  - 包含：全书章节结构、核心知识点、术语表、科学史、实验汇总
 
 ## 发送图片规范
 - **不要发路径文字**，直接发送图片文件到聊天框
