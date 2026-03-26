@@ -24,7 +24,7 @@
 | 依赖项 | 对应 | 负责方 | 状态 |
 |--------|------|--------|------|
 | Day 5-10 Alpha 验收通过 | Day 5-10 | 你审核 | 待完成 |
-| Day 0 美术素材（完整） | Day 0 事项3 | 我生成 | 待完成 |
+| Day 0 美术素材（完整） | Day 0 事项4 | 我生成 | 待完成 |
 
 ---
 
@@ -131,7 +131,7 @@ Level 28: budget=50, targets=3, materials=["steel","rope","explosive"], projecti
 Level 29: budget=40, targets=3, materials=["wood","steel","rope"], projectiles=["stone","dumbbell","firework"]
 - 极高难度
 
-Level 30 (最终Boss): budget=30, targets=3, materials=["wood","steel","rope","explosive"], projectiles=["stone","dumbbell","firework"]
+Level 30 (最终Boss): budget=30, targets=4, materials=["wood","steel","rope","explosive"], projectiles=["stone","dumbbell","firework"]
 - 极限挑战：极低预算+4个目标+全部材料+全部投掷物
 
 完成后报告 Chapter3 配置。
@@ -236,7 +236,6 @@ Level 30 (最终Boss): budget=30, targets=3, materials=["wood","steel","rope","e
 
 2. 分享回调：
    - 分享成功后，奖励玩家 50 金币
-   - ⚠️ 注：无广告版暂无奖励来源，v1先做功能，奖励机制在广告接入后补充
    - 使用 wx.showShareMenu 配置分享菜单
 
 3. 好友排行（轻量版）：
