@@ -245,9 +245,11 @@ footer a:hover{color:var(--text)}
   <div class="mbox">
     <div class="mtitle" data-zh="设置 API Key" data-en="Set API Key">设置 API Key</div>
     <button class="mclose" onclick="closeModal()">×</button>
-    <label class="mlabel" data-zh="MiniMax API Key" data-en="MiniMax API Key">MiniMax API Key</label>
-    <input type="password" class="minput" id="akInput" placeholder="eyJh...">
-    <div style="font-size:11px;color:var(--muted);margin-bottom:12px" data-zh="仅存储在浏览器本地，不会上传到任何服务器" data-en="Stored locally in your browser only">仅存储在浏览器本地，不会上传到任何服务器</div>
+    <label class="mlabel" data-zh="Group ID" data-en="Group ID">Group ID</label>
+    <input type="text" class="minput" id="gidInput" data-zh-placeholder="从 MiniMax 控制台获取 Group ID" data-en-placeholder="Get Group ID from MiniMax console" placeholder="sk-cp-xxxxx">
+    <label class="mlabel" data-zh="API Key（Secret）" data-en="API Key (Secret)" style="margin-top:10px">API Key（Secret）</label>
+    <input type="password" class="minput" id="keyInput" data-zh-placeholder="API Secret" data-en-placeholder="API Secret" placeholder="••••••••">
+    <div style="font-size:11px;color:var(--muted);margin:10px 0 12px" data-zh="仅存储在浏览器本地，不会上传到任何服务器" data-en="Stored locally in your browser only">仅存储在浏览器本地，不会上传到任何服务器</div>
     <button class="msave" onclick="saveKey()" data-zh="保存并使用" data-en="Save Use">保存并使用</button>
     <div class="mdel"><button onclick="delKey()" data-zh="删除 Key" data-en="Delete Key">删除 Key</button></div>
   </div>
@@ -256,7 +258,12 @@ footer a:hover{color:var(--text)}
 <div class="toast" id="toast"></div>
 
 <script>
-var L="zh",AK=localStorage.getItem("vp_ak")||"",selVoice="Chinese (Mandarin)_Warm_Girl",selFmt="mp3";
+var L="zh",GID="",KEY="",selVoice="Chinese (Mandarin)_Warm_Girl",selFmt="mp3";
+(function loadAK(){
+  var s=localStorage.getItem("vp_ak");
+  if(!s)return;
+  try{var j=JSON.parse(s);GID=j.gid||"";KEY=j.key||"";}catch(e){}
+})();
 var auUrl=null,auBlob=null,audioEl=null,playing=false,ufile=null;
 
 var VOICES=[
@@ -372,14 +379,25 @@ function toast(msg,type){
   tTimer=setTimeout(function(){t.classList.remove("on");},3200);
 }
 
-function openModal(){document.getElementById("modal").classList.add("on");document.getElementById("akInput").value=AK;document.getElementById("akInput").focus();}
+function openModal(){
+  document.getElementById("modal").classList.add("on");
+  document.getElementById("gidInput").value=GID;
+  document.getElementById("keyInput").value=KEY;
+  document.getElementById("gidInput").focus();
+}
 function closeModal(){document.getElementById("modal").classList.remove("on");}
-function saveKey(){var v=document.getElementById("akInput").value.trim();AK=v;localStorage.setItem("vp_ak",v);updAKBtn();closeModal();toast(L==="zh"?"已保存":"Saved","ok");}
-function delKey(){AK="";localStorage.removeItem("vp_ak");updAKBtn();closeModal();toast(L==="zh"?"已删除":"Deleted");}
-function updAKBtn(){var btn=document.getElementById("akBtn");if(AK){btn.classList.add("set");btn.textContent="✓ API Key";}else{btn.classList.remove("set");btn.textContent="API Key";}}
+function saveKey(){
+  GID=document.getElementById("gidInput").value.trim();
+  KEY=document.getElementById("keyInput").value.trim();
+  localStorage.setItem("vp_ak",JSON.stringify({gid:GID,key:KEY}));
+  updAKBtn();closeModal();
+  toast(L==="zh"?"已保存":"Saved","ok");
+}
+function delKey(){GID="";KEY="";localStorage.removeItem("vp_ak");updAKBtn();closeModal();toast(L==="zh"?"已删除":"Deleted");}
+function updAKBtn(){var btn=document.getElementById("akBtn");if(GID&&KEY){btn.classList.add("set");btn.textContent="✓ API Key";}else{btn.classList.remove("set");btn.textContent="API Key";}}
 
 async function prevVoice(voiceId,btn){
-  if(!AK){toast(L==="zh"?"请先设置 API Key":"Please set API Key first","err");return;}
+  if(!GID||!KEY){toast(L==="zh"?"请先设置 API Key":"Please set API Key first","err");return;}
   var texts={zh:"你好，这是一条语音预览。",en:"Hello, this is a voice preview."};
   var text=texts[L]||texts.zh;
   btn.textContent="⏳";
@@ -399,7 +417,7 @@ async function callT2A(text,voiceId,fmt){
   var pit=parseInt(document.getElementById("pit").value);
   var model=voiceId.startsWith("male-qn-")?"speech-02-hd":"speech-02";
   var payload={model:model,text:text,voice_setting:{voice_id:voiceId},audio_setting:{sample_rate:48000,bitrate:128000,format:fmt},speed:spd,pitch:pit};
-  var res=await fetch("https://api.minimax.io/v1/t2a_v2?GroupId="+encodeURIComponent(AK),{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+AK},body:JSON.stringify(payload)});
+  var res=await fetch("https://api.minimax.io/v1/t2a_v2?GroupId="+encodeURIComponent(GID),{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+GID+":"+KEY},body:JSON.stringify(payload)});
   if(!res.ok){var err=await res.text();throw new Error(err);}
   var ct=res.headers.get("Content-Type")||"";
   if(ct.includes("application/json")){var j=await res.json();throw new Error(j.base_resp?j.base_resp.ret_msg:j.message||"error");}
@@ -409,7 +427,7 @@ async function callT2A(text,voiceId,fmt){
 async function genSpeech(){
   var text=document.getElementById("tText").value.trim();
   if(!text){toast(L==="zh"?"请输入文字":"Please enter text","err");return;}
-  if(!AK){toast(L==="zh"?"请先设置 API Key":"Please set API Key first","err");return;}
+  if(!GID||!KEY){toast(L==="zh"?"请先设置 API Key":"Please set API Key first","err");return;}
   var btn=document.getElementById("genBtn");
   btn.classList.add("load");btn.disabled=true;
   try{
@@ -457,9 +475,9 @@ async function doClone(){
   var fd=new FormData();
   fd.append("file",ufile);
   fd.append("voice_id",vid);
-  fd.append("group_id",AK);
+  fd.append("group_id",GID);
   try{
-    var res=await fetch("https://api.minimax.io/v1/voice_clone",{method:"POST",headers:{"Authorization":"Bearer "+AK},body:fd});
+    var res=await fetch("https://api.minimax.io/v1/voice_clone",{method:"POST",headers:{"Authorization":"Bearer "+GID+":"+KEY},body:fd});
     var j=await res.json();
     var r=document.getElementById("cloneRes"),c=document.getElementById("cres");
     r.style.display="block";
