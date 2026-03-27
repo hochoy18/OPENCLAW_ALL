@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiniMax Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0F0F12;--bg2:#18181C;--card:rgba(30,30,36,.8);--border:rgba(255,255,255,.08);--glow:rgba(124,58,237,.3);--text:#FAFAFA;--muted:#A1A1AA;--dim:#52525B;--violet:#7C3AED;--pink:#EC4899;--cyan:#06B6D4;--coral:#F472B6;--green:#10B981}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+.bg{position:fixed;inset:0;pointer-events:none;z-index:0}
+.orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.4;animation:float 20s ease-in-out infinite}
+.o1{width:600px;height:600px;background:var(--violet);top:-200px;right:-200px}
+.o2{width:400px;height:400px;background:var(--pink);bottom:-100px;left:-100px;animation-delay:-5s}
+.o3{width:300px;height:300px;background:var(--cyan);top:50%;left:50%;animation-delay:-10s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(30px,-30px) scale(1.05)}50%{transform:translate(-20px,20px) scale(.95)}75%{transform:translate(-30px,-20px) scale(1.02)}}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:60px 60px}
+.wrap{position:relative;z-index:1;max-width:1400px;margin:0 auto;padding:24px}
+header{display:flex;justify-content:space-between;align-items:center;padding:16px 0 48px;border-bottom:1px solid var(--border);margin-bottom:48px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--violet),var(--pink));border-radius:10px;display:flex;align-items:center;justify-content:center;color:white}
+.logo-text{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;background:linear-gradient(135deg,var(--violet),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.tabs{display:flex;gap:8px;background:var(--bg2);padding:6px;border-radius:12px;border:1px solid var(--border)}
+.tab{display:flex;align-items:center;gap:8px;padding:12px 24px;background:transparent;border:none;border-radius:8px;color:var(--muted);font-size:15px;font-weight:500;cursor:pointer;transition:.3s}
+.tab:hover{color:var(--text)}
+.tab.active{background:var(--card);color:var(--text)}
+.tab svg{width:18px;height:18px}
+.tab[data-t="s"] svg{color:var(--cyan)}
+.tab[data-t="i"] svg{color:var(--coral)}
+.hero{text-align:center;padding:48px 0;animation:fadeUp .6s ease-out}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:48px;font-weight:700;margin-bottom:16px}
+.hero h1 span{background:linear-gradient(135deg,var(--violet),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:18px;color:var(--muted);max-width:600px;margin:0 auto 32px}
+.badges{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.badge{display:flex;align-items:center;gap:6px;padding:8px 16px;background:var(--card);border:1px solid var(--border);border-radius:100px;font-size:13px;color:var(--muted)}
+.badge svg{width:14px;height:14px}
+.badge.s svg{color:var(--cyan)}
+.badge.i svg{color:var(--coral)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:48px;animation:fadeUp .6s ease-out .3s backwards}
+@media(max-width:1024px){.grid2{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;transition:.3s}
+.card:hover{border-color:var(--glow);box-shadow:0 8px 32px rgba(124,58,237,.15)}
+.card-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.title{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;display:flex;align-items:center;gap:10px}
+.title svg{width:20px;height:20px}
+.title.s svg{color:var(--cyan)}
+.title.i svg{color:var(--coral)}
+.group{margin-bottom:20px}
+.label{display:block;font-size:13px;font-weight:500;color:var(--muted);margin-bottom:8px}
+.input{width:100%;min-height:100px;padding:12px 16px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:14px;resize:vertical;font-family:inherit}
+.input:focus{outline:none;border-color:var(--violet);box-shadow:0 0 0 3px rgba(124,58,237,.3)}
+.wrap{position:relative}
+.count{position:absolute;bottom:12px;right:12px;font-size:11px;color:var(--dim);font-family:monospace}
+.select{width:100%;padding:12px 16px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:14px;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23A1A1AA' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:16px}
+.voice{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-height:200px;overflow-y:auto;padding-right:8px}
+.voice::-webkit-scrollbar{width:4px}
+.voice::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.vc{padding:12px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;cursor:pointer;transition:.3s}
+.vc:hover{border-color:var(--dim);transform:scale(1.02)}
+.vc.sel{border-color:var(--cyan);background:rgba(6,182,212,.1)}
+.vc-h{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px}
+.vn{font-size:14px;font-weight:500}
+.vp{width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:var(--card);border:none;border-radius:50%;cursor:pointer;transition:.2s}
+.vp:hover{background:var(--cyan)}
+.vp svg{width:12px;height:12px;color:var(--muted)}
+.vp:hover svg{color:white}
+.vl{font-size:11px;color:var(--dim);padding:2px 8px;background:var(--card);border-radius:4px}
+.emotion{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.ec{display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 8px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;cursor:pointer;transition:.3s;font-size:12px;color:var(--muted)}
+.ec:hover{border-color:var(--dim);transform:translateY(-2px)}
+.ec.sel{border-color:var(--cyan);background:rgba(6,182,212,.1);color:var(--text)}
+.ec .emo{font-size:20px}
+.slider{display:flex;align-items:center;gap:16px}
+.slider input{flex:1;-webkit-appearance:none;height:6px;background:var(--bg2);border-radius:3px}
+.slider input::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;background:linear-gradient(135deg,var(--violet),var(--pink));border-radius:50%;cursor:pointer;box-shadow:0 2px 8px rgba(124,58,237,.4)}
+.slider span{min-width:50px;padding:6px 10px;background:var(--bg2);border-radius:6px;font-size:13px;text-align:center;font-family:monospace}
+.pills{display:flex;gap:8px;flex-wrap:wrap}
+.pill{padding:8px 16px;background:var(--bg2);border:1px solid var(--border);border-radius:100px;font-size:13px;color:var(--muted);cursor:pointer;transition:.3s}
+.pill:hover{border-color:var(--dim)}
+.pill.sel{background:linear-gradient(135deg,var(--violet),var(--pink));border-color:transparent;color:white}
+.styles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.style{aspect-ratio:1;background:var(--bg2);border:2px solid var(--border);border-radius:12px;cursor:pointer;transition:.3s;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px;text-align:center}
+.style:hover{border-color:var(--dim);transform:scale(1.03)}
+.style.sel{border-color:var(--coral);box-shadow:0 0 20px rgba(244,114,182,.3)}
+.style svg{width:32px;height:32px;margin-bottom:8px;color:var(--dim)}
+.style.sel svg{color:var(--coral)}
+.style span{font-size:12px;color:var(--muted)}
+.upload{border:2px dashed var(--border);border-radius:12px;padding:32px;text-align:center;cursor:pointer;transition:.3s}
+.upload:hover{border-color:var(--violet);background:rgba(124,58,237,.05)}
+.upload svg{width:40px;height:40px;color:var(--dim);margin-bottom:12px}
+.upload p{color:var(--muted);font-size:14px}
+.upload span{color:var(--violet)}
+.aspect{display:flex;gap:8px}
+.aspect button{flex:1;padding:12px 8px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:.3s;text-align:center}
+.aspect button:hover{border-color:var(--dim)}
+.aspect button.sel{border-color:var(--coral);background:rgba(244,114,182,.1)}
+.aspect button .r{font-size:14px;font-weight:500;display:block;margin-bottom:4px}
+.aspect button .d{font-size:10px;color:var(--dim)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;transition:.3s;font-family:inherit}
+.btn-p{background:linear-gradient(135deg,var(--violet),var(--pink));color:white;box-shadow:0 4px 16px rgba(124,58,237,.4)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(124,58,237,.4)}
+.btn-p:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn-s{background:var(--card);color:var(--text);border:1px solid var(--border)}
+.btn-g{background:transparent;color:var(--muted);padding:8px 12px}
+.btn-g:hover{color:var(--text);background:var(--card)}
+.btn svg{width:18px;height:18px}
+.btn-full{width:100%;margin-top:24px;padding:18px;font-size:16px}
+.btn-load{position:relative;overflow:hidden}
+.btn-load::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);animation:shimmer 1.5s infinite}
+@keyframes shimmer{100%{left:100%}}
+.placeholder{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--dim);text-align:center;padding:48px}
+.placeholder svg{width:64px;height:64px;margin-bottom:16px;opacity:.3}
+.placeholder p{font-size:14px;max-width:280px;line-height:1.6}
+.wave{background:var(--bg2);border-radius:12px;padding:24px;margin-bottom:16px}
+.wave-con{display:flex;align-items:center;justify-content:center;gap:3px;height:60px}
+.wave-bar{width:4px;background:linear-gradient(135deg,var(--violet),var(--pink));border-radius:2px;transition:height .1s}
+.wave-bar.on{animation:wavePulse .5s ease-in-out infinite alternate}
+@keyframes wavePulse{from{opacity:.5}to{opacity:1}}
+.audio{display:flex;align-items:center;gap:16px}
+.play-btn{width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--violet),var(--pink));border:none;border-radius:50%;cursor:pointer;transition:.3s}
+.play-btn:hover{transform:scale(1.05);box-shadow:0 4px 20px rgba(124,58,237,.4)}
+.play-btn svg{width:20px;height:20px;color:white}
+.pro{flex:1}
+.pro-bar{width:100%;height:6px;background:var(--bg2);border-radius:3px;cursor:pointer}
+.pro-fill{height:100%;background:linear-gradient(135deg,var(--violet),var(--pink));border-radius:3px;width:0;transition:width .1s linear}
+.time{font-size:12px;font-family:monospace;color:var(--dim);min-width:80px;text-align:right}
+.actions{display:flex;gap:8px;margin-top:16px}
+.img-grid{display:none}
+.img-grid.on{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.img-card{position:relative;aspect-ratio:1;background:var(--bg2);border-radius:12px;overflow:hidden;cursor:pointer;transition:.3s}
+.img-card:hover{transform:scale(1.02)}
+.img-card img{width:100%;height:100%;object-fit:cover}
+.img-overlay{position:absolute;inset:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;gap:12px;opacity:0;transition:.3s}
+.img-card:hover .img-overlay{opacity:1}
+.img-btn{width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:var(--card);border:none;border-radius:50%;cursor:pointer;transition:.2s}
+.img-btn:hover{background:var(--violet);transform:scale(1.1)}
+.img-btn svg{width:18px;height:18px}
+.section{margin-top:48px;animation:fadeUp .6s ease-out .5s backwards}
+.section h2{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;text-align:center;margin-bottom:12px}
+.section p{text-align:center;color:var(--muted);margin-bottom:40px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:1024px){.features{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.features{grid-template-columns:1fr}}
+.fcard{padding:28px;background:var(--card);border:1px solid var(--border);border-radius:16px;transition:.3s}
+.fcard:hover{transform:translateY(-4px);border-color:var(--glow);box-shadow:0 12px 40px rgba(124,58,237,.15)}
+.ficon{width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:var(--bg2);border-radius:12px;margin-bottom:20px}
+.ficon svg{width:24px;height:24px;color:var(--violet)}
+.fcard h3{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;margin-bottom:8px}
+.fcard p{font-size:14px;color:var(--muted);line-height:1.6}
+footer{margin-top:80px;padding:32px 0;border-top:1px solid var(--border);text-align:center}
+.status{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:var(--card);border-radius:100px;font-size:13px;color:var(--muted);margin-bottom:16px}
+.dot{width:8px;height:8px;background:var(--green);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.links{display:flex;justify-content:center;gap:24px}
+.links a{color:var(--dim);text-decoration:none;font-size:13px}
+.links a:hover{color:var(--text)}
+.content{display:none}
+.content.on{display:block}
+@media(max-width:640px){.hero h1{font-size:32px}.emotion{grid-template-columns:repeat(4,1fr)}.styles{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="bg">
+<div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+<div class="grid"></div>
+</div>
+<div class="wrap">
+<header>
+<div class="logo"><div class="logo-icon"><i data-lucide="sparkles"></i></div><span class="logo-text">MiniMax Studio</span></div>
+<nav class="tabs">
+<button class="tab active" data-t="s"><i data-lucide="mic"></i> Speech</button>
+<button class="tab" data-t="i"><i data-lucide="image"></i> Image</button>
+</nav>
+</header>
+<section class="hero">
+<h1><span id="ht">Transform Text into</span><br><span id="hs">Natural Speech</span></h1>
+<p id="hd">Experience cutting-edge AI voice synthesis with 40+ languages, 7 emotions, and ultra-realistic voices.</p>
+<div class="badges">
+<div class="badge s"><i data-lucide="languages"></i><span>40+ Languages</span></div>
+<div class="badge s"><i data-lucide="heart"></i><span>7 Emotions</span></div>
+<div class="badge s"><i data-lucide="wand-2"></i><span>Voice Cloning</span></div>
+<div class="badge i"><i data-lucide="image"></i><span>Text to Image</span></div>
+<div class="badge i"><i data-lucide="palette"></i><span>10+ Styles</span></div>
+</div>
+</section>
+<div class="content on" id="speech">
+<div class="grid2">
+<div class="card">
+<div class="card-h"><h2 class="title s"><i data-lucide="settings-2"></i> Configure</h2></div>
+<div class="group">
+<label class="label">Text Input</label>
+<div class="wrap">
+<textarea class="input" id="sText" placeholder="Enter your text here..." maxlength="10000"></textarea>
+<span class="count" id="counter">0 / 10,000</span>
+</div>
+</div>
+<div class="group">
+<label class="label">Select Voice</label>
+<select class="select" id="vSelect">
+<option value="">Choose a voice...</option>
+<optgroup label="Chinese">
+<option value="Chinese_Girl">Chinese Girl</option>
+<option value="Chinese_Boy">Chinese Boy</option>
+<option value="female-shaonv">Young Maiden</option>
+</optgroup>
+<optgroup label="English">
+<option value="English_CalmWoman">Calm Woman</option>
+<option value="English_Trustworth_Man">Trustworthy Man</option>
+<option value="English_radiant_girl">Radiant Girl</option>
+</optgroup>
+<optgroup label="Japanese">
+<option value="Japanese_KindLady">Kind Lady</option>
+<option value="Japanese_SweetGirl">Sweet Girl</option>
+</optgroup>
+</select>
+</div>
+<div class="voice" id="voiceGrid">
+<div class="vc sel" data-v="Chinese_Boy"><div class="vc-h"><span class="vn">Chinese Boy</span><button class="vp"><i data-lucide="play"></i></button></div><span class="vl">Chinese</span></div>
+<div class="vc" data-v="English_CalmWoman"><div class="vc-h"><span class="vn">Calm Woman</span><button class="vp"><i data-lucide="play"></i></button></div><span class="vl">English</span></div>
+<div class="vc" data-v="English_Trustworth_Man"><div class="vc-h"><span class="vn">Trustworthy Man</span><button class="vp"><i data-lucide="play"></i></button></div><span class="vl">English</span></div>
+<div class="vc" data-v="Chinese_Girl"><div class="vc-h"><span class="vn">Chinese Girl</span><button class="vp"><i data-lucide="play"></i></button></div><span class="vl">Chinese</span></div>
+<div class="vc" data-v="Japanese_KindLady"><div class="vc-h"><span class="vn">Kind Lady</span><button class="vp"><i data-lucide="play"></i></button></div><span class="vl">Japanese</span></div>
+<div class="vc" data-v="Japanese_SweetGirl"><div class="vc-h"><span class="vn">Sweet Girl</span><button class="vp"><i data-lucide="play"></i></button></div><span class="vl">Japanese</span></div>
+</div>
+<div class="group" style="margin-top:20px">
+<label class="label">Emotion</label>
+<div class="emotion">
+<div class="ec sel" data-e="neutral"><span class="emo">😐</span><span>Neutral</span></div>
+<div class="ec" data-e="happy"><span class="emo">😊</span><span>Happy</span></div>
+<div class="ec" data-e="sad"><span class="emo">😢</span><span>Sad</span></div>
+<div class="ec" data-e="angry"><span class="emo">😠</span><span>Angry</span></div>
+<div class="ec" data-e="fearful"><span class="emo">😨</span><span>Fearful</span></div>
+<div class="ec" data-e="disgusted"><span class="emo">🤢</span><span>Disgusted</span></div>
+<div class="ec" data-e="surprised"><span class="emo">😮</span><span>Surprised</span></div>
+<div class="ec" data-e="gentle"><span class="emo">💕</span><span>Gentle</span></div>
+</div>
+</div>
+<div class="group">
+<label class="label">Speed</label>
+<div class="slider"><input type="range" id="speedS" min="0.5" max="2" step="0.1" value="1"><span id="speedV">1.0x</span></div>
+</div>
+<div class="group">
+<label class="label">Pitch</label>
+<div class="slider"><input type="range" id="pitchS" min="-12" max="12" step="1" value="0"><span id="pitchV">0</span></div>
+</div>
+<div class="group">
+<label class="label">Audio Format</label>
+<div class="pills">
+<div class="pill sel" data-f="mp3">MP3</div>
+<div class="pill" data-f="wav">WAV</div>
+<div class="pill" data-f="flac">FLAC</div>
+</div>
+</div>
+<button class="btn btn-p btn-full" id="genS"><i data-lucide="wand-2"></i> Generate Speech</button>
+</div>
+<div class="card">
+<div class="card-h"><h2 class="title s"><i data-lucide="audio-waveform"></i> Output</h2></div>
+<div class="placeholder" id="sPlaceholder"><i data-lucide="music"></i><p>Enter your text and select a voice to generate speech</p></div>
+<div id="sPlayer" style="display:none">
+<div class="wave"><div class="wave-con" id="wave"></div></div>
+<div class="audio">
+<button class="play-btn" id="playBtn"><i data-lucide="play"></i></button>
+<div class="pro"><div class="pro-bar"><div class="pro-fill" id="proFill"></div></div></div>
+<span class="time" id="timeD">0:00 / 0:00</span>
+</div>
+<div class="actions">
+<button class="btn btn-s btn-g"><i data-lucide="download"></i> Download</button>
+<button class="btn btn-g"><i data-lucide="copy"></i> Copy</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="content" id="image">
+<div class="grid2">
+<div class="card">
+<div class="card-h"><h2 class="title i"><i data-lucide="settings-2"></i> Configure</h2></div>
+<div class="group">
+<label class="label">Prompt</label>
+<textarea class="input" id="iPrompt" placeholder="Describe the image you want to create..."></textarea>
+</div>
+<div class="group">
+<label class="label">Style</label>
+<div class="styles">
+<div class="style sel" data-s="photo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg><span>Photorealistic</span></div>
+<div class="style" data-s="anime"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.912 5.813a2 2 0 001.275 1.275L21 12l-5.813 1.912a2 2 0 00-1.275 1.275L12 21l-1.912-5.813a2 2 0 00-1.275-1.275L3 12l5.813-1.912a2 2 0 001.275-1.275L12 3z"/></svg><span>Anime</span></div>
+<div class="style" data-s="digital"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg><span>Digital</span></div>
+<div class="style" data-s="oil"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg><span>Oil Painting</span></div>
+<div class="style" data-s="water"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg><span>Watercolor</span></div>
+<div class="style" data-s="cyber"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span>Cyberpunk</span></div>
+</div>
+</div>
+<div class="group">
+<label class="label">Aspect Ratio</label>
+<div class="aspect">
+<button class="sel" data-r="1:1"><span class="r">1:1</span><span class="d">Square</span></button>
+<button data-r="3:4"><span class="r">3:4</span><span class="d">Portrait</span></button>
+<button data-r="16:9"><span class="r">16:9</span><span class="d">Landscape</span></button>
+<button data-r="9:16"><span class="r">9:16</span><span class="d">Mobile</span></button>
+</div>
+</div>
+<div class="group">
+<label class="label">Reference Images (Optional)</label>
+<div class="upload"><i data-lucide="upload-cloud"></i><p>Drag & drop images or <span>browse</span></p></div>
+</div>
+<div class="group">
+<label class="label">Number of Images</label>
+<div class="pills">
+<div class="pill sel" data-n="1">1</div>
+<div class="pill" data-n="2">2</div>
+<div class="pill" data-n="4">4</div>
+</div>
+</div>
+<button class="btn btn-p btn-full" id="genI"><i data-lucide="sparkles"></i> Generate Image</button>
+</div>
+<div class="card">
+<div class="card-h"><h2 class="title i"><i data-lucide="gallery"></i> Output</h2></div>
+<div class="placeholder" id="iPlaceholder"><i data-lucide="image"></i><p>Enter a prompt and select a style to generate</p></div>
+<div class="img-grid" id="iGrid">
+<div class="img-card"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%2318181C' width='400' height='400'/%3E%3Ccircle cx='200' cy='180' r='80' fill='%237C3AED' opacity='0.3'/%3E%3C/svg%3E" alt=""><div class="img-overlay"><button class="img-btn"><i data-lucide="download"></i></button><button class="img-btn"><i data-lucide="expand"></i></button><button class="img-btn"><i data-lucide="copy"></i></button></div></div>
+</div>
+</div>
+</div>
+</div>
+<section class="section">
+<h2>Powerful Capabilities</h2>
+<p>Everything you need for professional AI content creation</p>
+<div class="features">
+<div class="fcard"><div class="ficon"><i data-lucide="languages"></i></div><h3>40+ Languages</h3><p>Support for Mandarin, Cantonese, English, Japanese, Korean, Spanish, French, German, and more.</p></div>
+<div class="fcard"><div class="ficon"><i data-lucide="heart"></i></div><h3>Emotion Control</h3><p>7 emotional tones including happy, sad, angry, fearful, disgusted, surprised, and neutral.</p></div>
+<div class="fcard"><div class="ficon"><i data-lucide="wand-2"></i></div><h3>Voice Cloning</h3><p>Clone any voice from audio samples for consistent brand voice across all content.</p></div>
+<div class="fcard"><div class="ficon"><i data-lucide="sliders"></i></div><h3>Fine Control</h3><p>Adjust speed, pitch, volume, and pauses for perfect delivery every time.</p></div>
+<div class="fcard"><div class="ficon"><i data-lucide="image"></i></div><h3>AI Image Generation</h3><p>Create stunning images from text descriptions in multiple artistic styles.</p></div>
+<div class="fcard"><div class="ficon"><i data-lucide="layers"></i></div><h3>Style Transfer</h3><p>Apply reference images to maintain consistency with your brand or artistic vision.</p></div>
+</div>
+</section>
+<footer>
+<div class="status"><span class="dot"></span><span>API Status: Ready</span></div>
+<div class="links"><a href="#">Documentation</a><a href="#">API Reference</a><a href="#">Support</a></div>
+</footer>
+</div>
+<script>lucide.createIcons();
+document.querySelectorAll('.tab').forEach(t=>{t.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));t.classList.add('active');const v=t.dataset.t;document.querySelectorAll('.content').forEach(c=>c.classList.remove('on'));document.getElementById(v==='s'?'speech':'image').classList.add('on');document.getElementById('ht').textContent=v==='s'?'Transform Text into':'Create Stunning';document.getElementById('hs').textContent=v==='s'?'Natural Speech':'Visual Masterpieces';document.getElementById('hd').textContent=v==='s'?'Experience cutting-edge AI voice synthesis with 40+ languages, 7 emotions, and ultra-realistic voices.':'Generate beautiful images from text descriptions with advanced AI models and artistic styles.'})});
+const ct=document.getElementById('sText'),cn=document.getElementById('counter');ct.addEventListener('input',()=>{const l=ct.value.length;cn.textContent=l.toLocaleString()+' / 10,000';cn.style.color=l>9500?'#EF4444':l>8000?'#F59E0B':''});
+document.querySelectorAll('.vc').forEach(c=>{c.addEventListener('click',()=>{document.querySelectorAll('.vc').forEach(x=>x.classList.remove('sel'));c.classList.add('sel');document.getElementById('vSelect').value=c.dataset.v})});
+document.querySelectorAll('.ec').forEach(c=>{c.addEventListener('click',()=>{document.querySelectorAll('.ec').forEach(x=>x.classList.remove('sel'));c.classList.add('sel')})});
+document.getElementById('speedS').addEventListener('input',e=>{document.getElementById('speedV').textContent=parseFloat(e.target.value).toFixed(1)+'x'});
+document.getElementById('pitchS').addEventListener('input',e=>{document.getElementById('pitchV').textContent=e.target.value});
+document.querySelectorAll('[data-f]').forEach(p=>{p.addEventListener('click',()=>{document.querySelectorAll('[data-f]').forEach(x=>x.classList.remove('sel'));p.classList.add('sel')})});
+document.querySelectorAll('.style').forEach(s=>{s.addEventListener('click',()=>{document.querySelectorAll('.style').forEach(x=>x.classList.remove('sel'));s.classList.add('sel')})});
+document.querySelectorAll('.aspect button').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.aspect button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel')})});
+document.querySelectorAll('[data-n]').forEach(p=>{p.addEventListener('click',()=>{document.querySelectorAll('[data-n]').forEach(x=>x.classList.remove('sel'));p.classList.add('sel')})});
+const w=document.getElementById('wave');for(let i=0;i<40;i++){const b=document.createElement('div');b.className='wave-bar';b.style.height=Math.random()*30+10+'px';w.appendChild(b)}
+let playing=false;const pBtn=document.getElementById('playBtn');pBtn.addEventListener('click',()=>{playing=!playing;pBtn.innerHTML=playing?'<i data-lucide="pause"></i>':'<i data-lucide="play"></i>';lucide.createIcons();document.querySelectorAll('.wave-bar').forEach(b=>b.classList.toggle('on',playing))});
+document.getElementById('genS').addEventListener('click',function(){const t=document.getElementById('sText').value.trim();if(!t){alert('Please enter text');return}this.classList.add('btn-load');this.innerHTML='<i data-lucide="loader-2"></i> Generating...';lucide.createIcons();setTimeout(()=>{this.classList.remove('btn-load');this.innerHTML='<i data-lucide="check"></i> Generated!';lucide.createIcons();document.getElementById('sPlaceholder').style.display='none';document.getElementById('sPlayer').style.display='block';document.querySelectorAll('.wave-bar').forEach(b=>b.classList.add('on'));setTimeout(()=>{this.innerHTML='<i data-lucide="wand-2"></i> Generate Speech';lucide.createIcons()},2000)},2500)});
+document.getElementById('genI').addEventListener('click',function(){const p=document.getElementById('iPrompt').value.trim();if(!p){alert('Please enter a prompt');return}this.classList.add('btn-load');this.innerHTML='<i data-lucide="loader-2"></i> Generating...';lucide.createIcons();setTimeout(()=>{this.classList.remove('btn-load');this.innerHTML='<i data-lucide="check"></i> Generated!';lucide.createIcons();document.getElementById('iPlaceholder').style.display='none';document.getElementById('iGrid').classList.add('on');setTimeout(()=>{this.innerHTML='<i data-lucide="sparkles"></i> Generate Image';lucide.createIcons()},2000)},3000)});
+</script>
+</body>
+</html>

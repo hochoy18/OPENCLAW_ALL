@@ -35,4 +35,8 @@
 
 ## 其他长期记忆
 
-_（待添加）_
+### 2026-03-26
+- **视频项目**：帮用户在 `video_project/` 下制作了 OpenClaw 宣传视频（4张幻灯片 + 英文 TTS，11.3秒），输出了 WebM 和 mpeg1video MP4 两个版本。文件路径统一在 `/home/hochoy/comedy_media/` 或 workspace video_project
+- **服务器限制**：该 VPS 无 H.264 软件编码器，硬件编码器（vaapi/v4l2m2m）也失效；建议用户有条件可在本地用 `ffmpeg -c:v libx264` 转标准 MP4
+- **Workspace 状态**：IDENTITY.md / USER.md 均为空，尚未初始化人格设定
+- **飞书用户**：主要活跃用户 ID 为 `ou_85dd739a4dc546bdd0342b2ddaaa25b1`（私信会话）和群聊 `oc_46a77f53961644917aff202a581f9c5f`

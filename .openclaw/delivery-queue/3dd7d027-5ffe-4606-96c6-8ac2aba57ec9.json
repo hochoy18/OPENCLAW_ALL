@@ -1,0 +1,24 @@
+{
+  "id": "3dd7d027-5ffe-4606-96c6-8ac2aba57ec9",
+  "enqueuedAt": 1774537451169,
+  "channel": "feishu",
+  "to": "ou_a40d252df8eedac11a6ca82ca1b65352",
+  "accountId": "coder",
+  "payloads": [
+    {
+      "text": "📋 每日记忆总结（2026-03-26）\n\n**coder 工作区今日关键事件：**\n\n**1. MiniMax 图像生成 API ❌**\n- 测试了多种调用方式，`/v1/images/generations` 全部返回 404\n- Chat API 正常，但图像生成权限很可能未开通\n- **建议**：去 platform.minimax.com 控制台确认图像生成功能是否已开通\n\n**2. 微信小游戏开发环境 ✅**\n- 服务器环境全部就绪：Node.js v24.2.0 / npm v11.3.0 / Git v2.43.7 / Claude Code v2.1.79\n- Docker 和 Java 不需要\n- 微信开发者工具只能在本地运行（Windows/macOS）\n\n**3. 每日记忆系统配置 ✅**\n- MEMORY.md / TOOLS.md 已更新\n- Cron 任务已创建，每天 23:00 自动执行\n\n**4. 群聊各 Agent 自我介绍 ⏳**\n- 5 个 Agent 均已完成自我介绍\n- 共同问题：IDENTITY.md 均为空白，还没有人给它们正式命名\n\n**今日教训：**\nMiniMax Chat API 和 Image API 是两套不同权限体系，有 Chat 权限 ≠ 有 Image 权限\n\n---\n💾 已写入 memory/2026-03-26.md",
+      "replyToTag": false,
+      "replyToCurrent": false,
+      "audioAsVoice": false
+    }
+  ],
+  "gifPlayback": false,
+  "mirror": {
+    "sessionKey": "agent:coder:feishu:coder:direct:ou_a40d252df8eedac11a6ca82ca1b65352",
+    "agentId": "coder",
+    "text": "📋 每日记忆总结（2026-03-26）\n\n**coder 工作区今日关键事件：**\n\n**1. MiniMax 图像生成 API ❌**\n- 测试了多种调用方式，`/v1/images/generations` 全部返回 404\n- Chat API 正常，但图像生成权限很可能未开通\n- **建议**：去 platform.minimax.com 控制台确认图像生成功能是否已开通\n\n**2. 微信小游戏开发环境 ✅**\n- 服务器环境全部就绪：Node.js v24.2.0 / npm v11.3.0 / Git v2.43.7 / Claude Code v2.1.79\n- Docker 和 Java 不需要\n- 微信开发者工具只能在本地运行（Windows/macOS）\n\n**3. 每日记忆系统配置 ✅**\n- MEMORY.md / TOOLS.md 已更新\n- Cron 任务已创建，每天 23:00 自动执行\n\n**4. 群聊各 Agent 自我介绍 ⏳**\n- 5 个 Agent 均已完成自我介绍\n- 共同问题：IDENTITY.md 均为空白，还没有人给它们正式命名\n\n**今日教训：**\nMiniMax Chat API 和 Image API 是两套不同权限体系，有 Chat 权限 ≠ 有 Image 权限\n\n---\n💾 已写入 memory/2026-03-26.md"
+  },
+  "retryCount": 2,
+  "lastAttemptAt": 1774581862965,
+  "lastError": "Request failed with status code 400"
+}

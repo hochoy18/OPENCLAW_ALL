@@ -33,42 +33,13 @@
       }
     },
     {
-      "id": "d88ee37a-c93a-4104-a2d3-af155e77eb28",
-      "agentId": "demo",
-      "name": "每日23点记忆总结",
-      "description": "每天23:00读取当日session，总结工作内容，写入memory并发送给你",
-      "enabled": true,
-      "createdAtMs": 1774500778710,
-      "updatedAtMs": 1774500853742,
-      "schedule": {
-        "kind": "cron",
-        "expr": "0 23 * * *",
-        "tz": "Asia/Shanghai"
-      },
-      "sessionTarget": "isolated",
-      "wakeMode": "now",
-      "payload": {
-        "kind": "agentTurn",
-        "message": "请执行每日记忆任务：1. 首先确定今日日期（YYYY-MM-DD格式）；2. 读取今日00:00-23:00的session历史（sessionKey: agent:demo:feishu:demo:direct:ou_0bc2f0bdf4be8039599fe8c4967425a8）；3. 提取关键内容（做了什么、产出、决策）；4. 写入 [workspace]/memory/<今日日期>.md；5. 用飞书消息发送一份总结给用户",
-        "timeoutSeconds": 300
-      },
-      "delivery": {
-        "mode": "announce",
-        "channel": "feishu",
-        "to": "user:ou_0bc2f0bdf4be8039599fe8c4967425a8"
-      },
-      "state": {
-        "nextRunAtMs": 1774537200000
-      }
-    },
-    {
       "id": "4b57dcb5-4270-4dd7-8608-e62e97d4f3dc",
       "agentId": "coder",
       "name": "每日23点记忆总结",
       "description": "每天23:00读取当日session，总结工作内容，写入memory并发送给你",
       "enabled": true,
       "createdAtMs": 1774502249561,
-      "updatedAtMs": 1774502249561,
+      "updatedAtMs": 1774537471319,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *"
@@ -86,7 +57,14 @@
         "to": "user:ou_a40d252df8eedac11a6ca82ca1b65352"
       },
       "state": {
-        "nextRunAtMs": 1774537200000
+        "nextRunAtMs": 1774623600000,
+        "lastRunAtMs": 1774537360538,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 110781,
+        "lastError": "AxiosError: Request failed with status code 400",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
       }
     },
     {
@@ -96,7 +74,7 @@
       "description": "每天23:00读取当日session，总结工作内容，写入memory并发送给你",
       "enabled": true,
       "createdAtMs": 1774502264502,
-      "updatedAtMs": 1774502264502,
+      "updatedAtMs": 1774537573999,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *"
@@ -114,7 +92,14 @@
         "to": "user:ou_a40d252df8eedac11a6ca82ca1b65352"
       },
       "state": {
-        "nextRunAtMs": 1774537200000
+        "nextRunAtMs": 1774623600000,
+        "lastRunAtMs": 1774537471320,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 102679,
+        "lastError": "AxiosError: Request failed with status code 400",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
       }
     },
     {
@@ -124,7 +109,7 @@
       "description": "每天23:00读取当日session，总结工作内容，写入memory并发送给你",
       "enabled": true,
       "createdAtMs": 1774502279800,
-      "updatedAtMs": 1774502279800,
+      "updatedAtMs": 1774537644500,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *"
@@ -142,7 +127,14 @@
         "to": "user:ou_a40d252df8eedac11a6ca82ca1b65352"
       },
       "state": {
-        "nextRunAtMs": 1774537200000
+        "nextRunAtMs": 1774623600000,
+        "lastRunAtMs": 1774537573999,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 70501,
+        "lastError": "AxiosError: Request failed with status code 400",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
       }
     },
     {
@@ -152,7 +144,7 @@
       "description": "每天23:00读取当日session，总结工作内容，写入memory并发送给你",
       "enabled": true,
       "createdAtMs": 1774502296730,
-      "updatedAtMs": 1774502296730,
+      "updatedAtMs": 1774537703119,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *"
@@ -170,7 +162,14 @@
         "to": "user:ou_a40d252df8eedac11a6ca82ca1b65352"
       },
       "state": {
-        "nextRunAtMs": 1774537200000
+        "nextRunAtMs": 1774623600000,
+        "lastRunAtMs": 1774537644500,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 58619,
+        "lastError": "AxiosError: Request failed with status code 400",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
       }
     },
     {
@@ -180,7 +179,7 @@
       "description": "每天23:00读取当日session，总结工作内容，写入memory并发送给你",
       "enabled": true,
       "createdAtMs": 1774502312175,
-      "updatedAtMs": 1774502312175,
+      "updatedAtMs": 1774537806829,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *"
@@ -198,7 +197,76 @@
         "to": "user:ou_a40d252df8eedac11a6ca82ca1b65352"
       },
       "state": {
-        "nextRunAtMs": 1774537200000
+        "nextRunAtMs": 1774623600000,
+        "lastRunAtMs": 1774537703119,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 103710,
+        "lastError": "AxiosError: Request failed with status code 400",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "674f7559-8453-4a6d-b580-6da5edb49b69",
+      "agentId": "demo",
+      "name": "每日23点记忆总结",
+      "description": "每天23:00读取当日session，总结工作内容，写入memory并发送给你",
+      "enabled": true,
+      "createdAtMs": 1774537631172,
+      "updatedAtMs": 1774537754044,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 23 * * *",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "请执行每日记忆任务：1. 首先确定今日日期（YYYY-MM-DD格式）；2. 读取今日00:00-23:00的session历史（sessionKey: agent:demo:feishu:demo:direct:ou_0bc2f0bdf4be8039599fe8c4967425a8）；3. 提取关键内容（做了什么、产出、决策）；4. 写入 [workspace]/memory/<今日日期>.md；5. 用飞书消息（message工具）发送一份总结给用户，target=user:ou_0bc2f0bdf4be8039599fe8c4967425a8，channel=feishu",
+        "timeoutSeconds": 300
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "accountId": "demo"
+      },
+      "state": {
+        "nextRunAtMs": 1774623600000,
+        "lastError": "Delivering to Feishu requires target <chatId|user:openId|chat:chatId>",
+        "lastRunAtMs": 1774537651149,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 102895,
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "54f60de5-fafc-4a04-8100-cedbb8bcb2db",
+      "name": "OpenClaw Release Watcher",
+      "enabled": true,
+      "createdAtMs": 1774582785192,
+      "updatedAtMs": 1774582785192,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 10 * * 6",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "You are the OpenClaw release watcher. Your job every Saturday:\n\n1. Fetch https://github.com/openclaw/openclaw/releases — get the top 3 releases (version, date, changes summary)\n2. Read /home/hochoy/.openclaw/workspace-coder memory/last-openclaw-version.txt (create it if it doesn't exist, default to current version '2026.3.13')\n3. If the latest release version differs from the stored version:\n   a. Update the version file with the new version\n   b. Send a Feishu message to user ou_930ed7a70e55cdc26722683f4d7d00bd with:\n      - New version number and release date\n      - Key changes (breaking, new features, fixes)\n      - Impact on the user\n      - Whether upgrade is recommended\n   Use the feishu message tool to send directly.\n4. If no new version, do nothing (no message, no announcement).\n\nBe concise and practical in your summary. Focus on changes that affect the user's experience."
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "user:ou_930ed7a70e55cdc26722683f4d7d00bd"
+      },
+      "state": {
+        "nextRunAtMs": 1774663200000
       }
     }
   ]
