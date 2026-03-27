@@ -262,7 +262,13 @@ var L="zh",GID="",KEY="",selVoice="Chinese (Mandarin)_Warm_Girl",selFmt="mp3";
 (function loadAK(){
   var s=localStorage.getItem("vp_ak");
   if(!s)return;
-  try{var j=JSON.parse(s);GID=j.gid||"";KEY=j.key||"";}catch(e){}
+  try{
+    var j=JSON.parse(s);
+    GID=j.gid||"";KEY=j.key||"";
+  }catch(e){
+    // 兼容旧格式：纯字符串直接作为GID
+    GID=s;KEY="";
+  }
 })();
 var auUrl=null,auBlob=null,audioEl=null,playing=false,ufile=null;
 
@@ -394,10 +400,10 @@ function saveKey(){
   toast(L==="zh"?"已保存":"Saved","ok");
 }
 function delKey(){GID="";KEY="";localStorage.removeItem("vp_ak");updAKBtn();closeModal();toast(L==="zh"?"已删除":"Deleted");}
-function updAKBtn(){var btn=document.getElementById("akBtn");if(GID&&KEY){btn.classList.add("set");btn.textContent="✓ API Key";}else{btn.classList.remove("set");btn.textContent="API Key";}}
+function updAKBtn(){var btn=document.getElementById("akBtn");if(GID){btn.classList.add("set");btn.textContent="✓ API Key";}else{btn.classList.remove("set");btn.textContent="API Key";}}
 
 async function prevVoice(voiceId,btn){
-  if(!GID||!KEY){toast(L==="zh"?"请先设置 API Key":"Please set API Key first","err");return;}
+  if(!GID){toast(L==="zh"?"请先设置 API Key":"Please set API Key first","err");return;}
   var texts={zh:"你好，这是一条语音预览。",en:"Hello, this is a voice preview."};
   var text=texts[L]||texts.zh;
   btn.textContent="⏳";
@@ -427,7 +433,7 @@ async function callT2A(text,voiceId,fmt){
 async function genSpeech(){
   var text=document.getElementById("tText").value.trim();
   if(!text){toast(L==="zh"?"请输入文字":"Please enter text","err");return;}
-  if(!GID||!KEY){toast(L==="zh"?"请先设置 API Key":"Please set API Key first","err");return;}
+  if(!GID){toast(L==="zh"?"请先设置 API Key":"Please set API Key first","err");return;}
   var btn=document.getElementById("genBtn");
   btn.classList.add("load");btn.disabled=true;
   try{
