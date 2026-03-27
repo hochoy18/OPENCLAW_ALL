@@ -297,6 +297,35 @@
       "state": {
         "nextRunAtMs": 1774656000000
       }
+    },
+    {
+      "id": "fd5f86da-6fac-4820-885e-e11382dd0d67",
+      "agentId": "wechat-assistant",
+      "name": "每日热点公众号创作",
+      "description": "每天7点搜索热点，AI/职场 3:1比例，crayon风格写作，生成封面，推送草稿箱",
+      "enabled": true,
+      "createdAtMs": 1774595238337,
+      "updatedAtMs": 1774595238337,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 7 * * *",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行每日热点公众号工作流：\\n\\n1. 读取 scripts/daily-news/PROMPT_TEMPLATE.md 获取完整工作流指引\\n2. 按 3:1 比例选择 AI 或职场方向\\n3. 使用 tavily-search 搜索热点\\n4. 使用 crayon 风格写文章（1200-1500字）\\n5. 用 MiniMax image-01 生成封面图\\n6. 上传到草稿箱\\n7. 发送完成通知给用户\\n\\n参考 skills：\\n- tavily-search\\n- wechat-article-crayon\\n- wechat-article-publisher/scripts/generate_cover.py\\n- mp-draft-push",
+        "timeoutSeconds": 600
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "accountId": "wechat-assistant"
+      },
+      "state": {
+        "nextRunAtMs": 1774652400000
+      }
     }
   ]
 }

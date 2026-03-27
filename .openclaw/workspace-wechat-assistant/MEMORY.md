@@ -139,6 +139,33 @@ workspace-wechat-assistant/skills/
 
 ---
 
+## 每日热点公众号工作流
+
+### 配置
+- **Cron Job ID**: `fd5f86da-6fac-4820-885e-e11382dd0d67`
+- **执行时间**: 每天 07:00 (Asia/Shanghai)
+- **流程**: 搜索热点 → 选题 → crayon写作 → 生成封面 → 推草稿箱 → 通知
+
+### 方向比例
+- AI工具测评: 70%（3:1中的3）
+- 职场打工人: 30%（3:1中的1）
+
+### 文件位置
+- 工作流脚本: `scripts/daily-news/daily_news_workflow.py`
+- Prompt模板: `scripts/daily-news/PROMPT_TEMPLATE.md`
+
+### 使用 Skill
+- tavily-search（搜索）
+- wechat-article-crayon（写作）
+- wechat-article-publisher/scripts/generate_cover.py（封面图）
+- mp-draft-push（发布）
+
+### 注意
+- 写完推草稿箱，不自动正式发布
+- 用户确认后再发布
+
+---
+
 ## OpenClaw 文档知识库
 
 已学习并保存在 `knowledge/openclaw-docs.md`：
