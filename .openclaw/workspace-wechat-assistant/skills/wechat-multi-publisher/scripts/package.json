@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@wenyan-md/core": "^3.0.1"
+  }
+}

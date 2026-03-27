@@ -84,6 +84,30 @@
     "opusflame-deep-research": {
       "version": "2.0.0",
       "installedAt": 1774443766156
+    },
+    "wechat-article-crayon": {
+      "version": "1.0.1",
+      "installedAt": 1774589923024
+    },
+    "mp-draft-push": {
+      "version": "1.0.2",
+      "installedAt": 1774590263277
+    },
+    "wechat-article-writer": {
+      "version": "1.0.0",
+      "installedAt": 1774590273038
+    },
+    "wechat-multi-publisher": {
+      "version": "1.0.0",
+      "installedAt": 1774590275521
+    },
+    "wechat-mp-writer-skill-mxx": {
+      "version": "1.0.0",
+      "installedAt": 1774590277817
+    },
+    "find-skills-skill": {
+      "version": "1.0.0",
+      "installedAt": 1774591493287
     }
   }
 }

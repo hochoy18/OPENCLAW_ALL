@@ -9,25 +9,97 @@
 """
 生成公众号文章封面图片 - 统一入口
 
-支持两种图像生成服务：
-1. 豆包 (Doubao) - 默认
-2. 千问 (Qwen) - 通义万相
+支持三种图像生成服务：
+1. MiniMax (image-01) - 当前默认
+2. 豆包 (Doubao)
+3. 千问 (Qwen) - 通义万相
 
 使用方法：
-    # 使用豆包生成（默认）
+    # 使用 MiniMax 生成（默认，当前配置）
     python3 generate_cover.py --prompt "科技风格插画"
+    
+    # 使用豆包生成
+    python3 generate_cover.py --prompt "科技风格插画" --provider doubao
     
     # 使用千问生成
     python3 generate_cover.py --prompt "科技风格插画" --provider qwen
     
-    # 指定尺寸（千问支持）
-    python3 generate_cover.py --prompt "科技风格插画" --provider qwen --size "1024*1024"
+    # 指定尺寸（MiniMax 支持多种比例）
+    python3 generate_cover.py --prompt "科技风格插画" --aspect-ratio "16:9"
 """
 
 import os
 import sys
 import argparse
 import json
+
+
+def generate_cover_minimax(prompt: str, aspect_ratio: str = "1:1", model: str = "image-01") -> dict:
+    """
+    使用 MiniMax 生成封面图片
+    
+    Args:
+        prompt: 图片提示词
+        aspect_ratio: 图片宽高比 (1:1, 16:9, 4:3, 3:2, 2:3, 3:4, 9:16)
+        model: 模型名称
+        
+    Returns:
+        dict: 包含图片URL的响应数据
+    """
+    import requests
+    
+    # 获取API Key
+    api_key = os.getenv("MINIMAX_API_KEY")
+    if not api_key:
+        try:
+            from config import load_config
+            config = load_config()
+            api_key = config.get("MINIMAX_API_KEY", "")
+        except:
+            pass
+    
+    if not api_key:
+        raise ValueError("缺少 MiniMax 图像API凭证，请设置环境变量 MINIMAX_API_KEY 或在 .env 文件中配置")
+    
+    # 构建请求
+    base_url = os.getenv("MINIMAX_IMAGE_BASE_URL", "https://api.minimax.io/v1/image_generation")
+    
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {api_key}"
+    }
+    
+    request_data = {
+        "model": model,
+        "prompt": prompt,
+        "aspect_ratio": aspect_ratio,
+        "response_format": "url"
+    }
+    
+    print(f"正在使用 MiniMax 生成封面图片 (模型: {model}, 比例: {aspect_ratio})...", file=sys.stderr)
+    
+    response = requests.post(base_url, headers=headers, json=request_data, timeout=120)
+    
+    if response.status_code >= 400:
+        raise Exception(f"HTTP请求失败: 状态码 {response.status_code}, 响应: {response.text}")
+    
+    data = response.json()
+    
+    if data.get("base_resp", {}).get("status_code") != 0:
+        error_msg = data.get("base_resp", {}).get("status_msg", "未知错误")
+        raise Exception(f"MiniMax API错误: {error_msg}")
+    
+    images = data.get("data", {}).get("image_urls", [])
+    if not images:
+        raise Exception("生成图片失败: 响应中未找到图片URL")
+    
+    return {
+        "success": True,
+        "provider": "minimax",
+        "model": model,
+        "aspect_ratio": aspect_ratio,
+        "image_url": images[0]
+    }
 
 
 def generate_cover_doubao(prompt: str, model: str = "doubao-seedream-4-5-251128") -> dict:
@@ -272,7 +344,7 @@ def compress_downloaded_image(image_path: str, max_size_kb: int = 800) -> dict:
 def main():
     """命令行入口"""
     parser = argparse.ArgumentParser(
-        description="生成公众号文章封面图片（支持豆包和千问）",
+        description="生成公众号文章封面图片（支持 MiniMax、豆包和千问）",
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
     
@@ -284,9 +356,23 @@ def main():
     
     parser.add_argument(
         "--provider",
-        choices=["doubao", "qwen"],
-        default="doubao",
-        help="图像生成服务提供商: doubao (豆包，默认) 或 qwen (千问)"
+        choices=["minimax", "doubao", "qwen"],
+        default="minimax",
+        help="图像生成服务提供商: minimax (默认，当前配置) / doubao (豆包) / qwen (千问)"
+    )
+    
+    # MiniMax 专用参数
+    parser.add_argument(
+        "--aspect-ratio",
+        choices=["1:1", "16:9", "4:3", "3:2", "2:3", "3:4", "9:16"],
+        default="1:1",
+        help="图片宽高比（仅 MiniMax 支持，默认: 1:1）"
+    )
+    
+    parser.add_argument(
+        "--minimax-model",
+        default="image-01",
+        help="MiniMax 模型（仅 MiniMax 支持，默认: image-01）"
     )
     
     # 豆包专用参数
@@ -335,7 +421,9 @@ def main():
     
     try:
         # 根据 provider 选择生成方式
-        if args.provider == "doubao":
+        if args.provider == "minimax":
+            result = generate_cover_minimax(args.prompt, args.aspect_ratio, args.minimax_model)
+        elif args.provider == "doubao":
             result = generate_cover_doubao(args.prompt, args.doubao_model)
         else:  # qwen
             result = generate_cover_qwen(args.prompt, args.size, args.qwen_model)

@@ -242,6 +242,32 @@
         "lastDeliveryStatus": "unknown",
         "consecutiveErrors": 1
       }
+    },
+    {
+      "id": "54f60de5-fafc-4a04-8100-cedbb8bcb2db",
+      "name": "OpenClaw Release Watcher",
+      "enabled": true,
+      "createdAtMs": 1774582785192,
+      "updatedAtMs": 1774582785192,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 10 * * 6",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "You are the OpenClaw release watcher. Your job every Saturday:\n\n1. Fetch https://github.com/openclaw/openclaw/releases — get the top 3 releases (version, date, changes summary)\n2. Read /home/hochoy/.openclaw/workspace-coder memory/last-openclaw-version.txt (create it if it doesn't exist, default to current version '2026.3.13')\n3. If the latest release version differs from the stored version:\n   a. Update the version file with the new version\n   b. Send a Feishu message to user ou_930ed7a70e55cdc26722683f4d7d00bd with:\n      - New version number and release date\n      - Key changes (breaking, new features, fixes)\n      - Impact on the user\n      - Whether upgrade is recommended\n   Use the feishu message tool to send directly.\n4. If no new version, do nothing (no message, no announcement).\n\nBe concise and practical in your summary. Focus on changes that affect the user's experience."
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "user:ou_930ed7a70e55cdc26722683f4d7d00bd"
+      },
+      "state": {
+        "nextRunAtMs": 1774663200000
+      }
     }
   ]
 }
