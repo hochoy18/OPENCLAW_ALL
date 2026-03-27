@@ -417,7 +417,7 @@ async function callT2A(text,voiceId,fmt){
   var pit=parseInt(document.getElementById("pit").value);
   var model=voiceId.startsWith("male-qn-")?"speech-02-hd":"speech-02";
   var payload={model:model,text:text,voice_setting:{voice_id:voiceId},audio_setting:{sample_rate:48000,bitrate:128000,format:fmt},speed:spd,pitch:pit};
-  var res=await fetch("https://api.minimax.io/v1/t2a_v2?GroupId="+encodeURIComponent(GID),{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+GID+":"+KEY},body:JSON.stringify(payload)});
+  var res=await fetch("https://api.minimax.io/v1/t2a_v2",{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+GID},body:JSON.stringify(payload)});
   if(!res.ok){var err=await res.text();throw new Error(err);}
   var ct=res.headers.get("Content-Type")||"";
   if(ct.includes("application/json")){var j=await res.json();throw new Error(j.base_resp?j.base_resp.ret_msg:j.message||"error");}
@@ -477,7 +477,7 @@ async function doClone(){
   fd.append("voice_id",vid);
   fd.append("group_id",GID);
   try{
-    var res=await fetch("https://api.minimax.io/v1/voice_clone",{method:"POST",headers:{"Authorization":"Bearer "+GID+":"+KEY},body:fd});
+    var res=await fetch("https://api.minimax.io/v1/voice_clone",{method:"POST",headers:{"Authorization":"Bearer "+GID},body:fd});
     var j=await res.json();
     var r=document.getElementById("cloneRes"),c=document.getElementById("cres");
     r.style.display="block";
