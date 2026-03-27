@@ -1,0 +1,1 @@
+# main-bot-update branch\n\nThis branch is used for code changes that need review before merging to master.\n\n## Workflow\n1. Make changes on this branch\n2. Create PR for review\n3. After approval, merge to master\n
