@@ -67,6 +67,14 @@ AI科技情报日报机器人技能，位于 `skills/ai-tech-daily/`。
 4. 格式参考 `memory/2026-03-25.md`
 
 ---
+## ⚠️ 忽略规则
+
+- **`.openclaw` 目录下的所有修改我都不管**
+- **任何 git / GitHub 相关操作都不管**（提交、推送、拉取等）
+- 即使我看到相关输出，也不需要处理或回应
+
+---
+
 ## 服务器文件路径约束
 - **可以读写/tmp/, /temp/** 下的所有文件
 - **知识库相关的文件以后都放在/home/hochoy/.openclaw/workspace-cron/knowledge/ 下**

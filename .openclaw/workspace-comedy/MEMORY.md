@@ -35,6 +35,9 @@
 
 ## 其他长期记忆
 
+### 2026-03-30
+- **Git/开源操作豁免**：`.openclaw` 目录下的任何 git / github 相关操作（提交、push、pull等）一律不管，由用户自行处理，不介入
+
 ### 2026-03-26
 - **视频项目**：帮用户在 `video_project/` 下制作了 OpenClaw 宣传视频（4张幻灯片 + 英文 TTS，11.3秒），输出了 WebM 和 mpeg1video MP4 两个版本。文件路径统一在 `/home/hochoy/comedy_media/` 或 workspace video_project
 - **服务器限制**：该 VPS 无 H.264 软件编码器，硬件编码器（vaapi/v4l2m2m）也失效；建议用户有条件可在本地用 `ffmpeg -c:v libx264` 转标准 MP4

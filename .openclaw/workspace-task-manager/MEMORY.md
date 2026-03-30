@@ -1,5 +1,12 @@
 # 系统配置限制
 
+## 忽略规则
+- **.openclaw 目录**：该目录下任何修改我都不管
+- **Git/GitHub 操作**：任何 git、github 相关的操作我都不管
+- 不负责提交 .openclaw 目录下的代码
+
+---
+
 ## 工作空间限制
 - **只能使用**: `workspace-task-manager` 工作空间
 - **Agent 限制**: 只能使用 `task-manager` agent

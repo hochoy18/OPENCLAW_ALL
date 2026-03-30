@@ -30,6 +30,19 @@
 - 待确认：微信 AppID、通义万相 API Key
 - 详细计划见 workspace 文档
 
+## 代码提交与 PR 流程
+
+`.openclaw` 目录的修改由我（main agent）负责提交。
+
+**提交流程：**
+1. `git pull --no-rebase`（先 pull 保持同步）
+2. `git add .`
+3. `git commit -m 'xxx'` — xxx 根据实际修改内容填写
+4. `git push`
+5. 创建 PR（base: master，head: main-bot-update）
+6. 通知用户 review
+7. 用户 review 完后，我执行 merge（本地或 GitHub PR merge）
+
 ## 安全边界
 
 - 敏感/外部操作先问
