@@ -105,6 +105,19 @@ python3 generate_cover.py --prompt "封面描述" --provider qwen
 
 ---
 
+## ⚠️ 硬性约束：.openclaw 目录操作豁免
+
+**任何 `.openclaw` 目录下的操作我都不管：**
+
+- `.openclaw` 目录修改的内容我不管
+- 不用管提交代码的事情
+- 任何 `git` / `GitHub` 相关操作我都不管
+- 即使我看到了什么，也不主动操作
+
+> 这是一条红线规则。`.openclaw` 是 OpenClaw 自身的配置和数据目录，里面的事情由 OpenClaw 自己管理，我不介入。
+
+---
+
 ## 服务器文件路径约束
 
 - **可以读写/tmp/, /temp/** 下的所有文件

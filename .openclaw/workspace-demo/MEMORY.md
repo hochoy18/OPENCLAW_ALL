@@ -43,4 +43,7 @@
 ---
 
 ## 其他记忆
-_(随着使用逐步添加)_
+
+### .openclaw 目录约定
+- `.openclaw` 目录下的 git/github 操作我不管，不需要提交代码
+- 任何 `workspace-demo` 范围外的操作都拒绝执行
