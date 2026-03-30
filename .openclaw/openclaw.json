@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-25T08:15:21.718Z"
+    "lastTouchedVersion": "2026.3.28",
+    "lastTouchedAt": "2026-03-30T09:00:13.243Z"
   },
   "env": {
     "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe",
@@ -103,6 +103,7 @@
       "model": {
         "primary": "minimax/MiniMax-M2.7"
       },
+      "pdfMaxBytesMb": 50,
       "models": {
         "kimi-coding/k2p5": {
           "alias": "Kimi K2.5"
@@ -112,12 +113,12 @@
       "timeoutSeconds": 1800,
       "sandbox": {
         "mode": "off"
-      },
-      "pdfMaxBytesMb": 50
+      }
     },
     "list": [
       {
         "id": "main",
+        "workspace": "/home/hochoy/.openclaw/workspace",
         "model": "minimax/MiniMax-M2.7",
         "tools": {
           "allow": [
@@ -128,8 +129,7 @@
             "security": "full",
             "ask": "off"
           }
-        },
-        "workspace": "/home/hochoy/.openclaw/workspace"
+        }
       },
       {
         "id": "demo",
@@ -177,7 +177,7 @@
           ],
           "exec": {
             "host": "gateway",
-            "security": "allowlist",
+            "security": "full",
             "ask": "off"
           }
         }
@@ -324,11 +324,7 @@
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",
-          "requireMention": true,
-          "agent": "main",
-          "bindings": {
-            "agentId": "main"
-          }
+          "requireMention": true
         },
         "demo": {
           "enabled": true,
@@ -337,11 +333,7 @@
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",
-          "requireMention": true,
-          "agent": "demo",
-          "bindings": {
-            "agentId": "demo"
-          }
+          "requireMention": true
         },
         "wechat-assistant": {
           "enabled": true,
@@ -350,11 +342,7 @@
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",
-          "requireMention": true,
-          "agent": "wechat-assistant",
-          "bindings": {
-            "agentId": "wechat-assistant"
-          }
+          "requireMention": true
         },
         "coder": {
           "enabled": true,
@@ -363,11 +351,7 @@
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",
-          "requireMention": true,
-          "agent": "coder",
-          "bindings": {
-            "agentId": "coder"
-          }
+          "requireMention": true
         },
         "task-manager": {
           "enabled": true,
@@ -376,11 +360,7 @@
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",
-          "requireMention": true,
-          "agent": "task-manager",
-          "bindings": {
-            "agentId": "task-manager"
-          }
+          "requireMention": true
         },
         "cron": {
           "enabled": true,
@@ -389,11 +369,7 @@
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",
-          "requireMention": true,
-          "agent": "cron",
-          "bindings": {
-            "agentId": "cron"
-          }
+          "requireMention": true
         },
         "comedy": {
           "enabled": true,
@@ -402,11 +378,7 @@
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",
-          "requireMention": true,
-          "agent": "comedy",
-          "bindings": {
-            "agentId": "comedy"
-          }
+          "requireMention": true
         },
         "biology": {
           "enabled": true,
@@ -415,14 +387,18 @@
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",
-          "requireMention": true,
-          "agent": "biology",
-          "bindings": {
-            "agentId": "biology"
-          }
+          "requireMention": true
         }
       },
-      "defaultAccount": "demo"
+      "defaultAccount": "demo",
+      "domain": "feishu",
+      "connectionMode": "websocket",
+      "webhookPath": "/feishu/events",
+      "dmPolicy": "pairing",
+      "groupPolicy": "allowlist",
+      "reactionNotifications": "own",
+      "typingIndicator": true,
+      "resolveSenderNames": true
     }
   },
   "gateway": {
@@ -464,7 +440,8 @@
   "plugins": {
     "entries": {
       "feishu": {
-        "enabled": true
+        "enabled": true,
+        "config": {}
       }
     },
     "installs": {
@@ -478,8 +455,8 @@
         "resolvedSpec": "@openclaw/feishu@2026.3.13",
         "integrity": "sha512-D5vPkgGZ9lfCQnDFlGrQN6NCSUYRgYW9k7amW3qlm9zBI4Sp+alRZVqLZ4yZ2eCXHjw9RVp/L75wjJ7NBQyfEw==",
         "shasum": "39128ff918f8d3387331818cbe3f8b24a82e4c0d",
-        "resolvedAt": "2026-03-16T14:24:27.894Z",
-        "installedAt": "2026-03-16T14:24:35.998Z"
+        "resolvedAt": "2026-03-30T09:00:06.116Z",
+        "installedAt": "2026-03-30T09:00:13.172Z"
       }
     }
   }

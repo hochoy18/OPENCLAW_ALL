@@ -112,6 +112,26 @@
     "ai-news-collectors": {
       "version": "1.0.0",
       "installedAt": 1774601877580
+    },
+    "summarize": {
+      "version": "1.0.0",
+      "installedAt": 1774855860029
+    },
+    "paddleocr-doc-parsing": {
+      "version": "2.0.14",
+      "installedAt": 1774855969107
+    },
+    "proactive-agent": {
+      "version": "3.1.0",
+      "installedAt": 1774855987117
+    },
+    "skill-vetter": {
+      "version": "1.0.0",
+      "installedAt": 1774855990425
+    },
+    "self-improving-agent": {
+      "version": "3.0.10",
+      "installedAt": 1774855994285
     }
   }
 }

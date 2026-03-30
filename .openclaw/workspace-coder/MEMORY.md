@@ -39,6 +39,14 @@
 - **`.openclaw` 目录**：该目录下的任何修改、git/github 相关操作，我都不管、不问、不提交
 - 这是一个明确的工作范围边界，避免我浪费精力在不相关的事务上
 
+### 授权与工作目录
+1. 授权读写 `/opt/projects` 目录下所有内容
+2. 以后创建的项目都放在 `/opt/projects/` 下，每个项目独立目录和 repo
+3. 每个项目可以在 GitHub 上创建对应 repo，我可以提交代码
+
+### VoicePix 项目位置
+- 项目路径：`/opt/projects/voicepix`
+
 ## VoicePix 项目标准开发流程
 
 ### 安装的 Skills（位置：workspace-coder/skills/）

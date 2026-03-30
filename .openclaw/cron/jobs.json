@@ -8,7 +8,7 @@
       "description": "每天23:00读取当日session，总结工作内容，写入memory并发送给你",
       "enabled": true,
       "createdAtMs": 1774502249561,
-      "updatedAtMs": 1774796651279,
+      "updatedAtMs": 1774883100022,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *"
@@ -27,14 +27,15 @@
         "accountId": "coder"
       },
       "state": {
-        "nextRunAtMs": 1774882800000,
-        "lastRunAtMs": 1774796400005,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 251274,
-        "lastDeliveryStatus": "not-delivered",
-        "consecutiveErrors": 0,
-        "lastDelivered": false
+        "nextRunAtMs": 1774969200000,
+        "lastRunAtMs": 1774882800005,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 300017,
+        "lastDeliveryStatus": "not-requested",
+        "consecutiveErrors": 1,
+        "lastError": "cron: job execution timed out",
+        "lastErrorReason": "timeout"
       }
     },
     {
@@ -44,7 +45,7 @@
       "description": "每天23:00读取当日session，总结工作内容，写入memory并发送给你",
       "enabled": true,
       "createdAtMs": 1774502264502,
-      "updatedAtMs": 1774796761843,
+      "updatedAtMs": 1774883165392,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *"
@@ -63,14 +64,16 @@
         "accountId": "comedy"
       },
       "state": {
-        "nextRunAtMs": 1774882800000,
-        "lastRunAtMs": 1774796651279,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 110564,
+        "nextRunAtMs": 1774969200000,
+        "lastRunAtMs": 1774883100023,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 65369,
         "lastDeliveryStatus": "not-delivered",
-        "consecutiveErrors": 0,
-        "lastDelivered": false
+        "consecutiveErrors": 1,
+        "lastDelivered": false,
+        "lastError": "⚠️ ✉️ Message failed",
+        "lastDeliveryError": "⚠️ ✉️ Message failed"
       }
     },
     {
@@ -80,7 +83,7 @@
       "description": "每天23:00读取当日session，总结工作内容，写入memory并发送给你",
       "enabled": true,
       "createdAtMs": 1774502279800,
-      "updatedAtMs": 1774796857221,
+      "updatedAtMs": 1774883274669,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *"
@@ -99,16 +102,14 @@
         "accountId": "cron"
       },
       "state": {
-        "nextRunAtMs": 1774882800000,
-        "lastRunAtMs": 1774796761843,
-        "lastRunStatus": "error",
-        "lastStatus": "error",
-        "lastDurationMs": 95378,
+        "nextRunAtMs": 1774969200000,
+        "lastRunAtMs": 1774883165392,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 109277,
         "lastDeliveryStatus": "not-delivered",
-        "consecutiveErrors": 1,
-        "lastDelivered": false,
-        "lastError": "⚠️ ✉️ Message failed",
-        "lastDeliveryError": "⚠️ ✉️ Message failed"
+        "consecutiveErrors": 0,
+        "lastDelivered": false
       }
     },
     {
@@ -118,7 +119,7 @@
       "description": "每天23:00读取当日session，总结工作内容，写入memory并发送给你",
       "enabled": true,
       "createdAtMs": 1774502296730,
-      "updatedAtMs": 1774796921622,
+      "updatedAtMs": 1774883432284,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *"
@@ -137,11 +138,11 @@
         "accountId": "task-manager"
       },
       "state": {
-        "nextRunAtMs": 1774882800000,
-        "lastRunAtMs": 1774796857221,
+        "nextRunAtMs": 1774969200000,
+        "lastRunAtMs": 1774883274669,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 64401,
+        "lastDurationMs": 157615,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
@@ -154,7 +155,7 @@
       "description": "每天23:00读取当日session，总结工作内容，写入memory并发送给你",
       "enabled": true,
       "createdAtMs": 1774502312175,
-      "updatedAtMs": 1774796956441,
+      "updatedAtMs": 1774883500753,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *"
@@ -173,11 +174,11 @@
         "accountId": "wechat-assistant"
       },
       "state": {
-        "nextRunAtMs": 1774882800000,
-        "lastRunAtMs": 1774796921622,
+        "nextRunAtMs": 1774969200000,
+        "lastRunAtMs": 1774883432284,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 34819,
+        "lastDurationMs": 68469,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
@@ -190,7 +191,7 @@
       "description": "每天23:00读取当日session，总结工作内容，写入memory并发送给你",
       "enabled": true,
       "createdAtMs": 1774537631172,
-      "updatedAtMs": 1774797139479,
+      "updatedAtMs": 1774883557109,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -210,16 +211,16 @@
         "to": "user:ou_0bc2f0bdf4be8039599fe8c4967425a8"
       },
       "state": {
-        "nextRunAtMs": 1774882800000,
-        "lastRunAtMs": 1774796956441,
+        "nextRunAtMs": 1774969200000,
+        "lastRunAtMs": 1774883500753,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 183038,
+        "lastDurationMs": 56356,
         "lastDeliveryStatus": "not-delivered",
-        "consecutiveErrors": 5,
-        "lastError": "⚠️ ✉️ Message failed",
+        "consecutiveErrors": 6,
         "lastDelivered": false,
-        "lastDeliveryError": "⚠️ ✉️ Message failed"
+        "lastDeliveryError": "⚠️ ✉️ Message failed",
+        "lastError": "⚠️ ✉️ Message failed"
       }
     },
     {
