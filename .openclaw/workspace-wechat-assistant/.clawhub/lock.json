@@ -4,6 +4,30 @@
     "wechat-image-generator": {
       "version": "1.0.2",
       "installedAt": 1774594954578
+    },
+    "hot-news-aggregator": {
+      "version": "1.0.0",
+      "installedAt": 1774601904459
+    },
+    "weibo-hot-trend": {
+      "version": "1.0.0",
+      "installedAt": 1774601914540
+    },
+    "content-brainstorm": {
+      "version": "1.0.0",
+      "installedAt": 1774601917148
+    },
+    "hot-topic-finder": {
+      "version": "1.0.0",
+      "installedAt": 1774601919698
+    },
+    "daily-trending": {
+      "version": "1.0.0",
+      "installedAt": 1774601922205
+    },
+    "baidu-hot-cn": {
+      "version": "1.0.0",
+      "installedAt": 1774601977180
     }
   }
 }

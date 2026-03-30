@@ -1,0 +1,32 @@
+name: "VoicePix Voice Clone API Tests"
+base_url: "https://api.minimax.io"
+
+environment:
+  dev:
+    api_key: "YOUR_GROUP_ID_HERE"
+    test_audio_file: "./test_voice.mp3"
+  prod:
+    api_key: "YOUR_GROUP_ID_HERE"
+    test_audio_file: "./test_voice.mp3"
+
+tests:
+  - name: "Voice Clone - 缺少 voice_id 参数"
+    method: POST
+    url: "/v1/voice_clone"
+    headers:
+      Authorization: "Bearer {{api_key}}"
+    body_format: "multipart"
+    body:
+      file: "@{{test_audio_file}}"
+    expect:
+      status: 400
+
+  - name: "Voice Clone - 无 Authorization header"
+    method: POST
+    url: "/v1/voice_clone"
+    body_format: "multipart"
+    body:
+      file: "@{{test_audio_file}}"
+      voice_id: "test_voice"
+    expect:
+      status: 401

@@ -1,0 +1,153 @@
+name: "VoicePix T2A API Tests"
+base_url: "https://api.minimax.io"
+
+environment:
+  dev:
+    api_key: "YOUR_GROUP_ID_HERE"
+  prod:
+    api_key: "YOUR_GROUP_ID_HERE"
+
+tests:
+  - name: "T2A - 中文语音生成（正常）"
+    method: POST
+    url: "/v1/t2a_v2"
+    headers:
+      Authorization: "Bearer {{api_key}}"
+      Content-Type: "application/json"
+    body:
+      model: "speech-02"
+      text: "你好，这是一条测试语音。"
+      voice_setting:
+        voice_id: "Chinese (Mandarin)_Warm_Girl"
+      audio_setting:
+        sample_rate: 48000
+        bitrate: 128000
+        format: "mp3"
+      speed: 1.0
+      pitch: 0
+    expect:
+      status: 200
+      header_contains: "audio"
+      max_response_time: 5000
+
+  - name: "T2A - 英文语音生成（正常）"
+    method: POST
+    url: "/v1/t2a_v2"
+    headers:
+      Authorization: "Bearer {{api_key}}"
+      Content-Type: "application/json"
+    body:
+      model: "speech-02"
+      text: "Hello, this is a voice test."
+      voice_setting:
+        voice_id: "English_CalmWoman"
+      audio_setting:
+        sample_rate: 48000
+        format: "mp3"
+    expect:
+      status: 200
+      header_contains: "audio"
+
+  - name: "T2A - 空 text 字段返回错误"
+    method: POST
+    url: "/v1/t2a_v2"
+    headers:
+      Authorization: "Bearer {{api_key}}"
+      Content-Type: "application/json"
+    body:
+      model: "speech-02"
+      text: ""
+      voice_setting:
+        voice_id: "Chinese (Mandarin)_Warm_Girl"
+      audio_setting:
+        sample_rate: 48000
+        format: "mp3"
+    expect:
+      status: 400
+      body_contains: "text"
+
+  - name: "T2A - 无效 voice_id 返回错误"
+    method: POST
+    url: "/v1/t2a_v2"
+    headers:
+      Authorization: "Bearer {{api_key}}"
+      Content-Type: "application/json"
+    body:
+      model: "speech-02"
+      text: "Hello"
+      voice_setting:
+        voice_id: "invalid_voice_id_xyz123"
+      audio_setting:
+        sample_rate: 48000
+        format: "mp3"
+    expect:
+      status: 400
+
+  - name: "T2A - speech-02-hd 模型（高清音色）"
+    method: POST
+    url: "/v1/t2a_v2"
+    headers:
+      Authorization: "Bearer {{api_key}}"
+      Content-Type: "application/json"
+    body:
+      model: "speech-02-hd"
+      text: "这是一段高清音质的语音测试。"
+      voice_setting:
+        voice_id: "male-qn-qingse"
+      audio_setting:
+        sample_rate: 48000
+        format: "mp3"
+    expect:
+      status: 200
+      header_contains: "audio"
+
+  - name: "T2A - PCM 格式输出"
+    method: POST
+    url: "/v1/t2a_v2"
+    headers:
+      Authorization: "Bearer {{api_key}}"
+      Content-Type: "application/json"
+    body:
+      model: "speech-02"
+      text: "Testing PCM format output."
+      voice_setting:
+        voice_id: "English_Trustworth_Man"
+      audio_setting:
+        sample_rate: 48000
+        format: "pcm"
+    expect:
+      status: 200
+      header_contains: "audio"
+
+  - name: "T2A - 无 Authorization header"
+    method: POST
+    url: "/v1/t2a_v2"
+    headers:
+      Content-Type: "application/json"
+    body:
+      model: "speech-02"
+      text: "Test"
+      voice_setting:
+        voice_id: "Chinese (Mandarin)_Warm_Girl"
+      audio_setting:
+        sample_rate: 48000
+        format: "mp3"
+    expect:
+      status: 401
+
+  - name: "T2A - 超长文本（接近限制）"
+    method: POST
+    url: "/v1/t2a_v2"
+    headers:
+      Authorization: "Bearer {{api_key}}"
+      Content-Type: "application/json"
+    body:
+      model: "speech-02"
+      text: "测试。"
+      voice_setting:
+        voice_id: "Chinese (Mandarin)_Warm_Girl"
+      audio_setting:
+        sample_rate: 48000
+        format: "mp3"
+    expect:
+      status: 200

@@ -1,0 +1,24 @@
+{
+  "id": "ba560cbd-6826-4d0a-bc0a-78b4e5dcbaff",
+  "enqueuedAt": 1774825562025,
+  "channel": "feishu",
+  "to": "ou_0bc2f0bdf4be8039599fe8c4967425a8",
+  "accountId": "wechat-assistant",
+  "payloads": [
+    {
+      "text": "📤 今日公众号已完成\n\n🗓 2026年3月30日 每日热点\n\n📍 方向：AI工具 / Agent爆发\n📝 标题：《2026年AI Agent彻底炸了，80%的人还在看热闹》\n📊 字数：约1300字\n\n✅ 已推送到草稿箱\n🖼 封面图：MiniMax image-01 生成\n\n🔗 请前往公众号后台审稿发布：\nhttps://mp.weixin.qq.com",
+      "replyToTag": false,
+      "replyToCurrent": false,
+      "audioAsVoice": false
+    }
+  ],
+  "gifPlayback": false,
+  "mirror": {
+    "sessionKey": "agent:wechat-assistant:feishu:wechat-assistant:direct:ou_0bc2f0bdf4be8039599fe8c4967425a8",
+    "agentId": "wechat-assistant",
+    "text": "📤 今日公众号已完成\n\n🗓 2026年3月30日 每日热点\n\n📍 方向：AI工具 / Agent爆发\n📝 标题：《2026年AI Agent彻底炸了，80%的人还在看热闹》\n📊 字数：约1300字\n\n✅ 已推送到草稿箱\n🖼 封面图：MiniMax image-01 生成\n\n🔗 请前往公众号后台审稿发布：\nhttps://mp.weixin.qq.com"
+  },
+  "retryCount": 1,
+  "lastAttemptAt": 1774825562193,
+  "lastError": "Request failed with status code 400"
+}

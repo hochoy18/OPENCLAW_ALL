@@ -128,7 +128,8 @@
             "security": "full",
             "ask": "off"
           }
-        }
+        },
+        "workspace": "/home/hochoy/.openclaw/workspace"
       },
       {
         "id": "demo",
@@ -169,7 +170,17 @@
         "name": "coder",
         "workspace": "/home/hochoy/.openclaw/workspace-coder",
         "agentDir": "/home/hochoy/.openclaw/agents/coder/agent",
-        "model": "minimax/MiniMax-M2.7"
+        "model": "minimax/MiniMax-M2.7",
+        "tools": {
+          "allow": [
+            "*"
+          ],
+          "exec": {
+            "host": "gateway",
+            "security": "allowlist",
+            "ask": "off"
+          }
+        }
       },
       {
         "id": "task-manager",
@@ -314,7 +325,10 @@
           "groupPolicy": "open",
           "domain": "feishu",
           "requireMention": true,
-          "agent": "main"
+          "agent": "main",
+          "bindings": {
+            "agentId": "main"
+          }
         },
         "demo": {
           "enabled": true,
@@ -324,7 +338,10 @@
           "groupPolicy": "open",
           "domain": "feishu",
           "requireMention": true,
-          "agent": "demo"
+          "agent": "demo",
+          "bindings": {
+            "agentId": "demo"
+          }
         },
         "wechat-assistant": {
           "enabled": true,
@@ -334,7 +351,10 @@
           "groupPolicy": "open",
           "domain": "feishu",
           "requireMention": true,
-          "agent": "wechat-assistant"
+          "agent": "wechat-assistant",
+          "bindings": {
+            "agentId": "wechat-assistant"
+          }
         },
         "coder": {
           "enabled": true,
@@ -344,7 +364,10 @@
           "groupPolicy": "open",
           "domain": "feishu",
           "requireMention": true,
-          "agent": "coder"
+          "agent": "coder",
+          "bindings": {
+            "agentId": "coder"
+          }
         },
         "task-manager": {
           "enabled": true,
@@ -354,7 +377,10 @@
           "groupPolicy": "open",
           "domain": "feishu",
           "requireMention": true,
-          "agent": "task-manager"
+          "agent": "task-manager",
+          "bindings": {
+            "agentId": "task-manager"
+          }
         },
         "cron": {
           "enabled": true,
@@ -364,7 +390,10 @@
           "groupPolicy": "open",
           "domain": "feishu",
           "requireMention": true,
-          "agent": "cron"
+          "agent": "cron",
+          "bindings": {
+            "agentId": "cron"
+          }
         },
         "comedy": {
           "enabled": true,
@@ -374,7 +403,10 @@
           "groupPolicy": "open",
           "domain": "feishu",
           "requireMention": true,
-          "agent": "comedy"
+          "agent": "comedy",
+          "bindings": {
+            "agentId": "comedy"
+          }
         },
         "biology": {
           "enabled": true,
@@ -384,7 +416,10 @@
           "groupPolicy": "open",
           "domain": "feishu",
           "requireMention": true,
-          "agent": "biology"
+          "agent": "biology",
+          "bindings": {
+            "agentId": "biology"
+          }
         }
       },
       "defaultAccount": "demo"

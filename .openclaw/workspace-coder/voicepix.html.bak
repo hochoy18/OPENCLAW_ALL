@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VoicePix</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0f;--card:#12121a;--card2:#0d0d14;--border:rgba(255,255,255,0.07);--text:#f0f0f5;--muted:#6b6b80;--dim:#3a3a4a;--violet:#7c3aed;--violet2:#9d6fff;--cyan:#06b6d4;--green:#10b981;--red:#ef4444;--radius:14px}
+body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:700}
+.logo-icon{width:34px;height:34px;background:linear-gradient(135deg,var(--violet),var(--cyan));border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px}
+.hdr-right{display:flex;align-items:center;gap:10px}
+.lang-toggle{display:flex;background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.lang-btn{padding:6px 14px;font-size:12px;font-weight:500;border:none;background:transparent;color:var(--muted);cursor:pointer;transition:all .2s}
+.lang-btn.active{background:var(--violet);color:#fff}
+.apikey-btn{padding:6px 14px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:12px;cursor:pointer;transition:all .2s}
+.apikey-btn:hover{color:var(--text);border-color:var(--muted)}
+.apikey-btn.set{color:var(--green);border-color:var(--green)}
+.nav-wrap{display:flex;justify-content:center;padding:30px 20px 0;gap:8px}
+.nav-tab{padding:9px 24px;border:1px solid var(--border);border-radius:100px;background:transparent;color:var(--muted);font-size:13px;font-weight:500;cursor:pointer;transition:all .2s}
+.nav-tab:hover{color:var(--text)}
+.nav-tab.active{background:var(--card);border-color:var(--violet);color:var(--text)}
+main{max-width:680px;margin:0 auto;padding:24px 20px 80px}
+.sect{display:none}
+.sect.on{display:block}
+.sect-h{margin-bottom:22px}
+.sect-h h1{font-size:25px;font-weight:700;letter-spacing:-0.4px;margin-bottom:4px}
+.sect-h p{font-size:13px;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:12px}
+.card-label{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px}
+textarea{width:100%;min-height:115px;background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;color:var(--text);font-size:14px;font-family:inherit;resize:vertical;outline:none;transition:border-color .2s;line-height:1.7}
+textarea:focus{border-color:var(--violet)}
+textarea::placeholder{color:var(--muted)}
+.count{text-align:right;font-size:11px;color:var(--muted);margin-top:5px;font-family:monospace}
+.voice-preset{width:100%;padding:9px 12px;background:var(--card2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:13px;outline:none;cursor:pointer;margin-bottom:11px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b6b80' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px}
+.voice-preset:focus{border-color:var(--violet)}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:7px;max-height:190px;overflow-y:auto;padding-right:4px}
+.vgrid::-webkit-scrollbar{width:3px}
+.vgrid::-webkit-scrollbar-thumb{background:var(--dim);border-radius:2px}
+.vitem{padding:9px 11px;background:var(--card2);border:1.5px solid var(--border);border-radius:9px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:7px}
+.vitem:hover{border-color:var(--muted);transform:translateY(-1px)}
+.vitem.sel{border-color:var(--cyan);background:rgba(6,182,212,.06)}
+.vinfo{flex:1;min-width:0}
+.vname{font-size:12px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vlang{font-size:10px;color:var(--muted)}
+.vplay{width:25px;height:25px;border-radius:50%;border:none;background:var(--border);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0;transition:all .15s}
+.vplay:hover{background:var(--violet);color:#fff}
+.srow{display:flex;align-items:center;gap:12px;margin-bottom:9px}
+.slabel{font-size:12px;color:var(--muted);min-width:30px}
+.swrap{flex:1}
+input[type=range]{width:100%;-webkit-appearance:none;height:4px;background:#1e1e2a;border-radius:2px;outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;background:linear-gradient(135deg,var(--violet),var(--cyan));border-radius:50%;cursor:pointer;box-shadow:0 2px 6px rgba(124,58,237,.35)}
+.sval{font-size:11px;color:var(--muted);font-family:monospace;min-width:32px;text-align:right}
+.fpills{display:flex;gap:7px;flex-wrap:wrap}
+.fpill{padding:5px 15px;border:1px solid var(--border);border-radius:100px;font-size:12px;color:var(--muted);cursor:pointer;transition:all .15s;background:transparent}
+.fpill:hover{border-color:var(--muted);color:var(--text)}
+.fpill.sel{background:var(--violet);border-color:var(--violet);color:#fff}
+.btn-p{width:100%;padding:14px;border:none;border-radius:var(--radius);color:#fff;font-size:15px;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;font-family:inherit;background:linear-gradient(135deg,var(--violet),var(--violet2));box-shadow:0 4px 16px rgba(124,58,237,.3)}
+.btn-p:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(124,58,237,.4)}
+.btn-p:active{transform:translateY(0)}
+.btn-p:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn-p.load{position:relative;overflow:hidden;pointer-events:none}
+.btn-p.load::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);animation:shimmer 1.4s infinite}
+@keyframes shimmer{100%{left:100%}}
+.outbox{display:none;margin-top:12px}
+.outbox.on{display:block}
+.oplayer{display:flex;align-items:center;gap:13px}
+.oplay{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--cyan));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;flex-shrink:0;transition:transform .15s}
+.oplay:hover{transform:scale(1.07)}
+.opro{flex:1}
+.obar{width:100%;height:3px;background:#1e1e2a;border-radius:2px;cursor:pointer}
+.ofill{height:100%;background:linear-gradient(90deg,var(--violet),var(--cyan));border-radius:2px;width:0;transition:width .1s linear}
+.otime{font-size:10px;color:var(--muted);margin-top:4px;font-family:monospace;display:flex;justify-content:space-between}
+.odl{padding:7px 14px;background:var(--card2);border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:12px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px;white-space:nowrap}
+.odl:hover{border-color:var(--cyan);color:var(--cyan)}
+.uzone{border:2px dashed var(--border);border-radius:var(--radius);padding:32px 20px;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:12px}
+.uzone:hover{border-color:var(--violet);background:rgba(124,58,237,.04)}
+.uzone.drag{border-color:var(--cyan);background:rgba(6,182,212,.05)}
+.uicon{font-size:32px;margin-bottom:9px}
+.utext{font-size:13px;color:var(--muted)}
+.utext span{color:var(--violet)}
+.uhint{font-size:11px;color:var(--muted);margin-top:4px}
+.ufname{font-size:13px;color:var(--cyan);margin-top:9px;word-break:break-all}
+.tinput{width:100%;padding:9px 12px;background:var(--card2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:13px;font-family:inherit;outline:none;transition:border-color .2s;margin-bottom:9px}
+.tinput:focus{border-color:var(--violet)}
+.tinput::placeholder{color:var(--muted)}
+.hint{font-size:12px;color:var(--muted);margin-bottom:12px}
+.cres{margin-top:12px;padding:13px;background:var(--card2);border:1px solid var(--border);border-radius:10px;font-size:13px;line-height:1.8}
+.cres .ok{color:var(--green)}
+.cres .err{color:var(--red)}
+.cres .vid{font-family:monospace;background:rgba(124,58,237,.15);padding:1px 7px;border-radius:4px;color:var(--violet2);font-size:12px}
+.modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.7);backdrop-filter:blur(4px)}
+.modal.on{display:flex}
+.mbox{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:26px;width:min(420px,90vw)}
+.mtitle{font-size:16px;font-weight:700;margin-bottom:14px;padding-right:24px}
+.mclose{float:right;font-size:20px;color:var(--muted);cursor:pointer;background:none;border:none;padding:0;line-height:1}
+.mclose:hover{color:var(--text)}
+.mlabel{font-size:12px;color:var(--muted);margin-bottom:5px;display:block}
+.minput{width:100%;padding:9px 12px;background:var(--card2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:13px;outline:none;margin-bottom:12px;font-family:inherit}
+.minput:focus{border-color:var(--violet)}
+.msave{width:100%;padding:11px;background:var(--violet);border:none;border-radius:9px;color:#fff;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;margin-bottom:10px}
+.msave:hover{background:var(--violet2)}
+.mdel{text-align:center;font-size:12px;color:var(--muted)}
+.mdel button{color:var(--red);background:none;border:none;cursor:pointer;font-size:12px}
+.mdel button:hover{text-decoration:underline}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--card);border:1px solid var(--border);border-radius:11px;padding:10px 22px;font-size:13px;color:var(--text);z-index:300;transition:transform .3s ease;pointer-events:none;white-space:nowrap}
+.toast.on{transform:translateX(-50%) translateY(0)}
+.toast.err{border-color:var(--red);color:var(--red)}
+.toast.ok{border-color:var(--green);color:var(--green)}
+footer{text-align:center;padding:32px 20px;color:var(--muted);font-size:11px}
+footer a{color:var(--muted)}
+footer a:hover{color:var(--text)}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"><div class="logo-icon">🎙</div><span>VoicePix</span></div>
+  <div class="hdr-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="zh" data-zh="中文" data-en="中文">中文</button>
+      <button class="lang-btn" data-lang="en" data-zh="EN" data-en="EN">EN</button>
+    </div>
+    <button class="apikey-btn" id="akBtn" onclick="openModal()">API Key</button>
+  </div>
+</header>
+
+<div class="nav-wrap">
+  <button class="nav-tab active" data-sec="t2a">🎵 <span data-zh="文字转语音" data-en="Text to Speech">文字转语音</span></button>
+  <button class="nav-tab" data-sec="clone">✨ <span data-zh="声音克隆" data-en="Voice Clone">声音克隆</span></button>
+</div>
+
+<main>
+  <div class="sect on" id="s-t2a">
+    <div class="sect-h">
+      <h1 data-zh="文字转语音" data-en="Text to Speech">文字转语音</h1>
+      <p data-zh="输入文字，选择声音，立即生成专业语音" data-en="Enter text, pick a voice, get studio-quality audio">输入文字，选择声音，立即生成专业语音</p>
+    </div>
+    <div class="card">
+      <div class="card-label" data-zh="输入文字" data-en="Your Text">输入文字</div>
+      <textarea id="tText" placeholder="在这里输入文字..." data-zh-placeholder="在这里输入文字..." data-en-placeholder="Type your text here..."></textarea>
+      <div class="count"><span id="cc">0</span> / 10,000</div>
+    </div>
+    <div class="card">
+      <div class="card-label" data-zh="选择声音" data-en="Choose a Voice">选择声音</div>
+      <select class="voice-preset" id="preset">
+        <option value="">— 快速选择 Quick select —</option>
+        <optgroup label="中文 Chinese">
+          <option value="Chinese (Mandarin)_Reliable_Executive">中文 · 可靠高管</option>
+          <option value="Chinese (Mandarin)_News_Anchor">中文 · 新闻主播</option>
+          <option value="Chinese (Mandarin)_Warm_Girl">中文 · 温暖女孩</option>
+          <option value="Chinese (Mandarin)_Gentleman">中文 · 绅士</option>
+          <option value="Chinese (Mandarin)_Kind-hearted_Antie">中文 · 慈祥阿姨</option>
+          <option value="Chinese (Mandarin)_Humorous_Elder">中文 · 幽默长辈</option>
+          <option value="male-qn-qingse">中文 · 清涩少年</option>
+          <option value="Chinese (Mandarin)_Male_Announcer">中文 · 男声播音</option>
+          <option value="Chinese (Mandarin)_Sweet_Lady">中文 · 甜美女士</option>
+          <option value="Chinese (Mandarin)_Southern_Young_Man">中文 · 南方青年</option>
+        </optgroup>
+        <optgroup label="English">
+          <option value="English_Expressive_Narrator">Expressive Narrator</option>
+          <option value="English_Radiant_Girl">Radiant Girl</option>
+          <option value="English_CalmWoman">Calm Woman</option>
+          <option value="English_Trustworth_Man">Trustworthy Man</option>
+          <option value="English_Captivating_Storyteller">Captivating Storyteller</option>
+          <option value="English_PlayfulGirl">Playful Girl</option>
+          <option value="English_Whispering_girl">Whispering Girl</option>
+          <option value="English_Magnetic_voiced_man">Magnetic-voiced Male</option>
+          <option value="English_Aussie_Bloke">Aussie Bloke</option>
+        </optgroup>
+      </select>
+      <div class="vgrid" id="vgrid"></div>
+    </div>
+    <div class="card">
+      <div class="card-label" data-zh="语速" data-en="Speed">语速</div>
+      <div class="srow">
+        <span class="slabel" data-zh="慢" data-en="Slow">慢</span>
+        <div class="swrap"><input type="range" id="spd" min="0.5" max="2.0" step="0.1" value="1.0"></div>
+        <span class="sval" id="spdV">1.0x</span>
+      </div>
+      <div class="card-label" data-zh="音调" data-en="Pitch" style="margin-top:2px">音调</div>
+      <div class="srow">
+        <span class="slabel" data-zh="低" data-en="Low">低</span>
+        <div class="swrap"><input type="range" id="pit" min="-12" max="12" step="1" value="0"></div>
+        <span class="sval" id="pitV">0</span>
+      </div>
+      <div class="card-label" data-zh="输出格式" data-en="Format" style="margin-top:2px">输出格式</div>
+      <div class="fpills">
+        <button class="fpill sel" data-f="mp3">MP3</button>
+        <button class="fpill" data-f="pcm">PCM</button>
+        <button class="fpill" data-f="wav">WAV</button>
+        <button class="fpill" data-f="flac">FLAC</button>
+      </div>
+    </div>
+    <button class="btn-p" id="genBtn" onclick="genSpeech()">
+      🎵 <span data-zh="生成语音" data-en="Generate Speech">生成语音</span>
+    </button>
+    <div class="outbox" id="outbox">
+      <div class="card-label" data-zh="生成的音频" data-en="Generated Audio">生成的音频</div>
+      <div class="oplayer">
+        <button class="oplay" id="playB">▶</button>
+        <div class="opro">
+          <div class="obar" id="pbar"><div class="ofill" id="ofill"></div></div>
+          <div class="otime"><span id="ct">0:00</span><span id="tt">0:00</span></div>
+        </div>
+        <a class="odl" id="dlBtn" href="#">⬇ <span data-zh="下载" data-en="Download">下载</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect" id="s-clone">
+    <div class="sect-h">
+      <h1 data-zh="声音克隆" data-en="Voice Clone">声音克隆</h1>
+      <p data-zh="上传人声音频，克隆专属声音ID，用于T2A" data-en="Upload a voice sample to clone a custom voice ID">上传人声音频，克隆专属声音ID，用于T2A</p>
+    </div>
+    <div class="card">
+      <div class="card-label" data-zh="第一步：上传音频" data-en="Step 1: Upload Audio">第一步：上传音频</div>
+      <div class="uzone" id="uzone">
+        <div class="uicon">🎤</div>
+        <div class="utext" data-zh="拖放音频，或<span>点击上传</span>" data-en="Drag & drop audio, or <span>click to browse</span>">拖放音频，或<span>点击上传</span></div>
+        <div class="uhint" data-zh="MP3 / M4A / WAV，10秒～5分钟，不超过20MB" data-en="MP3 / M4A / WAV 10s-5min max 20MB">MP3 / M4A / WAV，10秒～5分钟，不超过20MB</div>
+        <div class="ufname" id="fname"></div>
+        <input type="file" id="fin" accept=".mp3,.m4a,.wav" style="display:none">
+      </div>
+      <div class="card-label" data-zh="第二步：设置声音ID" data-en="Step 2: Set Voice ID">第二步：设置声音ID</div>
+      <input type="text" class="tinput" id="cvid" placeholder="自定义声音ID，如 my_voice_01" data-zh-placeholder="自定义声音ID，如 my_voice_01" data-en-placeholder="Custom voice ID, e.g. my_voice_01">
+      <div class="hint" data-zh="克隆成功后，用此ID在 T2A 声音选择器中快速查找" data-en="After cloning, use this ID in T2A voice selector">克隆成功后，用此ID在 T2A 声音选择器中快速查找</div>
+      <button class="btn-p" id="cloneBtn" onclick="doClone()">
+        ✨ <span data-zh="开始克隆" data-en="Start Clone">开始克隆</span>
+      </button>
+    </div>
+    <div id="cloneRes" style="display:none">
+      <div class="cres" id="cres"></div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  VoicePix Powered by MiniMax Speech | <a href="https://platform.minimax.io" target="_blank">platform.minimax.io</a>
+</footer>
+
+<div class="modal" id="modal">
+  <div class="mbox">
+    <div class="mtitle" data-zh="设置 API Key" data-en="Set API Key">设置 API Key</div>
+    <button class="mclose" onclick="closeModal()">×</button>
+    <label class="mlabel" data-zh="Group ID" data-en="Group ID">Group ID</label>
+    <input type="text" class="minput" id="gidInput" data-zh-placeholder="从 MiniMax 控制台获取 Group ID" data-en-placeholder="Get Group ID from MiniMax console" placeholder="sk-cp-xxxxx">
+    <label class="mlabel" data-zh="API Key（Secret）" data-en="API Key (Secret)" style="margin-top:10px">API Key（Secret）</label>
+    <input type="password" class="minput" id="keyInput" data-zh-placeholder="API Secret" data-en-placeholder="API Secret" placeholder="••••••••">
+    <div style="font-size:11px;color:var(--muted);margin:10px 0 12px" data-zh="仅存储在浏览器本地，不会上传到任何服务器" data-en="Stored locally in your browser only">仅存储在浏览器本地，不会上传到任何服务器</div>
+    <button class="msave" onclick="saveKey()" data-zh="保存并使用" data-en="Save Use">保存并使用</button>
+    <div class="mdel"><button onclick="delKey()" data-zh="删除 Key" data-en="Delete Key">删除 Key</button></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var L="zh",GID="",KEY="",selVoice="Chinese (Mandarin)_Warm_Girl",selFmt="mp3";
+(function loadAK(){
+  var s=localStorage.getItem("vp_ak");
+  if(!s)return;
+  try{
+    var j=JSON.parse(s);
+    GID=j.gid||"";KEY=j.key||"";
+  }catch(e){
+    // 兼容旧格式：纯字符串直接作为GID
+    GID=s;KEY="";
+  }
+})();
+var auUrl=null,auBlob=null,audioEl=null,playing=false,ufile=null;
+
+var VOICES=[
+  {id:"Chinese (Mandarin)_Reliable_Executive",n:"可靠高管",l:"中文"},
+  {id:"Chinese (Mandarin)_News_Anchor",n:"新闻主播",l:"中文"},
+  {id:"Chinese (Mandarin)_Warm_Girl",n:"温暖女孩",l:"中文"},
+  {id:"Chinese (Mandarin)_Gentleman",n:"绅士",l:"中文"},
+  {id:"Chinese (Mandarin)_Kind-hearted_Antie",n:"慈祥阿姨",l:"中文"},
+  {id:"Chinese (Mandarin)_Humorous_Elder",n:"幽默长辈",l:"中文"},
+  {id:"male-qn-qingse",n:"清涩少年",l:"中文"},
+  {id:"Chinese (Mandarin)_Male_Announcer",n:"男声播音",l:"中文"},
+  {id:"Chinese (Mandarin)_Sweet_Lady",n:"甜美女士",l:"中文"},
+  {id:"Chinese (Mandarin)_Southern_Young_Man",n:"南方青年",l:"中文"},
+  {id:"English_Expressive_Narrator",n:"Expressive Narrator",l:"English"},
+  {id:"English_Radiant_Girl",n:"Radiant Girl",l:"English"},
+  {id:"English_CalmWoman",n:"Calm Woman",l:"English"},
+  {id:"English_Trustworth_Man",n:"Trustworthy Man",l:"English"},
+  {id:"English_Captivating_Storyteller",n:"Captivating Storyteller",l:"English"},
+  {id:"English_PlayfulGirl",n:"Playful Girl",l:"English"},
+  {id:"English_Whispering_girl",n:"Whispering Girl",l:"English"},
+  {id:"English_Magnetic_voiced_man",n:"Magnetic-voiced Male",l:"English"},
+  {id:"English_Aussie_Bloke",n:"Aussie Bloke",l:"English"},
+];
+
+(function init(){
+  renderVGrid();bindUI();updAKBtn();
+  document.getElementById("preset").value=selVoice;
+  document.getElementById("tText").addEventListener("input",function(){
+    document.getElementById("cc").textContent=this.value.length;
+  });
+  var z=document.getElementById("uzone");
+  z.addEventListener("click",function(){document.getElementById("fin").click();});
+  z.addEventListener("dragover",function(e){e.preventDefault();z.classList.add("drag");});
+  z.addEventListener("dragleave",function(){z.classList.remove("drag");});
+  z.addEventListener("drop",function(e){e.preventDefault();z.classList.remove("drag");handleF(e.dataTransfer.files[0]);});
+  document.getElementById("fin").addEventListener("change",function(e){handleF(e.target.files[0]);});
+  document.getElementById("pbar").addEventListener("click",function(e){
+    if(!audioEl||!audioEl.duration)return;
+    var r=document.getElementById("pbar").getBoundingClientRect();
+    audioEl.currentTime=(e.clientX-r.left)/r.width*audioEl.duration;
+  });
+  document.getElementById("playB").addEventListener("click",togglePlay);
+})();
+
+function handleF(f){
+  if(!f)return;
+  if(!f.name.match(/\.(mp3|m4a|wav)$/i)){toast(L==="zh"?"仅支持 MP3 / M4A / WAV":"Only MP3 / M4A / WAV","err");return;}
+  ufile=f;document.getElementById("fname").textContent=f.name;
+}
+
+function renderVGrid(){
+  var g=document.getElementById("vgrid"),html="";
+  for(var i=0;i<VOICES.length;i++){
+    var v=VOICES[i],sel=v.id===selVoice?" sel":"";
+    html+="<div class=\"vitem"+sel+"\" data-id=\""+v.id+"\">"+
+      "<div class=\"vinfo\"><div class=\"vname\">"+v.n+"</div><div class=\"vlang\">"+v.l+"</div></div>"+
+      "<button class=\"vplay\" data-id=\""+v.id+"\">▶</button></div>";
+  }
+  g.innerHTML=html;
+  g.querySelectorAll(".vitem").forEach(function(it){
+    it.addEventListener("click",function(e){
+      if(e.target.classList.contains("vplay"))return;
+      g.querySelectorAll(".vitem").forEach(function(i){i.classList.remove("sel");});
+      it.classList.add("sel");selVoice=it.dataset.id;
+      document.getElementById("preset").value=selVoice;
+    });
+  });
+  g.querySelectorAll(".vplay").forEach(function(b){
+    b.addEventListener("click",function(e){e.stopPropagation();prevVoice(b.dataset.id,b);});
+  });
+}
+
+function bindUI(){
+  document.querySelectorAll(".lang-btn").forEach(function(b){
+    b.addEventListener("click",function(){
+      document.querySelectorAll(".lang-btn").forEach(function(x){x.classList.remove("active");});
+      b.classList.add("active");L=b.dataset.lang;applyLang();
+    });
+  });
+  document.querySelectorAll(".nav-tab").forEach(function(t){
+    t.addEventListener("click",function(){
+      document.querySelectorAll(".nav-tab").forEach(function(x){x.classList.remove("active");});
+      t.classList.add("active");
+      document.querySelectorAll(".sect").forEach(function(s){s.classList.remove("on");});
+      document.getElementById("s-"+t.dataset.sec).classList.add("on");
+    });
+  });
+  document.getElementById("preset").addEventListener("change",function(e){
+    selVoice=e.target.value;
+    document.querySelectorAll(".vitem").forEach(function(i){i.classList.toggle("sel",i.dataset.id===selVoice);});
+  });
+  document.getElementById("spd").addEventListener("input",function(e){document.getElementById("spdV").textContent=parseFloat(e.target.value).toFixed(1)+"x";});
+  document.getElementById("pit").addEventListener("input",function(e){document.getElementById("pitV").textContent=e.target.value;});
+  document.querySelectorAll(".fpill").forEach(function(p){
+    p.addEventListener("click",function(){
+      document.querySelectorAll(".fpill").forEach(function(x){x.classList.remove("sel");});
+      p.classList.add("sel");selFmt=p.dataset.f;
+    });
+  });
+}
+
+function applyLang(){
+  document.querySelectorAll("[data-zh]").forEach(function(el){var t=el.getAttribute("data-"+L);if(t!==null)el.textContent=t;});
+  document.querySelectorAll("[data-zh-placeholder]").forEach(function(el){el.placeholder=el.getAttribute("data-"+L+"-placeholder");});
+}
+
+var tTimer;
+function toast(msg,type){
+  type=type||"";
+  var t=document.getElementById("toast");
+  t.textContent=msg;t.className="toast"+(type?" "+type:"");
+  clearTimeout(tTimer);t.classList.add("on");
+  tTimer=setTimeout(function(){t.classList.remove("on");},3200);
+}
+
+function openModal(){
+  document.getElementById("modal").classList.add("on");
+  document.getElementById("gidInput").value=GID;
+  document.getElementById("keyInput").value=KEY;
+  document.getElementById("gidInput").focus();
+}
+function closeModal(){document.getElementById("modal").classList.remove("on");}
+function saveKey(){
+  GID=document.getElementById("gidInput").value.trim();
+  KEY=document.getElementById("keyInput").value.trim();
+  localStorage.setItem("vp_ak",JSON.stringify({gid:GID,key:KEY}));
+  updAKBtn();closeModal();
+  toast(L==="zh"?"已保存":"Saved","ok");
+}
+function delKey(){GID="";KEY="";localStorage.removeItem("vp_ak");updAKBtn();closeModal();toast(L==="zh"?"已删除":"Deleted");}
+function updAKBtn(){var btn=document.getElementById("akBtn");if(GID){btn.classList.add("set");btn.textContent="✓ API Key";}else{btn.classList.remove("set");btn.textContent="API Key";}}
+
+async function prevVoice(voiceId,btn){
+  if(!GID){toast(L==="zh"?"请先设置 API Key":"Please set API Key first","err");return;}
+  var texts={zh:"你好，这是一条语音预览。",en:"Hello, this is a voice preview."};
+  var text=texts[L]||texts.zh;
+  btn.textContent="⏳";
+  try{
+    var blob=await callT2A(text,voiceId,"mp3");
+    var url=URL.createObjectURL(blob);
+    var a=new Audio(url);
+    a.addEventListener("ended",function(){btn.textContent="▶";URL.revokeObjectURL(url);});
+    a.addEventListener("error",function(){btn.textContent="▶";toast(L==="zh"?"预览失败":"Preview failed","err");});
+    a.play();
+  }catch(e){btn.textContent="▶";toast(L==="zh"?"预览失败":"Preview failed","err");}
+}
+
+async function callT2A(text,voiceId,fmt){
+  fmt=fmt||"mp3";
+  var spd=parseFloat(document.getElementById("spd").value);
+  var pit=parseInt(document.getElementById("pit").value);
+  var model=voiceId.startsWith("male-qn-")?"speech-02-hd":"speech-02";
+  var payload={model:model,text:text,voice_setting:{voice_id:voiceId},audio_setting:{sample_rate:48000,bitrate:128000,format:fmt},speed:spd,pitch:pit};
+  var res=await fetch("https://api.minimax.io/v1/t2a_v2",{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+GID},body:JSON.stringify(payload)});
+  if(!res.ok){var err=await res.text();throw new Error(err);}
+  var ct=res.headers.get("Content-Type")||"";
+  if(ct.includes("application/json")){var j=await res.json();throw new Error(j.base_resp?j.base_resp.ret_msg:j.message||"error");}
+  return await res.blob();
+}
+
+async function genSpeech(){
+  var text=document.getElementById("tText").value.trim();
+  if(!text){toast(L==="zh"?"请输入文字":"Please enter text","err");return;}
+  if(!GID){toast(L==="zh"?"请先设置 API Key":"Please set API Key first","err");return;}
+  var btn=document.getElementById("genBtn");
+  btn.classList.add("load");btn.disabled=true;
+  try{
+    auBlob=await callT2A(text,selVoice,selFmt);
+    auUrl=URL.createObjectURL(auBlob);
+    if(audioEl){audioEl.pause();}
+    audioEl=new Audio(auUrl);
+    audioEl.addEventListener("timeupdate",function(){
+      if(!audioEl.duration)return;
+      var p=audioEl.currentTime/audioEl.duration*100;
+      document.getElementById("ofill").style.width=p+"%";
+      document.getElementById("ct").textContent=fmtTime(audioEl.currentTime);
+    });
+    audioEl.addEventListener("loadedmetadata",function(){
+      document.getElementById("tt").textContent=fmtTime(audioEl.duration);
+    });
+    audioEl.addEventListener("ended",function(){playing=false;document.getElementById("playB").textContent="▶";});
+    var d=document.getElementById("dlBtn");
+    d.href=auUrl;d.download="voicepix."+selFmt;
+    document.getElementById("outbox").classList.add("on");
+    playing=false;document.getElementById("playB").textContent="▶";
+    toast(L==="zh"?"生成成功":"Generated","ok");
+  }catch(e){toast((L==="zh"?"生成失败：":"Generation failed:")+e.message,"err");}
+  finally{btn.classList.remove("load");btn.disabled=false;}
+}
+
+function fmtTime(s){
+  if(isNaN(s))return"0:00";
+  var m=Math.floor(s/60),sec=Math.floor(s%60);
+  return m+":"+(sec<10?"0":"")+sec;
+}
+
+function togglePlay(){
+  if(!audioEl)return;
+  if(playing){audioEl.pause();playing=false;document.getElementById("playB").textContent="▶";}
+  else{audioEl.play();playing=true;document.getElementById("playB").textContent="❚❚";}
+}
+
+async function doClone(){
+  if(!ufile){toast(L==="zh"?"请先上传音频":"Please upload audio first","err");return;}
+  var vid=document.getElementById("cvid").value.trim();
+  if(!vid){toast(L==="zh"?"请输入声音ID":"Please enter a voice ID","err");return;}
+  var btn=document.getElementById("cloneBtn");
+  btn.classList.add("load");btn.disabled=true;
+  var fd=new FormData();
+  fd.append("file",ufile);
+  fd.append("voice_id",vid);
+  fd.append("group_id",GID);
+  try{
+    var res=await fetch("https://api.minimax.io/v1/voice_clone",{method:"POST",headers:{"Authorization":"Bearer "+GID},body:fd});
+    var j=await res.json();
+    var r=document.getElementById("cloneRes"),c=document.getElementById("cres");
+    r.style.display="block";
+    if(j.base_resp&&j.base_resp.status_code===0||j.voice_id){
+      c.innerHTML=(L==="zh"?"✅ 克隆成功！声音ID：":"✅ Clone successful! Voice ID：")+"<span class=\"vid\">"+vid+"</span><br>"+
+        (L==="zh"?"在 T2A 声音选择器中搜索该 ID 即可使用":"Search for this ID in the T2A voice selector to use it");
+      VOICES.push({id:vid,n:vid,l:L==="zh"?"自定义":"Custom"});
+      renderVGrid();
+    }else{throw new Error(j.base_resp?j.base_resp.ret_msg:(j.message||"error"));}
+  }catch(e){document.getElementById("cloneRes").style.display="block";document.getElementById("cres").innerHTML="<span class=\"err\">❌ "+(L==="zh"?"克隆失败":"Clone failed")+": "+e.message+"</span>";}
+  finally{btn.classList.remove("load");btn.disabled=false;}
+}
+</script>
+</body>
+</html>

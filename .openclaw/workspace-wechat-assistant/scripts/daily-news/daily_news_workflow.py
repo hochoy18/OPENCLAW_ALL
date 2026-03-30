@@ -23,7 +23,7 @@ from datetime import datetime
 from pathlib import Path
 
 # 添加 skills 路径
-SKILL_DIR = Path(__file__).parent.parent / "skills"
+SKILL_DIR = Path(__file__).parent.parent.parent / "skills"
 sys.path.insert(0, str(SKILL_DIR / "wechat-article-publisher" / "scripts"))
 
 # 加载配置
@@ -58,7 +58,7 @@ def search_with_tavily(query: str) -> dict:
     script_path = SKILL_DIR / "tavily-search" / "scripts" / "search.py"
     
     result = subprocess.run(
-        ["python3", str(script_path), query, "--depth", "basic", "--include-answer"],
+        ["python3", str(script_path), query, "--depth", "basic"],
         capture_output=True,
         text=True,
         cwd=str(SKILL_DIR / "tavily-search")

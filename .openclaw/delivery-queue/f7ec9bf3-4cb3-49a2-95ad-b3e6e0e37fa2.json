@@ -1,0 +1,24 @@
+{
+  "id": "f7ec9bf3-4cb3-49a2-95ad-b3e6e0e37fa2",
+  "enqueuedAt": 1774624160303,
+  "channel": "feishu",
+  "to": "ou_a40d252df8eedac11a6ca82ca1b65352",
+  "accountId": "task-manager",
+  "payloads": [
+    {
+      "text": "📋 每日记忆总结（2026-03-27）\n\n**task-manager 工作区今日关键事件：**\n\n**1. 每日 Cron 任务 ✅**\n- 23:00 定时记忆任务正常运行\n\n**2. 直接会话无记录**\n- 今日与你的直接 session 无消息，你主要与 main/coder/demo 等 agent 互动\n\n**3. SEO 内容讲解 ✅**\n- 为用户讲解了 Google 爬取机制（外链/sitemap/单页提交）\n- 冷启动策略：找权威网站做外链最有效\n- 提供了实际 SEO 操作步骤和诊断工具\n\n**4. 各工作区今日参考动态：**\n- **coder**：尝试 minimax-studio 外网访问、创建了 OpenClaw Release Watcher cron\n- **wechat-assistant**：微信公众号6篇草稿重新推送，3轮自查全部通过，CDN 修复\n- **demo**：讲解了 NotebookLM 功能及用 AI 做视频的工作流\n\n---\n💾 已写入 memory/2026-03-27.md",
+      "replyToTag": false,
+      "replyToCurrent": false,
+      "audioAsVoice": false
+    }
+  ],
+  "gifPlayback": false,
+  "mirror": {
+    "sessionKey": "agent:task-manager:feishu:task-manager:direct:ou_a40d252df8eedac11a6ca82ca1b65352",
+    "agentId": "task-manager",
+    "text": "📋 每日记忆总结（2026-03-27）\n\n**task-manager 工作区今日关键事件：**\n\n**1. 每日 Cron 任务 ✅**\n- 23:00 定时记忆任务正常运行\n\n**2. 直接会话无记录**\n- 今日与你的直接 session 无消息，你主要与 main/coder/demo 等 agent 互动\n\n**3. SEO 内容讲解 ✅**\n- 为用户讲解了 Google 爬取机制（外链/sitemap/单页提交）\n- 冷启动策略：找权威网站做外链最有效\n- 提供了实际 SEO 操作步骤和诊断工具\n\n**4. 各工作区今日参考动态：**\n- **coder**：尝试 minimax-studio 外网访问、创建了 OpenClaw Release Watcher cron\n- **wechat-assistant**：微信公众号6篇草稿重新推送，3轮自查全部通过，CDN 修复\n- **demo**：讲解了 NotebookLM 功能及用 AI 做视频的工作流\n\n---\n💾 已写入 memory/2026-03-27.md"
+  },
+  "retryCount": 5,
+  "lastAttemptAt": 1774666493033,
+  "lastError": "Request failed with status code 400"
+}

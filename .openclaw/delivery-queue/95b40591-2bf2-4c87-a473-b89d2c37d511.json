@@ -1,0 +1,24 @@
+{
+  "id": "95b40591-2bf2-4c87-a473-b89d2c37d511",
+  "enqueuedAt": 1774667906483,
+  "channel": "feishu",
+  "to": "ou_0bc2f0bdf4be8039599fe8c4967425a8",
+  "accountId": "main",
+  "payloads": [
+    {
+      "text": "test",
+      "replyToTag": false,
+      "replyToCurrent": false,
+      "audioAsVoice": false
+    }
+  ],
+  "gifPlayback": false,
+  "mirror": {
+    "sessionKey": "agent:demo:feishu:main:direct:ou_0bc2f0bdf4be8039599fe8c4967425a8",
+    "agentId": "demo",
+    "text": "test"
+  },
+  "retryCount": 1,
+  "lastAttemptAt": 1774667906654,
+  "lastError": "Request failed with status code 400"
+}
