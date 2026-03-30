@@ -120,8 +120,8 @@ footer a:hover{color:var(--text)}
   <div class="logo"><div class="logo-icon">🎙</div><span>VoicePix</span></div>
   <div class="hdr-right">
     <div class="lang-toggle">
-      <button class="lang-btn active" data-lang="zh" data-zh="中文" data-en="中文">中文</button>
-      <button class="lang-btn" data-lang="en" data-zh="EN" data-en="EN">EN</button>
+      <button class="lang-btn" data-lang="zh" data-zh="中文" data-en="中文">中文</button>
+      <button class="lang-btn active" data-lang="en" data-zh="EN" data-en="EN">EN</button>
     </div>
     <button class="apikey-btn" id="akBtn" onclick="openModal()">API Key</button>
   </div>
@@ -245,9 +245,7 @@ footer a:hover{color:var(--text)}
   <div class="mbox">
     <div class="mtitle" data-zh="设置 API Key" data-en="Set API Key">设置 API Key</div>
     <button class="mclose" onclick="closeModal()">×</button>
-    <label class="mlabel" data-zh="Group ID" data-en="Group ID">Group ID</label>
-    <input type="text" class="minput" id="gidInput" data-zh-placeholder="从 MiniMax 控制台获取 Group ID" data-en-placeholder="Get Group ID from MiniMax console" placeholder="sk-cp-xxxxx">
-    <label class="mlabel" data-zh="API Key（Secret）" data-en="API Key (Secret)" style="margin-top:10px">API Key（Secret）</label>
+    <label class="mlabel" data-zh="API Key（Secret）" data-en="API Key (Secret)">API Key（Secret）</label>
     <input type="password" class="minput" id="keyInput" data-zh-placeholder="API Secret" data-en-placeholder="API Secret" placeholder="••••••••">
     <div style="font-size:11px;color:var(--muted);margin:10px 0 12px" data-zh="仅存储在浏览器本地，不会上传到任何服务器" data-en="Stored locally in your browser only">仅存储在浏览器本地，不会上传到任何服务器</div>
     <button class="msave" onclick="saveKey()" data-zh="保存并使用" data-en="Save Use">保存并使用</button>
@@ -258,16 +256,16 @@ footer a:hover{color:var(--text)}
 <div class="toast" id="toast"></div>
 
 <script>
-var L="zh",GID="",KEY="",selVoice="Chinese (Mandarin)_Warm_Girl",selFmt="mp3";
+var L="en",KEY="__MINIMAX_API_KEY__",selVoice="English_CalmWoman",selFmt="mp3";
 (function loadAK(){
-  var s=localStorage.getItem("vp_ak");
-  if(!s)return;
-  try{
-    var j=JSON.parse(s);
-    GID=j.gid||"";KEY=j.key||"";
-  }catch(e){
-    // 兼容旧格式：纯字符串直接作为GID
-    GID=s;KEY="";
+  // 优先从 sessionStorage 读取（用户自定义 key），兼容旧 localStorage
+  var s=sessionStorage.getItem("vp_ak");
+  if(!s)s=localStorage.getItem("vp_ak");
+  if(s){
+    try{
+      var j=JSON.parse(s);
+      KEY=j.key&&j.key!=="__MINIMAX_API_KEY__"?j.key:KEY;
+    }catch(e){}
   }
 })();
 var auUrl=null,auBlob=null,audioEl=null,playing=false,ufile=null;
@@ -316,7 +314,14 @@ var VOICES=[
 
 function handleF(f){
   if(!f)return;
-  if(!f.name.match(/\.(mp3|m4a|wav)$/i)){toast(L==="zh"?"仅支持 MP3 / M4A / WAV":"Only MP3 / M4A / WAV","err");return;}
+  var allowedTypes=["audio/mpeg","audio/mp4","audio/x-m4a","audio/wav","audio/wave","audio/x-wav"];
+  var allowedExts=["mp3","m4a","wav"];
+  var ext=f.name.split(".").pop().toLowerCase();
+  var typeOk=allowedTypes.indexOf(f.type)!==-1;
+  var extOk=allowedExts.indexOf(ext)!==-1;
+  if(!typeOk&&!extOk){toast(L==="zh"?"仅支持 MP3 / M4A / WAV":"Only MP3 / M4A / WAV","err");return;}
+  var maxSize=20*1024*1024;
+  if(f.size>maxSize){toast(L==="zh"?"文件超过20MB限制":"File exceeds 20MB limit","err");return;}
   ufile=f;document.getElementById("fname").textContent=f.name;
 }
 
@@ -387,57 +392,102 @@ function toast(msg,type){
 
 function openModal(){
   document.getElementById("modal").classList.add("on");
-  document.getElementById("gidInput").value=GID;
-  document.getElementById("keyInput").value=KEY;
+  document.getElementById("keyInput").value=(KEY&&KEY!=="__MINIMAX_API_KEY__")?KEY:"";
   document.getElementById("gidInput").focus();
 }
 function closeModal(){document.getElementById("modal").classList.remove("on");}
 function saveKey(){
-  GID=document.getElementById("gidInput").value.trim();
-  KEY=document.getElementById("keyInput").value.trim();
-  localStorage.setItem("vp_ak",JSON.stringify({gid:GID,key:KEY}));
+  var k=document.getElementById("keyInput").value.trim();
+  if(k){KEY=k;sessionStorage.setItem("vp_ak",JSON.stringify({key:k}));localStorage.setItem("vp_ak",JSON.stringify({key:k}));}
   updAKBtn();closeModal();
   toast(L==="zh"?"已保存":"Saved","ok");
 }
-function delKey(){GID="";KEY="";localStorage.removeItem("vp_ak");updAKBtn();closeModal();toast(L==="zh"?"已删除":"Deleted");}
-function updAKBtn(){var btn=document.getElementById("akBtn");if(GID){btn.classList.add("set");btn.textContent="✓ API Key";}else{btn.classList.remove("set");btn.textContent="API Key";}}
+function delKey(){KEY="__MINIMAX_API_KEY__";sessionStorage.removeItem("vp_ak");localStorage.removeItem("vp_ak");updAKBtn();closeModal();toast(L==="zh"?"已删除":"Deleted");}
+function updAKBtn(){var btn=document.getElementById("akBtn");if(KEY&&KEY!=="__MINIMAX_API_KEY__"){btn.classList.add("set");btn.textContent="✓ API Key";}else{btn.classList.remove("set");btn.textContent="API Key";}}
 
+var _prevAudio=null,_prevUrl=null,_previewing=false;
 async function prevVoice(voiceId,btn){
-  if(!GID){toast(L==="zh"?"请先设置 API Key":"Please set API Key first","err");return;}
+  if(!KEY||KEY==="__MINIMAX_API_KEY__"){toast(L==="zh"?"请先设置 API Key":"Please set API Key first","err");return;}
+  if(_previewing)return;
+  _previewing=true;
+  btn.textContent="⏳";
   var texts={zh:"你好，这是一条语音预览。",en:"Hello, this is a voice preview."};
   var text=texts[L]||texts.zh;
-  btn.textContent="⏳";
   try{
     var blob=await callT2A(text,voiceId,"mp3");
+    if(_prevUrl){URL.revokeObjectURL(_prevUrl);_prevUrl=null;}
+    if(_prevAudio){_prevAudio.pause();_prevAudio=null;}
     var url=URL.createObjectURL(blob);
+    _prevUrl=url;
     var a=new Audio(url);
-    a.addEventListener("ended",function(){btn.textContent="▶";URL.revokeObjectURL(url);});
-    a.addEventListener("error",function(){btn.textContent="▶";toast(L==="zh"?"预览失败":"Preview failed","err");});
+    _prevAudio=a;
+    a.addEventListener("ended",function(){
+      btn.textContent="▶";_previewing=false;
+      if(_prevUrl){URL.revokeObjectURL(_prevUrl);_prevUrl=null;}
+      _prevAudio=null;
+    });
+    a.addEventListener("error",function(){
+      btn.textContent="▶";_previewing=false;
+      if(e&&e.name==="TypeError"){toast(L==="zh"?"网络连接失败，请检查网络":"Network error","err");}
+      else{toast(L==="zh"?"预览失败":"Preview failed","err");}
+      if(_prevUrl){URL.revokeObjectURL(_prevUrl);_prevUrl=null;}
+      _prevAudio=null;
+    });
     a.play();
-  }catch(e){btn.textContent="▶";toast(L==="zh"?"预览失败":"Preview failed","err");}
+  }catch(e){
+    btn.textContent="▶";_previewing=false;
+    if(e&&e.name==="TypeError"){toast(L==="zh"?"网络连接失败，请检查网络":"Network error","err");}
+    else{toast(L==="zh"?"预览失败":"Preview failed","err");}
+  }
 }
 
 async function callT2A(text,voiceId,fmt){
   fmt=fmt||"mp3";
   var spd=parseFloat(document.getElementById("spd").value);
   var pit=parseInt(document.getElementById("pit").value);
-  var model=voiceId.startsWith("male-qn-")?"speech-02-hd":"speech-02";
-  var payload={model:model,text:text,voice_setting:{voice_id:voiceId},audio_setting:{sample_rate:48000,bitrate:128000,format:fmt},speed:spd,pitch:pit};
-  var res=await fetch("https://api.minimax.io/v1/t2a_v2",{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+GID},body:JSON.stringify(payload)});
+  // MiniMax T2A v2 使用 speech-2.8-hd 模型，响应为 hex 编码音频
+  var payload={
+    model:"speech-2.8-hd",
+    text:text,
+    voice_setting:{voice_id:voiceId,speed:spd,pitch:pit},
+    audio_setting:{sample_rate:32000,format:fmt},
+    output_format:"hex"
+  };
+  var res=await fetch("https://api.minimax.io/v1/t2a_v2",{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+KEY},body:JSON.stringify(payload)});
+  if(res.status===429){var ra=res.headers.get("Retry-After")||5;throw new Error(L==="zh"?`请求过于频繁，请在${ra}秒后重试`:`Rate limited. Retry after ${ra}s`);}
   if(!res.ok){var err=await res.text();throw new Error(err);}
   var ct=res.headers.get("Content-Type")||"";
-  if(ct.includes("application/json")){var j=await res.json();throw new Error(j.base_resp?j.base_resp.ret_msg:j.message||"error");}
+  var ctLower=ct.toLowerCase();
+  if(ctLower.includes("application/json")||ctLower.includes("text")){
+    var j=await res.json();
+    if(j.base_resp&&j.base_resp.status_code!==0){
+      throw new Error(j.base_resp.ret_msg||j.message||"error");
+    }
+    // 解析 hex 编码的音频数据
+    var hex=j.data&&j.data.audio;
+    if(!hex) throw new Error(L==="zh"?"音频数据解析失败":"Audio data parse error");
+    // hex string → binary buffer
+    var len=hex.length/2;
+    var buf=new Uint8Array(len);
+    for(var i=0;i<len;i++){
+      buf[i]=parseInt(hex.substr(i*2,2),16);
+    }
+    return new Blob([buf],{type:"audio/mpeg"});
+  }
   return await res.blob();
 }
 
 async function genSpeech(){
   var text=document.getElementById("tText").value.trim();
   if(!text){toast(L==="zh"?"请输入文字":"Please enter text","err");return;}
-  if(!GID){toast(L==="zh"?"请先设置 API Key":"Please set API Key first","err");return;}
+  var MAX_TEXT=10000;
+  if(text.length>MAX_TEXT){toast(L==="zh"?`文字不能超过${MAX_TEXT}字`:`Text cannot exceed ${MAX_TEXT} characters`,"err");return;}
+  if(!KEY||KEY==="__MINIMAX_API_KEY__"){toast(L==="zh"?"请先设置 API Key":"Please set API Key first","err");return;}
   var btn=document.getElementById("genBtn");
   btn.classList.add("load");btn.disabled=true;
   try{
     auBlob=await callT2A(text,selVoice,selFmt);
+    if(auUrl){URL.revokeObjectURL(auUrl);}
     auUrl=URL.createObjectURL(auBlob);
     if(audioEl){audioEl.pause();}
     audioEl=new Audio(auUrl);
@@ -456,7 +506,10 @@ async function genSpeech(){
     document.getElementById("outbox").classList.add("on");
     playing=false;document.getElementById("playB").textContent="▶";
     toast(L==="zh"?"生成成功":"Generated","ok");
-  }catch(e){toast((L==="zh"?"生成失败：":"Generation failed:")+e.message,"err");}
+  }catch(e){
+    if(e&&e.name==="TypeError"){toast(L==="zh"?"网络连接失败，请检查网络":"Network error","err");}
+    else{toast((L==="zh"?"生成失败：":"Generation failed:")+e.message,"err");}
+  }
   finally{btn.classList.remove("load");btn.disabled=false;}
 }
 
@@ -473,6 +526,8 @@ function togglePlay(){
 }
 
 async function doClone(){
+  var r=document.getElementById("cloneRes"),c=document.getElementById("cres");
+  r.style.display="none";c.innerHTML="";
   if(!ufile){toast(L==="zh"?"请先上传音频":"Please upload audio first","err");return;}
   var vid=document.getElementById("cvid").value.trim();
   if(!vid){toast(L==="zh"?"请输入声音ID":"Please enter a voice ID","err");return;}
@@ -481,19 +536,22 @@ async function doClone(){
   var fd=new FormData();
   fd.append("file",ufile);
   fd.append("voice_id",vid);
-  fd.append("group_id",GID);
   try{
-    var res=await fetch("https://api.minimax.io/v1/voice_clone",{method:"POST",headers:{"Authorization":"Bearer "+GID},body:fd});
+    var res=await fetch("https://api.minimax.io/v1/voice_clone",{method:"POST",headers:{"Authorization":"Bearer "+KEY},body:fd});
+    if(res.status===429){var ra=res.headers.get("Retry-After")||5;throw new Error(L==="zh"?`请求过于频繁，请在${ra}秒后重试`:`Rate limited. Retry after ${ra}s`);}
     var j=await res.json();
-    var r=document.getElementById("cloneRes"),c=document.getElementById("cres");
     r.style.display="block";
-    if(j.base_resp&&j.base_resp.status_code===0||j.voice_id){
+    if((j.base_resp&&j.base_resp.status_code===0)||(j.voice_id&&j.voice_id.length>0)){
       c.innerHTML=(L==="zh"?"✅ 克隆成功！声音ID：":"✅ Clone successful! Voice ID：")+"<span class=\"vid\">"+vid+"</span><br>"+
         (L==="zh"?"在 T2A 声音选择器中搜索该 ID 即可使用":"Search for this ID in the T2A voice selector to use it");
       VOICES.push({id:vid,n:vid,l:L==="zh"?"自定义":"Custom"});
       renderVGrid();
     }else{throw new Error(j.base_resp?j.base_resp.ret_msg:(j.message||"error"));}
-  }catch(e){document.getElementById("cloneRes").style.display="block";document.getElementById("cres").innerHTML="<span class=\"err\">❌ "+(L==="zh"?"克隆失败":"Clone failed")+": "+e.message+"</span>";}
+  }catch(e){
+    r.style.display="block";
+    if(e&&e.name==="TypeError"){c.innerHTML="<span class=\"err\">❌ "+(L==="zh"?"网络连接失败，请检查网络":"Network error")+"</span>";}
+    else{c.innerHTML="<span class=\"err\">❌ "+(L==="zh"?"克隆失败":"Clone failed")+": "+e.message+"</span>";}
+  }
   finally{btn.classList.remove("load");btn.disabled=false;}
 }
 </script>

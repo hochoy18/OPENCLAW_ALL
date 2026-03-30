@@ -1,0 +1,24 @@
+{
+  "id": "e5590719-3d99-4d77-8ada-0848de70ecd1",
+  "enqueuedAt": 1774667881072,
+  "channel": "feishu",
+  "to": "ou_0bc2f0bdf4be8039599fe8c4967425a8",
+  "accountId": "main",
+  "payloads": [
+    {
+      "text": "📝 **每日记忆总结 · 2026-03-28（周六）**\n\n今天主要聊了这些：\n\n**1. 回顾昨天（3/27）产出**\n帮你回顾了昨天的三件大事：修复 MiniMax API 图像端点、用 Image-01 生成 5 张风格头像、修好每日记忆 cron 的飞书发消息报错。\n\n**2. 周六安排建议**\n你问明天（周六）没事干干啥，给了你宅/动/折腾/外出/社交五个方向，等你告诉我兴趣方向再细化 😄\n\n**3. Google NotebookLM 详解**\n- 定位：AI 研究助手，只读你上传的文档，有据可查\n- 核心功能：多源上传、问答摘要、⭐ Audio Overviews（AI 播客对话）、学习卡片\n- 适合：学术论文、读书笔记、资料整理、事实核查\n\n**4. NotebookLM + 视频制作**\n不是直接做视频，而是提供\"内容 + 配音\"：\n→ 资料 → NotebookLM 生成 Audio Overview → 搭配 HeyGen/Synthesia 虚拟人 + 剪映剪辑 → 完整视频\n适合知识类短视频、读书讲解、多语言翻译视频。\n\n**5. 技能列表查询**\n列出了现有技能（搜索、文档、图片、飞书集成、编码等），告知有 clawhub 技能市场可用。\n\n---\n已存入记忆文件 ✅",
+      "replyToTag": false,
+      "replyToCurrent": false,
+      "audioAsVoice": false
+    }
+  ],
+  "gifPlayback": false,
+  "mirror": {
+    "sessionKey": "agent:demo:feishu:main:direct:ou_0bc2f0bdf4be8039599fe8c4967425a8",
+    "agentId": "demo",
+    "text": "📝 **每日记忆总结 · 2026-03-28（周六）**\n\n今天主要聊了这些：\n\n**1. 回顾昨天（3/27）产出**\n帮你回顾了昨天的三件大事：修复 MiniMax API 图像端点、用 Image-01 生成 5 张风格头像、修好每日记忆 cron 的飞书发消息报错。\n\n**2. 周六安排建议**\n你问明天（周六）没事干干啥，给了你宅/动/折腾/外出/社交五个方向，等你告诉我兴趣方向再细化 😄\n\n**3. Google NotebookLM 详解**\n- 定位：AI 研究助手，只读你上传的文档，有据可查\n- 核心功能：多源上传、问答摘要、⭐ Audio Overviews（AI 播客对话）、学习卡片\n- 适合：学术论文、读书笔记、资料整理、事实核查\n\n**4. NotebookLM + 视频制作**\n不是直接做视频，而是提供\"内容 + 配音\"：\n→ 资料 → NotebookLM 生成 Audio Overview → 搭配 HeyGen/Synthesia 虚拟人 + 剪映剪辑 → 完整视频\n适合知识类短视频、读书讲解、多语言翻译视频。\n\n**5. 技能列表查询**\n列出了现有技能（搜索、文档、图片、飞书集成、编码等），告知有 clawhub 技能市场可用。\n\n---\n已存入记忆文件 ✅"
+  },
+  "retryCount": 1,
+  "lastAttemptAt": 1774667881302,
+  "lastError": "Request failed with status code 400"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "5a0f0e4e-39f6-454c-85a8-ca88bff4015c",
+  "enqueuedAt": 1774624240584,
+  "channel": "feishu",
+  "to": "ou_a40d252df8eedac11a6ca82ca1b65352",
+  "accountId": "wechat-assistant",
+  "payloads": [
+    {
+      "text": "📋 每日记忆总结（2026-03-27）\n\n**wechat-assistant 工作区今日关键事件：**\n\n**1. 微信公众号6篇草稿重新推送 ✅**\n- 根本问题：之前CDN图片URL来自已删除草稿，全部失效\n- 解决：所有图片重新生成、重新上传，3轮自查全部通过（src=正确、无复杂CSS、h1/h2结构、CDN全部HTTP 200）\n- 推送结果：6篇全部成功，涵盖ChatGPT for Excel、OpenClaw、3月AI工具实测、职场新趋势等主题\n\n**2. 公众号名称讨论（main agent）**\n- 你不满意之前的名字方案\n- 提供了多轮创意：十乚/才先森/cAi → 才半句/才开口/破局者\n- 核心诉求：名字要像一个活生生的人、有态度不像媒体账号\n- 状态：**待定，需你最终确认**\n\n**3. demo：NotebookLM 功能介绍 ✅**\n- 用户 ou_0bc2f0bdf4be8039599fe8c4967425a8 询问用法\n- 介绍了：上传资料、AI问答摘要、Audio Overview（播客式对话）\n- 补充：用NotebookLM做视频的工作流\n\n**4. task-manager：SEO实操讲解 ✅**\n- Google爬取3种机制（外链>sitemap>单页提交）\n- 冷启动策略：找权威相关网站做外链最有效\n- 提供了GSC操作、sitemap提交、外链建设等具体步骤\n\n**5. coder：OpenClaw Release Watcher cron ✅**\n- 每周六10:00检查新版本，有更新推送飞书通知\n\n---\n💾 已写入 memory/2026-03-27.md",
+      "replyToTag": false,
+      "replyToCurrent": false,
+      "audioAsVoice": false
+    }
+  ],
+  "gifPlayback": false,
+  "mirror": {
+    "sessionKey": "agent:wechat-assistant:feishu:wechat-assistant:direct:ou_a40d252df8eedac11a6ca82ca1b65352",
+    "agentId": "wechat-assistant",
+    "text": "📋 每日记忆总结（2026-03-27）\n\n**wechat-assistant 工作区今日关键事件：**\n\n**1. 微信公众号6篇草稿重新推送 ✅**\n- 根本问题：之前CDN图片URL来自已删除草稿，全部失效\n- 解决：所有图片重新生成、重新上传，3轮自查全部通过（src=正确、无复杂CSS、h1/h2结构、CDN全部HTTP 200）\n- 推送结果：6篇全部成功，涵盖ChatGPT for Excel、OpenClaw、3月AI工具实测、职场新趋势等主题\n\n**2. 公众号名称讨论（main agent）**\n- 你不满意之前的名字方案\n- 提供了多轮创意：十乚/才先森/cAi → 才半句/才开口/破局者\n- 核心诉求：名字要像一个活生生的人、有态度不像媒体账号\n- 状态：**待定，需你最终确认**\n\n**3. demo：NotebookLM 功能介绍 ✅**\n- 用户 ou_0bc2f0bdf4be8039599fe8c4967425a8 询问用法\n- 介绍了：上传资料、AI问答摘要、Audio Overview（播客式对话）\n- 补充：用NotebookLM做视频的工作流\n\n**4. task-manager：SEO实操讲解 ✅**\n- Google爬取3种机制（外链>sitemap>单页提交）\n- 冷启动策略：找权威相关网站做外链最有效\n- 提供了GSC操作、sitemap提交、外链建设等具体步骤\n\n**5. coder：OpenClaw Release Watcher cron ✅**\n- 每周六10:00检查新版本，有更新推送飞书通知\n\n---\n💾 已写入 memory/2026-03-27.md"
+  },
+  "retryCount": 5,
+  "lastAttemptAt": 1774666493219,
+  "lastError": "Request failed with status code 400"
+}

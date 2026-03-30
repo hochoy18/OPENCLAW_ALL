@@ -5,5 +5,17 @@
     "token": "91clwk_rUWre-Aa69D387R0RffCEVsKJ"
   },
   "defaults": {},
-  "agents": {}
+  "agents": {
+    "coder": {
+      "allowlist": [
+        {
+          "pattern": "/home/hochoy/.openclaw/workspace-coder/**",
+          "lastUsedAt": 1774629558932,
+          "id": "3a9ac083-a1a4-47d0-9e5a-e5743d815b7c",
+          "lastUsedCommand": "bash /home/hochoy/.openclaw/workspace-coder/knowledge/voicepix-check.sh && cd /home/hochoy/.openclaw/workspace-coder && git add voicepix.html && git commit -m \"fix: localStorage兼容旧格式纯字符串API Key，修复GID读取为undefined的问题\n\n- loadAK()新增catch分支：旧格式纯字符串直接作为GID\n- auth检查从GID\\&\\&KEY改为仅GID（KEY可能为空）\n- updAKBtn状态检查同步修正\"",
+          "lastResolvedPath": "/usr/bin/bash"
+        }
+      ]
+    }
+  }
 }

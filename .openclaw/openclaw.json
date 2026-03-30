@@ -170,7 +170,17 @@
         "name": "coder",
         "workspace": "/home/hochoy/.openclaw/workspace-coder",
         "agentDir": "/home/hochoy/.openclaw/agents/coder/agent",
-        "model": "minimax/MiniMax-M2.7"
+        "model": "minimax/MiniMax-M2.7",
+        "tools": {
+          "allow": [
+            "*"
+          ],
+          "exec": {
+            "host": "gateway",
+            "security": "allowlist",
+            "ask": "off"
+          }
+        }
       },
       {
         "id": "task-manager",

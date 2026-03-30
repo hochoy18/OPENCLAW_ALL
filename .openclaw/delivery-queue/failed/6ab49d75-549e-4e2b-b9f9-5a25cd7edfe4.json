@@ -1,0 +1,24 @@
+{
+  "id": "6ab49d75-549e-4e2b-b9f9-5a25cd7edfe4",
+  "enqueuedAt": 1774537684601,
+  "channel": "feishu",
+  "to": "ou_a40d252df8eedac11a6ca82ca1b65352",
+  "accountId": "task-manager",
+  "payloads": [
+    {
+      "text": "📋 每日记忆总结（2026-03-26）\n\n**task-manager 工作区今日关键事件：**\n\n**1. 每日记忆系统设计 ✅**\n- 与何才讨论了 OpenClaw 多 agent 每日记忆记录方案\n- 确定方案：在各 agent workspace/memory/ 目录下创建独立每日文件\n- 每日 23:30 自动 cron 触发记录任务\n- Cron 任务已创建，每天 23:00 自动执行\n\n**2. 飞书文档写入问题 ❌**\n- 文档：https://feishu.cn/docx/L2Nzd5qfAoilbBx2X0HcknV7nYb\n- 写入内容时返回 400 错误\n- 原因：需使用飞书文档块 API 而非消息 API\n- 状态：未修复，何才要求暂停\n\n**3. MiniMax Image 01 模型测试 ✅**\n- 生成 5 张 iOS 风格任务管理图标成功\n- 保存于 /tmp/task_icons/（红、蓝、紫、橙、绿色）\n- 发送给何才确认\n\n**4. 群聊 Agent 自我介绍 ⏳**\n- main / coder / task-manager / demo / wechat-assistant 5 个 agent 均完成群内自我介绍\n- IDENTITY.md 均为空白，待何才命名\n\n---\n💾 已写入 memory/2026-03-26.md",
+      "replyToTag": false,
+      "replyToCurrent": false,
+      "audioAsVoice": false
+    }
+  ],
+  "gifPlayback": false,
+  "mirror": {
+    "sessionKey": "agent:task-manager:feishu:task-manager:direct:ou_a40d252df8eedac11a6ca82ca1b65352",
+    "agentId": "task-manager",
+    "text": "📋 每日记忆总结（2026-03-26）\n\n**task-manager 工作区今日关键事件：**\n\n**1. 每日记忆系统设计 ✅**\n- 与何才讨论了 OpenClaw 多 agent 每日记忆记录方案\n- 确定方案：在各 agent workspace/memory/ 目录下创建独立每日文件\n- 每日 23:30 自动 cron 触发记录任务\n- Cron 任务已创建，每天 23:00 自动执行\n\n**2. 飞书文档写入问题 ❌**\n- 文档：https://feishu.cn/docx/L2Nzd5qfAoilbBx2X0HcknV7nYb\n- 写入内容时返回 400 错误\n- 原因：需使用飞书文档块 API 而非消息 API\n- 状态：未修复，何才要求暂停\n\n**3. MiniMax Image 01 模型测试 ✅**\n- 生成 5 张 iOS 风格任务管理图标成功\n- 保存于 /tmp/task_icons/（红、蓝、紫、橙、绿色）\n- 发送给何才确认\n\n**4. 群聊 Agent 自我介绍 ⏳**\n- main / coder / task-manager / demo / wechat-assistant 5 个 agent 均完成群内自我介绍\n- IDENTITY.md 均为空白，待何才命名\n\n---\n💾 已写入 memory/2026-03-26.md"
+  },
+  "retryCount": 5,
+  "lastAttemptAt": 1774662790941,
+  "lastError": "Request failed with status code 400"
+}

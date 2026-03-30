@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "skills": {
+    "code-review-assistant": {
+      "version": "1.0.0",
+      "installedAt": 1774668410498
+    },
+    "code-review-cycle-skill": {
+      "version": "0.1.4",
+      "installedAt": 1774668419190
+    },
+    "gitlab-code-review": {
+      "version": "1.2.0",
+      "installedAt": 1774668421220
+    },
+    "e2e-testing-patterns": {
+      "version": "1.0.0",
+      "installedAt": 1774668423770
+    },
+    "openclaw-api-tester": {
+      "version": "1.0.0",
+      "installedAt": 1774668425963
+    },
+    "requirements-analysis": {
+      "version": "1.0.0",
+      "installedAt": 1774668428684
+    },
+    "prd-review": {
+      "version": "1.0.2",
+      "installedAt": 1774668431395
+    },
+    "prd-writer-pro": {
+      "version": "1.0.0",
+      "installedAt": 1774668433419
+    }
+  }
+}

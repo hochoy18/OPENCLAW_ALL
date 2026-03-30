@@ -1,0 +1,24 @@
+{
+  "id": "9eddc67f-8d82-4445-a3e4-f1b717477f57",
+  "enqueuedAt": 1774667811219,
+  "channel": "feishu",
+  "to": "ou_a40d252df8eedac11a6ca82ca1b65352",
+  "accountId": "wechat-assistant",
+  "payloads": [
+    {
+      "text": "📋 **每日记忆总结 | 2026-03-28**\n\n**主要产出：**\n\n**1. AI科技资讯日报 ✅**（07:00 自动推送飞书群）\n头条：Anthropic 联邦法院里程碑胜利 / Meta 数据中心投资 $1.5B→$100B / Harvey 估值 $11B\n\n**2. 每日热点公众号 ✅**（07:00 cron）\n选题：DeerFlow 2.0（字节跳动开源 Agent 框架）\n标题：《字节跳动偷偷开源了一个王炸！GitHub星标狂飙3.9万，程序员圈炸了》\n封面图 + 草稿箱均已推送 ⚠️ 待你审稿发布\n\n**3. OpenClaw Release Watcher 修复 ✅**\ndelivery.mode 报错修复 + cron 目标用户修正\n\n**4. 群聊 @all 测试 ✅**\ncoder / demo / wechat-assistant / task-manager 四个群均正常响应\n\n💾 详细内容已存入 `memory/2026-03-28.md`",
+      "replyToTag": false,
+      "replyToCurrent": false,
+      "audioAsVoice": false
+    }
+  ],
+  "gifPlayback": false,
+  "mirror": {
+    "sessionKey": "agent:wechat-assistant:feishu:wechat-assistant:direct:ou_a40d252df8eedac11a6ca82ca1b65352",
+    "agentId": "wechat-assistant",
+    "text": "📋 **每日记忆总结 | 2026-03-28**\n\n**主要产出：**\n\n**1. AI科技资讯日报 ✅**（07:00 自动推送飞书群）\n头条：Anthropic 联邦法院里程碑胜利 / Meta 数据中心投资 $1.5B→$100B / Harvey 估值 $11B\n\n**2. 每日热点公众号 ✅**（07:00 cron）\n选题：DeerFlow 2.0（字节跳动开源 Agent 框架）\n标题：《字节跳动偷偷开源了一个王炸！GitHub星标狂飙3.9万，程序员圈炸了》\n封面图 + 草稿箱均已推送 ⚠️ 待你审稿发布\n\n**3. OpenClaw Release Watcher 修复 ✅**\ndelivery.mode 报错修复 + cron 目标用户修正\n\n**4. 群聊 @all 测试 ✅**\ncoder / demo / wechat-assistant / task-manager 四个群均正常响应\n\n💾 详细内容已存入 `memory/2026-03-28.md`"
+  },
+  "retryCount": 1,
+  "lastAttemptAt": 1774667811401,
+  "lastError": "Request failed with status code 400"
+}
