@@ -35,3 +35,17 @@
 - 敏感/外部操作先问
 - destructive 命令先确认
 - 不泄露用户隐私数据
+
+## 飞书账号对应关系（open_id 映射）
+
+| Agent | 飞书 App/账号 | 目标用户 open_id |
+|-------|--------------|-----------------|
+| main | main | `ou_a40d252df8eedac11a6ca82ca1b65352`（何才本人） |
+| wechat-assistant | wechat-assistant | `ou_7f442bef1a102e6c203ad4e2d1a86e69` |
+| coder | coder | `ou_930ed7a70e55cdc26722683f4d7d00bd` |
+| demo | demo | `ou_0bc2f0bdf4be8039599fe8c4967425a8` |
+| task-manager | task-manager | `ou_b722592031471a9cd2b790269439f2ba` |
+| cron | cron | `ou_a46824a36fa8086e31b863b652ce8d57` |
+| comedy | comedy | `ou_85dd739a4dc546bdd0342b2ddaaa25b1` |
+
+> open_id `ou_a40d252df8eedac11a6ca82ca1b65352` = 何才（用户本人）
