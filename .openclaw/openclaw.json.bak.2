@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-24T04:35:20.212Z"
+    "lastTouchedAt": "2026-03-24T11:42:06.853Z"
   },
   "env": {
     "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe",
@@ -24,7 +24,7 @@
   "models": {
     "mode": "merge",
     "providers": {
-      "minimax":{
+      "minimax": {
         "baseUrl": "https://api.minimax.io/anthropic",
         "apiKey": "${MINIMAX_API_KEY}",
         "api": "anthropic-messages",
@@ -33,7 +33,9 @@
             "id": "MiniMax-M2.7",
             "name": "MiniMax M2.7",
             "reasoning": true,
-            "input": ["text"],
+            "input": [
+              "text"
+            ],
             "cost": {
               "input": 0.3,
               "output": 1.2,
@@ -47,7 +49,9 @@
             "id": "MiniMax-M2.5",
             "name": "MiniMax M2.5",
             "reasoning": true,
-            "input": ["text"],
+            "input": [
+              "text"
+            ],
             "cost": {
               "input": 0.3,
               "output": 1.2,
@@ -61,7 +65,9 @@
             "id": "MiniMax-M2.5-highspeed",
             "name": "MiniMax M2.5 Highspeed",
             "reasoning": true,
-            "input": ["text"],
+            "input": [
+              "text"
+            ],
             "cost": {
               "input": 0.3,
               "output": 1.2,
@@ -75,7 +81,10 @@
             "id": "MiniMax-VL-01",
             "name": "MiniMax VL-01",
             "reasoning": true,
-            "input": ["text", "image"],
+            "input": [
+              "text",
+              "image"
+            ],
             "cost": {
               "input": 0.3,
               "output": 1.2,
@@ -100,6 +109,7 @@
         }
       },
       "workspace": "/home/hochoy/.openclaw/workspace",
+      "timeoutSeconds": 1800,
       "sandbox": {
         "mode": "off"
       }
