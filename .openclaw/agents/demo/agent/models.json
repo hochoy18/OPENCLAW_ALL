@@ -103,8 +103,7 @@
             "cacheWrite": 0.12
           },
           "contextWindow": 200000,
-          "maxTokens": 8192,
-          "api": "anthropic-messages"
+          "maxTokens": 8192
         },
         {
           "id": "MiniMax-M2.5",
@@ -120,8 +119,7 @@
             "cacheWrite": 0.12
           },
           "contextWindow": 200000,
-          "maxTokens": 8192,
-          "api": "anthropic-messages"
+          "maxTokens": 8192
         },
         {
           "id": "MiniMax-M2.5-highspeed",
@@ -137,8 +135,7 @@
             "cacheWrite": 0.12
           },
           "contextWindow": 200000,
-          "maxTokens": 8192,
-          "api": "anthropic-messages"
+          "maxTokens": 8192
         },
         {
           "id": "MiniMax-VL-01",
@@ -155,8 +152,7 @@
             "cacheWrite": 0.12
           },
           "contextWindow": 200000,
-          "maxTokens": 8192,
-          "api": "anthropic-messages"
+          "maxTokens": 8192
         }
       ],
       "apiKey": "MINIMAX_API_KEY"

@@ -28,6 +28,18 @@
     "baidu-hot-cn": {
       "version": "1.0.0",
       "installedAt": 1774601977180
+    },
+    "copywriting": {
+      "version": "0.1.0",
+      "installedAt": 1774928700911
+    },
+    "weixin-reader-plus": {
+      "version": "1.0.0",
+      "installedAt": 1774928734881
+    },
+    "fetch-wx-article": {
+      "version": "1.0.0",
+      "installedAt": 1774928734990
     }
   }
 }

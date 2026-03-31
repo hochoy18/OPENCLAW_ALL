@@ -50,6 +50,7 @@
 # Agent 临时/缓存文件
 .openclaw/agents/main/agent/*.tmp
 .openclaw/memory-heartbeat/
+.openclaw/workspace-comedy/projects/
 
 # 保留追踪的文件（通过 !/.openclaw/ 覆盖）
 # 以下文件由于 !/.openclaw/ 规则，始终保持追踪：
