@@ -18,7 +18,7 @@
     "agentId": "main",
     "text": "🦉 **OpenClaw 新版本发布 — 2026.3.25**\n\n📅 发布日期：2026年3月25日\n🔖 版本：2026.3.25（上一个版本：2026.3.13）\n\n---\n\n**📌 关键更新**\n\n**🆕 新功能**\n• Gateway/OpenAI 兼容性：新增 /v1/models 和 /v1/embeddings 接口，/v1/chat/completions 和 /v1/responses 支持显式模型覆盖，兼容更广泛的客户端和 RAG 集成\n• 工具可见性提升：/tools 现在展示当前 agent 实际可用的工具，Control UI 新增 \"Available Right Now\" 实时区域\n• Skills 一键安装：coding-agent、gh-issues、weather 等 7 个内置 skill 支持一键安装依赖，CLI 和 Control UI 自动引导缺失依赖\n• Control UI 全面改版：skill 卡片改为对话框，状态筛选（All / Ready / Needs Setup / Disabled），agent 工作区文件预览支持富文本 markdown\n• Docker/Podman 容器支持：新增 --container 和 OPENCLAW_CONTAINER 参数，可在运行中的容器内执行 openclaw 命令\n• Discord 自动线程命名：可选 LLM 生成线程标题\n• Microsoft Teams：迁移至官方 Teams SDK，新增欢迎卡片、反馈机制、打字提示等 AI 交互最佳实践\n\n**🔒 安全修复**\n• 修复媒体 URL/fileUrl 别名绕过漏洞，防止工具和消息操作逃逸 media-root 限制（#54034）\n• 修复 WhatsApp 群组消息回声抑制问题\n\n**🐛 常规修复**\n• Docker 新装流程不再因 setup-time onboard 竞争失败而卡死\n• Telegram 图片上传失败（PHOTO_INVALID_DIMENSIONS）问题修复\n• Gateway 重启后 session 恢复逻辑改进\n• 修复 WhatsApp 回复检测、Telegram 论坛话题路由、Discord 超时回复等多项问题\n\n---\n\n**⚡ 对你的影响**\n\n你当前运行的是 2026.3.13，跨越多个版本，主要关注点：\n• **安全性**：强烈建议升级，media dispatch 漏洞已修复\n• **Node 版本**：如使用 Node 22，现在最低要求 22.14+，建议升级到 Node 24\n• **控制面板**：UI 改动较大，skill 和 agent 的管理体验会明显改善\n• **Docker 用户**：新装流程已修复，早期版本 Docker 部署用户升级收益大\n\n---\n\n**✅ 升级推荐：强烈建议**\n\n运行 `openclaw update` 即可升级。升级前建议查看 #54034 安全修复说明。"
   },
-  "retryCount": 2,
-  "lastAttemptAt": 1774666493407,
+  "retryCount": 4,
+  "lastAttemptAt": 1774861613096,
   "lastError": "Request failed with status code 400"
 }

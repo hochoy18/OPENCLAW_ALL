@@ -1,17 +1,57 @@
-
 # 忽略根目录下所有文件（不含目录）
 /*
 # 忽略根目录下所有子目录（排除.openclaw）
+/*/
 /*/
 !/.openclaw/
 
 # 保留根目录的.gitignore
 !/.gitignore
 
-# 排除.openclaw下的extensions目录及所有内容
-/.openclaw/extensions/
-/.openclaw/extensions/*
-/.openclaw/workspace-comedy/projects/
-/.openclaw/workspace-comedy/projects/*
+# ============================================
+# OpenClaw 运行时文件 — 不需要提交
+# ============================================
+
+# 消息投递队列
+.openclaw/delivery-queue/
+.openclaw/delivery-queue/failed/
+
+# 定时任务执行日志
+.openclaw/cron/runs/
+
+# 媒体文件
+.openclaw/media/inbound/
+.openclaw/media/outbound/
+.openclaw/media/tool-image-generation/
+
+# 日志文件
+.openclaw/logs/
+.openclaw/config-health.json
+
+# 定时任务输出
+.openclaw/workspace-cron/output/
+.openclaw/workspace-cron/skills/*/output/
+
+# Agent sessions
 .openclaw/agents/**/sessions/
 
+# Agent 模型配置
+.openclaw/agents/*/agent/models.json
+
+# VoicePix 等项目临时文件
+.openclaw/workspace-coder/voicepix_v2/
+.openclaw/workspace-coder/voicepix.html
+.openclaw/workspace-coder/voicepix.html.bak
+.openclaw/workspace-coder/api-tests/
+.openclaw/workspace-coder/docs/
+.openclaw/workspace-coder/e2e/
+.openclaw/workspace-coder/knowledge/
+
+# Agent 临时/缓存文件
+.openclaw/agents/main/agent/*.tmp
+.openclaw/memory-heartbeat/
+
+# 保留追踪的文件（通过 !/.openclaw/ 覆盖）
+# 以下文件由于 !/.openclaw/ 规则，始终保持追踪：
+#   .openclaw/memory/*.sqlite     — Agent 记忆数据库
+#   .openclaw/openclaw.json.bak*  — 配置备份

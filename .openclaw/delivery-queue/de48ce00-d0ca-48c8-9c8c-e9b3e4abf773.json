@@ -18,7 +18,7 @@
     "agentId": "comedy",
     "text": "📋 每日记忆总结 · 2026-03-28\n\n**今日主要对话：**\n\n1. **会话初始化** — 你发起了新 session，我根据昨天调研记录（MiniMax Speech API）主动接着聊，当时你想生成小程序音效样本，还没确认具体要什么音效\n\n2. **询问 Agent 身份** — 你问我的 open id，我解释了我是个 Agent（comedy），不是飞书用户，没有用户类型的 open_id。你的 sender_id: ou_85dd739a4dc546bdd0342b2ddaaa25b1\n\n3. **测试消息** — \"test\" → 系统正常 ✅\n\n4. **定时任务讨论** — 你问有没有定时任务，我列了系统所有 cron（系统级）。comedy Agent 只有一条：每日23点记忆总结。你追问为什么看到其他 Agent 任务 → 解释了 openclaw cron list 是系统级命令\n\n今天对话量较少，主要是系统交互和问答。"
   },
-  "retryCount": 1,
-  "lastAttemptAt": 1774710268164,
+  "retryCount": 3,
+  "lastAttemptAt": 1774861616079,
   "lastError": "Request failed with status code 400"
 }
