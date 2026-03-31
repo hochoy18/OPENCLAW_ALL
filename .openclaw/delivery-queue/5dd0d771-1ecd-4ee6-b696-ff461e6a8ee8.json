@@ -18,7 +18,7 @@
     "agentId": "main",
     "text": "OpenClaw 新版本发布：2026.3.25 (2026-03-25)\n\n主要更新：\n- Gateway/OpenAI 兼容性增强，新增 /v1/models 和 /v1/embeddings 端点\n- Microsoft Teams 全面升级至官方 SDK，支持流式回复、typing indicators 等\n- Agent 工具可见性提升，/tools 显示实际可用工具\n- Slack 交互增强，支持自动渲染 Options 为按钮\n- Docker 容器内运行支持 (--container)\n- 安全修复：sandbox 媒体访问绕过问题 (#54034)\n- 多个 bug 修复（Docker 安装、频道启动隔离、消息重启兜底等）\n\n无破坏性变更，推荐升级。"
   },
-  "retryCount": 1,
-  "lastAttemptAt": 1774666673354,
+  "retryCount": 3,
+  "lastAttemptAt": 1774861613705,
   "lastError": "Request failed with status code 400"
 }

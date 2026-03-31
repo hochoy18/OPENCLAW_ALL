@@ -263,7 +263,7 @@
       "description": "每天早上8点检查官方文档是否有更新",
       "enabled": true,
       "createdAtMs": 1774587199625,
-      "updatedAtMs": 1774742651645,
+      "updatedAtMs": 1774829068297,
       "schedule": {
         "kind": "cron",
         "expr": "0 8 * * *",
@@ -283,16 +283,14 @@
         "accountId": "wechat-assistant"
       },
       "state": {
-        "nextRunAtMs": 1774828800000,
-        "lastRunAtMs": 1774742400004,
-        "lastRunStatus": "error",
-        "lastStatus": "error",
-        "lastDurationMs": 251641,
+        "nextRunAtMs": 1774915200000,
+        "lastRunAtMs": 1774828800005,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 268292,
         "lastDeliveryStatus": "not-delivered",
-        "consecutiveErrors": 1,
-        "lastDelivered": false,
-        "lastDeliveryError": "⚠️ ✉️ Message failed",
-        "runningAtMs": 1774828800003
+        "consecutiveErrors": 0,
+        "lastDelivered": false
       }
     },
     {
@@ -332,6 +330,41 @@
         "lastDelivered": false,
         "lastDeliveryError": "⚠️ ✉️ Message failed",
         "lastError": "⚠️ ✉️ Message failed"
+      }
+    },
+    {
+      "id": "bc3ce5fb-7b9f-4a99-8e66-43981ad2c83e",
+      "name": "每小时任务提醒",
+      "enabled": true,
+      "createdAtMs": 1774845118304,
+      "updatedAtMs": 1774852348327,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 3600000,
+        "anchorMs": 1774845118304
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "📌 每小时任务提醒：\n\n1️⃣ AI编程出海行动营：text 转 speech → Google 登录和支付流程\n2️⃣ 获客打卡行动营：openclaw 发公众号流程优化\n3️⃣ openclaw：多agent 协调沟通配置与测试\n4️⃣ openclaw：各agent 职责分工梳理\n5️⃣ openclaw 集成知识库\n6️⃣ 研究 DeerFlow，看能否集成到 openclaw\n7️⃣ 整理3月28号的内容\n8️⃣ openclaw 升级到稳定版本\n\n记得检查进度哦！",
+        "timeoutSeconds": 30
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "user:ou_b722592031471a9cd2b790269439f2ba"
+      },
+      "state": {
+        "nextRunAtMs": 1774855918319,
+        "lastRunAtMs": 1774852318319,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 30008,
+        "lastErrorReason": "timeout",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 2,
+        "runningAtMs": 1774855918322
       }
     }
   ]
