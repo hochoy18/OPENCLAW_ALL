@@ -38,3 +38,10 @@
   - 上传：POST https://open.feishu.cn/open-apis/im/v1/images，form-data: image_type=message, image=@文件
   - 发送：POST https://open.feishu.cn/open-apis/im/v1/messages，body: {"receive_id": "群id", "msg_type": "image", "content": "{\"image_key\":\"刚才获取的key\"}"}
 - 这是固定规范，必须遵守
+
+## 模型切换兼容性
+
+**重要经验：** OpenClaw skill 切换模型（如 minimax → kimi-coding/k2p5）时，可能存在兼容性问题，需要检查：
+- 权限配置
+- tools.deny / tools.allow 规则
+- agent/soul.md 配置

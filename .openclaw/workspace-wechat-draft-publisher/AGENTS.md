@@ -20,9 +20,29 @@
 4.  必须校验文章无敏感内容、无违规内容，否则绝对不得推送
 
 ### 3. 推送执行规范
+
+**✅ 推送脚本（必须使用，禁止自行构造API命令）**
+
+推送统一使用 `push_wrapper.py`，从环境变量读取凭证，无需传递任何密钥参数：
+
+```bash
+python3 /home/hochoy/.openclaw/workspace-wechat-draft-publisher/skills/mp-draft-push/push_wrapper.py \
+  <html_file> <title> <digest> [author] [cover_image_path]
+```
+
+参数说明：
+- `html_file`：文章HTML文件完整路径
+- `title`：文章标题（超过20字符单位会自动截断）
+- `digest`：文章摘要
+- `author`：作者（可选，中文会自动省略）
+- `cover_image_path`：封面图本地路径（可选，不传则无封面）
+
+凭证：自动从 `.env` 读取（已 symlink 到主Agent的 wechat-article-publisher/.env）
+
+**✅ API 调用规范**
 - 仅调用微信公众号「新增草稿」API，**仅推送至草稿箱，绝对不调用群发发布API，绝对不执行正式发布操作**
-- 自动绑定文章封面图、文中配图的media_id，确保草稿中所有图片正常显示，无裂图、无失效链接
-- 作者名称、原文链接按公众号默认配置填充，不擅自修改
+- 自动绑定文章封面图、作者、摘要，确保草稿中所有内容正常显示
+- 推送前无需手动获取 access_token，wrapper 自动处理 token 刷新
 - 推送过程中出现异常，立即终止执行，自动重试2次，仍失败则向主Agent返回具体报错原因
 
 ### 4. 日志与输出规范

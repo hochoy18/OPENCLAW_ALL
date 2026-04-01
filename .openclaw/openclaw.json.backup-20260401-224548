@@ -218,7 +218,7 @@
         "name": "wechat-content-writer",
         "workspace": "/home/hochoy/.openclaw/workspace-wechat-content-writer",
         "agentDir": "/home/hochoy/.openclaw/agents/wechat-content-writer/agent",
-        "model": "minimax/MiniMax-M2.7",
+        "model": "kimi/k2p5",
         "subagents": {
           "allowAgents": [
             "wechat-assistant",
@@ -229,20 +229,7 @@
         },
         "tools": {
           "allow": [
-            "read",
-            "write",
-            "exec",
-            "image_generate",
-            "sessions_send"
-          ],
-          "deny": [
-            "sessions_spawn",
-            "web_fetch",
-            "browser",
-            "pdf",
-            "tts",
-            "canvas",
-            "message"
+            "*"
           ],
           "exec": {
             "host": "gateway",

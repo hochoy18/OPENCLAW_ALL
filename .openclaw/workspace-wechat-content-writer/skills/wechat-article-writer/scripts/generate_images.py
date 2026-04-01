@@ -143,8 +143,8 @@ def main(argv: list[str]) -> int:
         print(f"[{request_id}] 生成中... (model: {request_model}, size: {request_size})")
 
         try:
-            # GLM-Image 模型不支持 size 参数
-            if request_model.lower() == "glm-image":
+            # MiniMax / GLM-Image 模型不支持 size 参数
+            if request_model.lower() in ("glm-image", "minimax"):
                 response = client.images.generations(
                     model=request_model,
                     prompt=prompt,

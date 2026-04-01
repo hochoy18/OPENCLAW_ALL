@@ -568,6 +568,78 @@
       "frozenResultCapturedAt": 1775037588685,
       "endedHookEmittedAt": 1775037608398,
       "cleanupCompletedAt": 1775037608399
+    },
+    "468d2d8e-d088-483e-a356-e17877d44ce3": {
+      "runId": "468d2d8e-d088-483e-a356-e17877d44ce3",
+      "childSessionKey": "agent:wechat-assistant:subagent:dcbeb9f2-9fd6-45f2-b598-b384e6d96bdd",
+      "controllerSessionKey": "agent:wechat-assistant:feishu:group:oc_eca0989d92d6638ff952496754eee106",
+      "requesterSessionKey": "agent:wechat-assistant:feishu:group:oc_eca0989d92d6638ff952496754eee106",
+      "requesterOrigin": {
+        "channel": "feishu",
+        "to": "chat:oc_eca0989d92d6638ff952496754eee106",
+        "accountId": "wechat-assistant"
+      },
+      "requesterDisplayKey": "agent:wechat-assistant:feishu:group:oc_eca0989d92d6638ff952496754eee106",
+      "task": "你是微信公众号内容创作专家。按以下步骤执行：\n\n**步骤1：读取热点文件**\n路径：/opt/wechat/ai/workspace-wechat-shared/2026-04-02/hot/2026-04-02.md\n从5条热点中精选3条最具公众号价值的主题，输出到：\n路径：/opt/wechat/ai/workspace-wechat-shared/2026-04-02/topics/2026-04-02-topic-list.md\n格式：编号 + 标题 + 写作角度 + 预估字数 + 目标读者\n\n**步骤2：基于第1条主题写文章**\n- 标题≤20字\n- 600-800字\n- 至少3张均匀分布的配图\n- 使用 /home/hochoy/.openclaw/workspace-wechat-assistant/docs/tech-html-template-1.md 的模板结构\n- 输出HTML到：/opt/wechat/ai/workspace-wechat-shared/2026-04-02/article/2026-04-02-article-v1.html\n\n**步骤3：生成配图**\n使用MiniMax image-01模型生成3张配图，保存到：\n/opt/wechat/ai/workspace-wechat-shared/2026-04-02/images/\n文件名：2026-04-02-img-1.png、2026-04-02-img-2.png、2026-04-02-img-3.png\n\n**步骤4：质量审核**\n使用 /home/hochoy/.openclaw/workspace-wechat-assistant/docs/tech-html-acceptance-standards-1.md 审核文章\n输出报告到：/opt/wechat/ai/workspace-wechat-shared/2026-04-02/audit/2026-04-02-audit-report.md\n\n完成后返回：选题列表 + 文章文件路径 + 配图文件列表 + 审核结果摘要",
+      "cleanup": "keep",
+      "expectsCompletionMessage": true,
+      "spawnMode": "run",
+      "label": "wechat-full-pipeline",
+      "model": "minimax/MiniMax-M2.7",
+      "workspaceDir": "/home/hochoy/.openclaw/workspace-wechat-assistant",
+      "runTimeoutSeconds": 0,
+      "createdAt": 1775081413256,
+      "startedAt": 1775081413561,
+      "sessionStartedAt": 1775081413256,
+      "accumulatedRuntimeMs": 0,
+      "cleanupHandled": true,
+      "retainAttachmentsOnKeep": false,
+      "endedAt": 1775081670265,
+      "outcome": {
+        "status": "ok"
+      },
+      "endedReason": "subagent-complete",
+      "frozenResultText": "---\n\n## ✅ 任务完成摘要\n\n### 📋 选题列表\n**路径**：`/opt/wechat/ai/workspace-wechat-shared/2026-04-02/topics/2026-04-02-topic-list.md`\n\n| # | 主题 | 写作角度 | 预估字数 |\n|---|------|---------|---------|\n| 1（已写） | OpenAI融资1220亿美元：AI淘金热，谁在卖铲子？ | 解读融资规模+资金去向+普通人影响 | 700字 |\n| 2 | 微软开源语音AI被狂卷33k星，闭源巨头开始慌了？ | VibeVoice开源 vs 闭源竞争 | 650字 |\n| 3 | GitHub周榜霸屏：Google TimesFM、Claude Code同时炸场 | 开源AI开发者工具生态盘点 | 680字 |\n\n---\n\n### 📄 文章文件\n**路径**：`/opt/wechat/ai/workspace-wechat-shared/2026-04-02/article/2026-04-02-article-v1.html`\n\n- 标题：1220亿美元！OpenAI再创AI融资纪录（17字 ✅）\n- 主题：OpenAI史上最大融资解读\n- 字数：约750字 ✅\n- 配图：3张均匀分布 ✅\n- 审核得分：8.7/10 ✅\n\n---\n\n### 🖼️ 配图文件\n| 文件名 | 尺寸 | 用途 |\n|--------|------|------|\n| `2026-04-02-img-1.png` | 1024×1024 | 顶部封面图（AI数据中心+融资规模） |\n| `2026-04-02-img-2.png` | 1024×1024 | 正文配图1（算力军备竞赛可视化） |\n| `2026-04-02-img-3.png` | 1024×1024 | 正文配图2（AI走向日常生活） |\n\n**路径前缀**：`/opt/wechat/ai/workspace-wechat-shared/2026-04-02/images/`\n\n---\n\n### 🔍 审核结果摘要\n**路径**：`/opt/wechat/ai/workspace-wechat-shared/2026-04-02/audit/2026-04-02-audit-report.md`\n\n- **结论**：✅ 审核通过，建议发布\n- **综合评分**：8.7/10\n- **主要发现**：标题/字数/图片数量/分布/HTML结构均符合要求；内容逻辑清晰，语言风格平实有力；合规无风险\n- **轻微建议**：补充数据来源链接（非阻塞）",
+      "frozenResultCapturedAt": 1775081670338,
+      "announceRetryCount": 3,
+      "lastAnnounceRetryAt": 1775082858695,
+      "endedHookEmittedAt": 1775082858702,
+      "cleanupCompletedAt": 1775082858695
+    },
+    "740ca341-e35f-42bb-961a-76b8499ffad5": {
+      "runId": "740ca341-e35f-42bb-961a-76b8499ffad5",
+      "childSessionKey": "agent:wechat-assistant:subagent:3e55e34a-3e75-461c-86b2-da804001805a",
+      "controllerSessionKey": "agent:wechat-assistant:feishu:group:oc_eca0989d92d6638ff952496754eee106",
+      "requesterSessionKey": "agent:wechat-assistant:feishu:group:oc_eca0989d92d6638ff952496754eee106",
+      "requesterOrigin": {
+        "channel": "feishu",
+        "to": "chat:oc_eca0989d92d6638ff952496754eee106",
+        "accountId": "wechat-assistant"
+      },
+      "requesterDisplayKey": "agent:wechat-assistant:feishu:group:oc_eca0989d92d6638ff952496754eee106",
+      "task": "你是微信公众号内容创作专家。\n\n## 任务\n基于热点话题写一篇公众号文章。\n\n## 热点素材（来自 /opt/wechat/ai/workspace-wechat-shared/2026-04-02/hot/2026-04-02.md 第5条）\n\n**话题**：Google TimesFM等开源AI项目GitHub Trending霸榜\n**核心内容**：\n- Google Research开源TimesFM时间序列基础模型（11,949 stars），支持时间序列预测任务\n- Anthropic官方Claude Code终端编程工具持续火热\n- OpenAI Codex编码Agent也属热门\n- claude-howto项目获15,428 stars\n- 开源AI开发者工具生态正在全面爆发\n\n**原文链接**：https://github.com/google-research/timesfm | https://github.com/anthropics/claude-code\n\n## 写作要求\n1. 标题≤20字，角度自拟\n2. 600-800字\n3. 至少3张均匀分布的配图\n4. **严格使用模板**：完整套用 /home/hochoy/.openclaw/workspace-wechat-assistant/docs/tech-html-template-1.md 的结构（不可删减章节）\n5. 输出HTML文件\n\n## 输出路径\n- 文章HTML：/opt/wechat/ai/workspace-wechat-shared/2026-04-02/article/2026-04-02-article-v2.html\n- 配图目录：/opt/wechat/ai/workspace-wechat-shared/2026-04-02/images/\n- 配图命名：2026-04-02-img-{N}.png（N=1,2,3）\n\n## 配图生成\n使用MiniMax image-01生成3张图（风格：科技感、数据可视化、开发者工具主题），尺寸1024×1024\n\n## 审核\n用 /home/hochoy/.openclaw/workspace-wechat-assistant/docs/tech-html-acceptance-standards-1.md 逐阶段审核\n输出报告到：/opt/wechat/ai/workspace-wechat-shared/2026-04-02/audit/2026-04-02-audit-report-v2.md\n\n## 完成后返回\n- 文章文件路径 + 标题 + 字数\n- 配图文件列表\n- 审核结果（通过/不通过 + 主要问题）",
+      "cleanup": "keep",
+      "expectsCompletionMessage": true,
+      "spawnMode": "run",
+      "label": "wechat-topic3-writer",
+      "model": "minimax/MiniMax-M2.7",
+      "workspaceDir": "/home/hochoy/.openclaw/workspace-wechat-assistant",
+      "runTimeoutSeconds": 0,
+      "createdAt": 1775083249924,
+      "startedAt": 1775083250182,
+      "sessionStartedAt": 1775083249924,
+      "accumulatedRuntimeMs": 0,
+      "cleanupHandled": true,
+      "retainAttachmentsOnKeep": false,
+      "endedAt": 1775083520234,
+      "outcome": {
+        "status": "timeout"
+      },
+      "endedReason": "subagent-complete",
+      "frozenResultText": "Let me do a final verification:",
+      "frozenResultCapturedAt": 1775083520518,
+      "endedHookEmittedAt": 1775083538028,
+      "cleanupCompletedAt": 1775083538028
     }
   }
 }

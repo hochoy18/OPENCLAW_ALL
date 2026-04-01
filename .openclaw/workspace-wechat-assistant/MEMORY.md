@@ -17,8 +17,8 @@ version: 3.0 | last_updated: 2026-04-01
 
 | 文档 | 路径 | 用途 |
 |------|------|------|
-| **HTML模板** | `docs/tech-html-template-1.md` | 写文章时必须完整套用此模板结构 |
-| **验收标准** | `docs/tech-html-acceptance-standards-1.md` | 审核时必须逐阶段对照检查 |
+| **HTML模板** | `/opt/wechat/ai/workspace-wechat-shared/docs/tech-html-template-1.md` | 写文章时必须完整套用此模板结构 |
+| **验收标准** | `/opt/wechat/ai/workspace-wechat-shared/docs/tech-html-acceptance-standards-1.md` | 审核时必须逐阶段对照检查 |
 
 **警告**：tech-html-template-1.md的模板结构必须完整遵守，不得擅自删减章节或改变模块格式。
 
