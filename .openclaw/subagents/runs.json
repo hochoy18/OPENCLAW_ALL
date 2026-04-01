@@ -535,6 +535,39 @@
       "frozenResultCapturedAt": 1775031936026,
       "endedHookEmittedAt": 1775031953961,
       "cleanupCompletedAt": 1775031953962
+    },
+    "ed4e7ba8-a8b1-46ef-858a-250e238f7d94": {
+      "runId": "ed4e7ba8-a8b1-46ef-858a-250e238f7d94",
+      "childSessionKey": "agent:wechat-draft-publisher:subagent:bede5da0-cc56-4d28-af4c-9098747b506c",
+      "controllerSessionKey": "agent:wechat-content-writer:feishu:group:oc_eca0989d92d6638ff952496754eee106",
+      "requesterSessionKey": "agent:wechat-content-writer:feishu:group:oc_eca0989d92d6638ff952496754eee106",
+      "requesterOrigin": {
+        "channel": "webchat"
+      },
+      "requesterDisplayKey": "agent:wechat-content-writer:feishu:group:oc_eca0989d92d6638ff952496754eee106",
+      "task": "## 任务：推送 DeerFlow v4 文章到公众号草稿箱\n\n### 文章文件\n`/home/hochoy/.openclaw/workspace-wechat-assistant/output/2026-04-01-deer-flow-v4-article.html`\n\n### 文章信息\n- **标题**：用DeerFlow搭建你的第一个私有化AI研究团队（附操作指南）\n- **作者**：AI科技观察\n- **配图**：3张（已使用之前CDN链接）\n- **角度**：实操教程\n\n### 推送要求\n1. 读取HTML文件内容\n2. 推送到公众号草稿箱\n3. 封面图使用文章内已有的第一张配图\n\n### 完成后回报\n- 推送状态\n- 草稿ID",
+      "cleanup": "keep",
+      "expectsCompletionMessage": true,
+      "spawnMode": "run",
+      "label": "deer-flow-v4-push",
+      "model": "minimax/MiniMax-M2.7",
+      "workspaceDir": "/home/hochoy/.openclaw/workspace-wechat-draft-publisher",
+      "runTimeoutSeconds": 0,
+      "createdAt": 1775037489262,
+      "startedAt": 1775037489902,
+      "sessionStartedAt": 1775037489262,
+      "accumulatedRuntimeMs": 0,
+      "cleanupHandled": true,
+      "retainAttachmentsOnKeep": false,
+      "endedAt": 1775037588474,
+      "outcome": {
+        "status": "ok"
+      },
+      "endedReason": "subagent-complete",
+      "frozenResultText": "## 推送完成 ✅\n\n**推送状态**：成功  \n**草稿ID**：`VI03CdGujbFMX0KhlRuwQ9Y-wH-m4U4f4K_gzcU1RIZ5_fEql7bfQgtVz9pUCNhz`\n\n### 执行详情\n- 封面图从文章第一张配图（DeerFlow研究团队）上传至微信素材库，获得 `thumb_media_id`\n- 文章HTML内容（1500字左右，3张配图）已推送至公众号草稿箱\n- 推送日志已写入 `/opt/wechat/ai/workspace-wechat-shared/2026-04-01/push/2026-04-01-push-log.md`\n\n请前往公众号后台预览确认内容无误：  \n👉 https://mp.weixin.qq.com/cgi-bin/appmsg?action=list_ex&begin=0&count=5&type=101",
+      "frozenResultCapturedAt": 1775037588685,
+      "endedHookEmittedAt": 1775037608398,
+      "cleanupCompletedAt": 1775037608399
     }
   }
 }
