@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-24T11:42:06.853Z"
+    "lastTouchedVersion": "2026.3.28",
+    "lastTouchedAt": "2026-03-31T11:37:56.189Z"
   },
   "env": {
     "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe",
@@ -103,12 +103,12 @@
       "model": {
         "primary": "minimax/MiniMax-M2.7"
       },
+      "pdfMaxBytesMb": 50,
       "models": {
         "kimi-coding/k2p5": {
           "alias": "Kimi K2.5"
         }
       },
-      "workspace": "/home/hochoy/.openclaw/workspace",
       "timeoutSeconds": 1800,
       "sandbox": {
         "mode": "off"
@@ -116,7 +116,24 @@
     },
     "list": [
       {
+        "id": "wechat-hot-collector",
+        "name": "wechat-hot-collector",
+        "workspace": "/home/hochoy/.openclaw/workspace-wechat-hot-collector",
+        "agentDir": "/home/hochoy/.openclaw/agents/wechat-hot-collector/agent",
+        "tools": {
+          "allow": [
+            "*"
+          ],
+          "exec": {
+            "host": "gateway",
+            "security": "full",
+            "ask": "off"
+          }
+        }
+      },
+      {
         "id": "main",
+        "workspace": "/home/hochoy/.openclaw/workspace",
         "model": "minimax/MiniMax-M2.7",
         "tools": {
           "allow": [
@@ -152,6 +169,12 @@
         "workspace": "/home/hochoy/.openclaw/workspace-wechat-assistant",
         "agentDir": "/home/hochoy/.openclaw/agents/wechat-assistant/agent",
         "model": "minimax/MiniMax-M2.7",
+        "subagents": {
+          "allowAgents": [
+            "wechat-hot-collector",
+            "demo"
+          ]
+        },
         "tools": {
           "allow": [
             "*"
@@ -168,7 +191,17 @@
         "name": "coder",
         "workspace": "/home/hochoy/.openclaw/workspace-coder",
         "agentDir": "/home/hochoy/.openclaw/agents/coder/agent",
-        "model": "minimax/MiniMax-M2.7"
+        "model": "minimax/MiniMax-M2.7",
+        "tools": {
+          "allow": [
+            "*"
+          ],
+          "exec": {
+            "host": "gateway",
+            "security": "full",
+            "ask": "off"
+          }
+        }
       },
       {
         "id": "task-manager",
@@ -182,7 +215,13 @@
         "name": "cron",
         "workspace": "/home/hochoy/.openclaw/workspace-cron",
         "agentDir": "/home/hochoy/.openclaw/agents/cron/agent",
-        "model": "minimax/MiniMax-M2.7"
+        "model": "minimax/MiniMax-M2.7",
+        "heartbeat": {
+          "every": "30m",
+          "target": "feishu",
+          "accountId": "cron",
+          "prompt": "Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK."
+        }
       },
       {
         "id": "comedy",
@@ -190,6 +229,12 @@
         "workspace": "/home/hochoy/.openclaw/workspace-comedy",
         "agentDir": "/home/hochoy/.openclaw/agents/comedy/agent",
         "model": "minimax/MiniMax-M2.7"
+      },
+      {
+        "id": "biology",
+        "name": "biology",
+        "workspace": "/home/hochoy/.openclaw/workspace-biology",
+        "agentDir": "/home/hochoy/.openclaw/agents/biology/agent"
       }
     ]
   },
@@ -209,11 +254,14 @@
     "agentToAgent": {
       "enabled": true,
       "allow": [
-        "demo",
-        "main",
-        "wechat-assistant",
         "coder",
-        "task-manager"
+        "comedy",
+        "cron",
+        "demo",
+        "wechat-hot-collector",
+        "main",
+        "task-manager",
+        "wechat-assistant"
       ]
     },
     "exec": {
@@ -229,6 +277,13 @@
       "match": {
         "channel": "feishu",
         "accountId": "wechat-assistant"
+      }
+    },
+    {
+      "agentId": "wechat-hot-collector",
+      "match": {
+        "channel": "feishu",
+        "accountId": "wechat-hot-collector"
       }
     },
     {
@@ -272,6 +327,13 @@
         "channel": "feishu",
         "accountId": "comedy"
       }
+    },
+    {
+      "agentId": "biology",
+      "match": {
+        "channel": "feishu",
+        "accountId": "biology"
+      }
     }
   ],
   "commands": {
@@ -313,6 +375,15 @@
           "domain": "feishu",
           "requireMention": true
         },
+        "wechat-hot-collector": {
+          "enabled": true,
+          "appId": "cli_a941c55c65bb5cc0",
+          "appSecret": "vhGXNX4UyYaW3EKRKsJX5c0CB4KNDOMz",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
         "coder": {
           "enabled": true,
           "appId": "cli_a937ed2886b85cb6",
@@ -347,10 +418,27 @@
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",
-          "requireMention": true,
-          "agent": "comedy"
+          "requireMention": true
+        },
+        "biology": {
+          "enabled": true,
+          "appId": "cli_a9490de99579dcd5",
+          "appSecret": "yjGM9P3DCTHX4P9Fp0JGCeIljn6dqDHA",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
         }
-      }
+      },
+      "defaultAccount": "demo",
+      "domain": "feishu",
+      "connectionMode": "websocket",
+      "webhookPath": "/feishu/events",
+      "dmPolicy": "pairing",
+      "groupPolicy": "allowlist",
+      "reactionNotifications": "own",
+      "typingIndicator": true,
+      "resolveSenderNames": true
     }
   },
   "gateway": {
@@ -392,7 +480,8 @@
   "plugins": {
     "entries": {
       "feishu": {
-        "enabled": true
+        "enabled": true,
+        "config": {}
       }
     },
     "installs": {
@@ -406,8 +495,8 @@
         "resolvedSpec": "@openclaw/feishu@2026.3.13",
         "integrity": "sha512-D5vPkgGZ9lfCQnDFlGrQN6NCSUYRgYW9k7amW3qlm9zBI4Sp+alRZVqLZ4yZ2eCXHjw9RVp/L75wjJ7NBQyfEw==",
         "shasum": "39128ff918f8d3387331818cbe3f8b24a82e4c0d",
-        "resolvedAt": "2026-03-16T14:24:27.894Z",
-        "installedAt": "2026-03-16T14:24:35.998Z"
+        "resolvedAt": "2026-03-30T09:00:06.116Z",
+        "installedAt": "2026-03-30T09:00:13.172Z"
       }
     }
   }

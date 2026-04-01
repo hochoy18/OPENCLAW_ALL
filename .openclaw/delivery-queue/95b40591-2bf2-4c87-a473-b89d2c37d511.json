@@ -18,7 +18,7 @@
     "agentId": "demo",
     "text": "test"
   },
-  "retryCount": 3,
-  "lastAttemptAt": 1774861615720,
+  "retryCount": 5,
+  "lastAttemptAt": 1774960334135,
   "lastError": "Request failed with status code 400"
 }
