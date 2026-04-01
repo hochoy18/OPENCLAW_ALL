@@ -14,20 +14,14 @@
 
 ---
 
-## 待开通
+## 多维表格权限
+- ✅ bitable:app (应用身份)
+- ✅ base:app:read (应用身份)
+- ✅ base:table:read (应用身份)
+- ✅ base:record:create (应用身份)
 
-### 多维表格权限
-- ❌ bitable:app (应用身份)
-- ❌ base:app:create (应用身份)
-- ❌ base:app:read (应用身份)
-- ❌ base:table:read (应用身份)
-- ❌ base:table:create (应用身份)
-- ❌ base:record:read (应用身份)
-- ❌ base:record:create (应用身份)
-- ❌ base:record:update (应用身份)
-
-开通链接：
-https://open.feishu.cn/app/cli_a94a44dbf67a5cc8/auth?q=bitable:app,base:app:create,base:app:read,base:table:read,base:table:create,base:record:read,base:record:create,base:record:update&op_from=openapi&token_type=tenant
+表格：202604任务 (R23qb9Uc0afW3asLp95ckOz6nd2)
+数据表：tblZM0z9NrmjLgiI
 
 ---
 

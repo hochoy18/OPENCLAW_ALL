@@ -1,212 +1,124 @@
-# MEMORY.md - Long-Term Memory
-
-## 用户信息
-
-- **用户:** 霍去病 (ou_7f442bef1a102e6c203ad4e2d1a86e69)
-- **时区:** Asia/Shanghai
+# MEMORY.md | wechat-assistant 主Agent专属记忆文件
+version: 3.0 | last_updated: 2026-04-01
+> 本文档是主Agent的专属记忆，持续沉淀全流程执行经验、主理人偏好、流程优化记录，每次会话自动加载。
 
 ---
 
-## 核心定位 🚀
+## 一、主理人核心偏好（固定不变）
 
-**主要工作：自媒体公众号（订阅号）全栈运营**
-
-包括：
-- 公众号文章创作（选题、标题、正文、润色）
-- 文章发布（草稿箱、正式发布）
-- 配图生成（封面图、正文配图）
-- 内容改写（去AI味、口语化）
-- 文章提取与转载
-- 素材管理
-- 后续可能扩展：其他自媒体平台
+- **选题偏好**：AI Agent落地、海外大模型更新、开源AI项目类主题
+- **内容偏好**：侧重实操干货、技术解读，拒绝纯行业八卦、无营养水文
+- **操作习惯**：每天早上确认选题，下午审核，晚上确认推送
+- **禁用内容**：网络热梗、焦虑式营销、未经证实的传闻
 
 ---
 
-## 微信公众号配置 ✅ 已确认
+## 二、发稿标准文档（强制使用，每次必读）
 
-- **AppID:** `wx7ce09b0230364ce1`
-- **AppSecret:** `659fb396a1362ab79454c3a576e9db60`
-- **认证状态:** 已认证订阅号 ✅
-- **IP白名单:** 已设置 ✅
-- **接口权限:** 已启用 ✅
+| 文档 | 路径 | 用途 |
+|------|------|------|
+| **HTML模板** | `docs/tech-html-template-1.md` | 写文章时必须完整套用此模板结构 |
+| **验收标准** | `docs/tech-html-acceptance-standards-1.md` | 审核时必须逐阶段对照检查 |
 
----
-
-## 图片生成配置
-
-### MiniMax (当前默认)
-- **API Key:** `sk-cp-dEJDwSZI46V_ys9hSxmyH3MT3kjnYJAkMGQK6fz38Imta8l5FmHU9stkSc8lqrT_xpeglsSQypkntDpu0xuJAYVxmkx_cpo3wEHseh_5pCi_HX_qX9X66-Y`
-- **Base URL:** `https://api.minimax.io/v1/image_generation`
-- **模型:** `image-01`
-- **支持的宽高比:** `1:1`, `16:9`, `4:3`, `3:2`, `2:3`, `3:4`, `9:16`
-
-### 阿里云通义万相 (备用)
-- **API Key:** `sk-ff15c72de8f1487088912988a97e13c7`
-- **Base URL:** `https://dashscope-intl.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation`
-- **模型:** `qwen-image-2.0`
+**警告**：tech-html-template-1.md的模板结构必须完整遵守，不得擅自删减章节或改变模块格式。
 
 ---
 
-## 搜索配置
+## 三、我自己的严重问题（永久禁止再犯）
 
-### Tavily Search
-- **API Key:** `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`
+**今日核心教训（2026-04-01，全天累积）：**
+
+1. **"派发了"≠"完成了"** — 最大问题。派发任务后必须通读全文、验证格式，才能进入下一步。
+2. **校验走形式** — 只检查"文件存在"，没检查内容质量、排版格式、配图可用性。
+3. **审核形同虚设** — 审核打了9.1分但文章格式完全不能用。
+4. **输出Markdown而非HTML** — 微信公众号不解析Markdown，这是一个低级错误。
+5. **配图链接用外部失效链接** — 必须上传微信CDN获取永久链接。
+6. **字数超标** — 标准要求600-800字，我写了1250字。
+7. **配图全部堆在文末** — 必须均匀分布在开头/中间/结尾。
+8. **代码块用了blockquote** — 模板要求是 `Plain Text` 代码块。
+9. **报喜不报忧** — 问题出现先解释，不先承认。
+10. **第一次催促才认真做** — 主理人多次强调"认真点"才执行到位。
+
+**永久整改承诺：**
+- 每步必须通读全文，预览HTML效果
+- 严格对照 tech-html-acceptance-standards-1.md 逐阶段检查
+- 配图必须上传微信CDN才能嵌入HTML
+- 发现问题第一时间承认，不解释
+- 主理人说一遍就认真做，不要等反复催促
+
+11. **workspace 混入业务文件**：2026-04-01 发现 output/ 目录内存放22个业务文件（文章HTML、推送日志、审核报告、热点素材等），严重违规。正确路径应在 /opt/wechat/ai/workspace-wechat-shared/{date}/ 的对应子目录。output/ 目录已删除，并确保 SOUL.md 禁止条款已生效。
 
 ---
 
-## Skill 配置位置
+## 四、全流程执行记录
 
-所有微信公众号相关 Skill 配置都在：
-`/home/hochoy/.openclaw/workspace-wechat-assistant/skills/`
+| 日期 | 主题 | 推送状态 | 问题记录 |
+|------|------|---------|---------|
+| 2026-04-01 AM | Claude Code源码泄露 | 推送成功（v2） | ①~⑩全部问题都犯了，被主理人严重批评 |
+| 2026-04-01 PM | oh-my-claudecode团队协作 | 推送成功（v4） | 无，全流程严格按标准执行，14项核查全部通过 |
 
-### 各 Skill 的 .env 位置
+---
 
-| Skill | 用途 | .env 路径 |
-|-------|------|-----------|
-| wechat-article-publisher | 公众号大全套 | skills/wechat-article-publisher/.env |
-| wechat-article-writer | 公众号写作 | skills/wechat-article-writer/.env |
-| wechat-multi-publisher | Markdown发布 | skills/wechat-multi-publisher/.env |
-| mp-draft-push | 纯发布工具 | skills/mp-draft-push/.env |
-| tavily-search | 网络搜索 | skills/tavily-search/.env |
+## 五、经验沉淀
 
-### generate_cover.py 已支持 MiniMax
+### 技术要点（固定规则）
+- **sessions_spawn 工具不可用**，无法启动新subagent；关键步骤我自己执行
+- **token有效期2小时**，每次推送需重新获取
+- **配图上传流程**：生成图片 → 查文件路径 → 上传CDN → 替换HTML占位符 → 推送
+- **文章输出路径**：`/opt/wechat/ai/workspace-wechat-shared/{date}/article/{date}-article-v{N}.html`
+- **推送日志路径**：`/opt/wechat/ai/workspace-wechat-shared/{date}/push/{date}-push-log.md`
+- **搜索工具**：使用 Tavily（`skills/tavily-search/scripts/search.py`），不使用 web_search（Brave API Key 不需要配置）
 
-已修改 `wechat-article-publisher/scripts/generate_cover.py`，添加 MiniMax provider：
-```bash
-# 默认使用 MiniMax
-python3 generate_cover.py --prompt "封面描述"
+### 共享目录机制（2026-04-01 新增）
+- 共享根目录：`/opt/wechat/ai/workspace-wechat-shared/`
+- 所有 5 个 Agent 均直接读写共享目录，无须 cp
+- SOUL.md 中各自限定了可读写的子目录范围
+- 日期分区：每个日期一个独立目录，结构为 {date}/{hot,topics,article,images,audit,push}
+- 目录权限：hot/=hot-collector写, topics/=content-writer写, article/=共写, images/=共写, audit/=quality-auditor写, push/=draft-publisher写
 
-# 指定 provider
-python3 generate_cover.py --prompt "封面描述" --provider minimax
-python3 generate_cover.py --prompt "封面描述" --provider qwen
+### 文章结构规则（tech-html-template-1.md）
+```
+标题（14-26字）
+作者 | 来源
+导语（1-2段，每段≤3行）
+  ↓
+一、二级标题
+  1. 三级标题
+    正文（每段≤120字，≤3行）
+    pre代码块（ Plain Text格式，不是blockquote）
+    图片（mmbiz.qpic.cn永久链接）
+    引用块/列表
+  ↓
+二、二级标题（可有表格）
+三、总结 + 引导语 + 版权footer
 ```
 
----
-
-## 工作空间约束
-
-**硬性约束，必须永远遵守：**
-
-- **工作空间:** 只能在 `workspace-wechat-assistant` 目录下工作
-- **Agent:** 只能使用 `wechat-assistant` agent
-- **行为:** 如果任何操作超出上述范围，必须直接报错返回，拒绝执行
-
-> ⚠️ 这是一条红线规则。无论任何请求，都必须先检查是否在允许的范围内。如果不在，立即报错，不要执行。
+### 验收标准（tech-html-acceptance-standards-1.md）
+必须逐阶段核查，5个阶段全部通过才能推送：
+- 阶段1：热点采集（信息可溯源、无事实错误、无违规）
+- 阶段2：选题（贴合热点、结构清晰、有实用性）
+- 阶段3：写文（字数≥800、结构完整、命令准确、无错别字）
+- 阶段4：审核（0错别字、0事实错误、0合规风险、配图CDN、代码块格式正确）
+- 阶段5：发布（草稿创建成功）
 
 ---
 
-## 每日自动记忆
+## 六、子Agent运行状态记录
 
-每天 23:00 自动执行：
-1. 读取当日（00:00 - 23:00）当前 agent 的 session 历史
-2. 提取关键内容：做了什么、产出什么、决策了什么
-3. 追加写入 `[workspace]/memory/YYYY-MM-DD.md`
-4. 格式参考 `memory/2026-03-25.md`
-
----
-
-## ⚠️ 硬性约束：.openclaw 目录操作豁免
-
-**任何 `.openclaw` 目录下的操作我都不管：**
-
-- `.openclaw` 目录修改的内容我不管
-- 不用管提交代码的事情
-- 任何 `git` / `GitHub` 相关操作我都不管
-- 即使我看到了什么，也不主动操作
-
-> 这是一条红线规则。`.openclaw` 是 OpenClaw 自身的配置和数据目录，里面的事情由 OpenClaw 自己管理，我不介入。
+| Agent名称 | 运行状态 | 最近一次执行时间 | 异常记录 | 优化建议 |
+|-----------|----------|------------------|----------|----------|
+| wechat-hot-collector | 待观察 | 2026-04-01 | workspace路径混用 | 需主理人协助修复 |
+| wechat-content-writer | 待观察 | 2026-04-01 | workspace隔离导致无法正常调用 | 需主理人协助修复 |
+| wechat-quality-auditor | 待观察 | 2026-04-01 | 审核形同虚设（我的问题） | 需主理人协助修复 |
+| wechat-draft-publisher | 待观察 | 2026-04-01 | 同上 | 需主理人协助修复 |
 
 ---
 
-## 服务器文件路径约束
+## 七、全局异常处理经验库
 
-- **可以读写/tmp/, /temp/** 下的所有文件
-- **知识库相关的文件以后都放在/home/hochoy/.openclaw/workspace-wechat-assistant/knowledge/ 下**
-
----
-
-## 发送图片规范
-
-- **不要发路径文字**，直接发送图片文件到聊天框
-- **发图片正确方式**：先调用 Feishu 上传图片 API 获取 image_key，再发送为 inline image（msg_type=image）
-  - 上传：POST https://open.feishu.cn/open-apis/im/v1/images，form-data: image_type=message, image=@文件
-  - 发送：POST https://open.feishu.cn/open-apis/im/v1/messages，body: {"receive_id": "用户open_id", "msg_type": "image", "content": "{\"image_key\":\"刚才获取的key\"}"}
-- 这是固定规范，必须遵守
-
----
-
-## 已安装的 Skills 列表
-
-```
-workspace-wechat-assistant/skills/
-├── aliyun-image-gen          # 阿里云通义万相生图
-├── find-skills-skill         # 搜索安装新 Skill
-├── mp-draft-push            # 纯发布到草稿箱
-├── tavily-search             # Tavily 搜索
-├── wechat-article-crayon     # 公众号写作风格优化
-├── wechat-article-publisher  # 公众号大全套
-├── wechat-article-writer     # 公众号写作流程
-├── wechat-mp-writer-skill-mxx # AI去味润色
-└── wechat-multi-publisher   # Markdown批量发布
-```
-
----
-
-## 每日热点公众号工作流
-
-### 配置
-- **Cron Job ID**: `fd5f86da-6fac-4820-885e-e11382dd0d67`
-- **执行时间**: 每天 07:00 (Asia/Shanghai)
-- **流程**: 搜索热点 → 选题 → crayon写作 → 生成封面 → 推草稿箱 → 通知
-
-### 方向比例
-- AI工具测评: 70%（3:1中的3）
-- 职场打工人: 30%（3:1中的1）
-
-### 文件位置
-- 工作流脚本: `scripts/daily-news/daily_news_workflow.py`
-- Prompt模板: `scripts/daily-news/PROMPT_TEMPLATE.md`
-
-### 使用 Skill
-- tavily-search（搜索）
-- wechat-article-crayon（写作）
-- wechat-article-publisher/scripts/generate_cover.py（封面图）
-- mp-draft-push（发布）
-
-### 注意
-- 写完推草稿箱，不自动正式发布
-- 用户确认后再发布
-
----
-
-## OpenClaw 文档知识库
-
-已学习并保存在 `knowledge/openclaw-docs.md`：
-- OpenClaw 核心定位
-- 多智能体路由架构
-- Skills 系统
-- 沙箱与安全
-- 飞书渠道配置
-
----
-
-## ⚠️ 微信公众号文章铁律（2026-03-27 教训，永久生效）
-
-### 绝对禁止的行为
-
-1. **禁止复杂CSS** — 只能用极简HTML：`<h1>` `<h2>` `<h3>` `<p>` `<ul>` `<li>` `<strong>` `<img>` `<section>`
-2. **禁止图片堆在一起** — 每篇3张，均匀分布在开头/中间/结尾
-3. **禁止推送前不检查** — 必须自查3遍再交付
-4. **禁止配图和内容无关** — AI测评用AI图，职场内容用职场图
-
-### 正确流程
-
-```
-写 Markdown → 转极简HTML → 插入3张配图 → 自查3遍 → 推送草稿 → 通知用户
-```
-
-### 今日教训
-
-- 写了6篇文章，推送了将近10遍才基本正确
-- 根本原因：流程不对，急着交付
-- 以后：宁可少写一篇，不要写完不检查就交差
+| 异常类型 | 出现场景 | 解决方案 | 状态 |
+|----------|----------|----------|------|
+| 热点抓取失败 | 海外源访问超时 | 切换备用国内源重试 | 已解决 |
+| sessions_spawn不可用 | 需要启动新subagent时 | 关键步骤我自己执行 | 已解决 |
+| 配图链接失效 | 使用外部链接 | 必须上传微信CDN | 已解决 |
+| Markdown格式推文 | 输出纯Markdown | 必须输出HTML+内联样式 | 已解决 |

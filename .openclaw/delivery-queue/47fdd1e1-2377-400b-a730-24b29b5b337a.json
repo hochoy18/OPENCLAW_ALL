@@ -18,7 +18,7 @@
     "agentId": "demo",
     "text": "📋 每日记忆总结 — 2026-03-28（周六）\n\n**今日主要事件**\n\n1. **回顾昨日产出**\n   - 修复了 MiniMax API 图像生成端点（切换到正确端点）\n   - 用 Image-01 模型生成 5 张风格头像\n   - 修复了每日记忆 cron 的飞书发消息报错\n\n2. **周六安排建议**\n   - 给了五个方向：宅家放松 / 运动 / 学技能 / 出去溜达 / 社交\n   - 用户尚未明确具体兴趣方向\n\n3. **Google NotebookLM 详解**\n   - AI 研究助手，只基于用户上传文档回答问题\n   - 特色功能 Audio Overviews（AI 播客对话）\n   - 适合学术研究、读书笔记、新闻追踪、事实核查\n\n4. **NotebookLM + 视频制作**\n   - 典型工作流：上传资料 → 生成 Audio Overview → 搭配虚拟人/剪辑工具\n   - 工具组合：NotebookLM + HeyGen/Synthesia + 剪映/CapCut\n\n5. **技能列表查询**\n   - 告知 clawhub 技能市场可用\n\n**待跟进**\n- 用户周六安排未确定，等后续反馈\n- 每日热点公众号创作 cron 明天 07:00 首次验证\n\n祝周末愉快 🎉"
   },
-  "retryCount": 3,
-  "lastAttemptAt": 1774861616656,
+  "retryCount": 5,
+  "lastAttemptAt": 1774960335034,
   "lastError": "Request failed with status code 400"
 }
