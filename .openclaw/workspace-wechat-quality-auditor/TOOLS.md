@@ -10,5 +10,6 @@
   - `images/` — AI生成的配图原始文件
   - `audit/` — wechat-quality-auditor 审核报告（仅本Agent可写）
   - `push/` — wechat-draft-publisher 推送日志
+- docs/：`/opt/wechat/ai/workspace-wechat-shared/docs/`（tech-html-acceptance-standards-1.md等），**本Agent仅有只读权限**
 - 读写权限：article/ 本Agent可读，audit/ 本Agent可写
 - 注意：不得读写其他 Agent 的个人 workspace（`~/.openclaw/workspace-wechat-XXX/`）

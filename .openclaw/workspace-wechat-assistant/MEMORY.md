@@ -46,6 +46,8 @@ version: 3.0 | last_updated: 2026-04-01
 - 发现问题第一时间承认，不解释
 - 主理人说一遍就认真做，不要等反复催促
 
+11. **workspace 混入业务文件**：2026-04-01 发现 output/ 目录内存放22个业务文件（文章HTML、推送日志、审核报告、热点素材等），严重违规。正确路径应在 /opt/wechat/ai/workspace-wechat-shared/{date}/ 的对应子目录。output/ 目录已删除，并确保 SOUL.md 禁止条款已生效。
+
 ---
 
 ## 四、全流程执行记录

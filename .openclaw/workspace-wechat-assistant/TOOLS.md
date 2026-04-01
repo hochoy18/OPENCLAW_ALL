@@ -1,5 +1,13 @@
 # TOOLS.md - Local Notes
 
+## workspace 自查清单
+
+每月执行一次，检查 workspace 是否出现违规文件：
+```bash
+ls -la /home/hochoy/.openclaw/workspace-wechat-assistant/
+```
+重点关注：output/（已删除，禁止重建）、logs/、temp/ 等目录是否混入文章/配图/热点等业务文件。
+
 ## 共享目录（2026-04-01 新增）
 - 共享根目录：`/opt/wechat/ai/workspace-wechat-shared/`
 - 日期分区：`{{date}}/`（每日独立子目录）

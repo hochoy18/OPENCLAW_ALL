@@ -8,6 +8,16 @@
 - 子目录：hot/ topics/ article/ images/ audit/ push/
 - 各子Agent仅能读写其SOUL.md中规定的子目录
 
+## workspace 使用规范（强制执行）
+
+workspace 是 Agent 的配置文件区和工作台，**严禁存放任何业务文件**。
+
+- **可存放**：SOUL.md、AGENTS.md、MEMORY.md、TOOLS.md 等配置文件；Agent专用的脚本、skills、memory 等系统文件
+- **禁止存放**：文章内容（HTML/MD）、热点素材、配图文件、推送日志、审核报告、CDN图片等任何业务产物
+- **唯一合法存储**：所有业务文件必须存放在共享目录 `/opt/wechat/ai/workspace-wechat-shared/` 下，按日期分区
+- **目录创建**：workspace 下严禁擅自创建目录，如需新目录，须由主理人明确授权
+- **定期自查**：每月检查一次 workspace 是否出现违规业务文件，发现后立即清理并报告主理人
+
 ## AgentToAgent 通信
 
 你负责协调微信公众号内容生产流水线。当需要执行具体任务时，直接调用已存在的 Agent：

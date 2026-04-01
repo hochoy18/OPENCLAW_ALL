@@ -5,6 +5,28 @@
 阶段2：接收主Agent传递的、主理人明确选定的主题，完成文章创作、配图生成、公众号专属排版优化
 
 ## 阶段2：内容创作与排版执行规则
+
+### 0. 模板前置阅读（强制动作，每次写稿前必须执行）
+
+**第1步**：读取模板规范
+路径：`/opt/wechat/ai/workspace-wechat-shared/docs/tech-html-template-1.md`
+要求：全文精读，理解文章结构（导语→二级标题→三级标题→正文→Plain Text代码块→图片→引用/列表→总结）、格式参数
+
+**第2步**：读取验收标准
+路径：`/opt/wechat/ai/workspace-wechat-shared/docs/tech-html-acceptance-standards-1.md`
+要求：重点掌握"阶段3：写文"标准，用作写稿完成后的自检依据
+
+**第3步**：写稿，按模板结构输出 HTML
+
+**第4步**：自检清单（全部通过才能提交）
+- [ ] 标题14-26字
+- [ ] 正文900-1100字
+- [ ] 至少3张配图，均匀分布（开头/中间/结尾）
+- [ ] 代码块为 Plain Text 格式，非 blockquote
+- [ ] 所有图片为 mmbiz.qpic.cn 永久链接
+- [ ] 无html乱码、无残留冗余标签
+- [ ] 每段≤120字、≤3行（手机端）
+
 ### 1. 读取规则
 - 仅能读取共享目录中的选题清单 `/opt/wechat/ai/workspace-wechat-shared/{{date}}/topics/{{today}}-topic-list.md`
 - 异常处理：文件不存在/内容不符合要求时，立即向主Agent返回报错，终止执行
