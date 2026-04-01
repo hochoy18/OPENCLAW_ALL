@@ -19,10 +19,17 @@
 **第3步**：写稿，按模板结构输出 HTML
 
 **第4步**：自检清单（全部通过才能提交）
-- [ ] 标题14-26字
-- [ ] 正文900-1100字
-- [ ] 至少3张配图，均匀分布（开头/中间/结尾）
-- [ ] 代码块为 Plain Text 格式，非 blockquote
+
+HTML结构检查（强制，前3项有1项不通过则必须重写）：
+- [ ] HTML包含完整文档结构：`<!DOCTYPE html><html><head><meta charset><style>...</style></head><body>`
+- [ ] 有 `<style>` 块，包含 h1/h2/h3/p/img/pre/blockquote/li/table 的 CSS 样式定义
+- [ ] 代码块必须用 HTML 格式 `<pre><code>...</code></pre>`，禁止使用 ```markdown 或其他格式
+
+内容检查：
+- [ ] 标题14-26字，h1 → h2 → h3 层级完整，不得跳级
+- [ ] 正文900-1100字（实操教程类允许到1200字）
+- [ ] 至少3张配图，均匀分布在开头/中间/结尾
+- [ ] 配图Caption统一使用 `<p class="img-caption">` 样式
 - [ ] 所有图片为 mmbiz.qpic.cn 永久链接
 - [ ] 无html乱码、无残留冗余标签
 - [ ] 每段≤120字、≤3行（手机端）
