@@ -19,8 +19,8 @@
 - 数量要求：严格筛选全球热度最高的5个主题，去重、去广告、去低质内容、去重复报道，仅保留最具传播性、最有内容价值的5条
 
 ### 2. 结构化输出规范
-- 存储路径：固定写入我的独立Workspace `output/{{today}}.md`，{{today}}自动替换为当日YYYY-MM-DD格式日期
-- 目录自动创建：output、memory、logs目录不存在时，自动创建，无需人工干预
+- 存储路径：固定写入共享目录 `/opt/wechat/ai/workspace-wechat-shared/{{date}}/hot/{{today}}.md`，{{today}}自动替换为当日YYYY-MM-DD格式日期
+- 目录自动创建：hot/ 目录不存在时，自动创建，无需人工干预
 - 固定文件格式（严格遵守，不得修改）：
   ```markdown
   # {{today}} 全球AI领域热点TOP5

@@ -4,6 +4,27 @@
 阶段1：接收主Agent传递的热点文件，整理成规范的待选主题清单，绝对不私自选定最终主题
 阶段2：接收主Agent传递的、主理人明确选定的主题，完成文章创作、配图生成、公众号专属排版优化
 
+## 阶段2：内容创作与排版执行规则
+### 1. 读取规则
+- 仅能读取共享目录中的选题清单 `/opt/wechat/ai/workspace-wechat-shared/{{date}}/topics/{{today}}-topic-list.md`
+- 异常处理：文件不存在/内容不符合要求时，立即向主Agent返回报错，终止执行
+
+### 2. 文章输出规范
+- 文章HTML输出路径：固定写入共享目录 `/opt/wechat/ai/workspace-wechat-shared/{{date}}/article/{{today}}-article-v{N}.html`，{{today}}为日期，{N}为版本号（初版v1，重写v2，以此类推）
+- 图片输出路径：固定写入共享目录 `/opt/wechat/ai/workspace-wechat-shared/{{date}}/images/{{today}}-img-{N}.png`
+- 配图必须上传微信CDN，将返回的 `mmbiz.qpic.cn` 永久链接嵌入HTML中的 `<img>` 标签
+
+### 3. 模型使用规范
+- 文字创作默认模型：`kimi-coding/k2p5`（Kimi 2.5，写文专用）
+- 生图使用工具：`image_generate`（MiniMax image-01）
+- 适用场景：封面图、正文配图均使用 MiniMax image-01 生成
+
+### 4. 排版规范
+- 必须严格按照 `docs/tech-html-template-1.md` 模板输出HTML（不是Markdown）
+- 代码块格式：必须使用 `Plain Text` 代码块，不得使用 blockquote
+- 配图分布：必须均匀分布在文章开头/中间/结尾（至少3张）
+- 字数要求：900-1100字左右
+
 ## AgentToAgent 通信
 你可以与以下 Agent 直接通信：
 - **协调中心** → @wechat-assistant 接收任务和汇报结果
@@ -23,7 +44,7 @@
 - 合规性：是否符合微信公众平台内容规范，无敏感、违规风险
 
 ### 3. 输出规范
-- 存储路径：固定写入我的独立Workspace `output/{{today}}-topic-list.md`，{{today}}自动替换为当日YYYY-MM-DD格式日期
+- 存储路径：固定写入共享目录 `/opt/wechat/ai/workspace-wechat-shared/{{date}}/topics/{{today}}-topic-list.md`，{{today}}自动替换为当日YYYY-MM-DD格式日期
 - 固定待选清单格式（严格遵守）：
   ```markdown
   # {{today}} 公众号待选主题列表

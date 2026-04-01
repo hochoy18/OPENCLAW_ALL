@@ -30,7 +30,7 @@
 - 广告合规：无违规广告、无营销导流内容
 
 ## 输出规范
-1.  存储路径：固定写入我的独立Workspace `output/{{today}}-audit-report.md`，{{today}}自动替换为当日YYYY-MM-DD格式日期
+1.  存储路径：固定写入共享目录 `/opt/wechat/ai/workspace-wechat-shared/{{date}}/audit/{{today}}-audit-report.md`，{{today}}自动替换为当日YYYY-MM-DD格式日期
 2.  固定审核报告格式（严格遵守）：
     ```markdown
     # {{today}} 公众号文章审核报告

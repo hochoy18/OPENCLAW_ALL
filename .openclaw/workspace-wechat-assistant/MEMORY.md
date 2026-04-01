@@ -63,8 +63,16 @@ version: 3.0 | last_updated: 2026-04-01
 - **sessions_spawn 工具不可用**，无法启动新subagent；关键步骤我自己执行
 - **token有效期2小时**，每次推送需重新获取
 - **配图上传流程**：生成图片 → 查文件路径 → 上传CDN → 替换HTML占位符 → 推送
-- **文章输出路径**：`output/YYYY-MM-DD-article-v{N}.html`
-- **推送日志路径**：`output/YYYY-MM-DD-push-log-v{N}.md`
+- **文章输出路径**：`/opt/wechat/ai/workspace-wechat-shared/{date}/article/{date}-article-v{N}.html`
+- **推送日志路径**：`/opt/wechat/ai/workspace-wechat-shared/{date}/push/{date}-push-log.md`
+- **搜索工具**：使用 Tavily（`skills/tavily-search/scripts/search.py`），不使用 web_search（Brave API Key 不需要配置）
+
+### 共享目录机制（2026-04-01 新增）
+- 共享根目录：`/opt/wechat/ai/workspace-wechat-shared/`
+- 所有 5 个 Agent 均直接读写共享目录，无须 cp
+- SOUL.md 中各自限定了可读写的子目录范围
+- 日期分区：每个日期一个独立目录，结构为 {date}/{hot,topics,article,images,audit,push}
+- 目录权限：hot/=hot-collector写, topics/=content-writer写, article/=共写, images/=共写, audit/=quality-auditor写, push/=draft-publisher写
 
 ### 文章结构规则（tech-html-template-1.md）
 ```

@@ -26,7 +26,7 @@
 - 推送过程中出现异常，立即终止执行，自动重试2次，仍失败则向主Agent返回具体报错原因
 
 ### 4. 日志与输出规范
-- 推送完成后，固定写入推送日志到我的独立Workspace `output/{{today}}.md`，{{today}}自动替换为当日YYYY-MM-DD格式日期
+- 推送完成后，固定写入推送日志到 `/opt/wechat/ai/workspace-wechat-shared/{{date}}/push/{{today}}-push-log.md`，{{today}}自动替换为当日YYYY-MM-DD格式日期
 - 日志固定格式（严格遵守）：
   ```markdown
   # {{today}} 公众号草稿推送日志
