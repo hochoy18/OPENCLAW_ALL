@@ -1,6 +1,0 @@
-{
-  "name": "my-workspace-skill",
-  "version": "0.1.0",
-  "description": "A custom skill loaded from workspace skills directory",
-  "tools": []
-}

@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.28",
-    "lastTouchedAt": "2026-03-31T11:52:16.900Z"
+    "lastTouchedAt": "2026-03-31T12:01:25.189Z"
   },
   "env": {
     "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe",
@@ -115,6 +115,22 @@
       }
     },
     "list": [
+      {
+        "id": "wechat-quality-auditor",
+        "name": "wechat-quality-auditor",
+        "workspace": "/home/hochoy/.openclaw/workspace-wechat-quality-auditor",
+        "agentDir": "/home/hochoy/.openclaw/agents/wechat-quality-auditor/agent",
+        "tools": {
+          "allow": [
+            "*"
+          ],
+          "exec": {
+            "host": "gateway",
+            "security": "full",
+            "ask": "off"
+          }
+        }
+      },
       {
         "id": "wechat-content-writer",
         "name": "wechat-content-writer",
@@ -275,10 +291,12 @@
         "comedy",
         "cron",
         "demo",
-        "wechat-hot-collector",
         "main",
         "task-manager",
-        "wechat-assistant"
+        "wechat-assistant",
+        "wechat-hot-collector",
+        "wechat-content-writer",
+        "wechat-wechat-quality-auditor"
       ]
     },
     "exec": {
@@ -303,7 +321,7 @@
         "accountId": "wechat-hot-collector"
       }
     },
-     {
+    {
       "agentId": "wechat-content-writer",
       "match": {
         "channel": "feishu",
@@ -412,6 +430,15 @@
           "enabled": true,
           "appId": "cli_a94109a2f87adcd4",
           "appSecret": "qR9PxeKBqYCn8s9teTfSPesjVzsrs4cX",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
+        "wechat-quality-auditor": {
+          "enabled": true,
+          "appId": "cli_a9410ba7ca789cd6",
+          "appSecret": "rOo1gHAWou2UmK47rCoSvegAMK6A5h5z",
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",

@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.28",
-    "lastTouchedAt": "2026-03-31T11:37:56.189Z"
+    "lastTouchedAt": "2026-03-31T11:52:16.900Z"
   },
   "env": {
     "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe",
@@ -116,6 +116,22 @@
     },
     "list": [
       {
+        "id": "wechat-content-writer",
+        "name": "wechat-content-writer",
+        "workspace": "/home/hochoy/.openclaw/workspace-wechat-content-writer",
+        "agentDir": "/home/hochoy/.openclaw/agents/wechat-content-writer/agent",
+        "tools": {
+          "allow": [
+            "*"
+          ],
+          "exec": {
+            "host": "gateway",
+            "security": "full",
+            "ask": "off"
+          }
+        }
+      },
+      {
         "id": "wechat-hot-collector",
         "name": "wechat-hot-collector",
         "workspace": "/home/hochoy/.openclaw/workspace-wechat-hot-collector",
@@ -172,6 +188,7 @@
         "subagents": {
           "allowAgents": [
             "wechat-hot-collector",
+            "wechat-content-writer",
             "demo"
           ]
         },
@@ -286,6 +303,13 @@
         "accountId": "wechat-hot-collector"
       }
     },
+     {
+      "agentId": "wechat-content-writer",
+      "match": {
+        "channel": "feishu",
+        "accountId": "wechat-content-writer"
+      }
+    },
     {
       "agentId": "demo",
       "match": {
@@ -379,6 +403,15 @@
           "enabled": true,
           "appId": "cli_a941c55c65bb5cc0",
           "appSecret": "vhGXNX4UyYaW3EKRKsJX5c0CB4KNDOMz",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
+        "wechat-content-writer": {
+          "enabled": true,
+          "appId": "cli_a94109a2f87adcd4",
+          "appSecret": "qR9PxeKBqYCn8s9teTfSPesjVzsrs4cX",
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",

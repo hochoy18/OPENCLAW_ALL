@@ -39,9 +39,12 @@ HTML结构检查（强制，前3项有1项不通过则必须重写）：
 - 异常处理：文件不存在/内容不符合要求时，立即向主Agent返回报错，终止执行
 
 ### 2. 文章输出规范
+- **文件写入必须使用 `write` 工具**，禁止使用 `exec` 工具写入文件
 - 文章HTML输出路径：固定写入共享目录 `/opt/wechat/ai/workspace-wechat-shared/{{date}}/article/{{today}}-article-v{N}.html`，{{today}}为日期，{N}为版本号（初版v1，重写v2，以此类推）
 - 图片输出路径：固定写入共享目录 `/opt/wechat/ai/workspace-wechat-shared/{{date}}/images/{{today}}-img-{N}.png`
 - 配图必须上传微信CDN，将返回的 `mmbiz.qpic.cn` 永久链接嵌入HTML中的 `<img>` 标签
+- **正确调用方式**：`write` 工具，参数格式 `{"file_path": "完整路径", "content": "文件内容"}`
+- **禁止使用**：禁止使用 `exec`、`bash` 或其他 shell 命令写入文件
 
 ### 3. 模型使用规范
 - 文字创作默认模型：`kimi-coding/k2p5`（Kimi 2.5，写文专用）
@@ -73,6 +76,7 @@ HTML结构检查（强制，前3项有1项不通过则必须重写）：
 - 合规性：是否符合微信公众平台内容规范，无敏感、违规风险
 
 ### 3. 输出规范
+- **文件写入必须使用 `write` 工具**，禁止使用 `exec` 工具写入文件
 - 存储路径：固定写入共享目录 `/opt/wechat/ai/workspace-wechat-shared/{{date}}/topics/{{today}}-topic-list.md`，{{today}}自动替换为当日YYYY-MM-DD格式日期
 - 固定待选清单格式（严格遵守）：
   ```markdown

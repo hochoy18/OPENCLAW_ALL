@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.28",
-    "lastTouchedAt": "2026-03-30T09:00:13.243Z"
+    "lastTouchedAt": "2026-03-31T07:33:41.803Z"
   },
   "env": {
     "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe",
@@ -109,13 +109,29 @@
           "alias": "Kimi K2.5"
         }
       },
-      "workspace": "/home/hochoy/.openclaw/workspace",
       "timeoutSeconds": 1800,
       "sandbox": {
         "mode": "off"
       }
     },
     "list": [
+      {
+        "id": "hot-collector",
+        "name": "hot-collector",
+        "workspace": "/home/hochoy/.openclaw/workspace-hot-collector",
+        "agentDir": "/home/hochoy/.openclaw/agents/hot-collector/agent",
+        "model": "minimax/MiniMax-M2.7",
+        "tools": {
+          "allow": [
+            "*"
+          ],
+          "exec": {
+            "host": "gateway",
+            "security": "full",
+            "ask": "off"
+          }
+        }
+      },
       {
         "id": "main",
         "workspace": "/home/hochoy/.openclaw/workspace",
@@ -163,6 +179,12 @@
             "security": "full",
             "ask": "off"
           }
+        },
+        "subagents":{
+          "allowAgents":[
+            "hot-collector",
+            "demo"
+          ]
         }
       },
       {
@@ -233,11 +255,14 @@
     "agentToAgent": {
       "enabled": true,
       "allow": [
-        "demo",
-        "main",
-        "wechat-assistant",
         "coder",
-        "task-manager"
+        "comedy",
+        "cron",
+        "demo",
+        "hot-collector",
+        "main",
+        "task-manager",
+        "wechat-assistant"
       ]
     },
     "exec": {
@@ -253,6 +278,13 @@
       "match": {
         "channel": "feishu",
         "accountId": "wechat-assistant"
+      }
+    },
+    {
+      "agentId": "hot-collector",
+      "match": {
+        "channel": "feishu",
+        "accountId": "hot-collector"
       }
     },
     {
@@ -339,6 +371,15 @@
           "enabled": true,
           "appId": "cli_a933cef770f85cd6",
           "appSecret": "sJXVulDZSdf8jF9tF4VkZafE8bVsmEWU",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
+         "hot-collector": {
+          "enabled": true,
+          "appId": "cli_a941c55c65bb5cc0",
+          "appSecret": "vhGXNX4UyYaW3EKRKsJX5c0CB4KNDOMz",
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",
