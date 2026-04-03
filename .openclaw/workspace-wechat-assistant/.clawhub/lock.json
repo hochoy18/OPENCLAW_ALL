@@ -43,15 +43,15 @@
     },
     "wechat-layout-publish": {
       "version": "1.0.1",
-      "installedAt": 1775220769900
+      "installedAt": 1775228043791
     },
     "wechat-article-typeset": {
       "version": "1.0.7",
-      "installedAt": 1775220777825
+      "installedAt": 1775225523203
     },
     "zhy-markdown2wechat": {
       "version": "0.1.0",
-      "installedAt": 1775220787397
+      "installedAt": 1775225519791
     }
   }
 }
