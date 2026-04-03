@@ -12,6 +12,18 @@
     "feishu-file-sender": {
       "version": "1.0.9",
       "installedAt": 1774595928580
+    },
+    "zhy-markdown2wechat": {
+      "version": "0.1.0",
+      "installedAt": 1775219813676
+    },
+    "wechat-layout-publish": {
+      "version": "1.0.1",
+      "installedAt": 1775219821170
+    },
+    "wechat-article-typeset": {
+      "version": "1.0.7",
+      "installedAt": 1775219826600
     }
   }
 }

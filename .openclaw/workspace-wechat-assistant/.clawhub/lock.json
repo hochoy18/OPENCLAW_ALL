@@ -40,6 +40,18 @@
     "fetch-wx-article": {
       "version": "1.0.0",
       "installedAt": 1774928734990
+    },
+    "wechat-layout-publish": {
+      "version": "1.0.1",
+      "installedAt": 1775220769900
+    },
+    "wechat-article-typeset": {
+      "version": "1.0.7",
+      "installedAt": 1775220777825
+    },
+    "zhy-markdown2wechat": {
+      "version": "0.1.0",
+      "installedAt": 1775220787397
     }
   }
 }
