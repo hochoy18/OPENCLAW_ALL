@@ -144,6 +144,18 @@
     "wechat-article-typeset": {
       "version": "1.0.7",
       "installedAt": 1775226735242
+    },
+    "pdf-to-word": {
+      "version": "1.0.0",
+      "installedAt": 1775292014293
+    },
+    "short-drama-pro": {
+      "version": "1.0.0",
+      "installedAt": 1775303673128
+    },
+    "lh-video-gen": {
+      "version": "1.0.0",
+      "installedAt": 1775303680788
     }
   }
 }

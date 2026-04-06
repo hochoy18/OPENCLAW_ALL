@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "skills": {
+    "pdf-to-word-with-format": {
+      "version": "1.1.0",
+      "installedAt": 1775292167382
+    },
+    "feishu-file-sender": {
+      "version": "1.0.9",
+      "installedAt": 1775303534514
+    },
+    "feishu-messaging": {
+      "version": "0.0.3",
+      "installedAt": 1775303578384
+    },
+    "feishu-send-file": {
+      "version": "1.2.1",
+      "installedAt": 1775303627187
+    },
+    "feishu-message": {
+      "version": "1.0.5",
+      "installedAt": 1775303628025
+    },
+    "feishu-msg-reader": {
+      "version": "1.0.0",
+      "installedAt": 1775303651731
+    }
+  }
+}

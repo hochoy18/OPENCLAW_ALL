@@ -1,5 +1,5 @@
 # TOOLS.md - Local Notes
-version: 2.0 | last_updated: 2026-04-03
+version: 3.0 | last_updated: 2026-04-03
 
 ## 共享目录
 - 共享根目录：`/opt/wechat/ai/workspace-wechat-shared/`
@@ -17,7 +17,54 @@ version: 2.0 | last_updated: 2026-04-03
 
 ## 模型使用
 - 文字创作：**MiniMax-M2**（默认模型）
-- 图片生成：`image_generate`（MiniMax image-01）
+- 图片生成：**curl直接调用新API**（不用OpenClaw内置image_generate工具）
+
+---
+
+## 图片生成（2026-04-03更新：必须用新API）
+
+### 为什么废弃OpenClaw内置工具
+OpenClaw内置 `image_generate` 工具调用的是旧API endpoint，不遵守 `aspect_ratio` 参数，
+实际生成1024x1024正方形而非16:9。
+
+### 新API调用方式（必须用）
+
+**Endpoint**：`POST https://api.minimax.io/v1/image_generation`
+
+**curl命令示例**：
+```bash
+curl -s --request POST \
+  --url https://api.minimax.io/v1/image_generation \
+  --header "Authorization: Bearer $MINIMAX_API_KEY" \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "model": "image-01",
+  "prompt": "<英文prompt>",
+  "aspect_ratio": "16:9",
+  "response_format": "url",
+  "n": 1
+}'
+```
+
+**返回JSON**：
+```json
+{
+  "id": "...",
+  "data": {"image_urls": ["http://hailuo-image-algeng-data-us.oss-..."]},
+  "base_resp": {"status_code": 0, "status_msg": "success"}
+}
+```
+
+### 完整处理流程
+1. 执行curl调用新API → 获取外部图片URL
+2. curl下载图片：`curl -s "<URL>" -o /tmp/<output>.jpg`
+3. 校验尺寸：`file /tmp/<output>.jpg`（确认1280x720即16:9）
+4. 复制到images目录
+5. upload_material.py上传微信CDN → 获取mmbiz.qpic.cn链接
+6. 嵌入HTML
+
+### 环境变量
+- `MINIMAX_API_KEY`：已配置在env中，直接使用即可
 
 ---
 
@@ -25,8 +72,6 @@ version: 2.0 | last_updated: 2026-04-03
 
 ### Skill 1: zhy-markdown2wechat
 路径：`~/.openclaw/workspace-wechat-content-writer/skills/zhy-markdown2wechat/`
-
-**功能**：Markdown → 内联CSS HTML转换器，零部署，Node.js即可运行
 
 **调用方式**：
 ```bash
@@ -36,37 +81,24 @@ node ~/.openclaw/workspace-wechat-content-writer/skills/zhy-markdown2wechat/scri
   <输出html路径>
 ```
 
-**主题选择**（必须指定，默认 default.css）：
-- `resources/themes/default.css` — 经典紫色编辑风格
-- `resources/themes/blue.css`
-- `resources/themes/green.css`
-- `resources/themes/apple.css`
-- `resources/themes/dark.css`
-- `resources/themes/notion.css`
-- `resources/themes/vibrant.css`
-
-**图片处理**：原样保留 `<img>` 标签，**必须在调用前嵌入 mmbiz.qpic.cn 永久链接**
+**主题**（必须指定）：
+- `resources/themes/default.css` — 经典紫色编辑风格（默认）
+- `resources/themes/blue.css` / `green.css` / `dark.css` / `notion.css` / `vibrant.css` / `apple.css`
 
 ---
 
 ### Skill 2: wechat-layout-publish
 路径：`~/.openclaw/workspace-wechat-content-writer/skills/wechat-layout-publish/`
 
-**功能**：Markdown → 主题化HTML，支持选theme，支持推送到公众号草稿（需凭证）
-
 **调用方式**（需Python runtime）：
 ```bash
-# 列出所有可用主题
-python ~/.openclaw/workspace-wechat-content-writer/skills/wechat-layout-publish/scripts/list_themes.py
-
-# 渲染HTML（必须指定 --theme）
-python ~/.openclaw/workspace-wechat-content-writer/skills/wechat-layout-publish/scripts/render_wechat_html.py \
+python3 ~/.openclaw/workspace-wechat-content-writer/skills/wechat-layout-publish/scripts/render_wechat_html.py \
   --theme <themeId> \
   --input <markdown路径> \
   --output <输出html路径>
 ```
 
-**主题catalog**（必须指定，禁止使用未列出的themeId）：
+**主题catalog**（必须指定）：
 - Formal报告：`w001`玉兰、`w006`白百合、`w010`铃兰、`w011`白茶
 - 文艺生活：`w002`牡丹、`w013`梅花、`w014`勿忘我、`w022`月见草、`w023`樱花
 - 科技产品：`w003`雏菊、`w007`蓝鸢尾、`w017`黑郁金香、`w021`朱槿
@@ -77,14 +109,8 @@ python ~/.openclaw/workspace-wechat-content-writer/skills/wechat-layout-publish/
 ### Skill 3: wechat-article-typeset
 路径：`~/.openclaw/workspace-wechat-content-writer/skills/wechat-article-typeset/`
 
-**功能**：预设主题排版，生成可复制预览链接（edit.shiker.tech）
-
 **调用方式**：
 ```bash
-# 列出所有预设
-node ~/.openclaw/workspace-wechat-content-writer/skills/wechat-article-typeset/wechat-html.js --list-presets
-
-# 生成预设主题HTML + 预览链接
 node ~/.openclaw/workspace-wechat-content-writer/skills/wechat-article-typeset/wechat-copy.js <input.md>
 ```
 
@@ -94,40 +120,9 @@ node ~/.openclaw/workspace-wechat-content-writer/skills/wechat-article-typeset/w
 - 极简黑白：`极简黑白`、`极简色块`
 - 特色：`雁栖湖`、`深色护眼`、`樱粉色块`
 
-**预览链接**：同目录生成 `article.preset.html` + `wechat-preview-url.txt`
-
-**注意**：图片必须公网可访问，依赖第三方API（edit.shiker.tech）稳定性
-
----
-
-## 图片生成工具 (image_generate) 正确调用规范
-
-### 必填参数
-- `prompt`: 图像描述（必填），英文提示词效果更好
-
-### 可选参数
-- `model`: "image-01" 或 "image-01-live"（**不要加 "minimax/" 前缀**）
-- `aspect_ratio`: **强制使用 "16:9"**（长方形，禁止默认正方形）
-
-### 禁止使用的参数
-- `size` - 不是有效参数
-- 单独的 `width` 或 `height`
-- 默认正方形（aspect_ratio 不传时默认1:1，**禁止不传**）
-
-### 正确示例
-```json
-{
-  "prompt": "A futuristic tech illustration...",
-  "model": "image-01",
-  "aspect_ratio": "16:9"
-}
-```
-
 ---
 
 ## CDN上传校验规范（强制）
-
-图片上传微信CDN后必须执行两层校验：
 
 ### 上传前校验
 - 文件格式：PNG / JPG / JPEG

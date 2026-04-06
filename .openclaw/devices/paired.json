@@ -41,8 +41,8 @@
     "deviceId": "6649d0cf061a5bdfc7ff90a864df1d71b2f9178cc3e8703cf5e7cca8b5e5d713",
     "publicKey": "cGKPxUNFpCrAa8KpSYFo_LRaiewDCw-KoHKkn0f1Wak",
     "platform": "linux",
-    "clientId": "cli",
-    "clientMode": "cli",
+    "clientId": "gateway-client",
+    "clientMode": "backend",
     "role": "operator",
     "roles": [
       "operator"
