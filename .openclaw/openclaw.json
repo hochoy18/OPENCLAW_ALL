@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.28",
-    "lastTouchedAt": "2026-04-01T12:01:55.515Z"
+    "lastTouchedAt": "2026-04-06T07:00:52.918Z"
   },
   "env": {
     "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe",
@@ -181,6 +181,18 @@
       }
     },
     "list": [
+      {
+        "id": "biology-stu",
+        "name": "biology-stu",
+        "workspace": "/home/hochoy/.openclaw/workspace-biology-stu",
+        "agentDir": "/home/hochoy/.openclaw/agents/biology-stu/agent"
+      },
+      {
+        "id": "biology",
+        "name": "biology",
+        "workspace": "/home/hochoy/.openclaw/workspace-biology",
+        "agentDir": "/home/hochoy/.openclaw/agents/biology/agent"
+      },
       {
         "id": "wechat-draft-publisher",
         "name": "wechat-draft-publisher",
@@ -392,12 +404,6 @@
         "workspace": "/home/hochoy/.openclaw/workspace-comedy",
         "agentDir": "/home/hochoy/.openclaw/agents/comedy/agent",
         "model": "minimax/MiniMax-M2.7"
-      },
-      {
-        "id": "biology",
-        "name": "biology",
-        "workspace": "/home/hochoy/.openclaw/workspace-biology",
-        "agentDir": "/home/hochoy/.openclaw/agents/biology/agent"
       }
     ]
   },
@@ -521,6 +527,13 @@
         "channel": "feishu",
         "accountId": "biology"
       }
+    },
+    {
+      "agentId": "biology-stu",
+      "match": {
+        "channel": "feishu",
+        "accountId": "biology-stu"
+      }
     }
   ],
   "commands": {
@@ -643,8 +656,17 @@
         },
         "biology": {
           "enabled": true,
-          "appId": "cli_a9490de99579dcd5",
-          "appSecret": "yjGM9P3DCTHX4P9Fp0JGCeIljn6dqDHA",
+          "appId": "cli_a959f1de70f8dbd7",
+          "appSecret": "bR3HyqaijGW7B0bmbzxwNf67UXNzv7ue",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
+        "biology-stu": {
+          "enabled": true,
+          "appId": "cli_a959e5de89785bcb",
+          "appSecret": "csvEIbkIsmoDqIPN17bnibq5G2wDSXuB",
           "connectionMode": "websocket",
           "groupPolicy": "open",
           "domain": "feishu",

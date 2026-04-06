@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.28",
-    "lastTouchedAt": "2026-03-31T07:33:41.803Z"
+    "lastTouchedAt": "2026-03-31T11:37:56.189Z"
   },
   "env": {
     "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe",
@@ -116,11 +116,10 @@
     },
     "list": [
       {
-        "id": "hot-collector",
-        "name": "hot-collector",
-        "workspace": "/home/hochoy/.openclaw/workspace-hot-collector",
-        "agentDir": "/home/hochoy/.openclaw/agents/hot-collector/agent",
-        "model": "minimax/MiniMax-M2.7",
+        "id": "wechat-hot-collector",
+        "name": "wechat-hot-collector",
+        "workspace": "/home/hochoy/.openclaw/workspace-wechat-hot-collector",
+        "agentDir": "/home/hochoy/.openclaw/agents/wechat-hot-collector/agent",
         "tools": {
           "allow": [
             "*"
@@ -170,6 +169,12 @@
         "workspace": "/home/hochoy/.openclaw/workspace-wechat-assistant",
         "agentDir": "/home/hochoy/.openclaw/agents/wechat-assistant/agent",
         "model": "minimax/MiniMax-M2.7",
+        "subagents": {
+          "allowAgents": [
+            "wechat-hot-collector",
+            "demo"
+          ]
+        },
         "tools": {
           "allow": [
             "*"
@@ -179,12 +184,6 @@
             "security": "full",
             "ask": "off"
           }
-        },
-        "subagents":{
-          "allowAgents":[
-            "hot-collector",
-            "demo"
-          ]
         }
       },
       {
@@ -259,7 +258,7 @@
         "comedy",
         "cron",
         "demo",
-        "hot-collector",
+        "wechat-hot-collector",
         "main",
         "task-manager",
         "wechat-assistant"
@@ -281,10 +280,10 @@
       }
     },
     {
-      "agentId": "hot-collector",
+      "agentId": "wechat-hot-collector",
       "match": {
         "channel": "feishu",
-        "accountId": "hot-collector"
+        "accountId": "wechat-hot-collector"
       }
     },
     {
@@ -376,7 +375,7 @@
           "domain": "feishu",
           "requireMention": true
         },
-         "hot-collector": {
+        "wechat-hot-collector": {
           "enabled": true,
           "appId": "cli_a941c55c65bb5cc0",
           "appSecret": "vhGXNX4UyYaW3EKRKsJX5c0CB4KNDOMz",
