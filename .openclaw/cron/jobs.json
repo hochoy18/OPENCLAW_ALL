@@ -1,4 +1,41 @@
 {
   "version": 1,
-  "jobs": []
+  "jobs": [
+    {
+      "id": "003d396e-28f5-406b-aa45-34dc2023dbe7",
+      "agentId": "cron",
+      "name": "wechat-daily",
+      "description": "微信公众号每日热点文章生产任务",
+      "enabled": true,
+      "createdAtMs": 1775467978629,
+      "updatedAtMs": 1775526147281,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * *",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "@霍去病 请执行今日热点文章生产任务，严格按照 /home/hochoy/.openclaw/workspace-cron/daily-jobs/wechat-SCHEDULER.md 的流程完成。",
+        "timeoutSeconds": 300000
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "user:ou_a46824a36fa8086e31b863b652ce8d57"
+      },
+      "state": {
+        "nextRunAtMs": 1775610000000,
+        "lastRunAtMs": 1775524533354,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 1613927,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0,
+        "lastDelivered": true
+      }
+    }
+  ]
 }

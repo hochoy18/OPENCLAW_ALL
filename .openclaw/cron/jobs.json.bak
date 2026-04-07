@@ -2,11 +2,13 @@
   "version": 1,
   "jobs": [
     {
-      "id": "3fd163f7-7b2d-46cc-9b5f-41fbafe03539",
-      "name": "daily-article-generate",
+      "id": "003d396e-28f5-406b-aa45-34dc2023dbe7",
+      "agentId": "cron",
+      "name": "wechat-daily",
+      "description": "微信公众号每日热点文章生产任务",
       "enabled": true,
-      "createdAtMs": 1774930437478,
-      "updatedAtMs": 1774930437478,
+      "createdAtMs": 1775467978629,
+      "updatedAtMs": 1775523791356,
       "schedule": {
         "kind": "cron",
         "expr": "0 9 * * *",
@@ -16,16 +18,22 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "执行公众号文章生成：从hots目录读取当天热点，生成文章（crayon风格），生成封面图，推送到草稿箱。工作目录：/home/hochoy/.openclaw/workspace-wechat-assistant",
-        "thinking": "high",
-        "timeoutSeconds": 600
+        "message": "@霍去病 请执行今日热点文章生产任务，严格按照 /home/hochoy/.openclaw/workspace-cron/daily-jobs/wechat-SCHEDULER.md 的流程完成。",
+        "timeoutSeconds": 300000
       },
       "delivery": {
         "mode": "announce",
-        "channel": "last"
+        "channel": "feishu"
       },
       "state": {
-        "nextRunAtMs": 1775005200000
+        "nextRunAtMs": 1775610000000,
+        "lastRunAtMs": 1775523600002,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 191354,
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1,
+        "lastError": "Delivering to Feishu requires target <chatId|user:openId|chat:chatId>"
       }
     }
   ]
