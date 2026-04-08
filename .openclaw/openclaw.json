@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.28",
-    "lastTouchedAt": "2026-04-06T07:00:52.918Z"
+    "lastTouchedVersion": "2026.4.8",
+    "lastTouchedAt": "2026-04-08T14:28:52.247Z"
   },
   "env": {
     "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe",
@@ -686,7 +686,8 @@
       "resolveSenderNames": true,
       "webhookPath": "/feishu/events",
       "dmPolicy": "pairing",
-      "groupPolicy": "allowlist"
+      "groupPolicy": "allowlist",
+      "enabled": true
     }
   },
   "gateway": {
@@ -730,6 +731,19 @@
       "feishu": {
         "enabled": true,
         "config": {}
+      },
+      "minimax": {
+        "enabled": true
+      },
+      "kimi": {
+        "enabled": true
+      },
+      "memory-core": {
+        "config": {
+          "dreaming": {
+            "enabled": true
+          }
+        }
       }
     },
     "installs": {

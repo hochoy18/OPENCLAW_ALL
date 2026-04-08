@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.28",
-    "lastTouchedAt": "2026-04-01T12:01:55.515Z"
+    "lastTouchedVersion": "2026.4.8",
+    "lastTouchedAt": "2026-04-08T13:58:55.984Z"
   },
   "env": {
     "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe",
@@ -181,6 +181,12 @@
       }
     },
     "list": [
+      {
+        "id": "biology-stu",
+        "name": "biology-stu",
+        "workspace": "/home/hochoy/.openclaw/workspace-biology-stu",
+        "agentDir": "/home/hochoy/.openclaw/agents/biology-stu/agent"
+      },
       {
         "id": "biology",
         "name": "biology",
@@ -521,6 +527,13 @@
         "channel": "feishu",
         "accountId": "biology"
       }
+    },
+    {
+      "agentId": "biology-stu",
+      "match": {
+        "channel": "feishu",
+        "accountId": "biology-stu"
+      }
     }
   ],
   "commands": {
@@ -650,6 +663,15 @@
           "domain": "feishu",
           "requireMention": true
         },
+        "biology-stu": {
+          "enabled": true,
+          "appId": "cli_a959e5de89785bcb",
+          "appSecret": "csvEIbkIsmoDqIPN17bnibq5G2wDSXuB",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
         "default": {
           "webhookPath": "/feishu/events",
           "dmPolicy": "pairing",
@@ -664,7 +686,8 @@
       "resolveSenderNames": true,
       "webhookPath": "/feishu/events",
       "dmPolicy": "pairing",
-      "groupPolicy": "allowlist"
+      "groupPolicy": "allowlist",
+      "enabled": true
     }
   },
   "gateway": {
@@ -708,6 +731,12 @@
       "feishu": {
         "enabled": true,
         "config": {}
+      },
+      "minimax": {
+        "enabled": true
+      },
+      "kimi": {
+        "enabled": true
       }
     },
     "installs": {

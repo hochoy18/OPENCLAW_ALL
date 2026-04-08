@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "updatedAt": "2026-04-08T14:24:38.250Z",
+  "entries": {
+    "memory:memory/2026-03-25.md:28:65": {
+      "key": "memory:memory/2026-03-25.md:28:65",
+      "path": "memory/2026-03-25.md",
+      "startLine": 28,
+      "endLine": 65,
+      "source": "memory",
+      "snippet": "- Workspace 与安全模型 - Memory 系统（Hybrid Search、MMR、Temporal Decay） - Skills 系统 - 多 Agent 路由 - System Prompt 解析 ### 4. 飞书 API 权限问题 - 飞书 App（`cli_a93d7b008ff6dcca`）的 Wiki 权限有限制 - Wiki 知识库不能添加机器人为协作者 - docx 写入可以，但 Wiki 节点创建需要 `wiki:node:create` 或 `wiki:space:edit` 权限 - 解决方案：创建独立文档后用户手动移动到 Wiki ### 5. 用户学习场景 用户正在使用 OpenClaw + Codex 学习 AI Agent 技术，大纲专门针对其环境设计。 ## 用户信息补充 - 用户使用飞书作为主要沟通渠道 - 用户有一定技术背景，能够理解 Agent 概念 - 用户希望深度掌握 OpenClaw 源码和 Agent 工程能力 ## 待跟进 - 用户确认第二部分文档格式是否正确（刚用正确标题格式重写） - 用户可能还需要其他部分的详细文档（如第三部分 Codex） --- ## 下午补充（13:58） ### 6. 新建 ASCII 图版本文档 用户反馈 Mermaid 图在飞书中渲染效果不好，于是创建了新版文档，使用 ASCII 图形代替 Mermaid： - **新文档链接**：`https://feishu.cn/docx/M1qDdJVXto8pf4xqWH7c21aAnBd` - 文档包含完整的第二",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.6180507832638718,
+      "maxScore": 0.6180507832638718,
+      "firstRecalledAt": "2026-04-08T14:24:38.250Z",
+      "lastRecalledAt": "2026-04-08T14:24:38.250Z",
+      "queryHashes": [
+        "6fa8ccadc7a7"
+      ],
+      "recallDays": [
+        "2026-04-08"
+      ],
+      "conceptTags": [
+        "cli-a93d7b008ff6dcca",
+        "安全",
+        "模型",
+        "系统",
+        "hybrid",
+        "mmr",
+        "temporal",
+        "decay"
+      ]
+    },
+    "memory:memory/2026-03-25.md:1:37": {
+      "key": "memory:memory/2026-03-25.md:1:37",
+      "path": "memory/2026-03-25.md",
+      "startLine": 1,
+      "endLine": 37,
+      "source": "memory",
+      "snippet": "# 2026-03-25 Daily Memory ## 今日重要工作 ### 1. AI Agent 学习大纲完成 与用户完成了 **AI Agent 工程师学习大纲**的编写，包含 8 个部分： - 第一部分：AI Agent 基础概念 - 第二部分：OpenClaw 系统深度解析 ⭐ 核心 - 第三部分：Codex 深度掌握 - 第四部分：Agent 核心工程能力 - 第五部分：安全、对齐与评估 - 第六部分：生产部署与持续运营 - 第七部分：生态与前沿 - 第八部分：学习方法论与进阶路径 ### 2. 飞书文档写入 - 大纲文档已写入飞书（两个版本，最终版链接：`https://feishu.cn/docx/TcQwdCZWiopXEuxWYpPcmVXenih`） - 第二部分深度解析文档已写入飞书（正确标题格式版）：`https://feishu.cn/docx/YrivdJ72sotZhSxZyiLcxdOXn3b` - 用户手动删除了旧格式文档（`IbbgdUgg9oVazdxnoYfc64qknic`） ### 3. 第二部分 OpenClaw 深度解析 深度阅读了 OpenClaw 官方文档，整理了 10 个章节： - Agent Loop 完整 8 步生命周期 - 两套 Hook 系统 - Workspace 与安全模型 - Memory 系统（Hybrid Search、MMR、Temporal Decay） - Skills 系统 - 多 Agent 路由 - System Prompt 解析 ### 4. 飞书 API 权限问题 -",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.6154383606684458,
+      "maxScore": 0.6154383606684458,
+      "firstRecalledAt": "2026-04-08T14:24:38.250Z",
+      "lastRecalledAt": "2026-04-08T14:24:38.250Z",
+      "queryHashes": [
+        "6fa8ccadc7a7"
+      ],
+      "recallDays": [
+        "2026-04-08"
+      ],
+      "conceptTags": [
+        "今日",
+        "重要",
+        "工作",
+        "学习",
+        "大纲",
+        "完成",
+        "用户",
+        "工程"
+      ]
+    },
+    "memory:memory/2026-03-25.md:62:91": {
+      "key": "memory:memory/2026-03-25.md:62:91",
+      "path": "memory/2026-03-25.md",
+      "startLine": 62,
+      "endLine": 91,
+      "source": "memory",
+      "snippet": "用户反馈 Mermaid 图在飞书中渲染效果不好，于是创建了新版文档，使用 ASCII 图形代替 Mermaid： - **新文档链接**：`https://feishu.cn/docx/M1qDdJVXto8pf4xqWH7c21aAnBd` - 文档包含完整的第二部分内容（2.1-2.10章节） - ASCII 架构图放在 2.1 章节内 - Agent Loop 8步图也用 ASCII 绘制 - 用户可以删除旧的 Mermaid 版本文档 ### 7. 7个飞书账号状态测试 使用 `openclaw channels status` 和 API 调用测试全部账号： | 账号 | 状态 | |------|------| | main | ✅ Running + API有效 | | demo | ✅ Running + API有效 | | wechat-assistant | ✅ Running + API有效 | | coder | ✅ Running + API有效 | | task-manager | ✅ Running + API有效 | | cron | ✅ Running + API有效 | | comedy | ✅ Running + API有效 | **Doctor Warning**：配置了多个飞书账号但没有设置默认账号（`channels.feishu.defaultAccount`），用户暂未要求修复。 ### 8. 当前会话上下文 - 当前使用 demo agent（workspace-demo） - 飞书 App ID: `cli_a9",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.5404115770299971,
+      "maxScore": 0.5404115770299971,
+      "firstRecalledAt": "2026-04-08T14:24:38.250Z",
+      "lastRecalledAt": "2026-04-08T14:24:38.250Z",
+      "queryHashes": [
+        "6fa8ccadc7a7"
+      ],
+      "recallDays": [
+        "2026-04-08"
+      ],
+      "conceptTags": [
+        "2.1-2.10章节",
+        "2.1",
+        "wechat-assistant",
+        "task-manager",
+        "channels.feishu.defaultaccount",
+        "workspace-demo",
+        "cli-a9",
+        "用户"
+      ]
+    }
+  }
+}
