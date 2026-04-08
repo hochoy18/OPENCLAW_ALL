@@ -19,7 +19,7 @@ version: 4.0 | last_updated: 2026-04-03
 ```
 主Agent传递热点 + 选定主题
         ↓
-读取三个skill的SKILL.md（前置动作）
+读取 zhy-markdown2wechat 的 SKILL.md（前置动作）
         ↓
 生成纯Markdown文章（900-1100字）
         ↓
@@ -36,7 +36,6 @@ mmbiz链接嵌入Markdown
 HTML输出 → 通知审核 → 推送草稿箱
 ```
 
-**tech-html-template-1.md 已废弃**，不再作为格式依据。
 
 ## 三、图片生成（新API，2026-04-03更新）
 
@@ -105,16 +104,6 @@ ls ~/.openclaw/workspace-wechat-content-writer/skills/<skill-name>/
 - 调用必须指定主题css路径，默认 `resources/themes/default.css`
 - 图片URL必须在调用前已嵌入Markdown（mmbiz.qpic.cn）
 - 输出为内联CSS HTML，可直接粘贴公众号后台
-
-### wechat-layout-publish
-- 必须指定 `--theme <themeId>`，禁止无参调用
-- 推荐主题：科技类用 w007（蓝鸢尾）、w017（黑郁金香）
-- 需要Python runtime
-
-### wechat-article-typeset
-- 必须指定 `--preset <预设名>`
-- 生成预览链接依赖 edit.shiker.tech API
-- 同目录输出 `article.preset.html` + `wechat-preview-url.txt`
 
 ## 六、CDN上传校验规则（强制）
 

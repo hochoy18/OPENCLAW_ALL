@@ -17,10 +17,8 @@ version: 4.0 | last_updated: 2026-04-03
 
 | 文档 | 路径 | 用途 |
 |------|------|------|
-| **HTML模板** | `/opt/wechat/ai/workspace-wechat-shared/docs/tech-html-template-1.md` | 写文章时必须完整套用此模板结构 |
 | **验收标准** | `/opt/wechat/ai/workspace-wechat-shared/docs/tech-html-acceptance-standards-1.md` | 审核时必须逐阶段对照检查 |
 
-**警告**：tech-html-template-1.md的模板结构必须完整遵守，不得擅自删减章节或改变模块格式。
 
 ---
 
@@ -61,13 +59,19 @@ version: 4.0 | last_updated: 2026-04-03
 
 ## 五、经验沉淀
 
-### 技术要点（固定规则）
-- **sessions_spawn 工具不可用**，无法启动新subagent；关键步骤我自己执行
-- **token有效期2小时**，每次推送需重新获取
-- **配图上传流程**：生成图片 → 查文件路径 → 上传CDN → 替换HTML占位符 → 推送
-- **文章输出路径**：`/opt/wechat/ai/workspace-wechat-shared/{date}/article/{date}-article-v{N}.html`
-- **推送日志路径**：`/opt/wechat/ai/workspace-wechat-shared/{date}/push/{date}-push-log.md`
-- **搜索工具**：使用 Tavily（`skills/tavily-search/scripts/search.py`），不使用 web_search（Brave API Key 不需要配置）
+### 每次执行任务前的强制自检（最醒目，每次必读）
+**每次执行任务前，必须通读自己所有的 .md 文件（SOUL.md / AGENTS.md / TOOLS.md / MEMORY.md），确认：**
+1. **哪些能做**：当前任务属于哪个Agent的职责，是否可以调用 sessions_send
+2. **哪些不能做**：SOUL.md 禁止条款铁则，sessions_spawn 不能替代专项Agent
+3. **规则有没有更新**：上次修改过哪些文件，本次有没有新的禁止条款
+
+> 这一条是**最醒目的位置**，每次会话启动时第一条读，每次派任务前最后一条读。
+
+### 每次调度前的自问（强制执行）
+**"这个任务是专项任务吗？"**
+- 专项任务（抓热点/写稿/审核/推送）→ 只用 `sessions_send`，不动 `sessions_spawn`
+- 辅助任务（查文件、格式转换等非核心工作）→ 可以用 `sessions_spawn`
+- **调度前必须先确认任务性质**，不是先执行再想后果
 
 ### 共享目录机制（2026-04-01 新增）
 - 共享根目录：`/opt/wechat/ai/workspace-wechat-shared/`
@@ -76,9 +80,15 @@ version: 4.0 | last_updated: 2026-04-03
 - 日期分区：每个日期一个独立目录，结构为 {date}/{hot,topics,article,images,audit,push}
 - 目录权限：hot/=hot-collector写, topics/=content-writer写, article/=共写, images/=共写, audit/=quality-auditor写, push/=draft-publisher写
 
-### 文章结构规则（tech-html-template-1.md）
+### 其他技术要点（固定规则）
+- **token有效期2小时**，每次推送需重新获取
+- **配图上传流程**：生成图片 → 查文件路径 → 上传CDN → 替换HTML占位符 → 推送
+- **文章输出路径**：`/opt/wechat/ai/workspace-wechat-shared/{date}/article/{date}-article-v{N}.html`
+- **推送日志路径**：`/opt/wechat/ai/workspace-wechat-shared/{date}/push/{date}-push-log.md`
+
+### 文章结构规则
 ```
-标题（14-26字）
+标题（<30字）
 作者 | 来源
 导语（1-2段，每段≤3行）
   ↓
@@ -138,9 +148,10 @@ version: 4.0 | last_updated: 2026-04-03
 ```
 
 ### 禁止行为
-- 不得在卡点出现时自己尝试"绕过去执行"
-- 不得在卡点出现时先解释原因再上报
+- 不得在卡点出现时**自己用 sessions_spawn 执行专项任务绕过**
+- 不得在卡点出现时**先解释原因再上报**
 - 不得在60s内未收到汇报时继续等待
+- **sessions_spawn 永远不能替代专项Agent执行工作**
 
 ---
 
@@ -149,6 +160,6 @@ version: 4.0 | last_updated: 2026-04-03
 | 异常类型 | 出现场景 | 解决方案 | 状态 |
 |----------|----------|----------|------|
 | 热点抓取失败 | 海外源访问超时 | 切换备用国内源重试 | 已解决 |
-| sessions_spawn不可用 | 需要启动新subagent时 | 关键步骤我自己执行 | 已解决 |
+| sessions_send 超时 | 专项Agent不响应 | 立即在群里上报主理人，等决策，不自己执行 | 待主理人决策 |
 | 配图链接失效 | 使用外部链接 | 必须上传微信CDN | 已解决 |
 | Markdown格式推文 | 输出纯Markdown | 必须输出HTML+内联样式 | 已解决 |

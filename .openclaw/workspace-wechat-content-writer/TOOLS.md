@@ -11,7 +11,7 @@ version: 3.0 | last_updated: 2026-04-03
   - `images/` — AI生成的配图原始文件（本Agent可读写）
   - `audit/` — wechat-quality-auditor 审核报告
   - `push/` — wechat-draft-publisher 推送日志
-- docs/：`/opt/wechat/ai/workspace-wechat-shared/docs/`（tech-html-template-1.md、tech-html-acceptance-standards-1.md），**本Agent仅有只读权限**
+- docs/：`/opt/wechat/ai/workspace-wechat-shared/docs/`（tech-html-acceptance-standards-1.md），**本Agent仅有只读权限**
 - topics/ article/ images/：本Agent可读写
 - 注意：不得读写其他 Agent 的个人 workspace（`~/.openclaw/workspace-wechat-XXX/`）
 
@@ -84,41 +84,6 @@ node ~/.openclaw/workspace-wechat-content-writer/skills/zhy-markdown2wechat/scri
 **主题**（必须指定）：
 - `resources/themes/default.css` — 经典紫色编辑风格（默认）
 - `resources/themes/blue.css` / `green.css` / `dark.css` / `notion.css` / `vibrant.css` / `apple.css`
-
----
-
-### Skill 2: wechat-layout-publish
-路径：`~/.openclaw/workspace-wechat-content-writer/skills/wechat-layout-publish/`
-
-**调用方式**（需Python runtime）：
-```bash
-python3 ~/.openclaw/workspace-wechat-content-writer/skills/wechat-layout-publish/scripts/render_wechat_html.py \
-  --theme <themeId> \
-  --input <markdown路径> \
-  --output <输出html路径>
-```
-
-**主题catalog**（必须指定）：
-- Formal报告：`w001`玉兰、`w006`白百合、`w010`铃兰、`w011`白茶
-- 文艺生活：`w002`牡丹、`w013`梅花、`w014`勿忘我、`w022`月见草、`w023`樱花
-- 科技产品：`w003`雏菊、`w007`蓝鸢尾、`w017`黑郁金香、`w021`朱槿
-- 强视觉：`w004`向日葵、`w005`罂粟、`w018`金盏花、`w019`山茶
-
----
-
-### Skill 3: wechat-article-typeset
-路径：`~/.openclaw/workspace-wechat-content-writer/skills/wechat-article-typeset/`
-
-**调用方式**：
-```bash
-node ~/.openclaw/workspace-wechat-content-writer/skills/wechat-article-typeset/wechat-copy.js <input.md>
-```
-
-**常用预设**（必须指定）：
-- 暖色系：`暖色色块`、`金秋渐变`、`琥珀色块`
-- 冷色/商务：`墨色极简`、`青绿左边线`、`蓝鸢尾`
-- 极简黑白：`极简黑白`、`极简色块`
-- 特色：`雁栖湖`、`深色护眼`、`樱粉色块`
 
 ---
 
