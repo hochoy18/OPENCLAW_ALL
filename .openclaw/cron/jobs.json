@@ -8,7 +8,7 @@
       "description": "微信公众号每日热点文章生产任务",
       "enabled": true,
       "createdAtMs": 1775467978629,
-      "updatedAtMs": 1775610604694,
+      "updatedAtMs": 1775700000584,
       "schedule": {
         "kind": "cron",
         "expr": "0 9 * * *",
@@ -27,14 +27,15 @@
         "to": "user:ou_a46824a36fa8086e31b863b652ce8d57"
       },
       "state": {
-        "nextRunAtMs": 1775696400000,
-        "lastRunAtMs": 1775610000006,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 604688,
+        "nextRunAtMs": 1775782800000,
+        "lastRunAtMs": 1775696400003,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 3600581,
         "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0,
-        "lastDelivered": true
+        "consecutiveErrors": 1,
+        "lastDelivered": true,
+        "lastError": "⚠️ ✉️ Message failed"
       }
     }
   ]

@@ -77,6 +77,28 @@ THEMES = {
         "code_bg": "#f0f9ff",
         "quote_bg": "#f0f9ff",
         "quote_border": "#00bcd4",
+    },
+    "dark": {
+        "name": "深色主题",
+        "primary": "#1a1a2e",
+        "text": "#e0e0e0",
+        "text_light": "#a0a0a0",
+        "bg_light": "#16213e",
+        "border": "#0f3460",
+        "code_bg": "#1a1a2e",
+        "quote_bg": "#16213e",
+        "quote_border": "#e94560",
+    },
+    "apple": {
+        "name": "苹果主题",
+        "primary": "#007aff",
+        "text": "#1d1d1f",
+        "text_light": "#86868b",
+        "bg_light": "#fbfbfd",
+        "border": "#d2d2d7",
+        "code_bg": "#f5f5f7",
+        "quote_bg": "#fbfbfd",
+        "quote_border": "#007aff",
     }
 }
 
@@ -259,7 +281,7 @@ def main():
     
     parser.add_argument(
         "--theme", "-t",
-        choices=["default", "green", "purple", "orange", "cyan"],
+        choices=["default", "green", "purple", "orange", "cyan", "dark", "apple"],
         default="default",
         help="主题选择"
     )
