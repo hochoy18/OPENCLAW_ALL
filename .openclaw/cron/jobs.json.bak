@@ -8,7 +8,7 @@
       "description": "微信公众号每日热点文章生产任务",
       "enabled": true,
       "createdAtMs": 1775467978629,
-      "updatedAtMs": 1775523791356,
+      "updatedAtMs": 1775700000584,
       "schedule": {
         "kind": "cron",
         "expr": "0 9 * * *",
@@ -23,17 +23,19 @@
       },
       "delivery": {
         "mode": "announce",
-        "channel": "feishu"
+        "channel": "feishu",
+        "to": "user:ou_a46824a36fa8086e31b863b652ce8d57"
       },
       "state": {
-        "nextRunAtMs": 1775610000000,
-        "lastRunAtMs": 1775523600002,
+        "nextRunAtMs": 1775782800000,
+        "lastRunAtMs": 1775696400003,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 191354,
-        "lastDeliveryStatus": "unknown",
+        "lastDurationMs": 3600581,
+        "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 1,
-        "lastError": "Delivering to Feishu requires target <chatId|user:openId|chat:chatId>"
+        "lastDelivered": true,
+        "lastError": "⚠️ ✉️ Message failed"
       }
     }
   ]
