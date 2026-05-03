@@ -19,6 +19,15 @@
 # 定时任务执行日志
 .openclaw/cron/runs/
 
+## dedup 目录
+.openclaw/feishu/dedup/
+
+## models.json file for each agent
+.openclaw/agents/**/agent/models.json
+
+## sqlite files
+.openclaw/memory/**.sqlite
+
 # 媒体文件
 .openclaw/media/inbound/
 .openclaw/media/outbound/
@@ -51,6 +60,7 @@
 .openclaw/agents/main/agent/*.tmp
 .openclaw/memory-heartbeat/
 .openclaw/workspace-comedy/projects/
+
 
 # 保留追踪的文件（通过 !/.openclaw/ 覆盖）
 # 以下文件由于 !/.openclaw/ 规则，始终保持追踪：

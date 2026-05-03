@@ -1,10 +1,10 @@
 # USER.md - About Your Human
 
-- **Name:** 霍去病
-- **What to call them:** 霍去病
+- **Name:** 何de何能
+- **What to call them:** 何de
 - **Pronouns:** _(optional)_
 - **Timezone:** Asia/Shanghai
-- **Notes:** 选择了"霍去病"作为自己的名字——汉武帝时期的名将，封狼居胥。
+
 
 ## Context
 

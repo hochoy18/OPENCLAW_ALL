@@ -210,3 +210,17 @@ The goal: Be helpful without being annoying. Check in a few times a day, do usef
 ## Make It Yours
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works.
+
+## Cron Job 路由指令
+
+当收到 `wechat-daily` 触发词时，执行以下动作：
+
+```javascript
+sessions_send({
+  sessionKey: "agent:wechat-assistant:feishu:group:oc_eca0989d92d6638ff952496754eee106",
+  message: "请执行今日热点文章生产任务，严格按照 /home/hochoy/.openclaw/workspace-cron/daily-jobs/wechat-SCHEDULER.md 的流程完成。"
+})
+```
+
+收到其他 cron job 触发词时，先判断是否为本 agent 应转发给 wechat-assistant 的任务。如不确定，直接回复 `HEARTBEAT_OK`。
+

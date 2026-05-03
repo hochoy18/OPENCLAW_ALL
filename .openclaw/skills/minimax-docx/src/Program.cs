@@ -15,6 +15,8 @@ try
     {
         "tech" => RunPresetTemplate("tech", args),
         "academic" => RunPresetTemplate("academic", args),
+        "fermentation" => RunPresetTemplate("fermentation", args),
+        "stemcell" => RunPresetTemplate("stemcell", args),
         "from-template" => RunFromTemplate(args),
         _ => UnknownMode(mode),
     };
@@ -54,6 +56,14 @@ int RunPresetTemplate(string preset, string[] cliArgs)
             AcademicPaper.Build(outputPath, assetDir);
             Console.WriteLine($"Generated academic paper: {outputPath}");
             break;
+        case "fermentation":
+            FermentationKnowledge.Build(outputPath, assetDir);
+            Console.WriteLine($"Generated fermentation knowledge document: {outputPath}");
+            break;
+        case "stemcell":
+            StemCellNetwork.Build(outputPath, assetDir);
+            Console.WriteLine($"Generated stem cell knowledge network: {outputPath}");
+            break;
     }
 
     return 0;
@@ -91,6 +101,7 @@ void PrintUsage()
     Console.WriteLine("Usage:");
     Console.WriteLine("  dotnet run tech <output-path> [asset-dir]");
     Console.WriteLine("  dotnet run academic <output-path> [asset-dir]");
+    Console.WriteLine("  dotnet run fermentation <output-path> [asset-dir]");
     Console.WriteLine("  dotnet run from-template <template.docx> <output-path>");
     Console.WriteLine();
     Console.WriteLine("Rules:");

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "HLInWJlICCk=",
+  "success": true,
+  "projectFilePath": "/home/hochoy/.openclaw/skills/minimax-docx/src/DocForge.csproj",
+  "expectedPackageFiles": [
+    "/home/hochoy/.nuget/packages/documentformat.openxml/3.2.0/documentformat.openxml.3.2.0.nupkg.sha512",
+    "/home/hochoy/.nuget/packages/documentformat.openxml.framework/3.2.0/documentformat.openxml.framework.3.2.0.nupkg.sha512",
+    "/home/hochoy/.nuget/packages/system.io.packaging/8.0.1/system.io.packaging.8.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

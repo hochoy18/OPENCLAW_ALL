@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "updatedAt": "2026-04-11T06:43:43.520Z",
+  "entries": {
+    "memory:memory/2026-04-10.md:1:12": {
+      "key": "memory:memory/2026-04-10.md:1:12",
+      "path": "memory/2026-04-10.md",
+      "startLine": 1,
+      "endLine": 12,
+      "source": "memory",
+      "snippet": "# 2026-04-10 ## 用户计划（何才） 待做事项： 1. 搭建自己的 AI 知识库（Obsidian + AI） 2. Hermes agent 3. Agent 原理和项目 ## 备注 - 知识库相关文件放在 `knowledge/` 目录下",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.000001761493233811874,
+      "maxScore": 0.000001761493233811874,
+      "firstRecalledAt": "2026-04-11T06:43:43.520Z",
+      "lastRecalledAt": "2026-04-11T06:43:43.520Z",
+      "queryHashes": [
+        "22e688efa523"
+      ],
+      "recallDays": [
+        "2026-04-11"
+      ],
+      "conceptTags": [
+        "用户",
+        "计划",
+        "事项",
+        "搭建",
+        "自己",
+        "知识",
+        "obsidian",
+        "hermes"
+      ]
+    },
+    "memory:memory/2026-03-26.md:1:33": {
+      "key": "memory:memory/2026-03-26.md:1:33",
+      "path": "memory/2026-03-26.md",
+      "startLine": 1,
+      "endLine": 33,
+      "source": "memory",
+      "snippet": "# 2026-03-26 日志 ## 用户记忆系统设计讨论 ### 需求 用户（何才）希望 OpenClaw 能： - 每天 24 点之前自动记录当天做的事情 - 每天的记录独立存档 - 能用到所有 OpenClaw agent 上 ### 技术方案（待确认后执行） - 方案：在 `/home/hochoy/.openclaw/workspace-task-manager/memory/` 目录下创建 `2026-03-27.md`、`2026-03-28.md` 等每日记录文件 - 每个 agent 使用自己的 memory/YYYY-MM-DD.md - Cron Job 方案：每天 23:30 自动触发各 agent 执行记忆记录 - 通过 openclaw cron 配置定时任务 - 关键配置：设置 agent 的 systemMessage 包含记忆指令 ### 用户状态 - 何才，当前在 task-manager agent - 系统限制：只能使用 workspace-task-manager 工作空间 - 可使用 agent：task-manager, main, coder, cron, comedy, biology ### 飞书文档写入问题 - 文档已创建：https://feishu.cn/docx/L2Nzd5qfAoilbBx2X0HcknV7nYb - 文档 token: L2Nzd5qfAoilbBx2X0HcknV7nYb - 问题：写入内容时返回 400 错误 - 原因分析：飞书文档需要通过文档块 API 写入内容，而非消息 API",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.0000017399994424473083,
+      "maxScore": 0.0000017399994424473083,
+      "firstRecalledAt": "2026-04-11T06:43:43.520Z",
+      "lastRecalledAt": "2026-04-11T06:43:43.520Z",
+      "queryHashes": [
+        "22e688efa523"
+      ],
+      "recallDays": [
+        "2026-04-11"
+      ],
+      "conceptTags": [
+        "home/hochoy",
+        "memory/yyyy-mm-dd.md",
+        "task-manager",
+        "workspace-task-manager",
+        "日志",
+        "用户",
+        "记忆",
+        "系统"
+      ]
+    },
+    "memory:memory/2026-04-01.md:1:11": {
+      "key": "memory:memory/2026-04-01.md:1:11",
+      "path": "memory/2026-04-01.md",
+      "startLine": 1,
+      "endLine": 11,
+      "source": "memory",
+      "snippet": "## 模型切换注意事项（备忘） **规则：openclaw skill 换模型（如 minimax → kimi-coding/k2p5）时，skill 可能需要调整，存在兼容性问题。** 需要检查的维度： - **权限**：不同模型对权限的处理可能不同 - **tools.deny / tools.allow**：模型切换后 tool 过滤规则可能需要重新配置 - **agent/soul.md**：agent 配置文件可能需要调整以适配新模型",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.0000017121716789679472,
+      "maxScore": 0.0000017121716789679472,
+      "firstRecalledAt": "2026-04-11T06:43:43.520Z",
+      "lastRecalledAt": "2026-04-11T06:43:43.520Z",
+      "queryHashes": [
+        "22e688efa523"
+      ],
+      "recallDays": [
+        "2026-04-11"
+      ],
+      "conceptTags": [
+        "kimi-coding/k2p5",
+        "tools.deny",
+        "tools.allow",
+        "agent/soul.md",
+        "模型",
+        "切换",
+        "注意",
+        "事项"
+      ]
+    },
+    "memory:memory/2026-03-28.md:1:27": {
+      "key": "memory:memory/2026-03-28.md:1:27",
+      "path": "memory/2026-03-28.md",
+      "startLine": 1,
+      "endLine": 27,
+      "source": "memory",
+      "snippet": "# 每日记忆 — 2026-03-28 ## 今日主要事件 ### 1. Cron Jobs 大修复 全天都在处理和验证 cron job 修复，核心问题是一批结构性缺陷： **问题诊断：** - `announce` 模式对 isolated session 不适用（找不到飞书对话上下文） - OpenClaw Release Watcher 的 payload 里 target open_id 填错（coder 的 open_id，不是 main 用户的） - 多个 agent cron 的 payload 缺少 `accountId=\"main\"` 说明，导致 message 工具默认用本 agent 的 app 发消息（跨 app 发 P2P 失败，HTTP 400） **修复内容（jobs.json）：** - 全部 9 个 cron：`mode: \"announce\"` → `mode: \"none\"` - OpenClaw Release Watcher open_id：`ou_930ed7a70e55cdc26722683f4d7d00bd` → `ou_a40d252df8eedac11a6ca82ca1b65352` - OpenClaw文档更新检查：timeout 120s → 300s - 6 个非 main agent 的每日23点记忆总结：统一在 payload 加上 `accountId=\"main\"` 说明 **验证结果：** - ✅ OpenClaw Release Watcher 手动触发成功，main → main 用户 P2P",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.0000016656077730681537,
+      "maxScore": 0.0000016656077730681537,
+      "firstRecalledAt": "2026-04-11T06:43:43.520Z",
+      "lastRecalledAt": "2026-04-11T06:43:43.520Z",
+      "queryHashes": [
+        "22e688efa523"
+      ],
+      "recallDays": [
+        "2026-04-11"
+      ],
+      "conceptTags": [
+        "open-id",
+        "jobs.json",
+        "每日",
+        "记忆",
+        "今日",
+        "主要",
+        "事件",
+        "cron"
+      ]
+    },
+    "memory:memory/2026-03-30.md:1:27": {
+      "key": "memory:memory/2026-03-30.md:1:27",
+      "path": "memory/2026-03-30.md",
+      "startLine": 1,
+      "endLine": 27,
+      "source": "memory",
+      "snippet": "# 2026-03-30 日记 ## 今日完成事项 ### 1. OpenClaw 升级完成 - 从 2026.3.13 升级到 **2026.3.28** (f9b1079) - 用户询问是否可以帮忙升级，确认已于17:02完成 ### 2. OpenClaw 文档更新检查（wechat-assistant cron 08:00） - 检测到 v2026.3.28（2026-03-29发布）已转为正式版 - 知识库已同步更新版本号和 Bug Fixes 部分 - 主要更新：xAI 迁移至 Responses API、MiniMax image-01 生图上线、安全插件钩子改进 ### 3. 每日热点公众号创作（wechat-assistant cron 07:00） - 选题：AI Agent爆发趋势 - 标题：《2026年AI Agent彻底炸了，80%的人还在看热闹》 - 使用 crayon 风格撰写正文（约1300字） - 封面图：MiniMax image-01，16:9科技感风格 - 草稿箱发布成功，media_id: VI03CdGujbFMX0KhlRuwQ5-UBmsUU_R6rB2TKBTLmJ0eTBEVoCJwjHRCw3tcVLAN - ⚠️ 飞书通知发送失败（isolated cron session 路由问题） ### 4. 群聊多 Agent 身份汇报 - coder、demo、wechat-assistant、task-manager、main 五个 agent 同时响应了群里 @_all 的身份查询 - 各 agent 汇报了自身的",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.000001497850191057647,
+      "maxScore": 0.000001497850191057647,
+      "firstRecalledAt": "2026-04-11T06:43:43.520Z",
+      "lastRecalledAt": "2026-04-11T06:43:43.520Z",
+      "queryHashes": [
+        "22e688efa523"
+      ],
+      "recallDays": [
+        "2026-04-11"
+      ],
+      "conceptTags": [
+        "vlan",
+        "2026.3.13",
+        "2026.3.28",
+        "wechat-assistant",
+        "v2026.3.28",
+        "2026-03-29发布",
+        "image-01",
+        "media-id"
+      ]
+    }
+  }
+}

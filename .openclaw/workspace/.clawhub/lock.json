@@ -132,6 +132,30 @@
     "self-improving-agent": {
       "version": "3.0.10",
       "installedAt": 1774855994285
+    },
+    "zhy-markdown2wechat": {
+      "version": "0.1.0",
+      "installedAt": 1775226702936
+    },
+    "wechat-layout-publish": {
+      "version": "1.0.1",
+      "installedAt": 1775226731683
+    },
+    "wechat-article-typeset": {
+      "version": "1.0.7",
+      "installedAt": 1775226735242
+    },
+    "pdf-to-word": {
+      "version": "1.0.0",
+      "installedAt": 1775292014293
+    },
+    "short-drama-pro": {
+      "version": "1.0.0",
+      "installedAt": 1775303673128
+    },
+    "lh-video-gen": {
+      "version": "1.0.0",
+      "installedAt": 1775303680788
     }
   }
 }

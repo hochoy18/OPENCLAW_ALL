@@ -2,6 +2,7 @@
   "providers": {
     "kimi-coding": {
       "baseUrl": "https://api.kimi.com/coding/",
+      "apiKey": "KIMI_API_KEY",
       "api": "anthropic-messages",
       "headers": {
         "User-Agent": "claude-code/0.1.0"
@@ -22,10 +23,10 @@
             "cacheWrite": 0
           },
           "contextWindow": 262144,
-          "maxTokens": 32768
+          "maxTokens": 32768,
+          "api": "anthropic-messages"
         }
-      ],
-      "apiKey": "KIMI_API_KEY"
+      ]
     },
     "openrouter": {
       "baseUrl": "https://openrouter.ai/api/v1",
@@ -89,6 +90,23 @@
       "api": "anthropic-messages",
       "authHeader": true,
       "models": [
+        {
+          "id": "MiniMax-M2.7-highspeed",
+          "name": "MiniMax M2.7 Highspeed",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0.6,
+            "output": 1.2,
+            "cacheRead": 0.03,
+            "cacheWrite": 0.12
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        },
         {
           "id": "MiniMax-M2.7",
           "name": "MiniMax M2.7",
@@ -157,6 +175,40 @@
           "contextWindow": 200000,
           "maxTokens": 8192,
           "api": "anthropic-messages"
+        },
+        {
+          "id": "image-01",
+          "name": "MiniMax Image-01",
+          "input": [
+            "text"
+          ],
+          "reasoning": false,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        },
+        {
+          "id": "image-01-live",
+          "name": "MiniMax Image-01 Live",
+          "input": [
+            "text"
+          ],
+          "reasoning": false,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
         }
       ],
       "apiKey": "MINIMAX_API_KEY"
@@ -190,8 +242,8 @@
             "text"
           ],
           "cost": {
-            "input": 0.3,
-            "output": 1.2,
+            "input": 0.6,
+            "output": 2.4,
             "cacheRead": 0.06,
             "cacheWrite": 0.375
           },
@@ -209,25 +261,8 @@
       },
       "models": [
         {
-          "id": "kimi-code",
-          "name": "Kimi Code",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "contextWindow": 262144,
-          "maxTokens": 32768
-        },
-        {
           "id": "k2p5",
-          "name": "Kimi Code (legacy model id)",
+          "name": "Kimi for Coding",
           "reasoning": true,
           "input": [
             "text",
@@ -240,10 +275,179 @@
             "cacheWrite": 0
           },
           "contextWindow": 262144,
-          "maxTokens": 32768
+          "maxTokens": 32768,
+          "api": "anthropic-messages"
         }
       ],
       "apiKey": "KIMI_API_KEY"
+    },
+    "minimax-cn": {
+      "baseUrl": "https://api.minimax.io/anthropic",
+      "api": "anthropic-messages",
+      "authHeader": true,
+      "models": [
+        {
+          "id": "MiniMax-M2.7-highspeed",
+          "name": "MiniMax M2.7 Highspeed",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0.6,
+            "output": 1.2,
+            "cacheRead": 0.03,
+            "cacheWrite": 0.12
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        },
+        {
+          "id": "MiniMax-M2.7",
+          "name": "MiniMax M2.7",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0.3,
+            "output": 1.2,
+            "cacheRead": 0.03,
+            "cacheWrite": 0.12
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        },
+        {
+          "id": "MiniMax-M2.5",
+          "name": "MiniMax M2.5",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0.3,
+            "output": 1.2,
+            "cacheRead": 0.03,
+            "cacheWrite": 0.12
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        },
+        {
+          "id": "MiniMax-M2.5-highspeed",
+          "name": "MiniMax M2.5 Highspeed",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0.3,
+            "output": 1.2,
+            "cacheRead": 0.03,
+            "cacheWrite": 0.12
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        },
+        {
+          "id": "MiniMax-VL-01",
+          "name": "MiniMax VL-01",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0.3,
+            "output": 1.2,
+            "cacheRead": 0.03,
+            "cacheWrite": 0.12
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        },
+        {
+          "id": "image-01",
+          "name": "MiniMax Image-01",
+          "input": [
+            "text"
+          ],
+          "reasoning": false,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        },
+        {
+          "id": "image-01-live",
+          "name": "MiniMax Image-01 Live",
+          "input": [
+            "text"
+          ],
+          "reasoning": false,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        }
+      ],
+      "apiKey": "sk-cp-dEJDwSZI46V_ys9hSxmyH3MT3kjnYJAkMGQK6fz38Imta8l5FmHU9stkSc8lqrT_xpeglsSQypkntDpu0xuJAYVxmkx_cpo3wEHseh_5pCi_HX_qX9X66-Y"
+    },
+    "minimax-portal-cn": {
+      "baseUrl": "https://api.minimax.io/anthropic",
+      "api": "anthropic-messages",
+      "authHeader": true,
+      "models": [
+        {
+          "id": "MiniMax-M2.7",
+          "name": "MiniMax M2.7",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0.3,
+            "output": 1.2,
+            "cacheRead": 0.06,
+            "cacheWrite": 0.375
+          },
+          "contextWindow": 204800,
+          "maxTokens": 131072
+        },
+        {
+          "id": "MiniMax-M2.7-highspeed",
+          "name": "MiniMax M2.7 Highspeed",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0.6,
+            "output": 2.4,
+            "cacheRead": 0.06,
+            "cacheWrite": 0.375
+          },
+          "contextWindow": 204800,
+          "maxTokens": 131072
+        }
+      ],
+      "apiKey": "MINIMAX_API_KEY"
     }
   }
 }

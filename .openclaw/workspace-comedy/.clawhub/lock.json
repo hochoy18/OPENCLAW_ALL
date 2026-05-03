@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "skills": {
+    "short-drama-pro": {
+      "version": "1.0.0",
+      "installedAt": 1775303711426
+    },
+    "lh-video-gen": {
+      "version": "1.0.0",
+      "installedAt": 1775303718411
+    }
+  }
+}
