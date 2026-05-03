@@ -593,9 +593,9 @@ def action_doctor():
 def action_render(target_name: Optional[str] = None, preset: str = "tech"):
     """Compile source and generate a validated document from a preset template."""
     preset = preset.lower()
-    if preset not in {"tech", "academic"}:
+    if preset not in {"tech", "academic", "fermentation"}:
         print(f"- Unsupported preset: {preset}")
-        print("  Available presets: tech, academic")
+        print("  Available presets: tech, academic, fermentation")
         sys.exit(1)
 
     runtime = guarantee_dotnet()

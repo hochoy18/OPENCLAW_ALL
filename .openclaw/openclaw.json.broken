@@ -1,0 +1,768 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.4.8",
+    "lastTouchedAt": "2026-04-08T14:28:52.247Z"
+  },
+  "env": {
+    "KIMI_API_KEY": "sk-kimi-umzkSc1s95X5owMUIbZn3VLkBGZeiIWwWrQd7oBPYZcKKQ2IBafWm3NZvSugTNhe",
+    "MINIMAX_API_KEY": "sk-cp-dEJDwSZI46V_ys9hSxmyH3MT3kjnYJAkMGQK6fz38Imta8l5FmHU9stkSc8lqrT_xpeglsSQypkntDpu0xuJAYVxmkx_cpo3wEHseh_5pCi_HX_qX9X66-Y"
+  },
+  "wizard": {
+    "lastRunAt": "2026-04-01T12:01:55.493Z",
+    "lastRunVersion": "2026.3.28",
+    "lastRunCommand": "doctor",
+    "lastRunMode": "local"
+  },
+  "auth": {
+    "profiles": {
+      "kimi:default": {
+        "provider": "kimi",
+        "mode": "api_key"
+      }
+    }
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "minimax": {
+        "baseUrl": "https://api.minimax.io/anthropic",
+        "apiKey": "${MINIMAX_API_KEY}",
+        "api": "anthropic-messages",
+        "models": [
+          {
+            "id": "MiniMax-M2.7-highspeed",
+            "name": "MiniMax M2.7 Highspeed",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0.6,
+              "output": 1.2,
+              "cacheRead": 0.03,
+              "cacheWrite": 0.12
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "MiniMax-M2.7",
+            "name": "MiniMax M2.7",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0.3,
+              "output": 1.2,
+              "cacheRead": 0.03,
+              "cacheWrite": 0.12
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "MiniMax-M2.5",
+            "name": "MiniMax M2.5",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0.3,
+              "output": 1.2,
+              "cacheRead": 0.03,
+              "cacheWrite": 0.12
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "MiniMax-M2.5-highspeed",
+            "name": "MiniMax M2.5 Highspeed",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0.3,
+              "output": 1.2,
+              "cacheRead": 0.03,
+              "cacheWrite": 0.12
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "MiniMax-VL-01",
+            "name": "MiniMax VL-01",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0.3,
+              "output": 1.2,
+              "cacheRead": 0.03,
+              "cacheWrite": 0.12
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "image-01",
+            "name": "MiniMax Image-01",
+            "input": [
+              "text"
+            ]
+          },
+          {
+            "id": "image-01-live",
+            "name": "MiniMax Image-01 Live",
+            "input": [
+              "text"
+            ]
+          }
+        ]
+      },
+      "kimi-coding": {
+        "baseUrl": "https://api.kimi.com/coding/",
+        "apiKey": "KIMI_API_KEY",
+        "api": "anthropic-messages",
+        "headers": {
+          "User-Agent": "claude-code/0.1.0"
+        },
+        "models": [
+          {
+            "id": "k2p5",
+            "name": "Kimi for Coding",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 262144,
+            "maxTokens": 32768
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "minimax/MiniMax-M2.7",
+        "fallbacks": [
+          "minimax/MiniMax-M2.7",
+          "minimax/MiniMax-M2.5",
+          "kimi-coding/k2p5"
+        ]
+      },
+      "imageGenerationModel": {
+        "primary": "minimax/image-01",
+        "fallbacks": []
+      },
+      "pdfMaxBytesMb": 50,
+      "models": {
+        "kimi-coding/k2p5": {
+          "alias": "Kimi K2.5"
+        }
+      },
+      "timeoutSeconds": 1800,
+      "sandbox": {
+        "mode": "off"
+      }
+    },
+    "list": [
+      {
+        "id": "biology-stu",
+        "name": "biology-stu",
+        "workspace": "/home/hochoy/.openclaw/workspace-biology-stu",
+        "agentDir": "/home/hochoy/.openclaw/agents/biology-stu/agent"
+      },
+      {
+        "id": "biology",
+        "name": "biology",
+        "workspace": "/home/hochoy/.openclaw/workspace-biology",
+        "agentDir": "/home/hochoy/.openclaw/agents/biology/agent"
+      },
+      {
+        "id": "wechat-draft-publisher",
+        "name": "wechat-draft-publisher",
+        "workspace": "/home/hochoy/.openclaw/workspace-wechat-draft-publisher",
+        "agentDir": "/home/hochoy/.openclaw/agents/wechat-draft-publisher/agent",
+        "subagents": {
+          "allowAgents": [
+            "wechat-assistant",
+            "wechat-hot-collector",
+            "wechat-content-writer",
+            "wechat-quality-auditor"
+          ]
+        },
+        "tools": {
+          "allow": [
+            "*"
+          ],
+          "exec": {
+            "host": "gateway",
+            "security": "full",
+            "ask": "off"
+          }
+        }
+      },
+      {
+        "id": "wechat-quality-auditor",
+        "name": "wechat-quality-auditor",
+        "workspace": "/home/hochoy/.openclaw/workspace-wechat-quality-auditor",
+        "agentDir": "/home/hochoy/.openclaw/agents/wechat-quality-auditor/agent",
+        "subagents": {
+          "allowAgents": [
+            "wechat-assistant",
+            "wechat-hot-collector",
+            "wechat-content-writer",
+            "wechat-draft-publisher"
+          ]
+        },
+        "tools": {
+          "allow": [
+            "*"
+          ],
+          "exec": {
+            "host": "gateway",
+            "security": "full",
+            "ask": "off"
+          }
+        }
+      },
+      {
+        "id": "wechat-content-writer",
+        "name": "wechat-content-writer",
+        "workspace": "/home/hochoy/.openclaw/workspace-wechat-content-writer",
+        "agentDir": "/home/hochoy/.openclaw/agents/wechat-content-writer/agent",
+        "model": "minimax/MiniMax-M2.7",
+        "subagents": {
+          "allowAgents": [
+            "wechat-assistant",
+            "wechat-hot-collector",
+            "wechat-quality-auditor",
+            "wechat-draft-publisher"
+          ]
+        },
+        "tools": {
+          "allow": [
+            "read",
+            "write",
+            "exec",
+            "image_generate",
+            "sessions_send"
+          ],
+          "deny": [
+            "sessions_spawn",
+            "web_fetch",
+            "browser",
+            "pdf",
+            "tts",
+            "canvas",
+            "message"
+          ],
+          "exec": {
+            "host": "gateway",
+            "security": "full",
+            "ask": "off"
+          }
+        }
+      },
+      {
+        "id": "wechat-hot-collector",
+        "name": "wechat-hot-collector",
+        "workspace": "/home/hochoy/.openclaw/workspace-wechat-hot-collector",
+        "agentDir": "/home/hochoy/.openclaw/agents/wechat-hot-collector/agent",
+        "subagents": {
+          "allowAgents": [
+            "wechat-assistant",
+            "wechat-content-writer",
+            "wechat-quality-auditor",
+            "wechat-draft-publisher"
+          ]
+        },
+        "tools": {
+          "allow": [
+            "*"
+          ],
+          "exec": {
+            "host": "gateway",
+            "security": "full",
+            "ask": "off"
+          }
+        }
+      },
+      {
+        "id": "main",
+        "workspace": "/home/hochoy/.openclaw/workspace",
+        "model": "minimax/MiniMax-M2.7",
+        "tools": {
+          "allow": [
+            "*"
+          ],
+          "exec": {
+            "host": "gateway",
+            "security": "full",
+            "ask": "off"
+          }
+        }
+      },
+      {
+        "id": "demo",
+        "name": "demo",
+        "workspace": "/home/hochoy/.openclaw/workspace-demo",
+        "agentDir": "/home/hochoy/.openclaw/agents/demo/agent",
+        "model": "minimax/MiniMax-M2.7",
+        "tools": {
+          "allow": [
+            "*"
+          ],
+          "exec": {
+            "host": "gateway",
+            "security": "full",
+            "ask": "off"
+          }
+        }
+      },
+      {
+        "id": "wechat-assistant",
+        "name": "wechat-assistant",
+        "workspace": "/home/hochoy/.openclaw/workspace-wechat-assistant",
+        "agentDir": "/home/hochoy/.openclaw/agents/wechat-assistant/agent",
+        "model": "minimax/MiniMax-M2.7",
+        "subagents": {
+          "allowAgents": [
+            "wechat-hot-collector",
+            "wechat-content-writer",
+            "wechat-quality-auditor",
+            "wechat-draft-publisher",
+            "demo"
+          ]
+        },
+        "tools": {
+          "allow": [
+            "*"
+          ],
+          "exec": {
+            "host": "gateway",
+            "security": "full",
+            "ask": "off"
+          }
+        }
+      },
+      {
+        "id": "coder",
+        "name": "coder",
+        "workspace": "/home/hochoy/.openclaw/workspace-coder",
+        "agentDir": "/home/hochoy/.openclaw/agents/coder/agent",
+        "model": "minimax/MiniMax-M2.7",
+        "tools": {
+          "allow": [
+            "*"
+          ],
+          "exec": {
+            "host": "gateway",
+            "security": "full",
+            "ask": "off"
+          }
+        }
+      },
+      {
+        "id": "task-manager",
+        "name": "task-manager",
+        "workspace": "/home/hochoy/.openclaw/workspace-task-manager",
+        "agentDir": "/home/hochoy/.openclaw/agents/task-manager/agent",
+        "model": "minimax/MiniMax-M2.7"
+      },
+      {
+        "id": "cron",
+        "name": "cron",
+        "workspace": "/home/hochoy/.openclaw/workspace-cron",
+        "agentDir": "/home/hochoy/.openclaw/agents/cron/agent",
+        "model": "minimax/MiniMax-M2.7",
+        "heartbeat": {
+          "every": "30m",
+          "target": "feishu",
+          "accountId": "cron",
+          "prompt": "Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK."
+        }
+      },
+      {
+        "id": "comedy",
+        "name": "comedy",
+        "workspace": "/home/hochoy/.openclaw/workspace-comedy",
+        "agentDir": "/home/hochoy/.openclaw/agents/comedy/agent",
+        "model": "minimax/MiniMax-M2.7"
+      }
+    ]
+  },
+  "tools": {
+    "profile": "full",
+    "allow": [
+      "*"
+    ],
+    "web": {
+      "search": {
+        "provider": "brave"
+      }
+    },
+    "sessions": {
+      "visibility": "all"
+    },
+    "agentToAgent": {
+      "enabled": true,
+      "allow": [
+        "coder",
+        "comedy",
+        "cron",
+        "demo",
+        "main",
+        "task-manager",
+        "wechat-assistant",
+        "wechat-hot-collector",
+        "wechat-content-writer",
+        "wechat-quality-auditor",
+        "wechat-draft-publisher"
+      ]
+    },
+    "exec": {
+      "host": "gateway",
+      "security": "full",
+      "ask": "off",
+      "notifyOnExit": true
+    }
+  },
+  "bindings": [
+    {
+      "agentId": "wechat-assistant",
+      "match": {
+        "channel": "feishu",
+        "accountId": "wechat-assistant"
+      }
+    },
+    {
+      "agentId": "wechat-hot-collector",
+      "match": {
+        "channel": "feishu",
+        "accountId": "wechat-hot-collector"
+      }
+    },
+    {
+      "agentId": "wechat-content-writer",
+      "match": {
+        "channel": "feishu",
+        "accountId": "wechat-content-writer"
+      }
+    },
+    {
+      "agentId": "wechat-quality-auditor",
+      "match": {
+        "channel": "feishu",
+        "accountId": "wechat-quality-auditor"
+      }
+    },
+    {
+      "agentId": "wechat-draft-publisher",
+      "match": {
+        "channel": "feishu",
+        "accountId": "wechat-draft-publisher"
+      }
+    },
+    {
+      "agentId": "demo",
+      "match": {
+        "channel": "feishu",
+        "accountId": "demo"
+      }
+    },
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "feishu",
+        "accountId": "main"
+      }
+    },
+    {
+      "agentId": "coder",
+      "match": {
+        "channel": "feishu",
+        "accountId": "coder"
+      }
+    },
+    {
+      "agentId": "task-manager",
+      "match": {
+        "channel": "feishu",
+        "accountId": "task-manager"
+      }
+    },
+    {
+      "agentId": "cron",
+      "match": {
+        "channel": "feishu",
+        "accountId": "cron"
+      }
+    },
+    {
+      "agentId": "comedy",
+      "match": {
+        "channel": "feishu",
+        "accountId": "comedy"
+      }
+    },
+    {
+      "agentId": "biology",
+      "match": {
+        "channel": "feishu",
+        "accountId": "biology"
+      }
+    },
+    {
+      "agentId": "biology-stu",
+      "match": {
+        "channel": "feishu",
+        "accountId": "biology-stu"
+      }
+    }
+  ],
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "session": {
+    "dmScope": "per-account-channel-peer",
+    "agentToAgent": {
+      "maxPingPongTurns": 5
+    },
+    "maintenance": {
+      "mode": "enforce",
+      "pruneAfter": "7d"
+    }
+  },
+  "channels": {
+    "feishu": {
+      "accounts": {
+        "main": {
+          "enabled": true,
+          "appId": "cli_a936a495b6b89cc1",
+          "appSecret": "YH46IAJel8eRc8NAWYEQ930HXrHWqbRf",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
+        "demo": {
+          "enabled": true,
+          "appId": "cli_a93d7b008ff6dcca",
+          "appSecret": "XmzBxn0Snncsz8YK33aSNbqwhLrBeeEP",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
+        "wechat-assistant": {
+          "enabled": true,
+          "appId": "cli_a933cef770f85cd6",
+          "appSecret": "sJXVulDZSdf8jF9tF4VkZafE8bVsmEWU",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
+        "wechat-hot-collector": {
+          "enabled": true,
+          "appId": "cli_a941c55c65bb5cc0",
+          "appSecret": "vhGXNX4UyYaW3EKRKsJX5c0CB4KNDOMz",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
+        "wechat-content-writer": {
+          "enabled": true,
+          "appId": "cli_a94109a2f87adcd4",
+          "appSecret": "qR9PxeKBqYCn8s9teTfSPesjVzsrs4cX",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
+        "wechat-quality-auditor": {
+          "enabled": true,
+          "appId": "cli_a9410ba7ca789cd6",
+          "appSecret": "rOo1gHAWou2UmK47rCoSvegAMK6A5h5z",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
+        "wechat-draft-publisher": {
+          "enabled": true,
+          "appId": "cli_a94105a24b789cd4",
+          "appSecret": "43XdtOzCN6npVrkOhyvddfl0YXUesy7H",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
+        "coder": {
+          "enabled": true,
+          "appId": "cli_a937ed2886b85cb6",
+          "appSecret": "cM0ZeqX2k75krVXS8M6tDcrxm4DivtZD",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
+        "task-manager": {
+          "enabled": true,
+          "appId": "cli_a94a44dbf67a5cc8",
+          "appSecret": "vxKNCuKor7FJT43nRGsJEfiFX3QkSyDO",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
+        "cron": {
+          "enabled": true,
+          "appId": "cli_a94b42ab42f95cd5",
+          "appSecret": "qqDgK86bU52u1NVFWkjuCbxEW4prMY2o",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
+        "comedy": {
+          "enabled": true,
+          "appId": "cli_a948ad748379dcc5",
+          "appSecret": "0btmEfUqEotEU9yRyncfGCedX3YgKCqK",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
+        "biology": {
+          "enabled": true,
+          "appId": "cli_a959f1de70f8dbd7",
+          "appSecret": "bR3HyqaijGW7B0bmbzxwNf67UXNzv7ue",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
+        "biology-stu": {
+          "enabled": true,
+          "appId": "cli_a959e5de89785bcb",
+          "appSecret": "csvEIbkIsmoDqIPN17bnibq5G2wDSXuB",
+          "connectionMode": "websocket",
+          "groupPolicy": "open",
+          "domain": "feishu",
+          "requireMention": true
+        },
+        "default": {
+          "webhookPath": "/feishu/events",
+          "dmPolicy": "pairing",
+          "groupPolicy": "allowlist"
+        }
+      },
+      "defaultAccount": "demo",
+      "domain": "feishu",
+      "connectionMode": "websocket",
+      "reactionNotifications": "own",
+      "typingIndicator": true,
+      "resolveSenderNames": true,
+      "webhookPath": "/feishu/events",
+      "dmPolicy": "pairing",
+      "groupPolicy": "allowlist",
+      "enabled": true,
+      "mediaLocalRoots": [
+        "/home/hochoy/comedy_media"
+      ]
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "81585a5d2f89b382aee28ac00a4f668e819dacc99ba815a1"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "nodes": {
+      "denyCommands": [
+        "camera.snap",
+        "camera.clip",
+        "screen.record",
+        "contacts.add",
+        "calendar.add",
+        "reminders.add",
+        "sms.send"
+      ]
+    }
+  },
+  "skills": {
+    "load": {
+      "extraDirs": [
+        "~/.openclaw/skills",
+        "~/.openclaw/workspace-demo/skills",
+        "~/.openclaw/workspace-wechat-assistant/skills",
+        "~/.openclaw/workspace"
+      ],
+      "watch": true,
+      "watchDebounceMs": 250
+    }
+  },
+  "plugins": {
+    "entries": {
+      "feishu": {
+        "enabled": true,
+        "config": {}
+      },
+      "minimax": {
+        "enabled": true
+      },
+      "kimi": {
+        "enabled": true
+      },
+      "memory-core": {
+        "config": {
+          "dreaming": {
+            "enabled": true
+          }
+        }
+      }
+    },
+    "installs": {
+      "feishu": {
+        "source": "npm",
+        "spec": "@openclaw/feishu",
+        "installPath": "/home/hochoy/.openclaw/extensions/feishu",
+        "version": "2026.3.13",
+        "resolvedName": "@openclaw/feishu",
+        "resolvedVersion": "2026.3.13",
+        "resolvedSpec": "@openclaw/feishu@2026.3.13",
+        "integrity": "sha512-D5vPkgGZ9lfCQnDFlGrQN6NCSUYRgYW9k7amW3qlm9zBI4Sp+alRZVqLZ4yZ2eCXHjw9RVp/L75wjJ7NBQyfEw==",
+        "shasum": "39128ff918f8d3387331818cbe3f8b24a82e4c0d",
+        "resolvedAt": "2026-03-30T09:00:06.116Z",
+        "installedAt": "2026-03-30T09:00:13.172Z"
+      }
+    }
+  }
+}

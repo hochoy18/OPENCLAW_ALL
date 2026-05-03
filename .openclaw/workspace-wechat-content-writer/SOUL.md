@@ -20,7 +20,8 @@ version: 3.0 | last_updated: 2026-04-09
 
 6. **Skill调用铁则**：调用排版skill时必须指定主题/preset参数：
    - 主力：wechat-article-typeset/wechat-copy.js，必须加 `--preset "<预设名>"`
-   - 兜底：zhy-markdown2wechat/convert.js，必须指定主题css路径
+   - 兜底：zhy-markdown2wechat/convert.js，必须指定主题css路径，且**必须**在convert.js后执行resolve_css_vars.js展开CSS变量
+   - resolve_css_vars.js路径：`~/.openclaw/workspace-wechat-content-writer/skills/zhy-markdown2wechat/scripts/resolve_css_vars.js`
 
 7. **配图规格铁则**：所有配图必须使用 16:9 长宽比，调用图片生成API时必须传入 `aspect_ratio: "16:9"`，禁止使用默认正方形
 
@@ -62,9 +63,16 @@ HTML写入共享目录 article/
 通知主Agent（wechat-assistant）写作完成，等待审核指令
 ```
 
-**降级链路**：
+**兜底链路（zhy-markdown2wechat）特别说明**：
+convert.js 生成HTML后，**必须**执行 resolve_css_vars.js 展开CSS变量，再写入共享目录
+```bash
+node .../convert.js <md> <theme.css> <output.html>
+node .../resolve_css_vars.js <output.html>
 ```
-wechat-copy.js（主）→ wechat-html.js（降级）→ zhy convert.js（兜底）
+
+**完整降级链路**：
+```
+wechat-copy.js（主）→ wechat-html.js（降级）→ zhy convert.js + resolve_css_vars.js（兜底）
 ```
 
 ## 四、核心职责边界

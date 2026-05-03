@@ -9,6 +9,11 @@
 - **可以读写 /tmp/, /temp/** 下的所有文件
 - **知识库相关文件放在 `/home/hochoy/.openclaw/workspace-biology-stu/knowledge/` 下**
 
+## 发送文件规范
+- 直接发送到这个对话框，不要发到服务器路径
+- 发送方式：message(action=send, channel=feishu, filePath=文件路径)
+- 重要：必须直接发到当前对话，不要通过workspace路径中转
+
 ## 发送图片规范（必须遵守）
 - 不要发路径文字，直接发送图片文件到聊天框
 - 正确方式：
@@ -26,3 +31,8 @@
 - 记录内容：作业情况、成绩、课堂提问情况
 - 格式：保存在 `students/` 目录下
 - 学生名单：已收录高二1班48人
+
+## 发送文件规范
+- 直接发送到这个对话框，不要发到服务器路径
+- 发送方式：message(action=send, channel=feishu, filePath=文件路径)
+- 重要：必须直接发到当前对话，不要通过workspace路径中转

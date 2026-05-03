@@ -134,6 +134,13 @@ node ~/.openclaw/workspace-wechat-content-writer/skills/zhy-markdown2wechat/scri
   <输出html路径>
 ```
 
+**⚠️ 关键：convert.js后必须执行CSS变量展开脚本**：
+```bash
+node ~/.openclaw/workspace-wechat-content-writer/skills/zhy-markdown2wechat/scripts/resolve_css_vars.js <输出html路径>
+```
+
+原因：convert.js生成的是CSS变量（var(--xxx)），微信后台无法渲染，必须展开为实际颜色值。
+
 **主题**：
 - `resources/themes/default.css` — 经典紫色编辑风格
 - `resources/themes/dark.css` — 深色护眼
